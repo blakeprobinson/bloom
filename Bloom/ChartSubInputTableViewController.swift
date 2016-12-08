@@ -10,7 +10,16 @@ import UIKit
 
 class ChartSubInputTableViewController: UITableViewController {
     
-    var subInput:Chart.InputChoice?
+    var subInput:Chart.InputChoice? {
+        didSet {
+            if let subInput = subInput {
+                viewModel = convertSubInputToViewModel(subInput:subInput)
+            }
+            updateUI()
+        }
+    }
+    
+    private var viewModel:[[String]]?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,9 +31,12 @@ class ChartSubInputTableViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    fileprivate func updateUI() {
+        
+    }
+    
+    fileprivate func convertSubInputToViewModel(subInput: Chart.InputChoice) -> [[String]] {
+        return [[""]]
     }
 
     // MARK: - Table view data source
