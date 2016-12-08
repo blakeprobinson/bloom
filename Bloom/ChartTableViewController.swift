@@ -67,6 +67,7 @@ class ChartTableViewController: UITableViewController {
     
     @IBOutlet weak var dateCell: UITableViewCell!
     
+    @IBOutlet weak var notes: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -80,20 +81,18 @@ class ChartTableViewController: UITableViewController {
         observationCount = chart.observation
         lubricationSwitch.isOn = chart.lubrication
         intercourseSwitch.isOn = chart.intercourse
+        notes.text = chart.notes
     }
     
     fileprivate func updateModel() {
         chart.observation = observationCount
         chart.lubrication = lubricationSwitch.isOn
         chart.intercourse = intercourseSwitch.isOn
+        chart.notes = notes.text
     }
     
     
     // MARK: - IB Actions
-    @IBAction func notesEditEnded(_ sender: UITextField) {
-        chart.notes = sender.text
-    }
-
     @IBAction func stepperTapped(_ sender: UIStepper) {
         observationCount = Int(sender.value)
     }

@@ -26,9 +26,6 @@
                                     <nil key="textColor"/>
                                     <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                     <textInputTraits key="textInputTraits"/>
-                                    <connections>
-                                        <action selector="notesEditEnded:" destination="4Mq-fZ-fr5" eventType="editingDidEnd" id="1PD-uM-EzK"/>
-                                    </connections>
                                 </textField>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -229,6 +226,7 @@
                         <outlet property="lubricationCell" destination="dyw-p2-RTc" id="e1h-F8-dkr"/>
                         <outlet property="lubricationSwitch" destination="lgH-bW-HCj" id="glE-MY-rpe"/>
                         <outlet property="mucusCell" destination="Cln-Pr-YOc" id="wZJ-hg-5hn"/>
+                        <outlet property="notes" destination="w5a-d6-ToB" id="qlJ-dr-Du6"/>
                         <outlet property="observationCell" destination="ZaJ-RV-vp0" id="Imc-Om-jbz"/>
                         <outlet property="observationStepper" destination="evi-hJ-M82" id="ZOg-fF-csB"/>
                     </connections>
