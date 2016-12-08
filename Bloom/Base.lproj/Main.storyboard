@@ -135,7 +135,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="evi-hJ-M82">
-                                                    <rect key="frame" x="273" y="7" width="94" height="29"/>
+                                                    <rect key="frame" x="265" y="7" width="94" height="29"/>
                                                     <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                     <connections>
                                                         <action selector="stepperTapped:" destination="4Mq-fZ-fr5" eventType="valueChanged" id="EDY-dy-kAe"/>
@@ -144,7 +144,7 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="bottom" secondItem="evi-hJ-M82" secondAttribute="bottom" constant="7" id="0Hv-29-d5m"/>
-                                                <constraint firstAttribute="trailing" secondItem="evi-hJ-M82" secondAttribute="trailing" constant="8" id="VXT-7n-RLM"/>
+                                                <constraint firstAttribute="trailing" secondItem="evi-hJ-M82" secondAttribute="trailing" constant="16" id="VXT-7n-RLM"/>
                                                 <constraint firstItem="evi-hJ-M82" firstAttribute="top" secondItem="VvQ-PX-hZC" secondAttribute="top" constant="7" id="tkf-pM-83B"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -155,7 +155,16 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dyw-p2-RTc" id="EHV-Ue-bsH">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="lgH-bW-HCj">
+                                                    <rect key="frame" x="307" y="8" width="51" height="31"/>
+                                                    <color key="onTintColor" red="0.074509803921568626" green="0.5607843137254902" blue="0.41568627450980389" alpha="1" colorSpace="calibratedRGB"/>
+                                                </switch>
+                                            </subviews>
                                         </tableViewCellContentView>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="lgH-bW-HCj" secondAttribute="trailing" constant="16" id="uny-oa-1c4"/>
+                                        </constraints>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="gray" indentationWidth="10" id="F0e-8O-gDC">
                                         <rect key="frame" x="0.0" y="220" width="375" height="44"/>
@@ -163,7 +172,16 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="F0e-8O-gDC" id="2yI-FH-3RZ">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="X4w-Kp-G9O">
+                                                    <rect key="frame" x="308" y="6" width="51" height="31"/>
+                                                    <color key="onTintColor" red="0.074509803920000006" green="0.56078431370000004" blue="0.41568627450000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                </switch>
+                                            </subviews>
                                         </tableViewCellContentView>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="X4w-Kp-G9O" secondAttribute="trailing" constant="16" id="JHW-dG-jdf"/>
+                                        </constraints>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -207,7 +225,9 @@
                         <outlet property="dateCell" destination="L7w-M0-2QZ" id="Ogh-K8-aUv"/>
                         <outlet property="dryCell" destination="0Vz-A2-Cmw" id="KYs-Ky-Um6"/>
                         <outlet property="intercourseCell" destination="F0e-8O-gDC" id="98v-Zx-uiq"/>
+                        <outlet property="intercourseSwitch" destination="X4w-Kp-G9O" id="ZND-7B-hl3"/>
                         <outlet property="lubricationCell" destination="dyw-p2-RTc" id="e1h-F8-dkr"/>
+                        <outlet property="lubricationSwitch" destination="lgH-bW-HCj" id="glE-MY-rpe"/>
                         <outlet property="mucusCell" destination="Cln-Pr-YOc" id="wZJ-hg-5hn"/>
                         <outlet property="observationCell" destination="ZaJ-RV-vp0" id="Imc-Om-jbz"/>
                         <outlet property="observationStepper" destination="evi-hJ-M82" id="ZOg-fF-csB"/>

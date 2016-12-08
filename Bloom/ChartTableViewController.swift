@@ -52,14 +52,18 @@ class ChartTableViewController: UITableViewController {
     
     @IBOutlet weak var lubricationCell: UITableViewCell! {
         didSet {
-            lubricationCell.textLabel?.text = "Lubrication"
+            lubricationCell.textLabel?.text = Constants.lubrication
         }
     }
+    @IBOutlet weak var lubricationSwitch: UISwitch!
+    
+    
     @IBOutlet weak var intercourseCell: UITableViewCell!{
         didSet {
-            intercourseCell.textLabel?.text = "Intercourse"
+            intercourseCell.textLabel?.text = Constants.intercourse
         }
     }
+    @IBOutlet weak var intercourseSwitch: UISwitch!
     
     @IBOutlet weak var dateCell: UITableViewCell!
     
@@ -74,10 +78,14 @@ class ChartTableViewController: UITableViewController {
     
     fileprivate func updateUI() {
         observationCount = chart.observation
+        lubricationSwitch.isOn = chart.lubrication
+        intercourseSwitch.isOn = chart.intercourse
     }
     
     fileprivate func updateModel() {
         chart.observation = observationCount
+        chart.lubrication = lubricationSwitch.isOn
+        chart.intercourse = intercourseSwitch.isOn
     }
     
     
@@ -89,6 +97,7 @@ class ChartTableViewController: UITableViewController {
     @IBAction func stepperTapped(_ sender: UIStepper) {
         observationCount = Int(sender.value)
     }
+    
     
     // MARK: - Delegate Methods
     
