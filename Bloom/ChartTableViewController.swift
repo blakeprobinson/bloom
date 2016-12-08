@@ -15,6 +15,12 @@ class ChartTableViewController: UITableViewController {
             updateUI()
         }
     }
+    
+    struct Constants {
+        static let observation = " Observation"
+        static let lubrication = "Lubrication"
+        static let intercourse = "Intercourse"
+    }
 
     @IBOutlet weak var bleedingCell: UITableViewCell!
     @IBOutlet weak var dryCell: UITableViewCell!
@@ -22,7 +28,13 @@ class ChartTableViewController: UITableViewController {
     
     var observationCount:Int {
         set {
-            observationCell.textLabel?.text = newValue == 1 ? "\(newValue) Observation" : "\(newValue) Observations"
+            let observation:String
+            if newValue == 1 {
+                observation = String(newValue) + Constants.observation
+            } else {
+                observation = String(newValue) + Constants.observation + "s"
+            }
+            observationCell.textLabel?.text = observation
             if newValue != Int(observationStepper.value) {
                 observationStepper.value = Double(newValue)
             }
@@ -38,8 +50,16 @@ class ChartTableViewController: UITableViewController {
     @IBOutlet weak var observationStepper: UIStepper!
     
     
-    @IBOutlet weak var lubricationCell: UITableViewCell!
-    @IBOutlet weak var intercourseCell: UITableViewCell!
+    @IBOutlet weak var lubricationCell: UITableViewCell! {
+        didSet {
+            lubricationCell.textLabel?.text = "Lubrication"
+        }
+    }
+    @IBOutlet weak var intercourseCell: UITableViewCell!{
+        didSet {
+            intercourseCell.textLabel?.text = "Intercourse"
+        }
+    }
     
     @IBOutlet weak var dateCell: UITableViewCell!
     
