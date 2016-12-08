@@ -30,6 +30,7 @@ struct Chart {
     }
     
     var inputChoice:InputChoice?
+    var observation = 3
     var intercourse = false
     var lubrication = false
     var pasty = false

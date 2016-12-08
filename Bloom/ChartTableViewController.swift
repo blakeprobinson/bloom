@@ -10,11 +10,33 @@ import UIKit
 
 class ChartTableViewController: UITableViewController {
     
-    var chart = Chart()
+    var chart = Chart() {
+        didSet {
+            updateUI()
+        }
+    }
 
     @IBOutlet weak var bleedingCell: UITableViewCell!
     @IBOutlet weak var dryCell: UITableViewCell!
     @IBOutlet weak var mucusCell: UITableViewCell!
+    
+    var observationCount:Int {
+        set {
+            observationCell.textLabel?.text = newValue == 1 ? "\(newValue) Observation" : "\(newValue) Observations"
+            if newValue != Int(observationStepper.value) {
+                observationStepper.value = Double(newValue)
+            }
+        }
+        get {
+            return Int(observationStepper.value)
+        }
+
+        
+    }
+    
+    @IBOutlet weak var observationCell: UITableViewCell!
+    @IBOutlet weak var observationStepper: UIStepper!
+    
     
     @IBOutlet weak var lubricationCell: UITableViewCell!
     @IBOutlet weak var intercourseCell: UITableViewCell!
@@ -27,12 +49,26 @@ class ChartTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        updateUI()
     }
-
+    
+    fileprivate func updateUI() {
+        observationCount = chart.observation
+    }
+    
+    fileprivate func updateModel() {
+        chart.observation = observationCount
+    }
+    
+    
+    // MARK: - IB Actions
     @IBAction func notesEditEnded(_ sender: UITextField) {
         chart.notes = sender.text
     }
 
+    @IBAction func stepperTapped(_ sender: UIStepper) {
+        observationCount = Int(sender.value)
+    }
     
     // MARK: - Delegate Methods
     
@@ -51,9 +87,6 @@ class ChartTableViewController: UITableViewController {
             }
             
         }
-        
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
     }
 
 }

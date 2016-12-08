@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <view key="tableFooterView" contentMode="scaleToFill" id="rD7-7c-dh2">
-                            <rect key="frame" x="0.0" y="328" width="375" height="132"/>
+                            <rect key="frame" x="0.0" y="372" width="375" height="132"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" placeholder="Notes" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="w5a-d6-ToB">
@@ -127,8 +127,30 @@
                             </tableViewSection>
                             <tableViewSection id="3Zc-8J-iOe">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="gray" indentationWidth="10" textLabel="OKb-bc-s9P" style="IBUITableViewCellStyleDefault" id="dyw-p2-RTc">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="gray" indentationWidth="10" id="ZaJ-RV-vp0">
                                         <rect key="frame" x="0.0" y="132" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ZaJ-RV-vp0" id="VvQ-PX-hZC">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="evi-hJ-M82">
+                                                    <rect key="frame" x="273" y="7" width="94" height="29"/>
+                                                    <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <connections>
+                                                        <action selector="stepperTapped:" destination="4Mq-fZ-fr5" eventType="valueChanged" id="EDY-dy-kAe"/>
+                                                    </connections>
+                                                </stepper>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="evi-hJ-M82" secondAttribute="bottom" constant="7" id="0Hv-29-d5m"/>
+                                                <constraint firstAttribute="trailing" secondItem="evi-hJ-M82" secondAttribute="trailing" constant="8" id="VXT-7n-RLM"/>
+                                                <constraint firstItem="evi-hJ-M82" firstAttribute="top" secondItem="VvQ-PX-hZC" secondAttribute="top" constant="7" id="tkf-pM-83B"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="gray" indentationWidth="10" textLabel="OKb-bc-s9P" style="IBUITableViewCellStyleDefault" id="dyw-p2-RTc">
+                                        <rect key="frame" x="0.0" y="176" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dyw-p2-RTc" id="EHV-Ue-bsH">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
@@ -145,7 +167,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="gray" indentationWidth="10" textLabel="WIg-sY-LIn" style="IBUITableViewCellStyleDefault" id="F0e-8O-gDC">
-                                        <rect key="frame" x="0.0" y="176" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="220" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="F0e-8O-gDC" id="2yI-FH-3RZ">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
@@ -166,7 +188,7 @@
                             <tableViewSection id="FLE-fq-IzM">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="gray" indentationWidth="10" textLabel="Trq-GX-6ei" detailTextLabel="p7a-G5-oIh" style="IBUITableViewCellStyleValue1" id="L7w-M0-2QZ">
-                                        <rect key="frame" x="0.0" y="220" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="264" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="L7w-M0-2QZ" id="zL5-V6-iCq">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
@@ -205,6 +227,8 @@
                         <outlet property="intercourseCell" destination="F0e-8O-gDC" id="98v-Zx-uiq"/>
                         <outlet property="lubricationCell" destination="dyw-p2-RTc" id="e1h-F8-dkr"/>
                         <outlet property="mucusCell" destination="Cln-Pr-YOc" id="wZJ-hg-5hn"/>
+                        <outlet property="observationCell" destination="ZaJ-RV-vp0" id="Imc-Om-jbz"/>
+                        <outlet property="observationStepper" destination="evi-hJ-M82" id="ZOg-fF-csB"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9Nw-SS-RHe" userLabel="First Responder" sceneMemberID="firstResponder"/>
