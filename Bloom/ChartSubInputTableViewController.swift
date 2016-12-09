@@ -36,6 +36,13 @@ class ChartSubInputTableViewController: UITableViewController {
     }
     
     fileprivate func convertSubInputToViewModel(subInput: Chart.InputChoice) -> [[String]] {
+        switch subInput {
+        case .bleeding(_):
+            return [Chart.BleedingInput.allValuesToDisplay]
+        case .dry:
+        case .mucus:
+        }
+        
         return [[""]]
     }
 

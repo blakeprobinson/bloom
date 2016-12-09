@@ -46,6 +46,8 @@ extension Chart {
         case heavy
         case brown(SecondaryInput?)
         
+        static let allValuesToDisplay = ["Very Light", "Light", "Moderate", "Heavy", "Brown"]
+        
     }
     
     enum DryInput {
