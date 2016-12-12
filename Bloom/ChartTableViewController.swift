@@ -110,8 +110,8 @@ class ChartTableViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let sender = sender as? UITableViewCell {
             if let vc = segue.destination as? ChartSubInputTableViewController {
-                chart.inputChoice = Chart.InputChoice(input: sender.reuseIdentifier!)
-                vc.subInput = chart.inputChoice
+//                chart.inputChoice = Chart.InputChoice(input: sender.reuseIdentifier!)
+//                vc.subInput = chart.inputChoice
             }
             
         }
