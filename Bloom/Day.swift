@@ -61,40 +61,37 @@ extension Day {
     }
     
     
-    struct MucusInput {
-        var length:MucusLength? //really non-optional...
-        var color:MucusColor?
+    struct Mucus {
+        var length:Length
+        var color:Color
         
-        static let allLengthValuesToDisplay = MucusLength.allValuesToDisplay
-        static let allColorValuesToDisplay = MucusColor.allValuesToDisplay
-    }
-    
-    enum MucusLength: Int {
-        case quarterInch
-        case halfToThreeQuarterInch
-        case oneInch
-        
-        static let allValuesToDisplay = ["Less than 1/4 inch", "Between 1/2 and 3/4 inch", "Greater than 1 inch"]
-        
-        func valueAndSelected() -> [(value: String, selected: Bool)] {
-            return MucusLength.allValuesToDisplay.enumerated().map {
-                (index, element) in return (element, index == self.rawValue ? true : false)
-            }
+        enum Length: String {
+            case quarterInch = "Less than 1/4 inch"
+            case halfToThreeQuarterInch = "Between 1/2 and 3/4 inch"
+            case oneInch = "Greater than 1 inch"
+            
+            static let allValuesToDisplay = [
+                Length.quarterInch.rawValue,
+                Length.halfToThreeQuarterInch.rawValue,
+                Length.oneInch.rawValue
+            ]
+            
         }
-    }
-    enum MucusColor: Int {
-        case clear
-        case cloudyClear
-        case cloudy
-        case yellow
-        case brown
-        
-        static let allValuesToDisplay = ["Clear", "Cloudy Clear", "Cloudy", "Yellow", "Brown"]
-        
-        func valueAndSelected() -> [(value: String, selected: Bool)] {
-            return MucusColor.allValuesToDisplay.enumerated().map {
-                (index, element) in return (element, index == self.rawValue ? true : false)
-            }
+        enum Color: String {
+            case clear = "Clear"
+            case cloudyClear = "Cloudy Clear"
+            case cloudy = "Cloudy"
+            case yellow = "Yellow"
+            case brown = "Brown"
+            
+            static let allValues = [
+                Color.clear.rawValue,
+                Color.cloudyClear.rawValue,
+                Color.cloudy.rawValue,
+                Color.yellow.rawValue,
+                Color.brown.rawValue
+            ]
+            
         }
         
     }
