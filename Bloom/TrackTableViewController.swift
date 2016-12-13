@@ -10,15 +10,6 @@ import UIKit
 
 class TrackTableViewController: UITableViewController {
     
-    var chart = Chart() {
-        didSet {
-            viewModel = TrackTableViewController.convertInputChoiceToViewModel(modelInputChoice: chart.inputChoice)
-            updateUI()
-        }
-    }
-    
-    private var viewModel: [[trackOption]] = TrackTableViewController.convertInputChoiceToViewModel(modelInputChoice:Chart().inputChoice)
-    
     struct Constants {
         static let observation = " Observation"
         static let lubrication = "Lubrication"
@@ -37,62 +28,6 @@ class TrackTableViewController: UITableViewController {
         var selected:Bool
     }
     
-    fileprivate static func convertInputChoiceToViewModel(modelInputChoice: Chart.InputChoice) -> [[trackOption]] {
-        switch modelInputChoice {
-        case .bleeding(let bleedingInput):
-            if let bleedingInput = bleedingInput {
-                return [
-                    bleedingInput.valueAndSelected().map({ trackOption(name: $0.value, selected: $0.selected) })
-                ]
-            } else {
-                return [
-                    Chart.BleedingInput.allValuesToDisplay.map({ trackOption(name: $0, selected: false) })
-                ]
-            }
-        case .dry(let dryInput):
-            if let dryInput = dryInput {
-                return [
-                    dryInput.valueAndSelected().map({ trackOption(name: $0.value, selected: $0.selected) })
-                ]
-            } else {
-                return [
-                    Chart.DryInput.allValuesToDisplay.map({ trackOption(name: $0, selected: false) })
-                ]
-            }
-        case .mucus(let mucusInput):
-            if let mucusInput = mucusInput, let color = mucusInput.color, let length = mucusInput.length  {
-                    return [
-                    length.valueAndSelected().map({ trackOption(name: $0.value, selected: $0.selected) }),
-                        color.valueAndSelected().map({ trackOption(name: $0.value, selected: $0.selected) })
-                    ]
-            } else {
-                return [
-                    Chart.MucusInput.allColorValuesToDisplay.map({ trackOption(name: $0, selected: false) }),
-                    Chart.MucusInput.allLengthValuesToDisplay.map({ trackOption(name: $0, selected: false) })
-                ]
-            }
-        }
-    }
-    
-    fileprivate func convertViewModelToInputChoice() {
-        switch chart.inputChoice {
-        case .bleeding:
-            chart.inputChoice =
-                .bleeding(Chart.BleedingInput(rawValue: firstSelected(array: viewModel[0])))
-        case .dry:
-            chart.inputChoice =
-                .dry(Chart.DryInput(rawValue: firstSelected(array: viewModel[0])))
-        case .mucus:
-            chart.inputChoice =
-                .mucus(
-                    Chart.MucusInput(
-                        length: Chart.MucusLength(rawValue: 1),
-                        color: Chart.MucusColor(rawValue: 2)
-                        )
-                )
-        }
-    }
-    
     fileprivate func firstSelected(array: [trackOption]) -> Int {
         for (index, element) in array.enumerated() {
             if element.selected {
@@ -108,12 +43,12 @@ class TrackTableViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return viewModel.count
+        return 0
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return viewModel[section].count
+        return 0
     }
     
     fileprivate func updateUI() {
@@ -123,9 +58,9 @@ class TrackTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "inputSelection", for: indexPath)
         
-        cell.textLabel?.text = viewModel[indexPath.section][indexPath.row].name
-
-        cell.accessoryType = viewModel[indexPath.section][indexPath.row].selected ? .checkmark : .none
+//        cell.textLabel?.text = viewModel[indexPath.section][indexPath.row].name
+//
+//        cell.accessoryType = viewModel[indexPath.section][indexPath.row].selected ? .checkmark : .none
         
 
         return cell

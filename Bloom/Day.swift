@@ -1,5 +1,5 @@
 //
-//  Chart.swift
+//  Day.swift
 //  Bloom
 //
 //  Created by Blake Robinson on 12/7/16.
@@ -8,29 +8,10 @@
 
 import Foundation
 
-struct Chart {
+struct Day {
+    //var bleeding, dry mucus //all optional, each with own struct types..
+    var bleeding: Bleeding
     
-    enum InputChoice {
-        case bleeding(BleedingInput?)
-        case dry(DryInput?)
-        case mucus(MucusInput?)
-        
-        init?(input: String) {
-            switch input {
-            case "bleeding":
-                self = .bleeding(nil)
-            case "dry":
-                self = .dry(nil)
-            case "mucus":
-                self = .mucus(nil)
-            default:
-                return nil
-            }
-        }
-    }
-    
-    var inputChoice = InputChoice.dry(nil)
-    var secondaryInput:SecondaryInput?
     var observation = 1
     var intercourse = false
     var lubrication = false
@@ -39,22 +20,28 @@ struct Chart {
     var notes:String?
 }
 
-extension Chart {
+extension Day {
     
-    enum BleedingInput: Int {
+    struct Bleeding {
+        var intensity: BleedingIntensity
+    }
+    
+    enum BleedingIntensity: String {
         case veryLight
         case light
         case moderate
         case heavy
         case brown
         
+        //allValues function ...
+        
         static let allValuesToDisplay = ["Very Light", "Light", "Moderate", "Heavy", "Brown"]
         
-        func valueAndSelected() -> [(value: String, selected: Bool)] {
-            return BleedingInput.allValuesToDisplay.enumerated().map {
-                (index, element) in return (element, index == self.rawValue ? true : false)
-            }
-        }
+//        func valueAndSelected() -> [(value: String, selected: Bool)] {
+//            return BleedingIntensity.allValuesToDisplay.enumerated().map {
+//                (index, element) in return (element, index == self.rawValue ? true : false)
+//            }
+//        }
         
     }
     
@@ -73,7 +60,7 @@ extension Chart {
     }
     
     struct MucusInput {
-        var length:MucusLength?
+        var length:MucusLength? //really non-optional...
         var color:MucusColor?
         
         static let allLengthValuesToDisplay = MucusLength.allValuesToDisplay

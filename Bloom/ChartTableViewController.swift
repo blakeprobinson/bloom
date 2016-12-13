@@ -10,12 +10,6 @@ import UIKit
 
 class ChartTableViewController: UITableViewController {
     
-    var chart = Chart() {
-        didSet {
-            updateUI()
-        }
-    }
-    
     struct Constants {
         static let observation = " Observation"
         static let lubrication = "Lubrication"
@@ -78,17 +72,17 @@ class ChartTableViewController: UITableViewController {
     }
     
     fileprivate func updateUI() {
-        observationCount = chart.observation
-        lubricationSwitch.isOn = chart.lubrication
-        intercourseSwitch.isOn = chart.intercourse
-        notes.text = chart.notes
+//        observationCount = chart.observation
+//        lubricationSwitch.isOn = chart.lubrication
+//        intercourseSwitch.isOn = chart.intercourse
+//        notes.text = chart.notes
     }
     
     fileprivate func updateModel() {
-        chart.observation = observationCount
-        chart.lubrication = lubricationSwitch.isOn
-        chart.intercourse = intercourseSwitch.isOn
-        chart.notes = notes.text
+//        chart.observation = observationCount
+//        chart.lubrication = lubricationSwitch.isOn
+//        chart.intercourse = intercourseSwitch.isOn
+//        chart.notes = notes.text
     }
     
     
@@ -109,10 +103,10 @@ class ChartTableViewController: UITableViewController {
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let sender = sender as? UITableViewCell {
-            if let vc = segue.destination as? ChartSubInputTableViewController {
+//            if let vc = segue.destination as? ChartSubInputTableViewController {
 //                chart.inputChoice = Chart.InputChoice(input: sender.reuseIdentifier!)
 //                vc.subInput = chart.inputChoice
-            }
+//            }
             
         }
     }
