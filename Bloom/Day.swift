@@ -23,26 +23,24 @@ struct Day {
 extension Day {
     
     struct Bleeding {
-        var intensity: BleedingIntensity
-    }
-    
-    enum BleedingIntensity: String {
-        case veryLight
-        case light
-        case moderate
-        case heavy
-        case brown
+        var intensity: Intensity
         
-        //allValues function ...
-        
-        static let allValuesToDisplay = ["Very Light", "Light", "Moderate", "Heavy", "Brown"]
-        
-//        func valueAndSelected() -> [(value: String, selected: Bool)] {
-//            return BleedingIntensity.allValuesToDisplay.enumerated().map {
-//                (index, element) in return (element, index == self.rawValue ? true : false)
-//            }
-//        }
-        
+        enum Intensity: String {
+            case veryLight = "Very Light"
+            case light = "Light"
+            case moderate = "Moderate"
+            case heavy = "Heavy"
+            case brown = "Brown"
+            
+            static let allValues = [
+                Intensity.veryLight.rawValue,
+                Intensity.light.rawValue,
+                Intensity.moderate.rawValue,
+                Intensity.heavy.rawValue,
+                Intensity.brown.rawValue
+            ]
+            
+        }
     }
     
     enum DryInput: Int {
