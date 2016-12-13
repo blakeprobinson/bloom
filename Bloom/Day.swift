@@ -9,8 +9,9 @@
 import Foundation
 
 struct Day {
-    //var bleeding, dry mucus //all optional, each with own struct types..
-    var bleeding: Bleeding
+    var bleeding: Bleeding?
+    var mucus: Mucus?
+    var dry: Dry?
     
     var observation = 1
     var intercourse = false
