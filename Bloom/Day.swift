@@ -43,19 +43,23 @@ extension Day {
         }
     }
     
-    enum DryInput: Int {
-        case damp
-        case shiny
-        case wet
+    struct Dry {
+        var observation: Observation
         
-        static let allValuesToDisplay = ["Damp", "Shiny", "Wet"]
-        
-        func valueAndSelected() -> [(value: String, selected: Bool)] {
-            return DryInput.allValuesToDisplay.enumerated().map {
-                    (index, element) in return (element, index == self.rawValue ? true : false)
-                }
+        enum Observation: String {
+            case damp = "Damp"
+            case shiny = "Shiny"
+            case wet = "Wet"
+            
+            static let allValues = [
+                Observation.damp.rawValue,
+                Observation.shiny.rawValue,
+                Observation.wet.rawValue
+            ]
         }
+        
     }
+    
     
     struct MucusInput {
         var length:MucusLength? //really non-optional...
@@ -93,10 +97,5 @@ extension Day {
             }
         }
         
-    }
-    
-    enum SecondaryInput {
-        case Dry(DryInput)
-        case Mucus(MucusInput)
     }
 }
