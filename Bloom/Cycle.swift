@@ -13,6 +13,6 @@ struct Cycle {
     var indexInAllCycles: Int
     
     func save() -> Bool {
-        return CycleClass(days: days).save()
+        return CycleClass(cycle: self).save()
     }
 }
