@@ -31,6 +31,10 @@ struct Day {
             }
         }
     }
+    
+    func save() -> Bool {
+        return cycle.save()
+    }
 }
 
 extension Day {
