@@ -48,14 +48,16 @@ extension Day {
         var observation: Observation
         
         enum Observation: String {
+            case dry = "Dry"
             case damp = "Damp"
-            case shiny = "Shiny"
             case wet = "Wet"
+            case shiny = "Shiny"
             
             static let allValues = [
+                Observation.dry.rawValue,
                 Observation.damp.rawValue,
+                Observation.wet.rawValue,
                 Observation.shiny.rawValue,
-                Observation.wet.rawValue
             ]
         }
         
