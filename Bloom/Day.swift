@@ -21,6 +21,16 @@ struct Day {
     var notes:String?
     
     var cycle: Cycle
+    var indexInCycle: Int {
+        mutating get {
+            if let i = cycle.days.index(where: { $0.date == date }) {
+                return i
+            } else {
+                cycle.days.append(self)
+                return cycle.days.count-1
+            }
+        }
+    }
 }
 
 extension Day {
