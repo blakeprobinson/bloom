@@ -10,4 +10,8 @@ import Foundation
 
 struct Cycle {
     var days:[Day]
+    
+    func save() -> Bool {
+        return CycleClass(days: days).save()
+    }
 }
