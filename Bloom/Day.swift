@@ -17,7 +17,7 @@ struct Day {
     var intercourse = false
     var lubrication = false
     var pasty = false
-    var date: NSDate?
+    var date: NSDate
     var notes:String?
 }
 
