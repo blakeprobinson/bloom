@@ -6,7 +6,7 @@
 //  Copyright © 2016 Blake Robinson. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
 class CycleClass: NSObject, NSCoding {
     var days: [DayClass]
@@ -35,5 +35,10 @@ class CycleClass: NSObject, NSCoding {
     
     func encode(with aCoder: NSCoder) {
         aCoder.encode(days, forKey: PropertyKey.days)
+    }
+    
+    //MARK: Private methods
+    private func save() -> Bool {
+        return NSKeyedArchiver.archiveRootObject(days, toFile: CycleClass.ArchiveURL.path)
     }
 }
