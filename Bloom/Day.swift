@@ -19,6 +19,8 @@ struct Day {
     var pasty = false
     var date: NSDate
     var notes:String?
+    
+    var cycle: Cycle
 }
 
 extension Day {
@@ -96,6 +98,6 @@ extension Day {
             ]
             
         }
-        
+
     }
 }

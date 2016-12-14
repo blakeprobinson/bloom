@@ -20,6 +20,7 @@ class DayClass: NSObject, NSCoding {
     let date: NSDate
     let notes:String?
     
+    
     init(
         bleeding: String?,
         dry: String?,
@@ -30,7 +31,8 @@ class DayClass: NSObject, NSCoding {
         pasty: Bool,
         date: NSDate,
         notes:String?
-        ) {
+        )
+    {
         self.bleeding = bleeding
         self.dry = dry
         self.mucus = mucus
