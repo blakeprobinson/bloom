@@ -11,6 +11,10 @@ import UIKit
 class CycleClass: NSObject {
     var days: [DayClass]
     
+    //MARK: Archiving Paths
+    static let DocumentsDirectory = FileManager().urls(for: .documentDirectory, in: .userDomainMask).first!
+    static let ArchiveURL = DocumentsDirectory.appendingPathComponent("cycle")
+    
     init(days: [Day]) {
         self.days = days.map { DayClass(day: $0) }
     }
