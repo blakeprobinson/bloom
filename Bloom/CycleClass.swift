@@ -18,7 +18,8 @@ class CycleClass: NSObject, NSCoding {
     }
     var archiveURL: URL {
         get {
-            return CycleClass.DocumentsDirectory.appendingPathComponent(path)
+            let documentsDirectory = FileManager().urls(for: .documentDirectory, in: .userDomainMask).first!
+            return documentsDirectory.appendingPathComponent(path)
         }
     }
     
@@ -37,11 +38,6 @@ class CycleClass: NSObject, NSCoding {
     func save() -> Bool {
         return NSKeyedArchiver.archiveRootObject(days, toFile: archiveURL.path)
     }
-    
-    //MARK: Archiving Paths
-    static let DocumentsDirectory = FileManager().urls(for: .documentDirectory, in: .userDomainMask).first!
-    static let ArchiveURL = DocumentsDirectory.appendingPathComponent("cycle")
-
     
     //MARK: NSCoding
     struct PropertyKey {
