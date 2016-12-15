@@ -20,4 +20,9 @@ struct Cycle {
     static func currentCycle() -> Cycle? {
         return nil
     }
+    
+    init(cycleClass: CycleClass) {
+        self.days = cycleClass.days.map { Day.init(dayClass: $0) }
+        self.indexInAllCycles = cycleClass.indexInAllCycles
+    }
 }
