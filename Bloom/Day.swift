@@ -20,20 +20,36 @@ struct Day {
     var date: NSDate
     var notes:String?
     
-    var cycle: Cycle
-    var indexInCycle: Int {
-        mutating get {
-            if let i = cycle.days.index(where: { $0.date == date }) {
-                return i
-            } else {
-                cycle.days.append(self)
-                return cycle.days.count-1
-            }
+    init(dayClass: DayClass) {
+        
+        //Initialization from raw value is force unwrapped since values are
+        // created using a raw value
+        if let bleeding = dayClass.bleeding {
+            self.bleeding = Bleeding.init(intensity: Bleeding.Intensity(rawValue: bleeding)!)
+        } else {
+            self.bleeding = nil
         }
-    }
-    
-    func save() -> Bool {
-        return cycle.save()
+        
+        if let dry = dayClass.dry {
+            self.dry = Dry.init(observation: Dry.Observation(rawValue: dry)!)
+        } else {
+            self.dry = nil
+        }
+        
+        if let mucus = dayClass.mucus {
+            self.mucus = Mucus.init(
+                length: Mucus.Length(rawValue: mucus["length"]!)!,
+                color: Mucus.Color(rawValue: mucus["color"]!)!)
+        } else {
+            self.mucus = nil
+        }
+        
+        self.observation = dayClass.observation
+        self.intercourse = dayClass.intercourse
+        self.lubrication = dayClass.lubrication
+        self.pasty = dayClass.pasty
+        self.date = dayClass.date
+        self.notes = dayClass.notes
     }
 }
 
