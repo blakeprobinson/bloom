@@ -10,9 +10,14 @@ import Foundation
 
 struct Cycle {
     var days:[Day]
-    var indexInAllCycles: Int
+    let indexInAllCycles: Int
+    
     
     func save() -> Bool {
         return CycleClass(cycle: self).save()
+    }
+    
+    static func currentCycle() -> Cycle? {
+        return nil
     }
 }

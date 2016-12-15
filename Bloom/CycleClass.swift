@@ -10,7 +10,7 @@ import Foundation
 
 class CycleClass: NSObject, NSCoding {
     var days: [DayClass]
-    var indexInAllCycles: Int
+    let indexInAllCycles: Int
     
     init(days: [DayClass], indexInAllCycles: Int) {
         self.days = days
@@ -25,6 +25,7 @@ class CycleClass: NSObject, NSCoding {
     }
     
     func save() -> Bool {
+        
         return NSKeyedArchiver.archiveRootObject(days, toFile: CycleClass.ArchiveURL.path)
     }
     
