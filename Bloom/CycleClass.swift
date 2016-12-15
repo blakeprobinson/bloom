@@ -11,6 +11,16 @@ import Foundation
 class CycleClass: NSObject, NSCoding {
     var days: [DayClass]
     let indexInAllCycles: Int
+    var path: String {
+        get {
+            return "cycle\(indexInAllCycles)"
+        }
+    }
+    var archiveURL: URL {
+        get {
+            return CycleClass.DocumentsDirectory.appendingPathComponent(path)
+        }
+    }
     
     init(days: [DayClass], indexInAllCycles: Int) {
         self.days = days
@@ -25,8 +35,7 @@ class CycleClass: NSObject, NSCoding {
     }
     
     func save() -> Bool {
-        
-        return NSKeyedArchiver.archiveRootObject(days, toFile: CycleClass.ArchiveURL.path)
+        return NSKeyedArchiver.archiveRootObject(days, toFile: archiveURL.path)
     }
     
     //MARK: Archiving Paths
@@ -38,7 +47,7 @@ class CycleClass: NSObject, NSCoding {
     struct PropertyKey {
         static let days = "days"
         static let index = "index"
-        
+
     }
     
     required convenience init(coder aDecoder: NSCoder) {
