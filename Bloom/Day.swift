@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Day {
+class Day: NSObject, NSCoding {
     var bleeding: Bleeding?
     var mucus: Mucus?
     var dry: Dry?
@@ -17,46 +17,100 @@ struct Day {
     var intercourse = false
     var lubrication = false
     var pasty = false
-    var date: NSDate
+    var date: Date
     var notes:String?
     
-    init(dayClass: DayClass) {
+    init(bleeding: Bleeding?,
+        dry: Dry?,
+        mucus: Mucus?,
+        observation: Int,
+        intercourse: Bool,
+        lubrication: Bool,
+        pasty: Bool,
+        date: Date,
+        notes: String?) {
         
-        //Initialization from raw value is force unwrapped since values are
-        // created using a raw value
-        if let bleeding = dayClass.bleeding {
-            self.bleeding = Bleeding.init(intensity: Bleeding.Intensity(rawValue: bleeding)!)
-        } else {
-            self.bleeding = nil
-        }
-        
-        if let dry = dayClass.dry {
-            self.dry = Dry.init(observation: Dry.Observation(rawValue: dry)!)
-        } else {
-            self.dry = nil
-        }
-        
-        if let mucus = dayClass.mucus {
-            self.mucus = Mucus.init(
-                length: Mucus.Length(rawValue: mucus["length"]!)!,
-                color: Mucus.Color(rawValue: mucus["color"]!)!)
-        } else {
-            self.mucus = nil
-        }
-        
-        self.observation = dayClass.observation
-        self.intercourse = dayClass.intercourse
-        self.lubrication = dayClass.lubrication
-        self.pasty = dayClass.pasty
-        self.date = dayClass.date
-        self.notes = dayClass.notes
+        self.bleeding = bleeding
+        self.dry = dry
+        self.mucus = mucus
+        self.observation = observation
+        self.intercourse = intercourse
+        self.lubrication = lubrication
+        self.pasty = pasty
+        self.date = date
+        self.notes = notes
     }
+    
+    // MARK: NSCoding
+    
+    required convenience init?(coder aDecoder: NSCoder) {
+        let bleeding = Bleeding.init(intensity: aDecoder.decodeObject(forKey: PropertyKey.bleeding) as? String)
+        
+        let dry = Dry.init(observation: aDecoder.decodeObject(forKey: PropertyKey.dry)  as? String)
+        let mucus = Mucus.init(
+                length: aDecoder.decodeObject(forKey: PropertyKey.mucusLength) as? String,
+                color: aDecoder.decodeObject(forKey: PropertyKey.mucusColor) as? String
+            )
+        
+        let observation = aDecoder.decodeInteger(forKey: PropertyKey.observation)
+        let intercourse = aDecoder.decodeBool(forKey: PropertyKey.intercourse)
+        let lubrication = aDecoder.decodeBool(forKey: PropertyKey.lubrication)
+        let pasty = aDecoder.decodeBool(forKey: PropertyKey.pasty)
+        let date = aDecoder.decodeObject(forKey: PropertyKey.date) as! Date
+        let notes = aDecoder.decodeObject(forKey: PropertyKey.notes) as! String?
+        
+        self.init(bleeding: bleeding,
+                  dry: dry,
+                  mucus: mucus,
+                  observation: observation,
+                  intercourse: intercourse,
+                  lubrication: lubrication,
+                  pasty: pasty,
+                  date: date,
+                  notes: notes
+            
+        )
+    }
+    
+    struct PropertyKey {
+        static let bleeding = "bleeding"
+        static let dry = "dry"
+        static let mucusColor = "mucusColor"
+        static let mucusLength = "mucusLength"
+        
+        static let observation = "observation"
+        static let intercourse = "intercourse"
+        static let lubrication = "lubrication"
+        static let pasty = "pasty"
+        static let date = "date"
+        static let notes = "notes"
+    }
+    
+    func encode(with aCoder: NSCoder) {
+        aCoder.encode(bleeding?.intensity.rawValue, forKey: PropertyKey.bleeding)
+        aCoder.encode(dry?.observation.rawValue, forKey: PropertyKey.dry)
+        aCoder.encode(mucus?.color.rawValue, forKey: PropertyKey.mucusColor)
+        aCoder.encode(mucus?.length.rawValue, forKey: PropertyKey.mucusLength)
+        
+        aCoder.encode(observation, forKey: PropertyKey.observation)
+        aCoder.encode(intercourse, forKey: PropertyKey.intercourse)
+        aCoder.encode(lubrication, forKey: PropertyKey.lubrication)
+        aCoder.encode(pasty, forKey: PropertyKey.pasty)
+        aCoder.encode(date, forKey: PropertyKey.date)
+        aCoder.encode(notes, forKey: PropertyKey.notes)
+    }
+
 }
 
 extension Day {
     
     struct Bleeding {
         var intensity: Intensity
+        
+        init?(intensity: String?) {
+            guard let intensity = intensity else { return nil }
+            self.intensity = Intensity(rawValue: intensity)!
+        }
         
         enum Intensity: String {
             case veryLight = "Very Light"
@@ -79,6 +133,11 @@ extension Day {
     struct Dry {
         var observation: Observation
         
+        init?(observation: String?) {
+            guard let observation = observation else { return nil }
+            self.observation = Observation(rawValue: observation)!
+        }
+        
         enum Observation: String {
             case dry = "Dry"
             case damp = "Damp"
@@ -99,6 +158,15 @@ extension Day {
     struct Mucus {
         var length:Length
         var color:Color
+        
+        init?(length: String?, color: String?) {
+            guard let length = length else { return nil }
+            guard let color = color else { return nil }
+            
+            self.length = Length(rawValue: length)!
+            self.color = Color(rawValue: color)!
+            
+        }
         
         enum Length: String {
             case quarterInch = "Less than 1/4 inch"
