@@ -8,21 +8,44 @@
 
 import Foundation
 
-struct Cycle {
-    var days:[Day]
+class Cycle: NSObject, NSCoding {
+    var days: [Day]
     let indexInAllCycles: Int
+    var path: String {
+        get {
+            return "cycle\(indexInAllCycles)"
+        }
+    }
+    var archiveURL: URL {
+        get {
+            let documentsDirectory = FileManager().urls(for: .documentDirectory, in: .userDomainMask).first!
+            return documentsDirectory.appendingPathComponent(path)
+        }
+    }
     
+    init(days: [Day], indexInAllCycles: Int) {
+        self.days = days
+        self.indexInAllCycles = indexInAllCycles
+    }
     
     func save() -> Bool {
-        return CycleClass(cycle: self).save()
+        return NSKeyedArchiver.archiveRootObject(days, toFile: archiveURL.path)
     }
     
-    static func currentCycle() -> Cycle? {
-        return nil
+    //MARK: NSCoding
+    struct PropertyKey {
+        static let days = "days"
+        static let index = "index"
+
     }
     
-    init(cycleClass: CycleClass) {
-        self.days = cycleClass.days.map { Day.init(dayClass: $0) }
-        self.indexInAllCycles = cycleClass.indexInAllCycles
+    required convenience init(coder aDecoder: NSCoder) {
+        let days = aDecoder.decodeObject(forKey: PropertyKey.days) as! [Day]
+        let index = Int(aDecoder.decodeDouble(forKey: PropertyKey.index))
+        self.init(days: days, indexInAllCycles: index)
+    }
+    
+    func encode(with aCoder: NSCoder) {
+        aCoder.encode(days, forKey: PropertyKey.days)
     }
 }

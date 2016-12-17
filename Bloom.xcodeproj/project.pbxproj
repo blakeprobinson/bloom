@@ -7,8 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		BA02B8871E01CAED0051BACD /* Cycle.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA02B8861E01CAED0051BACD /* Cycle.swift */; };
-		BA02B8891E01D2540051BACD /* CycleClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA02B8881E01D2540051BACD /* CycleClass.swift */; };
+		BA02B8891E01D2540051BACD /* Cycle.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA02B8881E01D2540051BACD /* Cycle.swift */; };
 		BA02B8AC1E0335A80051BACD /* DayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA02B8AB1E0335A80051BACD /* DayViewController.swift */; };
 		BA06405D1DFC6E4500E2B0D0 /* TrackTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA06405C1DFC6E4500E2B0D0 /* TrackTableViewController.swift */; };
 		BA2A57AF1E044A0F0041082B /* DaysPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA2A57AE1E044A0F0041082B /* DaysPageViewController.swift */; };
@@ -20,8 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		BA02B8861E01CAED0051BACD /* Cycle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cycle.swift; sourceTree = "<group>"; };
-		BA02B8881E01D2540051BACD /* CycleClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CycleClass.swift; sourceTree = "<group>"; };
+		BA02B8881E01D2540051BACD /* Cycle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cycle.swift; sourceTree = "<group>"; };
 		BA02B8AB1E0335A80051BACD /* DayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DayViewController.swift; sourceTree = "<group>"; };
 		BA06405C1DFC6E4500E2B0D0 /* TrackTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackTableViewController.swift; sourceTree = "<group>"; };
 		BA2A57AE1E044A0F0041082B /* DaysPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DaysPageViewController.swift; sourceTree = "<group>"; };
@@ -69,8 +67,7 @@
 				BA2A57AE1E044A0F0041082B /* DaysPageViewController.swift */,
 				BA02B8AB1E0335A80051BACD /* DayViewController.swift */,
 				BA2BB7D51DF8AF1D008F3D51 /* Day.swift */,
-				BA02B8861E01CAED0051BACD /* Cycle.swift */,
-				BA02B8881E01D2540051BACD /* CycleClass.swift */,
+				BA02B8881E01D2540051BACD /* Cycle.swift */,
 				BA2BB7D21DF8AE49008F3D51 /* Supporting Files */,
 			);
 			path = Bloom;
@@ -160,8 +157,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BA02B8891E01D2540051BACD /* CycleClass.swift in Sources */,
-				BA02B8871E01CAED0051BACD /* Cycle.swift in Sources */,
+				BA02B8891E01D2540051BACD /* Cycle.swift in Sources */,
 				BA06405D1DFC6E4500E2B0D0 /* TrackTableViewController.swift in Sources */,
 				BA2A57AF1E044A0F0041082B /* DaysPageViewController.swift in Sources */,
 				BA2BB7C11DF8AE32008F3D51 /* AppDelegate.swift in Sources */,
