@@ -9,17 +9,40 @@
 import UIKit
 
 class DayViewController: UIViewController {
+    
+    @IBOutlet weak var addDry: UIView! {
+        didSet {
+            let recognizer = UITapGestureRecognizer(target: self, action: #selector(DayViewController.showButtons(sender:)))
+            addDry.addGestureRecognizer(recognizer)
+        }
+    }
+    @IBOutlet weak var dryButtons: UIStackView! {
+        didSet {
+            dryButtons.isHidden = true
+        }
+    }
+    
+    
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    func showButtons(sender: UITapGestureRecognizer) {
+        if sender.state == .ended {
+            UIView.animate(withDuration: 0.25, animations: {
+                [weak weakSelf = self] in
+                if let weakSelf = weakSelf {
+                    weakSelf.dryButtons.isHidden = !weakSelf.dryButtons.isHidden
+                }
+            })
+            
+        }
     }
+    
     
 
     /*

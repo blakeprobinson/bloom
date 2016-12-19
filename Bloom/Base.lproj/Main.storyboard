@@ -521,6 +521,10 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="ctH-G5-heg"/>
+                    <connections>
+                        <outlet property="addDry" destination="dhl-K9-PuN" id="ATe-ZK-y9j"/>
+                        <outlet property="dryButtons" destination="KIo-aE-60e" id="p7Z-26-DbL"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fnR-Ki-c4e" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
