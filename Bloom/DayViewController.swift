@@ -66,7 +66,11 @@ class DayViewController: UIViewController {
     
     func showButtons(sender: UITapGestureRecognizer) {
         if sender.state == .ended {
+            guard let view = sender.view else { return }
             guard let viewIdentifier = sender.view?.restorationIdentifier else { return }
+            
+            view.backgroundColor = view.backgroundColor == UIColor.white ? UIColor.groupTableViewBackground : UIColor.white
+
             switch viewIdentifier {
             case "addDry":
                 UIView.animate(withDuration: 0.1, animations: {
