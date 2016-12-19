@@ -10,6 +10,7 @@ import UIKit
 
 class DayViewController: UIViewController {
     
+    
     @IBOutlet weak var addDry: UIView! {
         didSet {
             let recognizer = UITapGestureRecognizer(target: self, action: #selector(DayViewController.showButtons(sender:)))
@@ -19,11 +20,36 @@ class DayViewController: UIViewController {
     @IBOutlet weak var dryButtons: UIStackView! {
         didSet {
             dryButtons.isHidden = true
+            dryButtons.alpha = 0.0
         }
     }
     
     
+    @IBOutlet weak var addBleeding: UIView! {
+        didSet {
+            let recognizer = UITapGestureRecognizer(target: self, action: #selector(DayViewController.showButtons(sender:)))
+            addBleeding.addGestureRecognizer(recognizer)
+        }
+    }
+    @IBOutlet weak var bleedingButtons: UIStackView! {
+        didSet {
+            bleedingButtons.isHidden = true
+            bleedingButtons.alpha = 0.0
+        }
+    }
     
+    @IBOutlet weak var addMucus: UIView! {
+        didSet {
+            let recognizer = UITapGestureRecognizer(target: self, action: #selector(DayViewController.showButtons(sender:)))
+            addMucus.addGestureRecognizer(recognizer)
+        }
+    }
+    @IBOutlet weak var mucusButtons: UIStackView! {
+        didSet {
+            mucusButtons.isHidden = true
+            mucusButtons.alpha = 0.0
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,12 +59,35 @@ class DayViewController: UIViewController {
     
     func showButtons(sender: UITapGestureRecognizer) {
         if sender.state == .ended {
-            UIView.animate(withDuration: 0.25, animations: {
-                [weak weakSelf = self] in
-                if let weakSelf = weakSelf {
-                    weakSelf.dryButtons.isHidden = !weakSelf.dryButtons.isHidden
-                }
-            })
+            guard let viewIdentifier = sender.view?.restorationIdentifier else { return }
+            switch viewIdentifier {
+            case "addDry":
+                UIView.animate(withDuration: 0.1, animations: {
+                    [weak weakSelf = self] in
+                    if let weakSelf = weakSelf {
+                        weakSelf.dryButtons.isHidden = !weakSelf.dryButtons.isHidden
+                        weakSelf.dryButtons.alpha = weakSelf.dryButtons.isHidden ? 0.0 : 1.0
+                    }
+                })
+            case "addBleeding":
+                UIView.animate(withDuration: 0.1, animations: {
+                    [weak weakSelf = self] in
+                    if let weakSelf = weakSelf {
+                        weakSelf.bleedingButtons.isHidden = !weakSelf.bleedingButtons.isHidden
+                        weakSelf.bleedingButtons.alpha = weakSelf.bleedingButtons.isHidden ? 0.0 : 1.0
+                    }
+                })
+            case "addMucus":
+                UIView.animate(withDuration: 0.1, animations: {
+                    [weak weakSelf = self] in
+                    if let weakSelf = weakSelf {
+                        weakSelf.mucusButtons.isHidden = !weakSelf.mucusButtons.isHidden
+                        weakSelf.mucusButtons.alpha = weakSelf.mucusButtons.isHidden ? 0.0 : 1.0
+                    }
+                })
+            default: break
+            }
+            
             
         }
     }
