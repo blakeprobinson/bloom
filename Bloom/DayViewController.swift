@@ -10,6 +10,13 @@ import UIKit
 
 class DayViewController: UIViewController {
     
+    @IBOutlet weak var circle: UIView! {
+        didSet {
+            circle.layer.cornerRadius = circle.bounds.height / 2
+            circle.layer.borderColor = UIColor.black.cgColor
+            circle.layer.borderWidth = 1
+        }
+    }
     
     @IBOutlet weak var addDry: UIView! {
         didSet {
