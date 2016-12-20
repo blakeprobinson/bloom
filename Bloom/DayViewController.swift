@@ -74,6 +74,8 @@ class DayViewController: UIViewController {
             guard let viewIdentifier = sender.view?.restorationIdentifier else { return }
             
             view.backgroundColor = view.backgroundColor == UIColor.white ? UIColor(red:0.94, green:0.94, blue:0.94, alpha:1.0) : UIColor.white
+            
+            changeSign(addView: view)
 
             switch viewIdentifier {
             case "addDry":
@@ -104,6 +106,16 @@ class DayViewController: UIViewController {
             }
             
             
+        }
+    }
+    
+    func changeSign(addView: UIView) {
+        for view in addView.subviews {
+            if let label = view as? UILabel {
+                if label.text == "+" || label.text == "-" {
+                    label.text = label.text ==  "+" ? "-" : "+"
+                }
+            }
         }
     }
     
