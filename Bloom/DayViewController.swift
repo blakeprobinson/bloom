@@ -73,7 +73,7 @@ class DayViewController: UIViewController {
             guard let view = sender.view else { return }
             guard let viewIdentifier = sender.view?.restorationIdentifier else { return }
             
-            view.backgroundColor = view.backgroundColor == UIColor.white ? UIColor.groupTableViewBackground : UIColor.white
+            view.backgroundColor = view.backgroundColor == UIColor.white ? UIColor(red:0.94, green:0.94, blue:0.94, alpha:1.0) : UIColor.white
 
             switch viewIdentifier {
             case "addDry":
