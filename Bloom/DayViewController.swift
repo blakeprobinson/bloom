@@ -18,6 +18,10 @@ class DayViewController: UIViewController {
         }
     }
     
+    @IBOutlet weak var date: UILabel!
+    @IBOutlet weak var requiredInput: UILabel!
+    
+    
     @IBOutlet weak var addDry: UIView! {
         didSet {
             let recognizer = UITapGestureRecognizer(target: self, action: #selector(DayViewController.showButtons(sender:)))

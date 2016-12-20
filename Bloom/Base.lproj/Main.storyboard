@@ -192,28 +192,28 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="GC0-na-Q3n" userLabel="Contents Stack View">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="GC0-na-Q3n" userLabel="Contents Stack View">
                                 <rect key="frame" x="16" y="72" width="288" height="488"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Yh-LF-Q0V">
-                                        <rect key="frame" x="0.0" y="0.0" width="288" height="100.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="288" height="92"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gNS-qP-OPh" userLabel="Date">
-                                                <rect key="frame" x="32" y="40.5" width="42" height="20.5"/>
+                                                <rect key="frame" x="32" y="36.5" width="42" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kyF-wa-qWI" userLabel="Circle">
-                                                <rect key="frame" x="104" y="10.5" width="80" height="79.5"/>
+                                                <rect key="frame" x="104" y="6.5" width="80" height="79.5"/>
                                                 <color key="backgroundColor" red="0.57647058819999997" green="0.76862745099999996" blue="0.49019607840000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="80" id="OoV-Xs-81q"/>
                                                     <constraint firstAttribute="width" secondItem="kyF-wa-qWI" secondAttribute="height" multiplier="1:1" id="WTZ-i3-8CX"/>
                                                 </constraints>
                                             </view>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eZZ-0P-veK" userLabel="Required Input">
-                                                <rect key="frame" x="214" y="40.5" width="42" height="20.5"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="--" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eZZ-0P-veK" userLabel="Required Input">
+                                                <rect key="frame" x="214" y="36.5" width="15.5" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -231,7 +231,7 @@
                                         </constraints>
                                     </view>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="yuD-2m-GTu" userLabel="User Action Required">
-                                        <rect key="frame" x="0.0" y="112.5" width="288" height="375.5"/>
+                                        <rect key="frame" x="0.0" y="98" width="288" height="390"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" restorationIdentifier="addDry" translatesAutoresizingMaskIntoConstraints="NO" id="dhl-K9-PuN" userLabel="Add Dry">
                                                 <rect key="frame" x="0.0" y="0.0" width="288" height="44"/>
@@ -397,7 +397,7 @@
                                                 </constraints>
                                             </view>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="AVR-pp-CvA" userLabel="Mucus Buttons">
-                                                <rect key="frame" x="0.0" y="250" width="288" height="125.5"/>
+                                                <rect key="frame" x="0.0" y="250" width="288" height="140"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="we0-Gy-PO4" userLabel="Mucus Length Buttons">
                                                         <rect key="frame" x="0.0" y="0.0" width="288" height="44"/>
@@ -481,16 +481,16 @@
                                                         </constraints>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LvL-VX-bxh" userLabel="Mucus Pasty">
-                                                        <rect key="frame" x="0.0" y="96" width="288" height="29.5"/>
+                                                        <rect key="frame" x="0.0" y="96" width="288" height="44"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pasty" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OmD-2z-ah0" userLabel="Pasty">
-                                                                <rect key="frame" x="0.0" y="0.0" width="239" height="29.5"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="239" height="44"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hO9-OE-biv">
-                                                                <rect key="frame" x="239" y="0.0" width="51" height="29.5"/>
+                                                                <rect key="frame" x="239" y="0.0" width="51" height="44"/>
                                                             </switch>
                                                         </subviews>
                                                         <constraints>
@@ -519,8 +519,10 @@
                         <outlet property="addMucus" destination="A6F-HY-IwC" id="vS8-Bd-6nd"/>
                         <outlet property="bleedingButtons" destination="wPQ-UZ-MKW" id="ysS-eX-bGv"/>
                         <outlet property="circle" destination="kyF-wa-qWI" id="8nu-MW-Lqz"/>
+                        <outlet property="date" destination="gNS-qP-OPh" id="eFf-0i-dtY"/>
                         <outlet property="dryButtons" destination="KIo-aE-60e" id="p7Z-26-DbL"/>
                         <outlet property="mucusButtons" destination="AVR-pp-CvA" id="9IT-xD-cbo"/>
+                        <outlet property="requiredInput" destination="eZZ-0P-veK" id="hW3-PK-sMS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fnR-Ki-c4e" userLabel="First Responder" sceneMemberID="firstResponder"/>
