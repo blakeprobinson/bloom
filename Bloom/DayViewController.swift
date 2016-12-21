@@ -35,7 +35,6 @@ class DayViewController: UIViewController {
         }
     }
     
-    
     @IBOutlet weak var addBleeding: UIView! {
         didSet {
             let recognizer = UITapGestureRecognizer(target: self, action: #selector(DayViewController.showButtons(sender:)))
@@ -61,6 +60,18 @@ class DayViewController: UIViewController {
             mucusButtons.alpha = 0.0
         }
     }
+    
+    @IBOutlet weak var observation: UILabel! {
+        didSet {
+            
+        }
+    }
+    
+    
+    
+    
+    
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -119,6 +130,10 @@ class DayViewController: UIViewController {
         }
     }
     
+    @IBAction func adjustObservation(_ sender: UIStepper) {
+        let observationDescription = sender.value == 1 ? " Observation" : " Observations"
+        observation.text = String(Int(sender.value)) + observationDescription
+    }
     
 
     /*
