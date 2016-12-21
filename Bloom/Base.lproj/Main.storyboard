@@ -263,68 +263,73 @@
                                                                     <constraint firstItem="gf5-hT-hRj" firstAttribute="leading" secondItem="dhl-K9-PuN" secondAttribute="leading" constant="8" id="l4A-7H-fkO"/>
                                                                 </constraints>
                                                             </view>
-                                                            <stackView hidden="YES" opaque="NO" alpha="0.0" contentMode="scaleToFill" distribution="fillEqually" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="KIo-aE-60e" userLabel="Dry Buttons">
-                                                                <rect key="frame" x="0.0" y="39" width="414" height="44"/>
+                                                            <stackView hidden="YES" opaque="NO" alpha="0.0" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="ne8-6r-1df" userLabel="Dry Inputs">
+                                                                <rect key="frame" x="0.0" y="39" width="414" height="55"/>
                                                                 <subviews>
-                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W4S-n5-UdY">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="102.66666666666667" height="44"/>
-                                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
-                                                                        <state key="normal" title="Dry">
-                                                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                                                        </state>
-                                                                    </button>
-                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mfR-Bx-bRZ">
-                                                                        <rect key="frame" x="103.66666666666666" y="0.0" width="102.99999999999997" height="44"/>
-                                                                        <color key="backgroundColor" red="0.85098039215686272" green="0.91764705882352937" blue="0.82745098039215681" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
-                                                                        <state key="normal" title="Damp">
-                                                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                                                        </state>
-                                                                    </button>
-                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CTS-Oh-a1A">
-                                                                        <rect key="frame" x="207.66666666666669" y="0.0" width="102.66666666666669" height="44"/>
-                                                                        <color key="backgroundColor" red="0.71372549019607845" green="0.84313725490196079" blue="0.6588235294117647" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
-                                                                        <state key="normal" title="Wet">
-                                                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                                                        </state>
-                                                                    </button>
-                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z82-Ip-Vua">
-                                                                        <rect key="frame" x="311.33333333333326" y="0.0" width="102.66666666666669" height="44"/>
-                                                                        <color key="backgroundColor" red="0.57647058823529407" green="0.76862745098039209" blue="0.49019607843137253" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
-                                                                        <state key="normal" title="Shiny">
-                                                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                                                        </state>
-                                                                    </button>
+                                                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="KIo-aE-60e" userLabel="Dry Buttons">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                                                                        <subviews>
+                                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W4S-n5-UdY">
+                                                                                <rect key="frame" x="0.0" y="0.0" width="102.66666666666667" height="44"/>
+                                                                                <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                                                                                <state key="normal" title="Dry">
+                                                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                                                </state>
+                                                                            </button>
+                                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mfR-Bx-bRZ">
+                                                                                <rect key="frame" x="103.66666666666666" y="0.0" width="102.99999999999997" height="44"/>
+                                                                                <color key="backgroundColor" red="0.85098039215686272" green="0.91764705882352937" blue="0.82745098039215681" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                                <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                                                                                <state key="normal" title="Damp">
+                                                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                                                </state>
+                                                                            </button>
+                                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CTS-Oh-a1A">
+                                                                                <rect key="frame" x="207.66666666666669" y="0.0" width="102.66666666666669" height="44"/>
+                                                                                <color key="backgroundColor" red="0.71372549019607845" green="0.84313725490196079" blue="0.6588235294117647" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                                <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                                                                                <state key="normal" title="Wet">
+                                                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                                                </state>
+                                                                            </button>
+                                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z82-Ip-Vua">
+                                                                                <rect key="frame" x="311.33333333333326" y="0.0" width="102.66666666666669" height="44"/>
+                                                                                <color key="backgroundColor" red="0.57647058823529407" green="0.76862745098039209" blue="0.49019607843137253" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                                <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                                                                                <state key="normal" title="Shiny">
+                                                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                                                </state>
+                                                                            </button>
+                                                                        </subviews>
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="height" constant="44" id="UEP-NE-heG"/>
+                                                                        </constraints>
+                                                                    </stackView>
+                                                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="VOw-8v-Cgx" userLabel="Dry Underbar">
+                                                                        <rect key="frame" x="0.0" y="44" width="414" height="11"/>
+                                                                        <subviews>
+                                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="URU-zp-IM0" userLabel="1">
+                                                                                <rect key="frame" x="0.0" y="0.0" width="103.66666666666667" height="11"/>
+                                                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                                            </view>
+                                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dWZ-2f-7YA" userLabel="2">
+                                                                                <rect key="frame" x="103.66666666666669" y="0.0" width="103.33333333333331" height="11"/>
+                                                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                                            </view>
+                                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ih3-ZV-hnY" userLabel="3">
+                                                                                <rect key="frame" x="207.00000000000003" y="0.0" width="103.66666666666671" height="11"/>
+                                                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                                            </view>
+                                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LR1-fF-GaB" userLabel="4">
+                                                                                <rect key="frame" x="310.66666666666674" y="0.0" width="103.33333333333331" height="11"/>
+                                                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                                            </view>
+                                                                        </subviews>
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="height" constant="11" id="hfU-Zu-NZw"/>
+                                                                        </constraints>
+                                                                    </stackView>
                                                                 </subviews>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="height" constant="44" id="UEP-NE-heG"/>
-                                                                </constraints>
-                                                            </stackView>
-                                                            <stackView hidden="YES" opaque="NO" alpha="0.0" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="VOw-8v-Cgx" userLabel="Dry Underbar">
-                                                                <rect key="frame" x="0.0" y="83" width="414" height="11"/>
-                                                                <subviews>
-                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="URU-zp-IM0" userLabel="1">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="103.66666666666667" height="11"/>
-                                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                                    </view>
-                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dWZ-2f-7YA" userLabel="2">
-                                                                        <rect key="frame" x="103.66666666666669" y="0.0" width="103.33333333333331" height="11"/>
-                                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                                    </view>
-                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ih3-ZV-hnY" userLabel="3">
-                                                                        <rect key="frame" x="207.00000000000003" y="0.0" width="103.66666666666671" height="11"/>
-                                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                                    </view>
-                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LR1-fF-GaB" userLabel="4">
-                                                                        <rect key="frame" x="310.66666666666674" y="0.0" width="103.33333333333331" height="11"/>
-                                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                                    </view>
-                                                                </subviews>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="height" constant="11" id="hfU-Zu-NZw"/>
-                                                                </constraints>
                                                             </stackView>
                                                             <view contentMode="scaleToFill" restorationIdentifier="addBleeding" translatesAutoresizingMaskIntoConstraints="NO" id="mvf-ii-SJT" userLabel="Add Bleeding">
                                                                 <rect key="frame" x="0.0" y="94" width="414" height="44"/>
@@ -724,7 +729,7 @@
                         <outlet property="bleedingButtons" destination="wPQ-UZ-MKW" id="ysS-eX-bGv"/>
                         <outlet property="circle" destination="kyF-wa-qWI" id="8nu-MW-Lqz"/>
                         <outlet property="date" destination="gNS-qP-OPh" id="eFf-0i-dtY"/>
-                        <outlet property="dryButtons" destination="KIo-aE-60e" id="p7Z-26-DbL"/>
+                        <outlet property="dryInputs" destination="ne8-6r-1df" id="mw7-k4-MIZ"/>
                         <outlet property="mucusButtons" destination="AVR-pp-CvA" id="9IT-xD-cbo"/>
                         <outlet property="observation" destination="1Ub-Be-cdJ" id="8X1-qU-e78"/>
                         <outlet property="requiredInput" destination="eZZ-0P-veK" id="hW3-PK-sMS"/>

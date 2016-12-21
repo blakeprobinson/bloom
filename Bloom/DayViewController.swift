@@ -28,7 +28,8 @@ class DayViewController: UIViewController {
             addDry.addGestureRecognizer(recognizer)
         }
     }
-    @IBOutlet weak var dryButtons: UIStackView!
+    @IBOutlet weak var dryInputs: UIStackView!
+    
     
     @IBOutlet weak var addBleeding: UIView! {
         didSet {
@@ -91,8 +92,8 @@ class DayViewController: UIViewController {
                 UIView.animate(withDuration: 0.1, animations: {
                     [weak weakSelf = self] in
                     if let weakSelf = weakSelf {
-                        weakSelf.dryButtons.isHidden = !weakSelf.dryButtons.isHidden
-                        weakSelf.dryButtons.alpha = weakSelf.dryButtons.isHidden ? 0.0 : 1.0
+                        weakSelf.dryInputs.isHidden = !weakSelf.dryInputs.isHidden
+                        weakSelf.dryInputs.alpha = weakSelf.dryInputs.isHidden ? 0.0 : 1.0
                     }
                 })
             case "addBleeding":
