@@ -61,8 +61,16 @@ class DayViewController: UIViewController {
         }
     }
     
-    @IBOutlet weak var observation: UILabel! 
+    @IBOutlet weak var observation: UILabel!
     
+    // MARK: Model
+    // day is an optional since the model will be nil when a 
+    // user is adding a new day
+    var day:Day? {
+        didSet {
+            //update ui to incorporate data in Day into UI.
+        }
+    }
     
     
     
