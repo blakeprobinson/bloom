@@ -13,8 +13,8 @@ class DayViewController: UIViewController {
     @IBOutlet weak var circle: UIView! {
         didSet {
             circle.layer.cornerRadius = circle.bounds.height / 2
-            circle.layer.borderColor = UIColor.black.cgColor
-            circle.layer.borderWidth = 1
+            circle.layer.borderColor = UIColor(red:0.60, green:0.60, blue:0.60, alpha:1.0).cgColor
+            circle.layer.borderWidth = 3
         }
     }
     
