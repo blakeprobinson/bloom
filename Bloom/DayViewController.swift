@@ -61,12 +61,7 @@ class DayViewController: UIViewController {
         }
     }
     
-    @IBOutlet weak var observation: UILabel! {
-        didSet {
-            
-        }
-    }
-    
+    @IBOutlet weak var observation: UILabel! 
     
     
     
