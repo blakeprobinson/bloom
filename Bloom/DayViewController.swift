@@ -28,12 +28,7 @@ class DayViewController: UIViewController {
             addDry.addGestureRecognizer(recognizer)
         }
     }
-    @IBOutlet weak var dryButtons: UIStackView! {
-        didSet {
-            dryButtons.isHidden = true
-            dryButtons.alpha = 0.0
-        }
-    }
+    @IBOutlet weak var dryButtons: UIStackView!
     
     @IBOutlet weak var addBleeding: UIView! {
         didSet {
