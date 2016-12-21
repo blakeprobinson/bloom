@@ -302,7 +302,7 @@
                                                                     <constraint firstAttribute="height" constant="44" id="UEP-NE-heG"/>
                                                                 </constraints>
                                                             </stackView>
-                                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="VOw-8v-Cgx" userLabel="Dry Underbar">
+                                                            <stackView hidden="YES" opaque="NO" alpha="0.0" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="VOw-8v-Cgx" userLabel="Dry Underbar">
                                                                 <rect key="frame" x="0.0" y="83" width="414" height="11"/>
                                                                 <subviews>
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="URU-zp-IM0" userLabel="1">
