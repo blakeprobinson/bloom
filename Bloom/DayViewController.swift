@@ -130,14 +130,23 @@ class DayViewController: UIViewController {
     }
     
     @IBAction func dryButtonTapped(_ sender: UIButton) {
-        let dryButtons = dryInputs.arrangedSubviews[0] as! UIStackView
-        let dryUnderbar = dryInputs.arrangedSubviews[1] as! UIStackView
-        
-        let indexOfSenderButton = dryButtons.arrangedSubviews.index(of: sender)!
-        let underbar = dryUnderbar.arrangedSubviews[indexOfSenderButton]
-        underbar.backgroundColor = underbar.backgroundColor == UIColor.white ? UIColor(red:0.22, green:0.46, blue:0.11, alpha:1.0) : UIColor.white
+        syncWithUnderbar(fromInputs: dryInputs, sender: sender)
     }
     
+    @IBAction func bleedingButtonTapped(_ sender: UIButton) {
+        syncWithUnderbar(fromInputs: bleedingInputs, sender: sender)
+    }
+    
+    
+    
+    func syncWithUnderbar(fromInputs inputs: UIStackView, sender: UIButton) {
+        let buttons = inputs.arrangedSubviews[0] as! UIStackView
+        let underbarStackView = inputs.arrangedSubviews[1] as! UIStackView
+        
+        let indexOfSenderButton = buttons.arrangedSubviews.index(of: sender)!
+        let underbar = underbarStackView.arrangedSubviews[indexOfSenderButton]
+        underbar.backgroundColor = underbar.backgroundColor == UIColor.white ? UIColor(red:0.22, green:0.46, blue:0.11, alpha:1.0) : UIColor.white
+    }
     
 
     /*
