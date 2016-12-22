@@ -129,6 +129,16 @@ class DayViewController: UIViewController {
         observation.text = String(Int(sender.value)) + observationDescription
     }
     
+    @IBAction func dryButtonTapped(_ sender: UIButton) {
+        let dryButtons = dryInputs.arrangedSubviews[0] as! UIStackView
+        let dryUnderbar = dryInputs.arrangedSubviews[1] as! UIStackView
+        
+        let indexOfSenderButton = dryButtons.arrangedSubviews.index(of: sender)!
+        let underbar = dryUnderbar.arrangedSubviews[indexOfSenderButton]
+        underbar.backgroundColor = underbar.backgroundColor == UIColor.white ? UIColor(red:0.22, green:0.46, blue:0.11, alpha:1.0) : UIColor.white
+    }
+    
+    
 
     /*
     // MARK: - Navigation

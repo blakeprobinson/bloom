@@ -275,6 +275,9 @@
                                                                                 <state key="normal" title="Dry">
                                                                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                                                                 </state>
+                                                                                <connections>
+                                                                                    <action selector="dryButtonTapped:" destination="nez-Db-vhN" eventType="touchUpInside" id="Ud6-C1-4il"/>
+                                                                                </connections>
                                                                             </button>
                                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mfR-Bx-bRZ">
                                                                                 <rect key="frame" x="103.66666666666666" y="0.0" width="102.99999999999997" height="44"/>
@@ -283,6 +286,9 @@
                                                                                 <state key="normal" title="Damp">
                                                                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                                                                 </state>
+                                                                                <connections>
+                                                                                    <action selector="dryButtonTapped:" destination="nez-Db-vhN" eventType="touchUpInside" id="fag-5L-ZMV"/>
+                                                                                </connections>
                                                                             </button>
                                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CTS-Oh-a1A">
                                                                                 <rect key="frame" x="207.66666666666669" y="0.0" width="102.66666666666669" height="44"/>
@@ -291,6 +297,9 @@
                                                                                 <state key="normal" title="Wet">
                                                                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                                                                 </state>
+                                                                                <connections>
+                                                                                    <action selector="dryButtonTapped:" destination="nez-Db-vhN" eventType="touchUpInside" id="17B-hv-PMc"/>
+                                                                                </connections>
                                                                             </button>
                                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z82-Ip-Vua">
                                                                                 <rect key="frame" x="311.33333333333326" y="0.0" width="102.66666666666669" height="44"/>
@@ -299,6 +308,9 @@
                                                                                 <state key="normal" title="Shiny">
                                                                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                                                                 </state>
+                                                                                <connections>
+                                                                                    <action selector="dryButtonTapped:" destination="nez-Db-vhN" eventType="touchUpInside" id="ok3-aC-iO5"/>
+                                                                                </connections>
                                                                             </button>
                                                                         </subviews>
                                                                         <constraints>
