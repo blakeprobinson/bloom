@@ -28,7 +28,12 @@ class DayViewController: UIViewController {
             addDry.addGestureRecognizer(recognizer)
         }
     }
-    @IBOutlet weak var dryInputs: UIStackView!
+    @IBOutlet weak var dryButtons: UIStackView! {
+        didSet {
+            dryButtons.isHidden = true
+            dryButtons.alpha = 0
+        }
+    }
     
     
     @IBOutlet weak var addBleeding: UIView! {
@@ -87,8 +92,8 @@ class DayViewController: UIViewController {
                 UIView.animate(withDuration: 0.1, animations: {
                     [weak weakSelf = self] in
                     if let weakSelf = weakSelf {
-                        weakSelf.dryInputs.isHidden = !weakSelf.dryInputs.isHidden
-                        weakSelf.dryInputs.alpha = weakSelf.dryInputs.isHidden ? 0.0 : 1.0
+                        weakSelf.dryButtons.isHidden = !weakSelf.dryButtons.isHidden
+                        weakSelf.dryButtons.alpha = weakSelf.dryButtons.isHidden ? 0.0 : 1.0
                     }
                 })
             case "addBleeding":
@@ -124,28 +129,15 @@ class DayViewController: UIViewController {
         }
     }
     
+    @IBAction func dryButtonTouched(_ sender: ButtonWithUnderBar) {
+        sender.isSelected = !sender.isSelected
+    }
+    
+    
+    
     @IBAction func adjustObservation(_ sender: UIStepper) {
         let observationDescription = sender.value == 1 ? " Observation" : " Observations"
         observation.text = String(Int(sender.value)) + observationDescription
-    }
-    
-    @IBAction func dryButtonTapped(_ sender: UIButton) {
-        syncWithUnderbar(fromInputs: dryInputs, sender: sender)
-    }
-    
-    @IBAction func bleedingButtonTapped(_ sender: UIButton) {
-        syncWithUnderbar(fromInputs: bleedingInputs, sender: sender)
-    }
-    
-    
-    
-    func syncWithUnderbar(fromInputs inputs: UIStackView, sender: UIButton) {
-        let buttons = inputs.arrangedSubviews[0] as! UIStackView
-        let underbarStackView = inputs.arrangedSubviews[1] as! UIStackView
-        
-        let indexOfSenderButton = buttons.arrangedSubviews.index(of: sender)!
-        let underbar = underbarStackView.arrangedSubviews[indexOfSenderButton]
-        underbar.backgroundColor = underbar.backgroundColor == UIColor.white ? UIColor(red:0.22, green:0.46, blue:0.11, alpha:1.0) : UIColor.white
     }
     
 
