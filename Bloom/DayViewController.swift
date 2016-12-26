@@ -130,7 +130,6 @@ class DayViewController: UIViewController {
     }
     
     @IBAction func dryButtonTouched(_ sender: ButtonWithUnderBar) {
-        sender.isSelected = !sender.isSelected
     }
     
     

@@ -31,7 +31,12 @@ class ButtonWithUnderBar: UIButton {
         underBar.backgroundColor = UIColor.white
         addSubview(underBar)
         titleEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: (bounds.size.height/4), right: 0)
+        addTarget(self, action: #selector(changeSelected), for: .touchUpInside)
         
+    }
+    
+    func changeSelected() {
+        isSelected = !isSelected
     }
     
     //public lets you choose the type of button it is...
