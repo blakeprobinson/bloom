@@ -28,8 +28,6 @@ class ButtonWithUnderBar: UIButton {
         addSubview(underBar)
         titleEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: (bounds.size.height/4), right: 0)
         addTarget(self, action: #selector(changeSelected), for: .touchUpInside)
-        //let nc = NotificationCenter.default
-        //nc.addObserver(forName: Notification.Name(rawValue: "newDryValueSelected"), object: nil, queue: nil, using: catchNotification)
     }
     
     func changeSelected() {
@@ -39,12 +37,6 @@ class ButtonWithUnderBar: UIButton {
             containerView.selectedButton = nil
         } else {
             containerView.selectedButton = self
-        }
-    }
-    
-    func catchNotification(notification: Notification) {
-        if notification.object as! ButtonWithUnderBar !== self {
-            isSelected = false
         }
     }
     
