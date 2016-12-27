@@ -28,7 +28,7 @@ class DayViewController: UIViewController {
             addDry.addGestureRecognizer(recognizer)
         }
     }
-    @IBOutlet weak var dryButtons: UIStackView! {
+    @IBOutlet weak var dryButtons: StackViewWithButtons! {
         didSet {
             dryButtons.isHidden = true
             dryButtons.alpha = 0
@@ -42,7 +42,13 @@ class DayViewController: UIViewController {
             addBleeding.addGestureRecognizer(recognizer)
         }
     }
-    @IBOutlet weak var bleedingInputs: UIStackView!
+    @IBOutlet weak var bleedingButtons: StackViewWithButtons! {
+        didSet {
+            bleedingButtons.isHidden = true
+            bleedingButtons.alpha = 0 
+        }
+    }
+    
     
     @IBOutlet weak var addMucus: UIView! {
         didSet {
@@ -100,8 +106,8 @@ class DayViewController: UIViewController {
                 UIView.animate(withDuration: 0.1, animations: {
                     [weak weakSelf = self] in
                     if let weakSelf = weakSelf {
-                        weakSelf.bleedingInputs.isHidden = !weakSelf.bleedingInputs.isHidden
-                        weakSelf.bleedingInputs.alpha = weakSelf.bleedingInputs.isHidden ? 0.0 : 1.0
+                        weakSelf.bleedingButtons.isHidden = !weakSelf.bleedingButtons.isHidden
+                        weakSelf.bleedingButtons.alpha = weakSelf.bleedingButtons.isHidden ? 0.0 : 1.0
                     }
                 })
             case "addMucus":

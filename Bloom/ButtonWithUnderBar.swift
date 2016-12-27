@@ -18,7 +18,7 @@ class ButtonWithUnderBar: UIButton {
     override var isSelected: Bool {
         willSet {
             if newValue {
-                underBar.backgroundColor = underBarSelectedColor
+                underBar.backgroundColor = underBarColor
             } else {
                 underBar.backgroundColor = UIColor.white
             }
