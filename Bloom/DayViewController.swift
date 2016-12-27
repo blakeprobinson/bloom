@@ -72,8 +72,15 @@ class DayViewController: UIViewController {
     @IBOutlet weak var lubrication: UISwitch!
     @IBOutlet weak var startNewCycle: UIView!
     
-    
-    
+    //MARK: Section 3 Outlets
+    @IBOutlet weak var adjustableDate: UILabel!
+    @IBOutlet weak var picker: UIPickerView! {
+        didSet {
+            picker.isHidden = true
+            picker.alpha = 0
+        }
+    }
+    @IBOutlet weak var notes: UITextView!
     
     
     // MARK: Model
