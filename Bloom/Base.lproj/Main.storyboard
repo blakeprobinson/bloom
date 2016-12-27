@@ -263,7 +263,7 @@
                                                                     <constraint firstItem="gf5-hT-hRj" firstAttribute="leading" secondItem="dhl-K9-PuN" secondAttribute="leading" constant="8" id="l4A-7H-fkO"/>
                                                                 </constraints>
                                                             </view>
-                                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="KIo-aE-60e" userLabel="Dry Buttons">
+                                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="KIo-aE-60e" userLabel="Dry Buttons" customClass="StackViewWithButtons" customModule="Bloom" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="39" width="414" height="55"/>
                                                                 <subviews>
                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W4S-n5-UdY" customClass="ButtonWithUnderBar" customModule="Bloom" customModuleProvider="target">

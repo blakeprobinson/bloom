@@ -10,10 +10,6 @@ import UIKit
 
 class ButtonWithUnderBar: UIButton {
     
-    //this needs a property for the underbar or the underbar color
-    
-    //I'll need to initialize the property
-    
     var underBar = UIView()
     
     override var isSelected: Bool {
@@ -32,11 +28,24 @@ class ButtonWithUnderBar: UIButton {
         addSubview(underBar)
         titleEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: (bounds.size.height/4), right: 0)
         addTarget(self, action: #selector(changeSelected), for: .touchUpInside)
-        
+        //let nc = NotificationCenter.default
+        //nc.addObserver(forName: Notification.Name(rawValue: "newDryValueSelected"), object: nil, queue: nil, using: catchNotification)
     }
     
     func changeSelected() {
-        isSelected = !isSelected
+        var containerView = superview as! MutuallyExclusiveButtons
+        
+        if isSelected {
+            containerView.selectedButton = nil
+        } else {
+            containerView.selectedButton = self
+        }
+    }
+    
+    func catchNotification(notification: Notification) {
+        if notification.object as! ButtonWithUnderBar !== self {
+            isSelected = false
+        }
     }
     
     //public lets you choose the type of button it is...
