@@ -8,22 +8,37 @@
 
 import UIKit
 
-class StackViewWithButtons: UIStackView, MutuallyExclusiveButtons {
+class StackViewWithButtons: UIStackView {
     
-    var selectedButton: ButtonWithUnderBar? {
-        willSet {
-            if let newValue = newValue {
-                newValue.isSelected = true
+    var selectedButton: UIButton? {
+        get {
+            for view in subviews {
+                if let button = view as? UIButton {
+                    if button.isSelected { return button }
+                }
             }
+            return nil
         }
-        didSet {
-            if let oldValue = oldValue {
-                oldValue.isSelected = false
+    }
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        for view in subviews {
+            if let button = view as? UIButton {
+                button.addTarget(self, action: #selector(changeSelected), for: .touchUpInside)
             }
         }
     }
-}
-
-protocol MutuallyExclusiveButtons {
-    var selectedButton: ButtonWithUnderBar? { get set }
+    
+    func changeSelected(sender: UIButton?) {
+        for view in subviews {
+            if let button = view as? UIButton {
+                if button != sender {
+                    button.isSelected = false
+                } else {
+                    button.isSelected = !button.isSelected
+                }
+            }
+        }
+    }
 }

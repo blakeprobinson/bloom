@@ -15,9 +15,10 @@ class ButtonWithUnderBar: UIButton {
     @IBInspectable
     var underBarColor:UIColor = UIColor(red:0.22, green:0.46, blue:0.11, alpha:1.0)
     
+    
     override var isSelected: Bool {
-        willSet {
-            if newValue {
+        didSet {
+            if isSelected {
                 underBar.backgroundColor = underBarColor
             } else {
                 underBar.backgroundColor = UIColor.white
@@ -26,21 +27,11 @@ class ButtonWithUnderBar: UIButton {
     }
     
     override func awakeFromNib() {
-        underBar = UIView(frame: CGRect(x: 0, y: bounds.size.height-(bounds.size.height/4), width: bounds.size.width, height: bounds.size.height))
+        underBar = UIView(frame: CGRect(x: 0, y: bounds.size.height-(bounds.size.height/4), width: bounds.size.width, height: bounds.size.height/4))
         underBar.backgroundColor = UIColor.white
         addSubview(underBar)
         titleEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: (bounds.size.height/4), right: 0)
-        addTarget(self, action: #selector(changeSelected), for: .touchUpInside)
-    }
-    
-    func changeSelected() {
-        var containerView = superview as! MutuallyExclusiveButtons
         
-        if isSelected {
-            containerView.selectedButton = nil
-        } else {
-            containerView.selectedButton = self
-        }
     }
     
     //public lets you choose the type of button it is...
