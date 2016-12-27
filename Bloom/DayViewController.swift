@@ -10,6 +10,8 @@ import UIKit
 
 class DayViewController: UIViewController {
     
+    //MARK: Header Outlets
+    
     @IBOutlet weak var circle: UIView! {
         didSet {
             circle.layer.cornerRadius = circle.bounds.height / 2
@@ -21,6 +23,7 @@ class DayViewController: UIViewController {
     @IBOutlet weak var date: UILabel!
     @IBOutlet weak var requiredInput: UILabel!
     
+    //MARK: Section 1 Outlets
     
     @IBOutlet weak var addDry: UIView! {
         didSet {
@@ -63,7 +66,15 @@ class DayViewController: UIViewController {
         }
     }
     
+    //MARK: Section 2 Outlets
     @IBOutlet weak var observation: UILabel!
+    @IBOutlet weak var intercourse: UISwitch!
+    @IBOutlet weak var lubrication: UISwitch!
+    @IBOutlet weak var startNewCycle: UIView!
+    
+    
+    
+    
     
     // MARK: Model
     // day is an optional since the model will be nil when a 
