@@ -19,7 +19,7 @@ class SectionOneStackView: UIStackView {
         }
     }
     
-    func toggleStackViewWithButtons(sender: UIButton) {
+    func toggleStackViewWithButtons(sender: PlusMinusButton) {
         sender.isSelected = !sender.isSelected
         for (index, view) in arrangedSubviews.enumerated() {
             if view == sender {
@@ -28,6 +28,8 @@ class SectionOneStackView: UIStackView {
                     UIView.animate(withDuration: 0.1, animations: {
                             viewToToggle.isHidden = !viewToToggle.isHidden
                             viewToToggle.alpha = viewToToggle.isHidden ? 0.0 : 1.0
+                            sender.togglePlusMinus()
+                            
                     })
                 }
             }
