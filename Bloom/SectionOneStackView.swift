@@ -10,12 +10,17 @@ import UIKit
 
 class SectionOneStackView: UIStackView {
 
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        for view in subviews {
+            if let button = view as? UIButton {
+                button.addTarget(self, action: #selector(toggleStackViewWithButtons), for: .touchUpInside)
+            }
+        }
     }
-    */
+    
+    func toggleStackViewWithButtons(sender: UIButton) {
+        
+    }
 
 }
