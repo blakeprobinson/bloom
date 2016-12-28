@@ -28,10 +28,8 @@ class PlusMinusButton: UIButton {
         didSet {
             if isEnabled {
                 plusMinus.textColor = UIColor.darkGray
-                titleLabel?.textColor = UIColor.black
             } else {
                 plusMinus.textColor = UIColor.lightGray
-                titleLabel?.textColor = UIColor.lightGray
             }
         }
     }
@@ -45,5 +43,6 @@ class PlusMinusButton: UIButton {
         plusMinus.font = plusMinus.font.withSize(36)
         plusMinus.textColor = UIColor.darkGray
         addSubview(plusMinus)
+        setTitleColor(UIColor.lightGray, for: .disabled)
     }
 }
