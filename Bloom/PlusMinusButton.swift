@@ -23,6 +23,18 @@ class PlusMinusButton: UIButton {
             }
         }
     }
+    
+    override var isEnabled: Bool {
+        didSet {
+            if isEnabled {
+                plusMinus.textColor = UIColor.darkGray
+                titleLabel?.textColor = UIColor.black
+            } else {
+                plusMinus.textColor = UIColor.lightGray
+                titleLabel?.textColor = UIColor.lightGray
+            }
+        }
+    }
 
     override func awakeFromNib() {
         super.awakeFromNib()
