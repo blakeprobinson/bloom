@@ -8,7 +8,13 @@
 
 import UIKit
 
+protocol DisableButtonsDelegate {
+    func selectionMade(selection: ButtonWithUnderBar)
+}
+
 class StackViewWithButtons: UIStackView {
+    
+    var delegate: DisableButtonsDelegate?
     
     var selectedButton: UIButton? {
         get {
@@ -30,7 +36,8 @@ class StackViewWithButtons: UIStackView {
         }
     }
     
-    func changeSelected(sender: UIButton?) {
+    func changeSelected(sender: ButtonWithUnderBar) {
+        delegate?.selectionMade(selection: sender)
         for view in subviews {
             if let button = view as? UIButton {
                 if button != sender {

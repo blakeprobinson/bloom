@@ -11,6 +11,7 @@ import UIKit
 @IBDesignable
 class ButtonWithUnderBar: UIButton {
     
+    
     var underBar = UIView()
     @IBInspectable
     var underBarColor:UIColor = UIColor(red:0.22, green:0.46, blue:0.11, alpha:1.0)

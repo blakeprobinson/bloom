@@ -8,13 +8,16 @@
 
 import UIKit
 
-class SectionOneStackView: UIStackView {
+class SectionOneStackView: UIStackView, DisableButtonsDelegate {
 
     override func awakeFromNib() {
         super.awakeFromNib()
         for view in subviews {
             if let button = view as? UIButton {
                 button.addTarget(self, action: #selector(toggleStackViewWithButtons), for: .touchUpInside)
+            } else if let stackViewWithButtons = view as? StackViewWithButtons {
+                stackViewWithButtons.delegate = self
+                
             }
         }
     }
@@ -34,5 +37,8 @@ class SectionOneStackView: UIStackView {
             }
         }
     }
-
+    
+    func selectionMade(selection: ButtonWithUnderBar) {
+        
+    }
 }
