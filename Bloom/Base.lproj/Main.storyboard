@@ -238,14 +238,14 @@
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="yuD-2m-GTu" userLabel="Section 1" customClass="SectionOneStackView" customModule="Bloom" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="0.0" width="414" height="412"/>
                                                         <subviews>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dhH-Bb-8PW">
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dhH-Bb-8PW" customClass="PlusMinusButton" customModule="Bloom" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="39"/>
                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="39" id="4aN-rt-aMP"/>
                                                                 </constraints>
                                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
-                                                                <state key="normal" title="Dry" image="Plus sign">
+                                                                <state key="normal" title="Dry">
                                                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                                                 </state>
                                                             </button>
@@ -793,7 +793,4 @@
             <point key="canvasLocation" x="2314.4927536231885" y="-9.7826086956521738"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="Plus sign" width="36" height="36"/>
-    </resources>
 </document>
