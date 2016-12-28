@@ -39,6 +39,18 @@ class SectionOneStackView: UIStackView, DisableButtonsDelegate {
     }
     
     func selectionMade(selection: ButtonWithUnderBar) {
-        
+        switch selection.disableCategory! {
+        case .dry:
+            for view in subviews {
+                if let button = view as? UIButton {
+                    if (button.titleLabel?.text?.contains("Mucus"))! {
+                        button.isEnabled = !selection.isSelected
+                    }
+                }
+            }
+        case .mucus: break
+        case .bleedingModOrHeavy: break
+        case .bleedingOther: break
+        }
     }
 }

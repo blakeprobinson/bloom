@@ -37,13 +37,14 @@ class StackViewWithButtons: UIStackView {
     }
     
     func changeSelected(sender: ButtonWithUnderBar) {
-        delegate?.selectionMade(selection: sender)
+
         for view in subviews {
             if let button = view as? UIButton {
                 if button != sender {
                     button.isSelected = false
                 } else {
                     button.isSelected = !button.isSelected
+                    delegate?.selectionMade(selection: sender)
                 }
             }
         }

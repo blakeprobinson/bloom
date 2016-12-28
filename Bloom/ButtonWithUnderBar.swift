@@ -11,7 +11,7 @@ import UIKit
 @IBDesignable
 class ButtonWithUnderBar: UIButton {
     
-    
+    var disableCategory: DisableCategory?
     var underBar = UIView()
     @IBInspectable
     var underBarColor:UIColor = UIColor(red:0.22, green:0.46, blue:0.11, alpha:1.0)
@@ -35,14 +35,11 @@ class ButtonWithUnderBar: UIButton {
         
     }
     
-    //public lets you choose the type of button it is...
-
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
+    enum DisableCategory: String {
+        case dry
+        case mucus
+        case bleedingModOrHeavy
+        case bleedingOther
     }
-    */
 
 }

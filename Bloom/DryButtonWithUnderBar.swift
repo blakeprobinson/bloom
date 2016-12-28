@@ -6,4 +6,13 @@
 //  Copyright © 2016 Blake Robinson. All rights reserved.
 //
 
-import Foundation
+import UIKit
+
+class DryButtonWithUnderBar: ButtonWithUnderBar {
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        disableCategory = .dry
+    }
+    
+}
