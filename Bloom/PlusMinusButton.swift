@@ -11,6 +11,18 @@ import UIKit
 class PlusMinusButton: UIButton {
     
     var plusMinus = UILabel()
+    
+    override var isSelected: Bool {
+        didSet {
+            if isSelected {
+                plusMinus.text = "-"
+                backgroundColor = UIColor(red:0.94, green:0.94, blue:0.94, alpha:1.0)
+            } else {
+                plusMinus.text = "+"
+                backgroundColor = UIColor.white
+            }
+        }
+    }
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -21,9 +33,5 @@ class PlusMinusButton: UIButton {
         plusMinus.font = plusMinus.font.withSize(36)
         plusMinus.textColor = UIColor.darkGray
         addSubview(plusMinus)
-    }
-    
-    func togglePlusMinus() {
-        plusMinus.text = isSelected ? "-" : "+"
     }
 }
