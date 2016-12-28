@@ -18,6 +18,7 @@
 		BA2BB7C81DF8AE32008F3D51 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BA2BB7C71DF8AE32008F3D51 /* Assets.xcassets */; };
 		BA2BB7CB1DF8AE32008F3D51 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA2BB7C91DF8AE32008F3D51 /* LaunchScreen.storyboard */; };
 		BA2BB7D61DF8AF1D008F3D51 /* Day.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA2BB7D51DF8AF1D008F3D51 /* Day.swift */; };
+		BA91F1BE1E1415B000C209BC /* SectionOneStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA91F1BD1E1415B000C209BC /* SectionOneStackView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		BA2BB7CA1DF8AE32008F3D51 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BA2BB7CC1DF8AE32008F3D51 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BA2BB7D51DF8AF1D008F3D51 /* Day.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Day.swift; sourceTree = "<group>"; };
+		BA91F1BD1E1415B000C209BC /* SectionOneStackView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SectionOneStackView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +73,7 @@
 				BA0F458A1E11BD8500B23715 /* StackViewWithButtons.swift */,
 				BA2A57AE1E044A0F0041082B /* DaysPageViewController.swift */,
 				BA02B8AB1E0335A80051BACD /* DayViewController.swift */,
+				BA91F1BD1E1415B000C209BC /* SectionOneStackView.swift */,
 				BA0F45881E0C5EE900B23715 /* ButtonWithUnderBar.swift */,
 				BA2BB7D51DF8AF1D008F3D51 /* Day.swift */,
 				BA02B8881E01D2540051BACD /* Cycle.swift */,
@@ -168,6 +171,7 @@
 				BA06405D1DFC6E4500E2B0D0 /* TrackTableViewController.swift in Sources */,
 				BA2A57AF1E044A0F0041082B /* DaysPageViewController.swift in Sources */,
 				BA0F45891E0C5EE900B23715 /* ButtonWithUnderBar.swift in Sources */,
+				BA91F1BE1E1415B000C209BC /* SectionOneStackView.swift in Sources */,
 				BA2BB7C11DF8AE32008F3D51 /* AppDelegate.swift in Sources */,
 				BA02B8AC1E0335A80051BACD /* DayViewController.swift in Sources */,
 				BA2BB7D61DF8AF1D008F3D51 /* Day.swift in Sources */,

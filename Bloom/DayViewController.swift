@@ -24,13 +24,6 @@ class DayViewController: UIViewController {
     @IBOutlet weak var requiredInput: UILabel!
     
     //MARK: Section 1 Outlets
-    
-    @IBOutlet weak var addDry: UIView! {
-        didSet {
-            let recognizer = UITapGestureRecognizer(target: self, action: #selector(DayViewController.showButtons(sender:)))
-            addDry.addGestureRecognizer(recognizer)
-        }
-    }
     @IBOutlet weak var dryButtons: StackViewWithButtons! {
         didSet {
             dryButtons.isHidden = true
@@ -69,6 +62,7 @@ class DayViewController: UIViewController {
     //MARK: Section 2 Outlets
     @IBOutlet weak var observation: UILabel!
     @IBOutlet weak var intercourse: UISwitch!
+    @IBOutlet weak var lubricationView: UIView!
     @IBOutlet weak var lubrication: UISwitch!
     @IBOutlet weak var startNewCycle: UIView!
     
@@ -162,6 +156,7 @@ class DayViewController: UIViewController {
         let observationDescription = sender.value == 1 ? " Observation" : " Observations"
         observation.text = String(Int(sender.value)) + observationDescription
     }
+    
     
 
     /*
