@@ -195,7 +195,7 @@
                                 <rect key="frame" x="0.0" y="64" width="414" height="1186"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="GC0-na-Q3n" userLabel="Contents Stack View">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1110"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1105"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Yh-LF-Q0V" userLabel="Header">
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="96"/>
@@ -233,12 +233,12 @@
                                                 </constraints>
                                             </view>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="L7Y-iT-uic" userLabel="Body">
-                                                <rect key="frame" x="0.0" y="96" width="414" height="1014"/>
+                                                <rect key="frame" x="0.0" y="96" width="414" height="1009"/>
                                                 <subviews>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="yuD-2m-GTu" userLabel="Section 1" customClass="SectionOneStackView" customModule="Bloom" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="0.0" width="414" height="412"/>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="yuD-2m-GTu" userLabel="Section 1" customClass="SectionOneStackView" customModule="Bloom" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="0.0" width="414" height="407"/>
                                                         <subviews>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dhH-Bb-8PW" customClass="PlusMinusButton" customModule="Bloom" customModuleProvider="target">
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dhH-Bb-8PW" userLabel="Add Dry" customClass="PlusMinusButton" customModule="Bloom" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="39"/>
                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                 <constraints>
@@ -250,7 +250,7 @@
                                                                 </state>
                                                             </button>
                                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="KIo-aE-60e" userLabel="Dry Buttons" customClass="StackViewWithButtons" customModule="Bloom" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="39" width="414" height="55"/>
+                                                                <rect key="frame" x="0.0" y="40" width="414" height="55"/>
                                                                 <subviews>
                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W4S-n5-UdY" customClass="ButtonWithUnderBar" customModule="Bloom" customModuleProvider="target">
                                                                         <rect key="frame" x="0.0" y="0.0" width="102.66666666666667" height="55"/>
@@ -301,43 +301,19 @@
                                                                     <constraint firstAttribute="height" constant="55" id="UEP-NE-heG"/>
                                                                 </constraints>
                                                             </stackView>
-                                                            <view contentMode="scaleToFill" restorationIdentifier="addBleeding" translatesAutoresizingMaskIntoConstraints="NO" id="mvf-ii-SJT" userLabel="Add Bleeding">
-                                                                <rect key="frame" x="0.0" y="94" width="414" height="44"/>
-                                                                <subviews>
-                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ERS-Ba-7Ha" userLabel="Spacer">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="414" height="5"/>
-                                                                        <color key="backgroundColor" red="0.85098039219999999" green="0.85098039219999999" blue="0.85098039219999999" alpha="1" colorSpace="calibratedRGB"/>
-                                                                        <constraints>
-                                                                            <constraint firstAttribute="height" constant="5" id="dce-SN-h0p"/>
-                                                                        </constraints>
-                                                                    </view>
-                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bleeding" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RyQ-vO-6Cf">
-                                                                        <rect key="frame" x="38.333333333333329" y="12.666666666666686" width="78.666666666666657" height="24"/>
-                                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
-                                                                        <nil key="textColor"/>
-                                                                        <nil key="highlightedColor"/>
-                                                                    </label>
-                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FDc-r5-BUf">
-                                                                        <rect key="frame" x="7.9999999999999982" y="0.66666666666665719" width="22.333333333333329" height="43.000000000000028"/>
-                                                                        <fontDescription key="fontDescription" type="system" pointSize="36"/>
-                                                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                                                        <nil key="highlightedColor"/>
-                                                                    </label>
-                                                                </subviews>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pj6-5a-Xpx" userLabel="Add Bleeding" customClass="PlusMinusButton" customModule="Bloom" customModuleProvider="target">
+                                                                <rect key="frame" x="0.0" y="96" width="414" height="39"/>
                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                 <constraints>
-                                                                    <constraint firstItem="FDc-r5-BUf" firstAttribute="centerY" secondItem="mvf-ii-SJT" secondAttribute="centerY" id="5Zh-MF-dfi"/>
-                                                                    <constraint firstAttribute="height" constant="44" id="KEz-AT-2yi"/>
-                                                                    <constraint firstItem="ERS-Ba-7Ha" firstAttribute="width" secondItem="mvf-ii-SJT" secondAttribute="width" id="OzU-xP-YPS"/>
-                                                                    <constraint firstItem="FDc-r5-BUf" firstAttribute="leading" secondItem="mvf-ii-SJT" secondAttribute="leading" constant="8" id="abd-PV-kCh"/>
-                                                                    <constraint firstItem="ERS-Ba-7Ha" firstAttribute="top" secondItem="mvf-ii-SJT" secondAttribute="top" id="cVE-4i-d2V"/>
-                                                                    <constraint firstItem="RyQ-vO-6Cf" firstAttribute="centerY" secondItem="FDc-r5-BUf" secondAttribute="centerY" constant="3" id="jyl-vV-pQs"/>
-                                                                    <constraint firstItem="RyQ-vO-6Cf" firstAttribute="leading" secondItem="FDc-r5-BUf" secondAttribute="trailing" constant="8" id="oi7-JD-RIo"/>
-                                                                    <constraint firstItem="ERS-Ba-7Ha" firstAttribute="leading" secondItem="mvf-ii-SJT" secondAttribute="leading" id="x9n-Ei-gWU"/>
+                                                                    <constraint firstAttribute="height" constant="39" id="Yhc-TP-8uW"/>
                                                                 </constraints>
-                                                            </view>
+                                                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
+                                                                <state key="normal" title="Bleeding">
+                                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                                </state>
+                                                            </button>
                                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="wPQ-UZ-MKW" userLabel="Bleeding Buttons" customClass="StackViewWithButtons" customModule="Bloom" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="138" width="414" height="55"/>
+                                                                <rect key="frame" x="0.0" y="136" width="414" height="55"/>
                                                                 <subviews>
                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="Eks-Zk-j4l" customClass="ButtonWithUnderBar" customModule="Bloom" customModuleProvider="target">
                                                                         <rect key="frame" x="0.0" y="0.0" width="82" height="55"/>
@@ -410,43 +386,19 @@
                                                                     <constraint firstAttribute="height" constant="55" id="Kq6-V3-xRu"/>
                                                                 </constraints>
                                                             </stackView>
-                                                            <view contentMode="scaleToFill" restorationIdentifier="addMucus" translatesAutoresizingMaskIntoConstraints="NO" id="A6F-HY-IwC" userLabel="Add Mucus">
-                                                                <rect key="frame" x="0.0" y="193" width="414" height="44"/>
-                                                                <subviews>
-                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="v9y-UX-CEu" userLabel="Spacer">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="414" height="5"/>
-                                                                        <color key="backgroundColor" red="0.85098039219999999" green="0.85098039219999999" blue="0.85098039219999999" alpha="1" colorSpace="calibratedRGB"/>
-                                                                        <constraints>
-                                                                            <constraint firstAttribute="height" constant="5" id="DcS-Xc-3ZP"/>
-                                                                        </constraints>
-                                                                    </view>
-                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mucus" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tP3-V8-vKR" userLabel="Mucus">
-                                                                        <rect key="frame" x="38.333333333333329" y="12.666666666666686" width="60.333333333333329" height="24"/>
-                                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
-                                                                        <nil key="textColor"/>
-                                                                        <nil key="highlightedColor"/>
-                                                                    </label>
-                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9qg-oP-V72">
-                                                                        <rect key="frame" x="7.9999999999999982" y="0.66666666666668561" width="22.333333333333329" height="43"/>
-                                                                        <fontDescription key="fontDescription" type="system" pointSize="36"/>
-                                                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                                                        <nil key="highlightedColor"/>
-                                                                    </label>
-                                                                </subviews>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YJK-DS-gde" userLabel="Add Mucus" customClass="PlusMinusButton" customModule="Bloom" customModuleProvider="target">
+                                                                <rect key="frame" x="0.0" y="192" width="414" height="39"/>
                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                 <constraints>
-                                                                    <constraint firstAttribute="height" constant="44" id="12E-UR-FsS"/>
-                                                                    <constraint firstItem="9qg-oP-V72" firstAttribute="centerY" secondItem="A6F-HY-IwC" secondAttribute="centerY" id="Fyr-03-FDd"/>
-                                                                    <constraint firstItem="v9y-UX-CEu" firstAttribute="leading" secondItem="A6F-HY-IwC" secondAttribute="leading" id="MBj-kH-f9i"/>
-                                                                    <constraint firstItem="v9y-UX-CEu" firstAttribute="top" secondItem="A6F-HY-IwC" secondAttribute="top" id="NKt-Bj-S75"/>
-                                                                    <constraint firstItem="tP3-V8-vKR" firstAttribute="centerY" secondItem="9qg-oP-V72" secondAttribute="centerY" constant="3" id="Qzg-7l-gx7"/>
-                                                                    <constraint firstItem="v9y-UX-CEu" firstAttribute="width" secondItem="A6F-HY-IwC" secondAttribute="width" id="U6x-uW-y0X"/>
-                                                                    <constraint firstItem="9qg-oP-V72" firstAttribute="leading" secondItem="A6F-HY-IwC" secondAttribute="leading" constant="8" id="cED-CS-Ybn"/>
-                                                                    <constraint firstItem="tP3-V8-vKR" firstAttribute="leading" secondItem="9qg-oP-V72" secondAttribute="trailing" constant="8" id="nDz-n5-4TD"/>
+                                                                    <constraint firstAttribute="height" constant="39" id="ctC-Zg-hTt"/>
                                                                 </constraints>
-                                                            </view>
+                                                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
+                                                                <state key="normal" title="Mucus">
+                                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                                </state>
+                                                            </button>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="AVR-pp-CvA" userLabel="Mucus Buttons">
-                                                                <rect key="frame" x="0.0" y="237" width="414" height="175"/>
+                                                                <rect key="frame" x="0.0" y="232" width="414" height="175"/>
                                                                 <subviews>
                                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="we0-Gy-PO4" userLabel="Mucus Length Buttons" customClass="StackViewWithButtons" customModule="Bloom" customModuleProvider="target">
                                                                         <rect key="frame" x="0.0" y="0.0" width="414" height="55"/>
@@ -601,7 +553,7 @@
                                                         </constraints>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="11k-6o-9sN" userLabel="Section 2">
-                                                        <rect key="frame" x="0.0" y="442" width="414" height="159"/>
+                                                        <rect key="frame" x="0.0" y="437" width="414" height="159"/>
                                                         <subviews>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dqa-6L-oAJ" userLabel="Observation">
                                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="39"/>
@@ -698,7 +650,7 @@
                                                         </subviews>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="GgR-Sm-M8z" userLabel="Section 3">
-                                                        <rect key="frame" x="0.0" y="631" width="414" height="383"/>
+                                                        <rect key="frame" x="0.0" y="626" width="414" height="383"/>
                                                         <subviews>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DgR-le-dKu" userLabel="Date">
                                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="39"/>
@@ -770,8 +722,6 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="414" height="1250"/>
                     <connections>
-                        <outlet property="addBleeding" destination="mvf-ii-SJT" id="dh3-Jb-RD1"/>
-                        <outlet property="addMucus" destination="A6F-HY-IwC" id="vS8-Bd-6nd"/>
                         <outlet property="adjustableDate" destination="RG2-mp-scX" id="gqh-T5-ona"/>
                         <outlet property="bleedingButtons" destination="wPQ-UZ-MKW" id="eqI-7q-Lg5"/>
                         <outlet property="circle" destination="kyF-wa-qWI" id="8nu-MW-Lqz"/>
