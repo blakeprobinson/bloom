@@ -66,9 +66,6 @@ class SectionOneStackView: UIStackView, DisableButtonsDelegate {
         }
     }
     
-    private var isMucusButtonSelected = false
-    private var isDryButtonSelected = false
-    
     @discardableResult func areModAndHeavyEnabledHelper(isGet: Bool, newValue: Bool?) -> Bool? {
         var result: Bool?
         for view in subviews {
