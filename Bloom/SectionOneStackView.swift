@@ -17,7 +17,14 @@ class SectionOneStackView: UIStackView, DisableButtonsDelegate {
                 button.addTarget(self, action: #selector(toggleStackViewWithButtons), for: .touchUpInside)
             } else if let stackViewWithButtons = view as? StackViewWithButtons {
                 stackViewWithButtons.delegate = self
-                
+            } else if let stackView = view as? UIStackView {
+                //Mucus case requires an extra step because of 
+                //embedded StackViewWithButtons
+                for view in stackView.subviews {
+                    if let stackViewWithButtons = view as? StackViewWithButtons {
+                        stackViewWithButtons.delegate = self
+                    }
+                }
             }
         }
     }
