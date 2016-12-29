@@ -55,10 +55,42 @@ class SectionOneStackView: UIStackView, DisableButtonsDelegate {
         }
     }
     
+    private var areModAndHeavyEnabled: Bool? {
+        get {
+            return areModAndHeavyEnabledHelper(isGet: true, newValue: nil)
+        }
+        set(newValue) {
+            areModAndHeavyEnabledHelper(isGet: false, newValue: newValue)
+        }
+    }
+    
+    @discardableResult func areModAndHeavyEnabledHelper(isGet: Bool, newValue: Bool?) -> Bool? {
+        var result: Bool?
+        for view in subviews {
+            if view.subviews[0] is BleedingButtonWithUnderBar {
+                for buttonView in view.subviews {
+                    if let bleedingButtonWithUnderBar = buttonView as? BleedingButtonWithUnderBar {
+                        if bleedingButtonWithUnderBar.isModOrHeavy {
+                            if isGet {
+                                result = bleedingButtonWithUnderBar.isEnabled
+                            } else if let newValue = newValue {
+                                bleedingButtonWithUnderBar.isEnabled = newValue
+                            }
+                            
+                        }
+                    }
+                }
+            }
+        }
+        return result
+    }
+    
     func selectionMade(selection: ButtonWithUnderBar, inStackView paramStackView: StackViewWithButtons) {
         switch selection.disableCategory! {
         case .dry:
             fetchPlusMinusButtonContaining(string: "Mucus")?.isEnabled = !selection.isSelected
+            areModAndHeavyEnabled = !selection.isSelected
+            
         case .bleeding:
             let newSelection = selection as! BleedingButtonWithUnderBar
             if newSelection.isModOrHeavy {
@@ -72,6 +104,7 @@ class SectionOneStackView: UIStackView, DisableButtonsDelegate {
                 fetchPlusMinusButtonContaining(string: "Dry")?.isEnabled = true
             }
         case .mucus:
+            
             for view in subviews {
                 //if view is not an instance of StackViewWithButtons
                 //then check if it's a plain old StackView
@@ -101,8 +134,6 @@ class SectionOneStackView: UIStackView, DisableButtonsDelegate {
         }
         return nil
     }
-    
-    
     
     
 }
