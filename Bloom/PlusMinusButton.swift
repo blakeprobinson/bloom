@@ -30,6 +30,9 @@ class PlusMinusButton: UIButton {
                 plusMinus.textColor = UIColor.darkGray
             } else {
                 plusMinus.textColor = UIColor.lightGray
+                if  isSelected {
+                    sendActions(for: .touchUpInside)
+                }
             }
         }
     }
