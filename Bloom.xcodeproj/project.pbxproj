@@ -21,6 +21,7 @@
 		BA91F1C21E146CBD00C209BC /* DryButtonWithUnderBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA91F1C11E146CBD00C209BC /* DryButtonWithUnderBar.swift */; };
 		BA91F1C51E1555EE00C209BC /* BleedingButtonWithUnderBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA91F1C41E1555EE00C209BC /* BleedingButtonWithUnderBar.swift */; };
 		BA91F1C71E155FB600C209BC /* MucusButtonWithUnderBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA91F1C61E155FB600C209BC /* MucusButtonWithUnderBar.swift */; };
+		BA91F1C91E15703B00C209BC /* MucusLengthStackViewWithButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA91F1C81E15703B00C209BC /* MucusLengthStackViewWithButtons.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		BA91F1C11E146CBD00C209BC /* DryButtonWithUnderBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DryButtonWithUnderBar.swift; sourceTree = "<group>"; };
 		BA91F1C41E1555EE00C209BC /* BleedingButtonWithUnderBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BleedingButtonWithUnderBar.swift; sourceTree = "<group>"; };
 		BA91F1C61E155FB600C209BC /* MucusButtonWithUnderBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MucusButtonWithUnderBar.swift; sourceTree = "<group>"; };
+		BA91F1C81E15703B00C209BC /* MucusLengthStackViewWithButtons.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MucusLengthStackViewWithButtons.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +101,7 @@
 				BA91F1BD1E1415B000C209BC /* SectionOneStackView.swift */,
 				BA91F1BF1E14346C00C209BC /* PlusMinusButton.swift */,
 				BA0F458A1E11BD8500B23715 /* StackViewWithButtons.swift */,
+				BA91F1C81E15703B00C209BC /* MucusLengthStackViewWithButtons.swift */,
 				BA0F45881E0C5EE900B23715 /* ButtonWithUnderBar.swift */,
 				BA91F1C11E146CBD00C209BC /* DryButtonWithUnderBar.swift */,
 				BA91F1C41E1555EE00C209BC /* BleedingButtonWithUnderBar.swift */,
@@ -187,6 +190,7 @@
 				BA0F45891E0C5EE900B23715 /* ButtonWithUnderBar.swift in Sources */,
 				BA91F1BE1E1415B000C209BC /* SectionOneStackView.swift in Sources */,
 				BA91F1C51E1555EE00C209BC /* BleedingButtonWithUnderBar.swift in Sources */,
+				BA91F1C91E15703B00C209BC /* MucusLengthStackViewWithButtons.swift in Sources */,
 				BA2BB7C11DF8AE32008F3D51 /* AppDelegate.swift in Sources */,
 				BA02B8AC1E0335A80051BACD /* DayViewController.swift in Sources */,
 				BA91F1C01E14346C00C209BC /* PlusMinusButton.swift in Sources */,
