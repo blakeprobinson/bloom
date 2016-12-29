@@ -202,6 +202,7 @@
                                                                             <userDefinedRuntimeAttribute type="color" keyPath="underBarColor">
                                                                                 <color key="value" red="0.59999999999999998" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                             </userDefinedRuntimeAttribute>
+                                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isModOrHeavy" value="YES"/>
                                                                         </userDefinedRuntimeAttributes>
                                                                     </button>
                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hG9-3U-fG5" customClass="BleedingButtonWithUnderBar" customModule="Bloom" customModuleProvider="target">
@@ -215,6 +216,7 @@
                                                                             <userDefinedRuntimeAttribute type="color" keyPath="underBarColor">
                                                                                 <color key="value" red="0.59999999999999998" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                             </userDefinedRuntimeAttribute>
+                                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isModOrHeavy" value="YES"/>
                                                                         </userDefinedRuntimeAttributes>
                                                                     </button>
                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RLD-ao-VVv" customClass="BleedingButtonWithUnderBar" customModule="Bloom" customModuleProvider="target">

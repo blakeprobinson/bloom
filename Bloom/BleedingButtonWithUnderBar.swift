@@ -8,7 +8,11 @@
 
 import UIKit
 
+@IBDesignable
 class BleedingButtonWithUnderBar: ButtonWithUnderBar {
+    
+    @IBInspectable
+    var isModOrHeavy: Bool = false
     
     override func awakeFromNib() {
         super.awakeFromNib()

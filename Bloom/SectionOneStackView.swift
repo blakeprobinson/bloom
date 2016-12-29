@@ -59,7 +59,18 @@ class SectionOneStackView: UIStackView, DisableButtonsDelegate {
         switch selection.disableCategory! {
         case .dry:
             fetchPlusMinusButtonContaining(string: "Mucus")?.isEnabled = !selection.isSelected
-        case .bleeding: break
+        case .bleeding:
+            let newSelection = selection as! BleedingButtonWithUnderBar
+            if newSelection.isModOrHeavy {
+                fetchPlusMinusButtonContaining(string: "Mucus")?.isEnabled = !selection.isSelected
+                fetchPlusMinusButtonContaining(string: "Dry")?.isEnabled = !selection.isSelected
+                //if another button is selected and the Mucus PlusMinusButton is disabled,
+                //enable it.
+            } else if selection.isSelected && !(fetchPlusMinusButtonContaining(string: "Mucus")?.isEnabled)!
+                {
+                fetchPlusMinusButtonContaining(string: "Mucus")?.isEnabled = true
+                fetchPlusMinusButtonContaining(string: "Dry")?.isEnabled = true
+            }
         case .mucus:
             for view in subviews {
                 //if view is not an instance of StackViewWithButtons
