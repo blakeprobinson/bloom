@@ -49,8 +49,10 @@ class SectionOneStackView: UIStackView, DisableButtonsDelegate {
         didSet {
             if mucusSelections.isEmpty {
                 fetchPlusMinusButtonContaining(string: "Dry")?.isEnabled = true
+                areModAndHeavyEnabled = true
             } else {
                 fetchPlusMinusButtonContaining(string: "Dry")?.isEnabled = false
+                areModAndHeavyEnabled = false
             }
         }
     }
@@ -63,6 +65,9 @@ class SectionOneStackView: UIStackView, DisableButtonsDelegate {
             areModAndHeavyEnabledHelper(isGet: false, newValue: newValue)
         }
     }
+    
+    private var isMucusButtonSelected = false
+    private var isDryButtonSelected = false
     
     @discardableResult func areModAndHeavyEnabledHelper(isGet: Bool, newValue: Bool?) -> Bool? {
         var result: Bool?
