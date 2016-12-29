@@ -45,7 +45,7 @@ class SectionOneStackView: UIStackView, DisableButtonsDelegate {
         }
     }
     
-    private var mucusSelections = [String: ButtonWithUnderBar]() {
+    private var mucusSelections = [Int: ButtonWithUnderBar]() {
         didSet {
             if mucusSelections.isEmpty {
                 fetchPlusMinusButtonContaining(string: "Dry")?.isEnabled = true
@@ -55,19 +55,27 @@ class SectionOneStackView: UIStackView, DisableButtonsDelegate {
         }
     }
     
-    func selectionMade(selection: ButtonWithUnderBar) {
+    func selectionMade(selection: ButtonWithUnderBar, inStackView paramStackView: StackViewWithButtons) {
         switch selection.disableCategory! {
         case .dry:
             fetchPlusMinusButtonContaining(string: "Mucus")?.isEnabled = !selection.isSelected
         case .bleeding: break
         case .mucus:
-            let superview = selection.superview
-            if superview is MucusLengthStackViewWithButtons {
-                mucusSelections["length"] = selection.isSelected ? selection : nil
-            } else if superview is MucusColorStackViewWithButtons {
-                mucusSelections["color"] = selection.isSelected ? selection : nil
-            } else if superview is MucusConsistencyStackViewWithButtons {
-                mucusSelections["consistency"] = selection.isSelected ? selection : nil
+            for view in subviews {
+                //if view is not an instance of StackViewWithButtons
+                //then check if it's a plain old StackView
+                if view as? StackViewWithButtons == nil {
+                    if let stackView = view as? UIStackView {
+                        //Then iterate through subviews until you find 
+                        //the one matching the parameter then
+                        //update dictionary
+                        for (index, view) in stackView.arrangedSubviews.enumerated() {
+                            if paramStackView == view {
+                                mucusSelections[index] = selection.isSelected ? selection : nil
+                            }
+                        }
+                    }
+                }
             }
         }
     }

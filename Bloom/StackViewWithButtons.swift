@@ -9,7 +9,7 @@
 import UIKit
 
 protocol DisableButtonsDelegate {
-    func selectionMade(selection: ButtonWithUnderBar)
+    func selectionMade(selection: ButtonWithUnderBar, inStackView: StackViewWithButtons)
 }
 
 class StackViewWithButtons: UIStackView {
@@ -44,7 +44,7 @@ class StackViewWithButtons: UIStackView {
                     button.isSelected = false
                 } else {
                     button.isSelected = !button.isSelected
-                    delegate?.selectionMade(selection: sender)
+                    delegate?.selectionMade(selection: sender, inStackView: self)
                 }
             }
         }

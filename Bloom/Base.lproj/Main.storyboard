@@ -249,7 +249,7 @@
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="AVR-pp-CvA" userLabel="Mucus Buttons">
                                                                 <rect key="frame" x="0.0" y="232" width="414" height="175"/>
                                                                 <subviews>
-                                                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="we0-Gy-PO4" userLabel="Mucus Length Buttons" customClass="MucusLengthStackViewWithButtons" customModule="Bloom" customModuleProvider="target">
+                                                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="we0-Gy-PO4" userLabel="Mucus Length Buttons" customClass="StackViewWithButtons" customModule="Bloom" customModuleProvider="target">
                                                                         <rect key="frame" x="0.0" y="0.0" width="414" height="55"/>
                                                                         <subviews>
                                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UpW-aW-VQ8" userLabel="Quarter" customClass="MucusButtonWithUnderBar" customModule="Bloom" customModuleProvider="target">
@@ -292,7 +292,7 @@
                                                                             </button>
                                                                         </subviews>
                                                                     </stackView>
-                                                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="DJy-ZL-qw9" userLabel="Mucus Color Buttons" customClass="MucusColorStackViewWithButtons" customModule="Bloom" customModuleProvider="target">
+                                                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="DJy-ZL-qw9" userLabel="Mucus Color Buttons" customClass="StackViewWithButtons" customModule="Bloom" customModuleProvider="target">
                                                                         <rect key="frame" x="0.0" y="60" width="414" height="55"/>
                                                                         <subviews>
                                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JfR-53-xeO" customClass="MucusButtonWithUnderBar" customModule="Bloom" customModuleProvider="target">
@@ -361,7 +361,7 @@
                                                                             </button>
                                                                         </subviews>
                                                                     </stackView>
-                                                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="LvL-VX-bxh" userLabel="Mucus Pasty" customClass="MucusConsistencyStackViewWithButtons" customModule="Bloom" customModuleProvider="target">
+                                                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="LvL-VX-bxh" userLabel="Mucus Pasty" customClass="StackViewWithButtons" customModule="Bloom" customModuleProvider="target">
                                                                         <rect key="frame" x="0.0" y="120" width="414" height="55"/>
                                                                         <subviews>
                                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pN4-it-C7Y" customClass="MucusButtonWithUnderBar" customModule="Bloom" customModuleProvider="target">

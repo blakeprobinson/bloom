@@ -10,6 +10,8 @@ import UIKit
 
 class MucusButtonWithUnderBar: ButtonWithUnderBar {
     
+    var row: Int?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         disableCategory = .mucus
