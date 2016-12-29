@@ -31,6 +31,7 @@ class ButtonWithUnderBar: UIButton {
         underBar = UIView(frame: CGRect(x: 0, y: bounds.size.height-(bounds.size.height/4), width: bounds.size.width, height: bounds.size.height/4))
         underBar.backgroundColor = UIColor.white
         addSubview(underBar)
+        setTitleColor(UIColor.lightGray, for: .disabled)
         titleEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: (bounds.size.height/4), right: 0)
         
     }
