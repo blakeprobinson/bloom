@@ -8,8 +8,14 @@
 
 import UIKit
 
-class SectionOneStackView: UIStackView, DisableButtonsDelegate {
+protocol HideLubricationDelegate {
+    func hideShowLubricationView()
+}
 
+class SectionOneStackView: UIStackView, DisableButtonsDelegate {
+    
+    var delegate: DayViewController?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         for view in subviews {
@@ -96,6 +102,7 @@ class SectionOneStackView: UIStackView, DisableButtonsDelegate {
         case .bleeding:
             let newSelection = selection as! BleedingButtonWithUnderBar
             if newSelection.isModOrHeavy {
+                delegate?.hideShowLubricationView()
                 fetchPlusMinusButtonContaining(string: "Mucus")?.isEnabled = !selection.isSelected
                 fetchPlusMinusButtonContaining(string: "Dry")?.isEnabled = !selection.isSelected
                 //if another button is selected and the Mucus PlusMinusButton is disabled,

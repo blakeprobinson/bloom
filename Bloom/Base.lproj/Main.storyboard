@@ -586,6 +586,7 @@
                         <outlet property="observation" destination="1Ub-Be-cdJ" id="8X1-qU-e78"/>
                         <outlet property="picker" destination="zk1-Jx-YLK" id="XKa-3j-s3f"/>
                         <outlet property="requiredInput" destination="eZZ-0P-veK" id="hW3-PK-sMS"/>
+                        <outlet property="sectionOneStackView" destination="yuD-2m-GTu" id="v4U-hw-4Qf"/>
                         <outlet property="startNewCycle" destination="kxo-1O-Mep" id="bx5-fJ-Tiv"/>
                     </connections>
                 </viewController>

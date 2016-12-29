@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DayViewController: UIViewController {
+class DayViewController: UIViewController, HideLubricationDelegate {
     
     //MARK: Header Outlets
     
@@ -24,6 +24,12 @@ class DayViewController: UIViewController {
     @IBOutlet weak var requiredInput: UILabel!
     
     //MARK: Section 1 Outlets
+    
+    @IBOutlet weak var sectionOneStackView: SectionOneStackView! {
+        didSet {
+            sectionOneStackView.delegate = self
+        }
+    }
     @IBOutlet weak var dryButtons: StackViewWithButtons! {
         didSet {
             dryButtons.isHidden = true
@@ -79,6 +85,13 @@ class DayViewController: UIViewController {
     }
     
     @IBAction func dryButtonTouched(_ sender: ButtonWithUnderBar) {
+    }
+    
+    func hideShowLubricationView() {
+        UIView.animate(withDuration: 0.1, animations: {
+            self.lubricationView.isHidden = !self.lubricationView.isHidden
+            self.lubricationView.alpha = self.lubricationView.isHidden ? 0.0 : 1
+        })
     }
     
     
