@@ -45,13 +45,30 @@ class SectionOneStackView: UIStackView, DisableButtonsDelegate {
         }
     }
     
+    private var mucusSelections = [String: ButtonWithUnderBar]() {
+        didSet {
+            if mucusSelections.isEmpty {
+                fetchPlusMinusButtonContaining(string: "Dry")?.isEnabled = true
+            } else {
+                fetchPlusMinusButtonContaining(string: "Dry")?.isEnabled = false
+            }
+        }
+    }
+    
     func selectionMade(selection: ButtonWithUnderBar) {
         switch selection.disableCategory! {
         case .dry:
             fetchPlusMinusButtonContaining(string: "Mucus")?.isEnabled = !selection.isSelected
         case .bleeding: break
         case .mucus:
-            fetchPlusMinusButtonContaining(string: "Dry")?.isEnabled = !selection.isSelected
+            let superview = selection.superview
+            if superview is MucusLengthStackViewWithButtons {
+                if selection.isSelected {
+                    mucusSelections["length"] = selection
+                } else {
+                    mucusSelections["length"] = nil
+                }
+            }
         }
     }
     
