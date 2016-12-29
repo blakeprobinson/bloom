@@ -20,6 +20,7 @@
 		BA91F1C01E14346C00C209BC /* PlusMinusButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA91F1BF1E14346C00C209BC /* PlusMinusButton.swift */; };
 		BA91F1C21E146CBD00C209BC /* DryButtonWithUnderBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA91F1C11E146CBD00C209BC /* DryButtonWithUnderBar.swift */; };
 		BA91F1C51E1555EE00C209BC /* BleedingButtonWithUnderBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA91F1C41E1555EE00C209BC /* BleedingButtonWithUnderBar.swift */; };
+		BA91F1C71E155FB600C209BC /* MucusButtonWithUnderBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA91F1C61E155FB600C209BC /* MucusButtonWithUnderBar.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		BA91F1BF1E14346C00C209BC /* PlusMinusButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlusMinusButton.swift; sourceTree = "<group>"; };
 		BA91F1C11E146CBD00C209BC /* DryButtonWithUnderBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DryButtonWithUnderBar.swift; sourceTree = "<group>"; };
 		BA91F1C41E1555EE00C209BC /* BleedingButtonWithUnderBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BleedingButtonWithUnderBar.swift; sourceTree = "<group>"; };
+		BA91F1C61E155FB600C209BC /* MucusButtonWithUnderBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MucusButtonWithUnderBar.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +102,7 @@
 				BA0F45881E0C5EE900B23715 /* ButtonWithUnderBar.swift */,
 				BA91F1C11E146CBD00C209BC /* DryButtonWithUnderBar.swift */,
 				BA91F1C41E1555EE00C209BC /* BleedingButtonWithUnderBar.swift */,
+				BA91F1C61E155FB600C209BC /* MucusButtonWithUnderBar.swift */,
 			);
 			name = DayView;
 			sourceTree = "<group>";
@@ -178,6 +181,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BA02B8891E01D2540051BACD /* Cycle.swift in Sources */,
+				BA91F1C71E155FB600C209BC /* MucusButtonWithUnderBar.swift in Sources */,
 				BA91F1C21E146CBD00C209BC /* DryButtonWithUnderBar.swift in Sources */,
 				BA0F458B1E11BD8500B23715 /* StackViewWithButtons.swift in Sources */,
 				BA0F45891E0C5EE900B23715 /* ButtonWithUnderBar.swift in Sources */,
