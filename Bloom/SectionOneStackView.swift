@@ -63,11 +63,11 @@ class SectionOneStackView: UIStackView, DisableButtonsDelegate {
         case .mucus:
             let superview = selection.superview
             if superview is MucusLengthStackViewWithButtons {
-                if selection.isSelected {
-                    mucusSelections["length"] = selection
-                } else {
-                    mucusSelections["length"] = nil
-                }
+                mucusSelections["length"] = selection.isSelected ? selection : nil
+            } else if superview is MucusColorStackViewWithButtons {
+                mucusSelections["color"] = selection.isSelected ? selection : nil
+            } else if superview is MucusConsistencyStackViewWithButtons {
+                mucusSelections["consistency"] = selection.isSelected ? selection : nil
             }
         }
     }
