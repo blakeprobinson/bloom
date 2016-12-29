@@ -38,8 +38,7 @@ class ButtonWithUnderBar: UIButton {
     enum DisableCategory: String {
         case dry
         case mucus
-        case bleedingModOrHeavy
-        case bleedingOther
+        case bleeding
     }
 
 }

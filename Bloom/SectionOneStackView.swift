@@ -41,16 +41,25 @@ class SectionOneStackView: UIStackView, DisableButtonsDelegate {
     func selectionMade(selection: ButtonWithUnderBar) {
         switch selection.disableCategory! {
         case .dry:
-            for view in subviews {
-                if let button = view as? UIButton {
-                    if (button.titleLabel?.text?.contains("Mucus"))! {
-                        button.isEnabled = !selection.isSelected
-                    }
-                }
-            }
-        case .mucus: break
-        case .bleedingModOrHeavy: break
-        case .bleedingOther: break
+            fetchPlusMinusButtonContaining(string: "Mucus")?.isEnabled = !selection.isSelected
+        case .bleeding: break
+        case .mucus:
+            fetchPlusMinusButtonContaining(string: "Dry")?.isEnabled = !selection.isSelected
         }
     }
+    
+    fileprivate func fetchPlusMinusButtonContaining(string: String) -> PlusMinusButton? {
+        for view in subviews {
+            if let button = view as? PlusMinusButton {
+                if (button.titleLabel?.text?.contains(string))! {
+                    return button
+                }
+            }
+        }
+        return nil
+    }
+    
+    
+    
+    
 }
