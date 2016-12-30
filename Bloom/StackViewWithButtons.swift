@@ -29,11 +29,6 @@ class StackViewWithButtons: UIStackView {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        for view in subviews {
-            if let button = view as? UIButton {
-                button.addTarget(self, action: #selector(changeSelected), for: .touchUpInside)
-            }
-        }
     }
     
     func changeSelected(sender: ButtonWithUnderBar) {

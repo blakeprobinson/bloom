@@ -29,6 +29,7 @@ class DayViewController: UIViewController, HideLubricationDelegate, UIPickerView
         }
     }
     
+    @IBOutlet weak var addDryButton: PlusMinusButton!
     @IBOutlet weak var dryButtonContainer: StackViewWithButtons! {
         didSet {
             dryButtonContainer.isHidden = true
@@ -39,6 +40,7 @@ class DayViewController: UIViewController, HideLubricationDelegate, UIPickerView
     @IBOutlet var dryButtons: [DryButtonWithUnderBar]!
     
     
+    @IBOutlet weak var addBleedingButton: PlusMinusButton!
     @IBOutlet weak var bleedingButtonContainer: StackViewWithButtons! {
         didSet {
             bleedingButtonContainer.isHidden = true
@@ -49,6 +51,7 @@ class DayViewController: UIViewController, HideLubricationDelegate, UIPickerView
     @IBOutlet var bleedingButtons: [BleedingButtonWithUnderBar]!
     
     
+    @IBOutlet weak var addMucusButton: PlusMinusButton!
     @IBOutlet weak var mucusButtonContainer: UIStackView! {
         didSet {
             mucusButtonContainer.isHidden = true
@@ -124,10 +127,45 @@ class DayViewController: UIViewController, HideLubricationDelegate, UIPickerView
         hideShowView(view: mucusButtonContainer)
     }
     
-    
-    
     @IBAction func dryButtonTouched(_ sender: ButtonWithUnderBar) {
+        for button in dryButtons {
+            if button != sender {
+                button.isSelected = false
+            }
+        }
+        sender.isSelected = !sender.isSelected
+        addMucusButton.isEnabled = !sender.isSelected
+        if sender.isSelected {
+            day?.dry = Day.Dry(observation: sender.currentTitle!)
+        } else {
+            day?.dry = nil
+        }
     }
+    
+    @IBAction func bleedingButtonTouched(_ sender: BleedingButtonWithUnderBar) {
+        for button in bleedingButtons {
+            if button != sender {
+                button.isSelected = false
+            }
+        }
+        sender.isSelected = !sender.isSelected
+        
+        if sender.isSelected {
+            day?.bleeding = Day.Bleeding(intensity: sender.currentTitle!)
+        } else {
+            day?.bleeding = nil
+        }
+        
+        if sender.isModOrHeavy {
+            addDryButton.isEnabled = !sender.isSelected
+            addMucusButton.isEnabled = !sender.isSelected
+            hideShowView(view: lubricationView)
+        }
+        
+    }
+    
+    
+    
     
     private func hideShowView(view: UIView) {
         UIView.animate(withDuration: 0.1, animations: {

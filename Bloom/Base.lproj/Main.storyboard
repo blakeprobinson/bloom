@@ -182,6 +182,9 @@
                                                                                 <color key="value" red="0.59999999999999998" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                             </userDefinedRuntimeAttribute>
                                                                         </userDefinedRuntimeAttributes>
+                                                                        <connections>
+                                                                            <action selector="bleedingButtonTouched:" destination="nez-Db-vhN" eventType="touchUpInside" id="xc6-2Z-Wmz"/>
+                                                                        </connections>
                                                                     </button>
                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="ubg-7d-XY5" customClass="BleedingButtonWithUnderBar" customModule="Bloom" customModuleProvider="target">
                                                                         <rect key="frame" x="83" y="0.0" width="82" height="55"/>
@@ -195,6 +198,9 @@
                                                                                 <color key="value" red="0.59999999999999998" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                             </userDefinedRuntimeAttribute>
                                                                         </userDefinedRuntimeAttributes>
+                                                                        <connections>
+                                                                            <action selector="bleedingButtonTouched:" destination="nez-Db-vhN" eventType="touchUpInside" id="LvN-og-oLo"/>
+                                                                        </connections>
                                                                     </button>
                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="characterWrap" translatesAutoresizingMaskIntoConstraints="NO" id="yrn-Dh-XmO" customClass="BleedingButtonWithUnderBar" customModule="Bloom" customModuleProvider="target">
                                                                         <rect key="frame" x="166" y="0.0" width="82" height="55"/>
@@ -210,6 +216,9 @@
                                                                             </userDefinedRuntimeAttribute>
                                                                             <userDefinedRuntimeAttribute type="boolean" keyPath="isModOrHeavy" value="YES"/>
                                                                         </userDefinedRuntimeAttributes>
+                                                                        <connections>
+                                                                            <action selector="bleedingButtonTouched:" destination="nez-Db-vhN" eventType="touchUpInside" id="z0V-RC-EKB"/>
+                                                                        </connections>
                                                                     </button>
                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hG9-3U-fG5" customClass="BleedingButtonWithUnderBar" customModule="Bloom" customModuleProvider="target">
                                                                         <rect key="frame" x="249" y="0.0" width="82" height="55"/>
@@ -224,6 +233,9 @@
                                                                             </userDefinedRuntimeAttribute>
                                                                             <userDefinedRuntimeAttribute type="boolean" keyPath="isModOrHeavy" value="YES"/>
                                                                         </userDefinedRuntimeAttributes>
+                                                                        <connections>
+                                                                            <action selector="bleedingButtonTouched:" destination="nez-Db-vhN" eventType="touchUpInside" id="gRr-jS-L7a"/>
+                                                                        </connections>
                                                                     </button>
                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RLD-ao-VVv" customClass="BleedingButtonWithUnderBar" customModule="Bloom" customModuleProvider="target">
                                                                         <rect key="frame" x="332" y="0.0" width="82" height="55"/>
@@ -237,6 +249,9 @@
                                                                                 <color key="value" red="0.59999999999999998" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                             </userDefinedRuntimeAttribute>
                                                                         </userDefinedRuntimeAttributes>
+                                                                        <connections>
+                                                                            <action selector="bleedingButtonTouched:" destination="nez-Db-vhN" eventType="touchUpInside" id="mMS-mr-ozs"/>
+                                                                        </connections>
                                                                     </button>
                                                                 </subviews>
                                                                 <constraints>
@@ -573,6 +588,9 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="414" height="1250"/>
                     <connections>
+                        <outlet property="addBleedingButton" destination="Pj6-5a-Xpx" id="JvW-1Z-qUF"/>
+                        <outlet property="addDryButton" destination="dhH-Bb-8PW" id="GlH-rN-ryP"/>
+                        <outlet property="addMucusButton" destination="YJK-DS-gde" id="KPb-jC-6NO"/>
                         <outlet property="bleedingButtonContainer" destination="wPQ-UZ-MKW" id="YU8-Yb-Hf7"/>
                         <outlet property="circle" destination="kyF-wa-qWI" id="8nu-MW-Lqz"/>
                         <outlet property="date" destination="y8C-9b-pTn" id="xpM-Bc-q1l"/>
