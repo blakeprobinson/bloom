@@ -64,12 +64,13 @@ class DayViewController: UIViewController, HideLubricationDelegate, UIPickerView
         }
     }
     var adjustableDate = UILabel(frame: CGRect(x: UIScreen.main.bounds.width-57, y: 7, width: 100, height: 30))
+    
     @IBOutlet weak var picker: UIPickerView! {
         didSet {
             picker.delegate = self
             picker.dataSource = self
-            picker.isHidden = false
-            picker.alpha = 1
+            picker.isHidden = true
+            picker.alpha = 0
         }
     }
     @IBOutlet weak var notes: UITextView!
@@ -93,6 +94,8 @@ class DayViewController: UIViewController, HideLubricationDelegate, UIPickerView
     @IBAction func dryButtonTouched(_ sender: ButtonWithUnderBar) {
     }
     
+    
+    
     func hideShowLubricationView() {
         UIView.animate(withDuration: 0.1, animations: {
             self.lubricationView.isHidden = !self.lubricationView.isHidden
@@ -100,6 +103,13 @@ class DayViewController: UIViewController, HideLubricationDelegate, UIPickerView
         })
     }
     
+    @IBAction func showPicker() {
+        UIView.animate(withDuration: 0.1, animations: {
+            self.adjustableDate.textColor = self.adjustableDate.textColor == UIColor.black ? UIColor.red : UIColor.black
+            self.picker.isHidden = !self.picker.isHidden
+            self.picker.alpha = self.picker.isHidden ? 0.0 : 1.0
+        })
+    }
     
     
     @IBAction func adjustObservation(_ sender: UIStepper) {

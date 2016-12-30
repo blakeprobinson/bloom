@@ -514,6 +514,9 @@
                                                                 <state key="normal" title="Date">
                                                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                                                 </state>
+                                                                <connections>
+                                                                    <action selector="showPicker" destination="nez-Db-vhN" eventType="touchUpInside" id="5cF-yi-Yyh"/>
+                                                                </connections>
                                                             </button>
                                                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zk1-Jx-YLK">
                                                                 <rect key="frame" x="0.0" y="40" width="414" height="216"/>
