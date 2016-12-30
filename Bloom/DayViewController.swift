@@ -28,12 +28,16 @@ class DayViewController: UIViewController, HideLubricationDelegate, UIPickerView
             sectionOneStackView.delegate = self
         }
     }
-    @IBOutlet weak var dryButtons: StackViewWithButtons! {
+    
+    @IBOutlet weak var dryButtonContainer: StackViewWithButtons! {
         didSet {
-            dryButtons.isHidden = true
-            dryButtons.alpha = 0
+            dryButtonContainer.isHidden = true
+            dryButtonContainer.alpha = 0
         }
     }
+    
+    @IBOutlet var dryButtons: [DryButtonWithUnderBar]!
+    
     
     @IBOutlet weak var bleedingButtons: StackViewWithButtons! {
         didSet {

@@ -567,7 +567,7 @@
                         <outlet property="bleedingButtons" destination="wPQ-UZ-MKW" id="eqI-7q-Lg5"/>
                         <outlet property="circle" destination="kyF-wa-qWI" id="8nu-MW-Lqz"/>
                         <outlet property="date" destination="y8C-9b-pTn" id="xpM-Bc-q1l"/>
-                        <outlet property="dryButtons" destination="KIo-aE-60e" id="Rng-gC-Id8"/>
+                        <outlet property="dryButtonContainer" destination="KIo-aE-60e" id="4Nr-Ng-pNU"/>
                         <outlet property="intercourse" destination="dh0-Qy-vES" id="KLs-cp-Rsq"/>
                         <outlet property="lubrication" destination="fBT-dm-3ko" id="aK2-xJ-uK4"/>
                         <outlet property="lubricationView" destination="DgP-KD-Pvn" id="YyJ-jV-5nO"/>
@@ -578,6 +578,10 @@
                         <outlet property="requiredInput" destination="eZZ-0P-veK" id="hW3-PK-sMS"/>
                         <outlet property="sectionOneStackView" destination="yuD-2m-GTu" id="v4U-hw-4Qf"/>
                         <outlet property="startNewCycle" destination="kxo-1O-Mep" id="bx5-fJ-Tiv"/>
+                        <outletCollection property="dryButtons" destination="W4S-n5-UdY" collectionClass="NSMutableArray" id="cC2-Fz-UBy"/>
+                        <outletCollection property="dryButtons" destination="mfR-Bx-bRZ" collectionClass="NSMutableArray" id="HUA-SB-N3v"/>
+                        <outletCollection property="dryButtons" destination="CTS-Oh-a1A" collectionClass="NSMutableArray" id="7aQ-in-tBJ"/>
+                        <outletCollection property="dryButtons" destination="z82-Ip-Vua" collectionClass="NSMutableArray" id="0kP-I5-sI0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fnR-Ki-c4e" userLabel="First Responder" sceneMemberID="firstResponder"/>
