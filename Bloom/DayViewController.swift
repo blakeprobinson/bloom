@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DayViewController: UIViewController, HideLubricationDelegate {
+class DayViewController: UIViewController, HideLubricationDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
     
     //MARK: Header Outlets
     
@@ -62,8 +62,10 @@ class DayViewController: UIViewController, HideLubricationDelegate {
     @IBOutlet weak var adjustableDate: UILabel!
     @IBOutlet weak var picker: UIPickerView! {
         didSet {
-            picker.isHidden = true
-            picker.alpha = 0
+            picker.delegate = self
+            picker.dataSource = self
+            picker.isHidden = false
+            picker.alpha = 1
         }
     }
     @IBOutlet weak var notes: UITextView!
@@ -113,4 +115,14 @@ class DayViewController: UIViewController, HideLubricationDelegate {
     }
     */
 
+}
+
+extension DayViewController {
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return 1
+    }
 }
