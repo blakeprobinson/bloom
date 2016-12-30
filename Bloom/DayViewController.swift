@@ -137,7 +137,7 @@ extension DayViewController {
         
         if day == nil {
             let calendar = NSCalendar(identifier: .gregorian)
-            let threeDaysAgo = calendar?.date(byAdding: NSCalendar.Unit.day, value: -3, to: Date(), options: NSCalendar.Options.init(rawValue: 0))
+            let threeDaysAgo = calendar?.date(byAdding: NSCalendar.Unit.day, value: -3, to: Date(), options: NSCalendar.Options())
             return ["Today", "Yesterday", "Day Before Yesterday"] + datesBefore(date: threeDaysAgo!)
         } else {
             return ["AnotherDay", "Yet another day"]
