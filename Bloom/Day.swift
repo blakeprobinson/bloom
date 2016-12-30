@@ -41,6 +41,18 @@ class Day: NSObject, NSCoding {
         self.notes = notes
     }
     
+    override init() {
+        self.bleeding = nil
+        self.dry = nil
+        self.mucus = nil
+        self.observation = 1
+        self.intercourse = false
+        self.lubrication = false
+        self.pasty = false
+        self.date = Date()
+        self.notes = ""
+    }
+    
     // MARK: NSCoding
     
     required convenience init?(coder aDecoder: NSCoder) {
