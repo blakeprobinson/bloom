@@ -134,10 +134,18 @@ extension DayViewController {
     }
     
     func pickerViewData() -> [String] {
+        
         if day == nil {
-            return ["Today", "Yesterday"]
+            let calendar = NSCalendar(identifier: .gregorian)
+            let threeDaysAgo = calendar?.date(byAdding: NSCalendar.Unit.day, value: -3, to: Date(), options: NSCalendar.Options.init(rawValue: 0))
+            return ["Today", "Yesterday", "Day Before Yesterday"] + datesBefore(date: threeDaysAgo!)
         } else {
             return ["AnotherDay", "Yet another day"]
         }
+    }
+    
+    func datesBefore(date: Date) -> [String] {
+        
+        return [Date().description]
     }
 }
