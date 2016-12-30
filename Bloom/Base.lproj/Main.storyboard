@@ -564,7 +564,7 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="414" height="1250"/>
                     <connections>
-                        <outlet property="bleedingButtons" destination="wPQ-UZ-MKW" id="eqI-7q-Lg5"/>
+                        <outlet property="bleedingButtonContainer" destination="wPQ-UZ-MKW" id="YU8-Yb-Hf7"/>
                         <outlet property="circle" destination="kyF-wa-qWI" id="8nu-MW-Lqz"/>
                         <outlet property="date" destination="y8C-9b-pTn" id="xpM-Bc-q1l"/>
                         <outlet property="dryButtonContainer" destination="KIo-aE-60e" id="4Nr-Ng-pNU"/>
@@ -582,6 +582,11 @@
                         <outletCollection property="dryButtons" destination="mfR-Bx-bRZ" collectionClass="NSMutableArray" id="HUA-SB-N3v"/>
                         <outletCollection property="dryButtons" destination="CTS-Oh-a1A" collectionClass="NSMutableArray" id="7aQ-in-tBJ"/>
                         <outletCollection property="dryButtons" destination="z82-Ip-Vua" collectionClass="NSMutableArray" id="0kP-I5-sI0"/>
+                        <outletCollection property="bleedingButtons" destination="Eks-Zk-j4l" collectionClass="NSMutableArray" id="pbE-Yy-eFz"/>
+                        <outletCollection property="bleedingButtons" destination="ubg-7d-XY5" collectionClass="NSMutableArray" id="tQH-cn-hhU"/>
+                        <outletCollection property="bleedingButtons" destination="yrn-Dh-XmO" collectionClass="NSMutableArray" id="fwZ-mX-8lG"/>
+                        <outletCollection property="bleedingButtons" destination="hG9-3U-fG5" collectionClass="NSMutableArray" id="2VQ-Tg-TAL"/>
+                        <outletCollection property="bleedingButtons" destination="RLD-ao-VVv" collectionClass="NSMutableArray" id="vRC-vM-1iy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fnR-Ki-c4e" userLabel="First Responder" sceneMemberID="firstResponder"/>
