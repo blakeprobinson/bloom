@@ -528,7 +528,7 @@
                                                                     <constraint firstItem="Who-be-Tsu" firstAttribute="centerY" secondItem="DgR-le-dKu" secondAttribute="centerY" id="c7p-6T-BFc"/>
                                                                 </constraints>
                                                             </view>
-                                                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zk1-Jx-YLK" customClass="DatePicker" customModule="Bloom" customModuleProvider="target">
+                                                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zk1-Jx-YLK">
                                                                 <rect key="frame" x="0.0" y="40" width="414" height="216"/>
                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                 <constraints>
