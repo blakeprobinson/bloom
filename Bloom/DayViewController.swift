@@ -49,12 +49,15 @@ class DayViewController: UIViewController, HideLubricationDelegate, UIPickerView
     @IBOutlet var bleedingButtons: [BleedingButtonWithUnderBar]!
     
     
-    @IBOutlet weak var mucusButtons: UIStackView! {
+    @IBOutlet weak var mucusButtonContainer: UIStackView! {
         didSet {
-            mucusButtons.isHidden = true
-            mucusButtons.alpha = 0.0
+            mucusButtonContainer.isHidden = true
+            mucusButtonContainer.alpha = 0.0
         }
     }
+    
+    @IBOutlet var mucusButtons: [MucusButtonWithUnderBar]!
+    
     
     //MARK: Section 2 Outlets
     @IBOutlet weak var observation: UILabel!

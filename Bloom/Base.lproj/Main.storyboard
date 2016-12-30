@@ -571,6 +571,7 @@
                         <outlet property="intercourse" destination="dh0-Qy-vES" id="KLs-cp-Rsq"/>
                         <outlet property="lubrication" destination="fBT-dm-3ko" id="aK2-xJ-uK4"/>
                         <outlet property="lubricationView" destination="DgP-KD-Pvn" id="YyJ-jV-5nO"/>
+                        <outlet property="mucusButtonContainer" destination="AVR-pp-CvA" id="hc1-Z7-WkQ"/>
                         <outlet property="mucusButtons" destination="AVR-pp-CvA" id="9IT-xD-cbo"/>
                         <outlet property="notes" destination="128-z0-z1H" id="7P7-pN-O5P"/>
                         <outlet property="observation" destination="1Ub-Be-cdJ" id="8X1-qU-e78"/>
@@ -587,6 +588,14 @@
                         <outletCollection property="bleedingButtons" destination="yrn-Dh-XmO" collectionClass="NSMutableArray" id="fwZ-mX-8lG"/>
                         <outletCollection property="bleedingButtons" destination="hG9-3U-fG5" collectionClass="NSMutableArray" id="2VQ-Tg-TAL"/>
                         <outletCollection property="bleedingButtons" destination="RLD-ao-VVv" collectionClass="NSMutableArray" id="vRC-vM-1iy"/>
+                        <outletCollection property="mucusButtons" destination="UpW-aW-VQ8" collectionClass="NSMutableArray" id="QBC-7s-n6k"/>
+                        <outletCollection property="mucusButtons" destination="I15-cQ-aM7" collectionClass="NSMutableArray" id="RCS-0Z-bBs"/>
+                        <outletCollection property="mucusButtons" destination="HOe-Vh-hni" collectionClass="NSMutableArray" id="lu4-Ro-A8s"/>
+                        <outletCollection property="mucusButtons" destination="JfR-53-xeO" collectionClass="NSMutableArray" id="i5i-Qb-WcB"/>
+                        <outletCollection property="mucusButtons" destination="rtq-bg-KNm" collectionClass="NSMutableArray" id="jeK-FK-1GL"/>
+                        <outletCollection property="mucusButtons" destination="f4Y-hY-V3c" collectionClass="NSMutableArray" id="6g4-7v-ikT"/>
+                        <outletCollection property="mucusButtons" destination="o9n-1i-cLt" collectionClass="NSMutableArray" id="kQh-tb-ZUx"/>
+                        <outletCollection property="mucusButtons" destination="vpu-Ce-3FQ" collectionClass="NSMutableArray" id="8eg-gp-Gqw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fnR-Ki-c4e" userLabel="First Responder" sceneMemberID="firstResponder"/>
