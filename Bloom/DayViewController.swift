@@ -19,8 +19,6 @@ class DayViewController: UIViewController, HideLubricationDelegate, UIPickerView
             circle.layer.borderWidth = 3
         }
     }
-    
-    @IBOutlet weak var date: UILabel!
     @IBOutlet weak var requiredInput: UILabel!
     
     //MARK: Section 1 Outlets
@@ -59,7 +57,13 @@ class DayViewController: UIViewController, HideLubricationDelegate, UIPickerView
     @IBOutlet weak var startNewCycle: UIView!
     
     //MARK: Section 3 Outlets
-    @IBOutlet weak var adjustableDate: UILabel!
+    @IBOutlet weak var date: UIButton! {
+        didSet {
+            adjustableDate.text = "Today"
+            date.addSubview(adjustableDate)
+        }
+    }
+    var adjustableDate = UILabel(frame: CGRect(x: UIScreen.main.bounds.width-57, y: 7, width: 100, height: 30))
     @IBOutlet weak var picker: UIPickerView! {
         didSet {
             picker.delegate = self
