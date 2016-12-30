@@ -114,6 +114,16 @@ class DayViewController: UIViewController, HideLubricationDelegate, UIPickerView
         hideShowView(view: dryButtonContainer)
     }
     
+    @IBAction func addBleedingTouched(_ sender: PlusMinusButton) {
+        sender.isSelected = !sender.isSelected
+        hideShowView(view: bleedingButtonContainer)
+    }
+    
+    @IBAction func addMucusTouched(_ sender: PlusMinusButton) {
+        sender.isSelected = !sender.isSelected
+        hideShowView(view: mucusButtonContainer)
+    }
+    
     
     
     @IBAction func dryButtonTouched(_ sender: ButtonWithUnderBar) {

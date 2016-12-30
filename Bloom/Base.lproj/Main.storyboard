@@ -163,6 +163,9 @@
                                                                 <state key="normal" title="Bleeding">
                                                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                                                 </state>
+                                                                <connections>
+                                                                    <action selector="addBleedingTouched:" destination="nez-Db-vhN" eventType="touchUpInside" id="MOZ-d2-56x"/>
+                                                                </connections>
                                                             </button>
                                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="wPQ-UZ-MKW" userLabel="Bleeding Buttons" customClass="StackViewWithButtons" customModule="Bloom" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="136" width="414" height="55"/>
@@ -250,6 +253,9 @@
                                                                 <state key="normal" title="Mucus">
                                                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                                                 </state>
+                                                                <connections>
+                                                                    <action selector="addMucusTouched:" destination="nez-Db-vhN" eventType="touchUpInside" id="VKq-dK-dve"/>
+                                                                </connections>
                                                             </button>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="AVR-pp-CvA" userLabel="Mucus Buttons">
                                                                 <rect key="frame" x="0.0" y="232" width="414" height="175"/>

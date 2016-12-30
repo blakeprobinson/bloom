@@ -20,7 +20,7 @@ class SectionOneStackView: UIStackView, DisableButtonsDelegate {
         super.awakeFromNib()
         for view in subviews {
             if let button = view as? UIButton {
-                button.addTarget(self, action: #selector(toggleStackViewWithButtons), for: .touchUpInside)
+                //button.addTarget(self, action: #selector(toggleStackViewWithButtons), for: .touchUpInside)
             } else if let stackViewWithButtons = view as? StackViewWithButtons {
                 stackViewWithButtons.delegate = self
             } else if let stackView = view as? UIStackView {
