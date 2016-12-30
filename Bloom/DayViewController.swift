@@ -145,7 +145,15 @@ extension DayViewController {
     }
     
     func datesBefore(date: Date) -> [String] {
+        var dates = [String]()
+        let calendar = NSCalendar(identifier: .gregorian)
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "EEEE, MMM d"
         
-        return [Date().description]
+        for index in 1...5 {
+            let day = calendar?.date(byAdding: NSCalendar.Unit.day, value: -index , to: date, options: NSCalendar.Options())
+            dates.append(dateFormatter.string(from: day!))
+        }
+        return dates
     }
 }
