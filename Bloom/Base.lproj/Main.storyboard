@@ -97,6 +97,9 @@
                                                                 <state key="normal" title="Dry">
                                                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                                                 </state>
+                                                                <connections>
+                                                                    <action selector="addDryTouched:" destination="nez-Db-vhN" eventType="touchUpInside" id="wQB-eb-XtS"/>
+                                                                </connections>
                                                             </button>
                                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="KIo-aE-60e" userLabel="Dry Buttons" customClass="StackViewWithButtons" customModule="Bloom" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="40" width="414" height="55"/>
@@ -572,7 +575,6 @@
                         <outlet property="lubrication" destination="fBT-dm-3ko" id="aK2-xJ-uK4"/>
                         <outlet property="lubricationView" destination="DgP-KD-Pvn" id="YyJ-jV-5nO"/>
                         <outlet property="mucusButtonContainer" destination="AVR-pp-CvA" id="hc1-Z7-WkQ"/>
-                        <outlet property="mucusButtons" destination="AVR-pp-CvA" id="9IT-xD-cbo"/>
                         <outlet property="notes" destination="128-z0-z1H" id="7P7-pN-O5P"/>
                         <outlet property="observation" destination="1Ub-Be-cdJ" id="8X1-qU-e78"/>
                         <outlet property="picker" destination="zk1-Jx-YLK" id="XKa-3j-s3f"/>

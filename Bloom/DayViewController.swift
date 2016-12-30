@@ -97,14 +97,34 @@ class DayViewController: UIViewController, HideLubricationDelegate, UIPickerView
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        if day == nil {
+            day = Day()
+        }
         // Do any additional setup after loading the view.
     }
+    
+    private func updateUI() {
+        if let day = day {
+            
+        }
+    }
+    
+    @IBAction func addDryTouched(_ sender: PlusMinusButton) {
+        sender.isSelected = !sender.isSelected
+        hideShowView(view: dryButtonContainer)
+    }
+    
+    
     
     @IBAction func dryButtonTouched(_ sender: ButtonWithUnderBar) {
     }
     
-    
+    private func hideShowView(view: UIView) {
+        UIView.animate(withDuration: 0.1, animations: {
+            view.isHidden = !view.isHidden
+            view.alpha = view.isHidden ? 0.0 : 1
+        })
+    }
     
     func hideShowLubricationView() {
         UIView.animate(withDuration: 0.1, animations: {
