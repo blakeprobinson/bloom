@@ -544,6 +544,9 @@
                                                                     </label>
                                                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="TmD-34-dgV">
                                                                         <rect key="frame" x="357" y="4" width="51" height="31"/>
+                                                                        <connections>
+                                                                            <action selector="newCycleToggled:" destination="nez-Db-vhN" eventType="valueChanged" id="J6V-pG-Q44"/>
+                                                                        </connections>
                                                                     </switch>
                                                                 </subviews>
                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

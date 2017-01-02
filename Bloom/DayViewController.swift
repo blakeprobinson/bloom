@@ -254,6 +254,9 @@ class DayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
         day?.lubrication = sender.isOn
     }
     
+    @IBAction func newCycleToggled(_ sender: UISwitch) {
+        
+    }
     
     private func hideShowView(view: UIView) {
         UIView.animate(withDuration: 0.1, animations: {
