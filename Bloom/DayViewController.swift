@@ -62,6 +62,7 @@ class DayViewController: UIViewController, HideLubricationDelegate, UIPickerView
     @IBOutlet var mucusButtons: [MucusButtonWithUnderBar]!
     
     @IBOutlet var mucusLengthButtons: [MucusButtonWithUnderBar]!
+    @IBOutlet var mucusColorButtons: [ButtonWithUnderBar]!
     
     
     //MARK: Section 2 Outlets
@@ -147,7 +148,7 @@ class DayViewController: UIViewController, HideLubricationDelegate, UIPickerView
         "1/2-3/4": "1/2-3/4",
         "1": "1",
         "Clear": "Clear",
-        "Cloudy-Clear": "Cloudy Clear",
+        "Cloudy- Clear": "Cloudy Clear",
         "Cloudy": "Cloudy",
         "Yellow": "Yellow",
         "Brown": "Brown",
@@ -194,12 +195,28 @@ class DayViewController: UIViewController, HideLubricationDelegate, UIPickerView
                     rawValue: mucusButtonTitleToModel[sender.currentTitle!]!
                     )!
             } else {
-                day?.mucus = Day.Mucus(length: sender.currentTitle!, color: nil)!
+                day?.mucus = Day.Mucus(length: mucusButtonTitleToModel[sender.currentTitle!]!, color: nil)!
             }
         } else {
             day?.mucus?.length = nil
         }
     }
+    
+    @IBAction func mucusColorTouched(_ sender: ButtonWithUnderBar) {
+        deselectAllBut(sender: sender, from: mucusColorButtons)
+        if sender.isSelected {
+            if var mucus = day?.mucus {
+                mucus.color = Day.Mucus.Color(
+                    rawValue: mucusButtonTitleToModel[sender.currentTitle!]!
+                    )!
+            } else {
+                day?.mucus = Day.Mucus(length: nil, color: mucusButtonTitleToModel[sender.currentTitle!]!)!
+            }
+        } else {
+            day?.mucus?.length = nil
+        }
+    }
+    
     
     
     private func deselectAllBut(sender: ButtonWithUnderBar, from collection: [ButtonWithUnderBar]) {
