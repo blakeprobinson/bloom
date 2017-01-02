@@ -61,7 +61,8 @@ class Day: NSObject, NSCoding {
         let dry = Dry.init(observation: aDecoder.decodeObject(forKey: PropertyKey.dry)  as? String)
         let mucus = Mucus.init(
                 length: aDecoder.decodeObject(forKey: PropertyKey.mucusLength) as? String,
-                color: aDecoder.decodeObject(forKey: PropertyKey.mucusColor) as? String
+                color: aDecoder.decodeObject(forKey: PropertyKey.mucusColor) as? String,
+                consistency: aDecoder.decodeObject(forKey: PropertyKey.mucusConsistency) as? String
             )
         
         let observation = aDecoder.decodeInteger(forKey: PropertyKey.observation)
@@ -89,6 +90,7 @@ class Day: NSObject, NSCoding {
         static let dry = "dry"
         static let mucusColor = "mucusColor"
         static let mucusLength = "mucusLength"
+        static let mucusConsistency = "mucusConsistency"
         
         static let observation = "observation"
         static let intercourse = "intercourse"
@@ -172,7 +174,7 @@ extension Day {
         var color:Color?
         var consistency:Consistency?
         
-        init?(length: String?, color: String?, consistency: Consistency?) {
+        init?(length: String?, color: String?, consistency: String?) {
             
             if let length = length {
                 self.length = Length(rawValue: length)
@@ -184,7 +186,12 @@ extension Day {
             } else {
                 self.color = nil
             }
-            if self.length == nil && self.color == nil {
+            if let consistency = consistency {
+                self.consistency = Consistency(rawValue: consistency)
+            } else {
+                self.consistency = nil
+            }
+            if self.length == nil && self.color == nil && self.consistency == nil {
                 return nil
             }
             
