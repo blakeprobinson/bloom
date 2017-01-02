@@ -245,6 +245,7 @@ class DayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
     @IBAction func adjustObservation(_ sender: UIStepper) {
         let observationDescription = sender.value == 1 ? " Observation" : " Observations"
         observation.text = String(Int(sender.value)) + observationDescription
+        day?.observation = Int(sender.value)
     }
     @IBAction func intercourseToggled(_ sender: UISwitch) {
         day?.intercourse = sender.isOn
