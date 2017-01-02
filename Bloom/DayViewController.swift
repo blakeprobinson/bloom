@@ -157,7 +157,7 @@ class DayViewController: UIViewController, HideLubricationDelegate, UIPickerView
     
     @IBAction func dryButtonTouched(_ sender: ButtonWithUnderBar) {
         deselectAllBut(sender: sender, from: dryButtons)
-        sender.isSelected = !sender.isSelected
+
         addMucusButton.isEnabled = !sender.isSelected
         if sender.isSelected {
             day?.dry = Day.Dry(
@@ -170,7 +170,6 @@ class DayViewController: UIViewController, HideLubricationDelegate, UIPickerView
     
     @IBAction func bleedingButtonTouched(_ sender: BleedingButtonWithUnderBar) {
         deselectAllBut(sender: sender, from: bleedingButtons)
-        sender.isSelected = !sender.isSelected
         
         if sender.isSelected {
             day?.bleeding = Day.Bleeding(
@@ -188,7 +187,6 @@ class DayViewController: UIViewController, HideLubricationDelegate, UIPickerView
     }
     @IBAction func mucusLengthTouched(_ sender: ButtonWithUnderBar) {
         deselectAllBut(sender: sender, from: mucusLengthButtons)
-        sender.isSelected = !sender.isSelected
         
         if sender.isSelected {
             if var mucus = day?.mucus {
@@ -210,6 +208,7 @@ class DayViewController: UIViewController, HideLubricationDelegate, UIPickerView
                 button.isSelected = false
             }
         }
+        sender.isSelected = !sender.isSelected
     }
     
     
