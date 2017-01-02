@@ -91,7 +91,7 @@ class DayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
     // user is adding a new day
     var day:Day? {
         didSet {
-            //update ui to incorporate data in Day into UI.
+            updateUI()
         }
     }
 
@@ -101,12 +101,24 @@ class DayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
         if day == nil {
             day = Day()
         }
+        updateUI()
         // Do any additional setup after loading the view.
     }
     
     private func updateUI() {
         if let day = day {
-            
+            if let dry = day.dry {
+                addMucusButton.isEnabled = false
+                for button in dryButtons {
+                    if button.currentTitle! == dryBleedingButtonTitleToModel[dry.observation.rawValue] {
+                        button.isSelected = true
+                    } else {
+                        button.isSelected = false
+                    }
+                }
+            } else {
+                addMucusButton.isEnabled = true
+            }
         }
     }
     //MARK: PlusMinusButton IBActions
@@ -152,9 +164,7 @@ class DayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
     ]
     
     @IBAction func dryButtonTouched(_ sender: ButtonWithUnderBar) {
-        deselectAllBut(sender: sender, from: dryButtons)
-
-        addMucusButton.isEnabled = !sender.isSelected
+        sender.isSelected = !sender.isSelected
         if sender.isSelected {
             day?.dry = Day.Dry(
                 observation: dryBleedingButtonTitleToModel[sender.currentTitle!]!
@@ -162,6 +172,7 @@ class DayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
         } else {
             day?.dry = nil
         }
+        updateUI()
     }
     
     @IBAction func bleedingButtonTouched(_ sender: ButtonWithUnderBar) {
