@@ -59,10 +59,9 @@ class DayViewController: UIViewController, HideLubricationDelegate, UIPickerView
         }
     }
     
-    @IBOutlet var mucusButtons: [MucusButtonWithUnderBar]!
-    
-    @IBOutlet var mucusLengthButtons: [MucusButtonWithUnderBar]!
+    @IBOutlet var mucusLengthButtons: [ButtonWithUnderBar]!
     @IBOutlet var mucusColorButtons: [ButtonWithUnderBar]!
+    @IBOutlet var mucusConsistencyButtons: [ButtonWithUnderBar]!
     
     
     //MARK: Section 2 Outlets

@@ -638,14 +638,6 @@
                         <outletCollection property="bleedingButtons" destination="yrn-Dh-XmO" collectionClass="NSMutableArray" id="fwZ-mX-8lG"/>
                         <outletCollection property="bleedingButtons" destination="hG9-3U-fG5" collectionClass="NSMutableArray" id="2VQ-Tg-TAL"/>
                         <outletCollection property="bleedingButtons" destination="RLD-ao-VVv" collectionClass="NSMutableArray" id="vRC-vM-1iy"/>
-                        <outletCollection property="mucusButtons" destination="UpW-aW-VQ8" collectionClass="NSMutableArray" id="QBC-7s-n6k"/>
-                        <outletCollection property="mucusButtons" destination="I15-cQ-aM7" collectionClass="NSMutableArray" id="RCS-0Z-bBs"/>
-                        <outletCollection property="mucusButtons" destination="HOe-Vh-hni" collectionClass="NSMutableArray" id="lu4-Ro-A8s"/>
-                        <outletCollection property="mucusButtons" destination="JfR-53-xeO" collectionClass="NSMutableArray" id="i5i-Qb-WcB"/>
-                        <outletCollection property="mucusButtons" destination="rtq-bg-KNm" collectionClass="NSMutableArray" id="jeK-FK-1GL"/>
-                        <outletCollection property="mucusButtons" destination="f4Y-hY-V3c" collectionClass="NSMutableArray" id="6g4-7v-ikT"/>
-                        <outletCollection property="mucusButtons" destination="o9n-1i-cLt" collectionClass="NSMutableArray" id="kQh-tb-ZUx"/>
-                        <outletCollection property="mucusButtons" destination="vpu-Ce-3FQ" collectionClass="NSMutableArray" id="8eg-gp-Gqw"/>
                         <outletCollection property="mucusLengthButtons" destination="UpW-aW-VQ8" collectionClass="NSMutableArray" id="rKs-Cp-uQ8"/>
                         <outletCollection property="mucusLengthButtons" destination="I15-cQ-aM7" collectionClass="NSMutableArray" id="MP1-fY-meI"/>
                         <outletCollection property="mucusLengthButtons" destination="HOe-Vh-hni" collectionClass="NSMutableArray" id="AkV-Ly-tL6"/>
@@ -654,6 +646,8 @@
                         <outletCollection property="mucusColorButtons" destination="f4Y-hY-V3c" collectionClass="NSMutableArray" id="gJ0-Tv-TzU"/>
                         <outletCollection property="mucusColorButtons" destination="o9n-1i-cLt" collectionClass="NSMutableArray" id="NqK-Bk-awH"/>
                         <outletCollection property="mucusColorButtons" destination="vpu-Ce-3FQ" collectionClass="NSMutableArray" id="49O-Vu-Fis"/>
+                        <outletCollection property="mucusConsistencyButtons" destination="pN4-it-C7Y" collectionClass="NSMutableArray" id="LUc-yB-eu7"/>
+                        <outletCollection property="mucusConsistencyButtons" destination="3tQ-sy-6kf" collectionClass="NSMutableArray" id="fv2-ef-8gv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fnR-Ki-c4e" userLabel="First Responder" sceneMemberID="firstResponder"/>
