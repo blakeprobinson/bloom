@@ -130,7 +130,7 @@ class DayViewController: UIViewController, HideLubricationDelegate, UIPickerView
     }
     
     //MARK: ButtonWithUnderBar IBActions
-    private var dryBleedingbuttonTitleToModel = [
+    private var dryBleedingButtonTitleToModel = [
         "Dry": "Dry",
         "Damp": "Damp",
         "Wet": "Wet",
@@ -164,7 +164,9 @@ class DayViewController: UIViewController, HideLubricationDelegate, UIPickerView
         sender.isSelected = !sender.isSelected
         addMucusButton.isEnabled = !sender.isSelected
         if sender.isSelected {
-            day?.dry = Day.Dry(observation: sender.currentTitle!)
+            day?.dry = Day.Dry(
+                observation: dryBleedingButtonTitleToModel[sender.currentTitle!]!
+            )
         } else {
             day?.dry = nil
         }
@@ -179,7 +181,9 @@ class DayViewController: UIViewController, HideLubricationDelegate, UIPickerView
         sender.isSelected = !sender.isSelected
         
         if sender.isSelected {
-            day?.bleeding = Day.Bleeding(intensity: sender.currentTitle!)
+            day?.bleeding = Day.Bleeding(
+                intensity: dryBleedingButtonTitleToModel[sender.currentTitle!]!
+            )
         } else {
             day?.bleeding = nil
         }
@@ -189,7 +193,6 @@ class DayViewController: UIViewController, HideLubricationDelegate, UIPickerView
             addMucusButton.isEnabled = !sender.isSelected
             hideShowView(view: lubricationView)
         }
-        
     }
     @IBAction func mucusLengthTouched(_ sender: ButtonWithUnderBar) {
         for button in mucusLengthButtons {
@@ -201,7 +204,9 @@ class DayViewController: UIViewController, HideLubricationDelegate, UIPickerView
         
         if sender.isSelected {
             if var mucus = day?.mucus {
-                mucus.length = Day.Mucus.Length(rawValue: sender.currentTitle!)!
+                mucus.length = Day.Mucus.Length(
+                    rawValue: mucusButtonTitleToModel[sender.currentTitle!]!
+                    )!
             } else {
                 day?.mucus = Day.Mucus(length: sender.currentTitle!, color: nil)!
             }
