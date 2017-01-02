@@ -494,6 +494,9 @@
                                                                     </label>
                                                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="dh0-Qy-vES">
                                                                         <rect key="frame" x="357" y="4" width="51" height="31"/>
+                                                                        <connections>
+                                                                            <action selector="intercourseToggled:" destination="nez-Db-vhN" eventType="valueChanged" id="Hoq-V3-gEh"/>
+                                                                        </connections>
                                                                     </switch>
                                                                 </subviews>
                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -516,6 +519,9 @@
                                                                     </label>
                                                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="fBT-dm-3ko">
                                                                         <rect key="frame" x="357" y="4" width="51" height="31"/>
+                                                                        <connections>
+                                                                            <action selector="lubricationToggled:" destination="nez-Db-vhN" eventType="valueChanged" id="baA-5y-lsJ"/>
+                                                                        </connections>
                                                                     </switch>
                                                                 </subviews>
                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

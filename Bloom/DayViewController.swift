@@ -95,6 +95,7 @@ class DayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
         }
     }
 
+    //MARK: View LifeCycle methods
     override func viewDidLoad() {
         super.viewDidLoad()
         if day == nil {
@@ -124,7 +125,7 @@ class DayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
         hideShowView(view: mucusButtonContainer)
     }
     
-    //MARK: ButtonWithUnderBar IBActions
+    //MARK: ButtonWithUnderBar IBActions and related
     private var dryBleedingButtonTitleToModel = [
         "Dry": "Dry",
         "Damp": "Damp",
@@ -240,6 +241,19 @@ class DayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
         sender.isSelected = !sender.isSelected
     }
     
+    //MARK: Section Two IBOutlets
+    @IBAction func adjustObservation(_ sender: UIStepper) {
+        let observationDescription = sender.value == 1 ? " Observation" : " Observations"
+        observation.text = String(Int(sender.value)) + observationDescription
+    }
+    @IBAction func intercourseToggled(_ sender: UISwitch) {
+        day?.intercourse = sender.isOn
+    }
+    
+    @IBAction func lubricationToggled(_ sender: UISwitch) {
+        day?.lubrication = sender.isOn
+    }
+    
     
     private func hideShowView(view: UIView) {
         UIView.animate(withDuration: 0.1, animations: {
@@ -254,12 +268,6 @@ class DayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
             self.picker.isHidden = !self.picker.isHidden
             self.picker.alpha = self.picker.isHidden ? 0.0 : 1.0
         })
-    }
-    
-    
-    @IBAction func adjustObservation(_ sender: UIStepper) {
-        let observationDescription = sender.value == 1 ? " Observation" : " Observations"
-        observation.text = String(Int(sender.value)) + observationDescription
     }
     
     
