@@ -16,11 +16,7 @@
 		BA2BB7C81DF8AE32008F3D51 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BA2BB7C71DF8AE32008F3D51 /* Assets.xcassets */; };
 		BA2BB7CB1DF8AE32008F3D51 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA2BB7C91DF8AE32008F3D51 /* LaunchScreen.storyboard */; };
 		BA2BB7D61DF8AF1D008F3D51 /* Day.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA2BB7D51DF8AF1D008F3D51 /* Day.swift */; };
-		BA91F1BE1E1415B000C209BC /* SectionOneStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA91F1BD1E1415B000C209BC /* SectionOneStackView.swift */; };
 		BA91F1C01E14346C00C209BC /* PlusMinusButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA91F1BF1E14346C00C209BC /* PlusMinusButton.swift */; };
-		BA91F1C21E146CBD00C209BC /* DryButtonWithUnderBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA91F1C11E146CBD00C209BC /* DryButtonWithUnderBar.swift */; };
-		BA91F1C51E1555EE00C209BC /* BleedingButtonWithUnderBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA91F1C41E1555EE00C209BC /* BleedingButtonWithUnderBar.swift */; };
-		BA91F1C71E155FB600C209BC /* MucusButtonWithUnderBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA91F1C61E155FB600C209BC /* MucusButtonWithUnderBar.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,11 +31,7 @@
 		BA2BB7CA1DF8AE32008F3D51 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BA2BB7CC1DF8AE32008F3D51 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BA2BB7D51DF8AF1D008F3D51 /* Day.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Day.swift; sourceTree = "<group>"; };
-		BA91F1BD1E1415B000C209BC /* SectionOneStackView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SectionOneStackView.swift; sourceTree = "<group>"; };
 		BA91F1BF1E14346C00C209BC /* PlusMinusButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlusMinusButton.swift; sourceTree = "<group>"; };
-		BA91F1C11E146CBD00C209BC /* DryButtonWithUnderBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DryButtonWithUnderBar.swift; sourceTree = "<group>"; };
-		BA91F1C41E1555EE00C209BC /* BleedingButtonWithUnderBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BleedingButtonWithUnderBar.swift; sourceTree = "<group>"; };
-		BA91F1C61E155FB600C209BC /* MucusButtonWithUnderBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MucusButtonWithUnderBar.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,13 +88,9 @@
 			isa = PBXGroup;
 			children = (
 				BA02B8AB1E0335A80051BACD /* DayViewController.swift */,
-				BA91F1BD1E1415B000C209BC /* SectionOneStackView.swift */,
 				BA91F1BF1E14346C00C209BC /* PlusMinusButton.swift */,
 				BA0F458A1E11BD8500B23715 /* StackViewWithButtons.swift */,
 				BA0F45881E0C5EE900B23715 /* ButtonWithUnderBar.swift */,
-				BA91F1C11E146CBD00C209BC /* DryButtonWithUnderBar.swift */,
-				BA91F1C41E1555EE00C209BC /* BleedingButtonWithUnderBar.swift */,
-				BA91F1C61E155FB600C209BC /* MucusButtonWithUnderBar.swift */,
 			);
 			name = DayView;
 			sourceTree = "<group>";
@@ -181,12 +169,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				BA02B8891E01D2540051BACD /* Cycle.swift in Sources */,
-				BA91F1C71E155FB600C209BC /* MucusButtonWithUnderBar.swift in Sources */,
-				BA91F1C21E146CBD00C209BC /* DryButtonWithUnderBar.swift in Sources */,
 				BA0F458B1E11BD8500B23715 /* StackViewWithButtons.swift in Sources */,
 				BA0F45891E0C5EE900B23715 /* ButtonWithUnderBar.swift in Sources */,
-				BA91F1BE1E1415B000C209BC /* SectionOneStackView.swift in Sources */,
-				BA91F1C51E1555EE00C209BC /* BleedingButtonWithUnderBar.swift in Sources */,
 				BA2BB7C11DF8AE32008F3D51 /* AppDelegate.swift in Sources */,
 				BA02B8AC1E0335A80051BACD /* DayViewController.swift in Sources */,
 				BA91F1C01E14346C00C209BC /* PlusMinusButton.swift in Sources */,

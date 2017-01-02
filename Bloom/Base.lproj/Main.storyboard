@@ -84,7 +84,7 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="L7Y-iT-uic" userLabel="Body">
                                                 <rect key="frame" x="0.0" y="96" width="414" height="1011"/>
                                                 <subviews>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="yuD-2m-GTu" userLabel="Section 1" customClass="SectionOneStackView" customModule="Bloom" customModuleProvider="target">
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="yuD-2m-GTu" userLabel="Section 1">
                                                         <rect key="frame" x="0.0" y="0.0" width="414" height="407"/>
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dhH-Bb-8PW" userLabel="Add Dry" customClass="PlusMinusButton" customModule="Bloom" customModuleProvider="target">
@@ -104,10 +104,9 @@
                                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="KIo-aE-60e" userLabel="Dry Buttons" customClass="StackViewWithButtons" customModule="Bloom" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="40" width="414" height="55"/>
                                                                 <subviews>
-                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W4S-n5-UdY" customClass="DryButtonWithUnderBar" customModule="Bloom" customModuleProvider="target">
+                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W4S-n5-UdY" customClass="ButtonWithUnderBar" customModule="Bloom" customModuleProvider="target">
                                                                         <rect key="frame" x="0.0" y="0.0" width="102.66666666666667" height="55"/>
                                                                         <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
-                                                                        <inset key="titleEdgeInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="17"/>
                                                                         <state key="normal" title="Dry">
                                                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                                                         </state>
@@ -115,7 +114,7 @@
                                                                             <action selector="dryButtonTouched:" destination="nez-Db-vhN" eventType="touchUpInside" id="Qiy-HO-F1C"/>
                                                                         </connections>
                                                                     </button>
-                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mfR-Bx-bRZ" customClass="DryButtonWithUnderBar" customModule="Bloom" customModuleProvider="target">
+                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mfR-Bx-bRZ" customClass="ButtonWithUnderBar" customModule="Bloom" customModuleProvider="target">
                                                                         <rect key="frame" x="103.66666666666666" y="0.0" width="102.99999999999997" height="55"/>
                                                                         <color key="backgroundColor" red="0.85098039215686272" green="0.91764705882352937" blue="0.82745098039215681" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                         <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
@@ -126,7 +125,7 @@
                                                                             <action selector="dryButtonTouched:" destination="nez-Db-vhN" eventType="touchUpInside" id="LAm-y5-mCx"/>
                                                                         </connections>
                                                                     </button>
-                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CTS-Oh-a1A" customClass="DryButtonWithUnderBar" customModule="Bloom" customModuleProvider="target">
+                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CTS-Oh-a1A" customClass="ButtonWithUnderBar" customModule="Bloom" customModuleProvider="target">
                                                                         <rect key="frame" x="207.66666666666669" y="0.0" width="102.66666666666669" height="55"/>
                                                                         <color key="backgroundColor" red="0.71372549019607845" green="0.84313725490196079" blue="0.6588235294117647" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                         <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
@@ -137,7 +136,7 @@
                                                                             <action selector="dryButtonTouched:" destination="nez-Db-vhN" eventType="touchUpInside" id="61U-dt-g9k"/>
                                                                         </connections>
                                                                     </button>
-                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z82-Ip-Vua" customClass="DryButtonWithUnderBar" customModule="Bloom" customModuleProvider="target">
+                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z82-Ip-Vua" customClass="ButtonWithUnderBar" customModule="Bloom" customModuleProvider="target">
                                                                         <rect key="frame" x="311.33333333333326" y="0.0" width="102.66666666666669" height="55"/>
                                                                         <color key="backgroundColor" red="0.57647058823529407" green="0.76862745098039209" blue="0.49019607843137253" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                         <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
@@ -170,7 +169,7 @@
                                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="wPQ-UZ-MKW" userLabel="Bleeding Buttons" customClass="StackViewWithButtons" customModule="Bloom" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="136" width="414" height="55"/>
                                                                 <subviews>
-                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="Eks-Zk-j4l" customClass="BleedingButtonWithUnderBar" customModule="Bloom" customModuleProvider="target">
+                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="Eks-Zk-j4l" customClass="ButtonWithUnderBar" customModule="Bloom" customModuleProvider="target">
                                                                         <rect key="frame" x="0.0" y="0.0" width="82" height="55"/>
                                                                         <color key="backgroundColor" red="0.98766380548477173" green="0.79252201318740845" blue="0.79638034105300903" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                         <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
@@ -186,7 +185,7 @@
                                                                             <action selector="bleedingButtonTouched:" destination="nez-Db-vhN" eventType="touchUpInside" id="xc6-2Z-Wmz"/>
                                                                         </connections>
                                                                     </button>
-                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="ubg-7d-XY5" customClass="BleedingButtonWithUnderBar" customModule="Bloom" customModuleProvider="target">
+                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="ubg-7d-XY5" customClass="ButtonWithUnderBar" customModule="Bloom" customModuleProvider="target">
                                                                         <rect key="frame" x="83" y="0.0" width="82" height="55"/>
                                                                         <color key="backgroundColor" red="0.97136098146438599" green="0.58146309852600098" blue="0.59130942821502686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                         <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
@@ -202,7 +201,7 @@
                                                                             <action selector="bleedingButtonTouched:" destination="nez-Db-vhN" eventType="touchUpInside" id="LvN-og-oLo"/>
                                                                         </connections>
                                                                     </button>
-                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="characterWrap" translatesAutoresizingMaskIntoConstraints="NO" id="yrn-Dh-XmO" customClass="BleedingButtonWithUnderBar" customModule="Bloom" customModuleProvider="target">
+                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="characterWrap" translatesAutoresizingMaskIntoConstraints="NO" id="yrn-Dh-XmO" customClass="ButtonWithUnderBar" customModule="Bloom" customModuleProvider="target">
                                                                         <rect key="frame" x="166" y="0.0" width="82" height="55"/>
                                                                         <color key="backgroundColor" red="0.9467349648475647" green="0.36088466644287109" blue="0.38222569227218628" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                         <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
@@ -214,13 +213,12 @@
                                                                             <userDefinedRuntimeAttribute type="color" keyPath="underBarColor">
                                                                                 <color key="value" red="0.59999999999999998" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                             </userDefinedRuntimeAttribute>
-                                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isModOrHeavy" value="YES"/>
                                                                         </userDefinedRuntimeAttributes>
                                                                         <connections>
                                                                             <action selector="bleedingButtonTouched:" destination="nez-Db-vhN" eventType="touchUpInside" id="z0V-RC-EKB"/>
                                                                         </connections>
                                                                     </button>
-                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hG9-3U-fG5" customClass="BleedingButtonWithUnderBar" customModule="Bloom" customModuleProvider="target">
+                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hG9-3U-fG5" customClass="ButtonWithUnderBar" customModule="Bloom" customModuleProvider="target">
                                                                         <rect key="frame" x="249" y="0.0" width="82" height="55"/>
                                                                         <color key="backgroundColor" red="0.8691062331199646" green="0.18861770629882812" blue="0.053720653057098389" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                         <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
@@ -231,13 +229,12 @@
                                                                             <userDefinedRuntimeAttribute type="color" keyPath="underBarColor">
                                                                                 <color key="value" red="0.59999999999999998" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                             </userDefinedRuntimeAttribute>
-                                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isModOrHeavy" value="YES"/>
                                                                         </userDefinedRuntimeAttributes>
                                                                         <connections>
                                                                             <action selector="bleedingButtonTouched:" destination="nez-Db-vhN" eventType="touchUpInside" id="gRr-jS-L7a"/>
                                                                         </connections>
                                                                     </button>
-                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RLD-ao-VVv" customClass="BleedingButtonWithUnderBar" customModule="Bloom" customModuleProvider="target">
+                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RLD-ao-VVv" customClass="ButtonWithUnderBar" customModule="Bloom" customModuleProvider="target">
                                                                         <rect key="frame" x="332" y="0.0" width="82" height="55"/>
                                                                         <color key="backgroundColor" red="0.65490196078431373" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                         <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
@@ -278,7 +275,7 @@
                                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="we0-Gy-PO4" userLabel="Mucus Length Buttons" customClass="StackViewWithButtons" customModule="Bloom" customModuleProvider="target">
                                                                         <rect key="frame" x="0.0" y="0.0" width="414" height="55"/>
                                                                         <subviews>
-                                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UpW-aW-VQ8" userLabel="Quarter" customClass="MucusButtonWithUnderBar" customModule="Bloom" customModuleProvider="target">
+                                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UpW-aW-VQ8" userLabel="Quarter" customClass="ButtonWithUnderBar" customModule="Bloom" customModuleProvider="target">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="137.33333333333334" height="55"/>
                                                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                                                                 <state key="normal" title="1/4">
@@ -293,7 +290,7 @@
                                                                                     <action selector="mucusLengthTouched:" destination="nez-Db-vhN" eventType="touchUpInside" id="Tsa-rC-BuH"/>
                                                                                 </connections>
                                                                             </button>
-                                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I15-cQ-aM7" userLabel="Half" customClass="MucusButtonWithUnderBar" customModule="Bloom" customModuleProvider="target">
+                                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I15-cQ-aM7" userLabel="Half" customClass="ButtonWithUnderBar" customModule="Bloom" customModuleProvider="target">
                                                                                 <rect key="frame" x="138.33333333333331" y="0.0" width="137.33333333333331" height="55"/>
                                                                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
@@ -309,7 +306,7 @@
                                                                                     <action selector="mucusLengthTouched:" destination="nez-Db-vhN" eventType="touchUpInside" id="Rnl-RA-diA"/>
                                                                                 </connections>
                                                                             </button>
-                                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HOe-Vh-hni" userLabel="One" customClass="MucusButtonWithUnderBar" customModule="Bloom" customModuleProvider="target">
+                                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HOe-Vh-hni" userLabel="One" customClass="ButtonWithUnderBar" customModule="Bloom" customModuleProvider="target">
                                                                                 <rect key="frame" x="276.66666666666674" y="0.0" width="137.33333333333331" height="55"/>
                                                                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
@@ -330,7 +327,7 @@
                                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="DJy-ZL-qw9" userLabel="Mucus Color Buttons" customClass="StackViewWithButtons" customModule="Bloom" customModuleProvider="target">
                                                                         <rect key="frame" x="0.0" y="60" width="414" height="55"/>
                                                                         <subviews>
-                                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JfR-53-xeO" customClass="MucusButtonWithUnderBar" customModule="Bloom" customModuleProvider="target">
+                                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JfR-53-xeO" customClass="ButtonWithUnderBar" customModule="Bloom" customModuleProvider="target">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="82" height="55"/>
                                                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                                                                 <state key="normal" title="Clear">
@@ -345,7 +342,7 @@
                                                                                     <action selector="mucusColorTouched:" destination="nez-Db-vhN" eventType="touchUpInside" id="ydH-D4-eba"/>
                                                                                 </connections>
                                                                             </button>
-                                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="rtq-bg-KNm" userLabel="Cloudy/Clear" customClass="MucusButtonWithUnderBar" customModule="Bloom" customModuleProvider="target">
+                                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="rtq-bg-KNm" userLabel="Cloudy/Clear" customClass="ButtonWithUnderBar" customModule="Bloom" customModuleProvider="target">
                                                                                 <rect key="frame" x="83" y="0.0" width="82" height="55"/>
                                                                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
@@ -361,7 +358,7 @@
                                                                                     <action selector="mucusColorTouched:" destination="nez-Db-vhN" eventType="touchUpInside" id="06U-WQ-JCw"/>
                                                                                 </connections>
                                                                             </button>
-                                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f4Y-hY-V3c" customClass="MucusButtonWithUnderBar" customModule="Bloom" customModuleProvider="target">
+                                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f4Y-hY-V3c" customClass="ButtonWithUnderBar" customModule="Bloom" customModuleProvider="target">
                                                                                 <rect key="frame" x="166" y="0.0" width="82" height="55"/>
                                                                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
@@ -377,7 +374,7 @@
                                                                                     <action selector="mucusColorTouched:" destination="nez-Db-vhN" eventType="touchUpInside" id="Sd1-9d-X5E"/>
                                                                                 </connections>
                                                                             </button>
-                                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o9n-1i-cLt" customClass="MucusButtonWithUnderBar" customModule="Bloom" customModuleProvider="target">
+                                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o9n-1i-cLt" customClass="ButtonWithUnderBar" customModule="Bloom" customModuleProvider="target">
                                                                                 <rect key="frame" x="249" y="0.0" width="82" height="55"/>
                                                                                 <color key="backgroundColor" red="0.91310173273086548" green="0.89725011587142944" blue="0.0" alpha="0.70262984154929575" colorSpace="custom" customColorSpace="sRGB"/>
                                                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
@@ -393,7 +390,7 @@
                                                                                     <action selector="mucusColorTouched:" destination="nez-Db-vhN" eventType="touchUpInside" id="N4S-o0-WJf"/>
                                                                                 </connections>
                                                                             </button>
-                                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vpu-Ce-3FQ" userLabel="Brown" customClass="MucusButtonWithUnderBar" customModule="Bloom" customModuleProvider="target">
+                                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vpu-Ce-3FQ" userLabel="Brown" customClass="ButtonWithUnderBar" customModule="Bloom" customModuleProvider="target">
                                                                                 <rect key="frame" x="332" y="0.0" width="82" height="55"/>
                                                                                 <color key="backgroundColor" red="0.65490196078431373" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
@@ -414,7 +411,7 @@
                                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="LvL-VX-bxh" userLabel="Mucus Pasty" customClass="StackViewWithButtons" customModule="Bloom" customModuleProvider="target">
                                                                         <rect key="frame" x="0.0" y="120" width="414" height="55"/>
                                                                         <subviews>
-                                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pN4-it-C7Y" customClass="MucusButtonWithUnderBar" customModule="Bloom" customModuleProvider="target">
+                                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pN4-it-C7Y" customClass="ButtonWithUnderBar" customModule="Bloom" customModuleProvider="target">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="207" height="55"/>
                                                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                                                                 <state key="normal" title="Pasty">
@@ -425,8 +422,11 @@
                                                                                         <color key="value" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                                                     </userDefinedRuntimeAttribute>
                                                                                 </userDefinedRuntimeAttributes>
+                                                                                <connections>
+                                                                                    <action selector="mucusConsistencyTouched:" destination="nez-Db-vhN" eventType="touchUpInside" id="OCR-kT-WC4"/>
+                                                                                </connections>
                                                                             </button>
-                                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3tQ-sy-6kf" userLabel="Gummy" customClass="MucusButtonWithUnderBar" customModule="Bloom" customModuleProvider="target">
+                                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3tQ-sy-6kf" userLabel="Gummy" customClass="ButtonWithUnderBar" customModule="Bloom" customModuleProvider="target">
                                                                                 <rect key="frame" x="207" y="0.0" width="207" height="55"/>
                                                                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
@@ -438,6 +438,9 @@
                                                                                         <color key="value" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                                                     </userDefinedRuntimeAttribute>
                                                                                 </userDefinedRuntimeAttributes>
+                                                                                <connections>
+                                                                                    <action selector="mucusConsistencyTouched:" destination="nez-Db-vhN" eventType="touchUpInside" id="83E-Z5-sd9"/>
+                                                                                </connections>
                                                                             </button>
                                                                         </subviews>
                                                                     </stackView>
@@ -627,7 +630,6 @@
                         <outlet property="observation" destination="1Ub-Be-cdJ" id="8X1-qU-e78"/>
                         <outlet property="picker" destination="zk1-Jx-YLK" id="XKa-3j-s3f"/>
                         <outlet property="requiredInput" destination="eZZ-0P-veK" id="hW3-PK-sMS"/>
-                        <outlet property="sectionOneStackView" destination="yuD-2m-GTu" id="v4U-hw-4Qf"/>
                         <outlet property="startNewCycle" destination="kxo-1O-Mep" id="bx5-fJ-Tiv"/>
                         <outletCollection property="dryButtons" destination="W4S-n5-UdY" collectionClass="NSMutableArray" id="cC2-Fz-UBy"/>
                         <outletCollection property="dryButtons" destination="mfR-Bx-bRZ" collectionClass="NSMutableArray" id="HUA-SB-N3v"/>
@@ -648,6 +650,8 @@
                         <outletCollection property="mucusColorButtons" destination="vpu-Ce-3FQ" collectionClass="NSMutableArray" id="49O-Vu-Fis"/>
                         <outletCollection property="mucusConsistencyButtons" destination="pN4-it-C7Y" collectionClass="NSMutableArray" id="LUc-yB-eu7"/>
                         <outletCollection property="mucusConsistencyButtons" destination="3tQ-sy-6kf" collectionClass="NSMutableArray" id="fv2-ef-8gv"/>
+                        <outletCollection property="modAndHeavy" destination="yrn-Dh-XmO" collectionClass="NSMutableArray" id="7lX-sP-ZMq"/>
+                        <outletCollection property="modAndHeavy" destination="hG9-3U-fG5" collectionClass="NSMutableArray" id="1pC-PP-pTH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fnR-Ki-c4e" userLabel="First Responder" sceneMemberID="firstResponder"/>

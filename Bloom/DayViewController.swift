@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DayViewController: UIViewController, HideLubricationDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
+class DayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     
     //MARK: Header Outlets
     
@@ -22,12 +22,6 @@ class DayViewController: UIViewController, HideLubricationDelegate, UIPickerView
     @IBOutlet weak var requiredInput: UILabel!
     
     //MARK: Section 1 Outlets
-    
-    @IBOutlet weak var sectionOneStackView: SectionOneStackView! {
-        didSet {
-            sectionOneStackView.delegate = self
-        }
-    }
     
     @IBOutlet weak var addDryButton: PlusMinusButton!
     @IBOutlet weak var dryButtonContainer: StackViewWithButtons! {
@@ -49,6 +43,7 @@ class DayViewController: UIViewController, HideLubricationDelegate, UIPickerView
     }
     
     @IBOutlet var bleedingButtons: [ButtonWithUnderBar]!
+    @IBOutlet var modAndHeavy: [ButtonWithUnderBar]!
     
     
     @IBOutlet weak var addMucusButton: PlusMinusButton!
@@ -168,7 +163,7 @@ class DayViewController: UIViewController, HideLubricationDelegate, UIPickerView
         }
     }
     
-    @IBAction func bleedingButtonTouched(_ sender: BleedingButtonWithUnderBar) {
+    @IBAction func bleedingButtonTouched(_ sender: ButtonWithUnderBar) {
         deselectAllBut(sender: sender, from: bleedingButtons)
         
         if sender.isSelected {
@@ -179,7 +174,7 @@ class DayViewController: UIViewController, HideLubricationDelegate, UIPickerView
             day?.bleeding = nil
         }
         
-        if sender.isModOrHeavy {
+        if modAndHeavy.contains(sender) {
             addDryButton.isEnabled = !sender.isSelected
             addMucusButton.isEnabled = !sender.isSelected
             hideShowView(view: lubricationView)
@@ -194,7 +189,7 @@ class DayViewController: UIViewController, HideLubricationDelegate, UIPickerView
                     rawValue: mucusButtonTitleToModel[sender.currentTitle!]!
                     )!
             } else {
-                day?.mucus = Day.Mucus(length: mucusButtonTitleToModel[sender.currentTitle!]!, color: nil)!
+                day?.mucus = Day.Mucus(length: mucusButtonTitleToModel[sender.currentTitle!]!, color: nil, consistency: nil)!
             }
         } else {
             day?.mucus?.length = nil
@@ -209,13 +204,31 @@ class DayViewController: UIViewController, HideLubricationDelegate, UIPickerView
                     rawValue: mucusButtonTitleToModel[sender.currentTitle!]!
                     )!
             } else {
-                day?.mucus = Day.Mucus(length: nil, color: mucusButtonTitleToModel[sender.currentTitle!]!)!
+                day?.mucus = Day.Mucus(length: nil, color: mucusButtonTitleToModel[sender.currentTitle!]!, consistency: nil)!
             }
         } else {
-            day?.mucus?.length = nil
+            day?.mucus?.color = nil
         }
     }
     
+    @IBAction func mucusConsistencyTouched(_ sender: ButtonWithUnderBar) {
+        deselectAllBut(sender: sender, from: mucusConsistencyButtons)
+        
+        if sender.isSelected {
+            if var mucus = day?.mucus {
+                mucus.consistency = Day.Mucus.Consistency(
+                    rawValue: mucusButtonTitleToModel[sender.currentTitle!]!
+                    )!
+            } else {
+                day?.mucus = Day.Mucus(
+                    length: nil,
+                    color: nil,
+                    consistency: mucusButtonTitleToModel[sender.currentTitle!]!)!
+            }
+        } else {
+            day?.mucus?.consistency = nil
+        }
+    }
     
     
     private func deselectAllBut(sender: ButtonWithUnderBar, from collection: [ButtonWithUnderBar]) {
@@ -232,13 +245,6 @@ class DayViewController: UIViewController, HideLubricationDelegate, UIPickerView
         UIView.animate(withDuration: 0.1, animations: {
             view.isHidden = !view.isHidden
             view.alpha = view.isHidden ? 0.0 : 1
-        })
-    }
-    
-    func hideShowLubricationView() {
-        UIView.animate(withDuration: 0.1, animations: {
-            self.lubricationView.isHidden = !self.lubricationView.isHidden
-            self.lubricationView.alpha = self.lubricationView.isHidden ? 0.0 : 1
         })
     }
     
