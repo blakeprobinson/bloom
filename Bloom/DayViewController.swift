@@ -113,7 +113,7 @@ class DayViewController: UIViewController, HideLubricationDelegate, UIPickerView
             
         }
     }
-    
+    //MARK: PlusMinusButton IBActions
     @IBAction func addDryTouched(_ sender: PlusMinusButton) {
         sender.isSelected = !sender.isSelected
         hideShowView(view: dryButtonContainer)
@@ -128,6 +128,32 @@ class DayViewController: UIViewController, HideLubricationDelegate, UIPickerView
         sender.isSelected = !sender.isSelected
         hideShowView(view: mucusButtonContainer)
     }
+    
+    //MARK: ButtonWithUnderBar IBActions
+    private var dryBleedingbuttonTitleToModel = [
+        "Dry": "Dry",
+        "Damp": "Damp",
+        "Wet": "Wet",
+        "Shiny": "Shiny",
+        "Very Light": "Very Light",
+        "Light": "Light",
+        "Moderate": "Moderate",
+        "Heavy": "Heavy",
+        "Brown": "Brown"
+    ]
+    
+    private var mucusButtonTitleToModel = [
+        "1/4": "1/4",
+        "1/2-3/4": "1/2-3/4",
+        "1": "1",
+        "Clear": "Clear",
+        "Cloudy-Clear": "Cloudy Clear",
+        "Cloudy": "Cloudy",
+        "Yellow": "Yellow",
+        "Brown": "Brown",
+        "Pasty": "Pasty",
+        "Gummy": "Gummy"
+    ]
     
     @IBAction func dryButtonTouched(_ sender: ButtonWithUnderBar) {
         for button in dryButtons {
