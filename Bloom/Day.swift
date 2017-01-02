@@ -170,8 +170,9 @@ extension Day {
     struct Mucus {
         var length:Length?
         var color:Color?
+        var consistency:Consistency?
         
-        init?(length: String?, color: String?) {
+        init?(length: String?, color: String?, consistency: Consistency?) {
             
             if let length = length {
                 self.length = Length(rawValue: length)
@@ -215,8 +216,15 @@ extension Day {
                 Color.yellow.rawValue,
                 Color.brown.rawValue
             ]
-            
         }
-
+        enum Consistency: String {
+            case gummy = "Gummy"
+            case pasty = "Pasty"
+            
+            static let allValues = [
+                Consistency.gummy.rawValue,
+                Consistency.pasty.rawValue
+            ]
+        }
     }
 }
