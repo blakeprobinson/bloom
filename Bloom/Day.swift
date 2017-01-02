@@ -101,8 +101,8 @@ class Day: NSObject, NSCoding {
     func encode(with aCoder: NSCoder) {
         aCoder.encode(bleeding?.intensity.rawValue, forKey: PropertyKey.bleeding)
         aCoder.encode(dry?.observation.rawValue, forKey: PropertyKey.dry)
-        aCoder.encode(mucus?.color.rawValue, forKey: PropertyKey.mucusColor)
-        aCoder.encode(mucus?.length.rawValue, forKey: PropertyKey.mucusLength)
+        aCoder.encode(mucus?.color?.rawValue, forKey: PropertyKey.mucusColor)
+        aCoder.encode(mucus?.length?.rawValue, forKey: PropertyKey.mucusLength)
         
         aCoder.encode(observation, forKey: PropertyKey.observation)
         aCoder.encode(intercourse, forKey: PropertyKey.intercourse)
@@ -168,22 +168,31 @@ extension Day {
     
     
     struct Mucus {
-        var length:Length
-        var color:Color
+        var length:Length?
+        var color:Color?
         
         init?(length: String?, color: String?) {
-            guard let length = length else { return nil }
-            guard let color = color else { return nil }
             
-            self.length = Length(rawValue: length)!
-            self.color = Color(rawValue: color)!
+            if let length = length {
+                self.length = Length(rawValue: length)
+            } else {
+                self.length = nil
+            }
+            if let color = color {
+                self.color = Color(rawValue: color)
+            } else {
+                self.color = nil
+            }
+            if self.length == nil && self.color == nil {
+                return nil
+            }
             
         }
         
         enum Length: String {
-            case quarterInch = "Less than 1/4 inch"
-            case halfToThreeQuarterInch = "Between 1/2 and 3/4 inch"
-            case oneInch = "Greater than 1 inch"
+            case quarterInch = "1/4"
+            case halfToThreeQuarterInch = "1/2-3/4"
+            case oneInch = "1"
             
             static let allValuesToDisplay = [
                 Length.quarterInch.rawValue,

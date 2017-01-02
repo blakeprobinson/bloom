@@ -61,6 +61,8 @@ class DayViewController: UIViewController, HideLubricationDelegate, UIPickerView
     
     @IBOutlet var mucusButtons: [MucusButtonWithUnderBar]!
     
+    @IBOutlet var mucusLengthButtons: [MucusButtonWithUnderBar]!
+    
     
     //MARK: Section 2 Outlets
     @IBOutlet weak var observation: UILabel!
@@ -163,6 +165,25 @@ class DayViewController: UIViewController, HideLubricationDelegate, UIPickerView
         }
         
     }
+    @IBAction func mucusLengthTouched(_ sender: ButtonWithUnderBar) {
+        for button in mucusLengthButtons {
+            if button != sender {
+                button.isSelected = false
+            }
+        }
+        sender.isSelected = !sender.isSelected
+        
+        if sender.isSelected {
+            if var mucus = day?.mucus {
+                mucus.length = Day.Mucus.Length(rawValue: sender.currentTitle!)!
+            } else {
+                day?.mucus = Day.Mucus(length: sender.currentTitle!, color: nil)!
+            }
+        } else {
+            day?.mucus?.length = nil
+        }
+    }
+    
     
     
     

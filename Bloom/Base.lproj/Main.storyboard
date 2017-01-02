@@ -289,6 +289,9 @@
                                                                                         <color key="value" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                                                     </userDefinedRuntimeAttribute>
                                                                                 </userDefinedRuntimeAttributes>
+                                                                                <connections>
+                                                                                    <action selector="mucusLengthTouched:" destination="nez-Db-vhN" eventType="touchUpInside" id="Tsa-rC-BuH"/>
+                                                                                </connections>
                                                                             </button>
                                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I15-cQ-aM7" userLabel="Half" customClass="MucusButtonWithUnderBar" customModule="Bloom" customModuleProvider="target">
                                                                                 <rect key="frame" x="138.33333333333331" y="0.0" width="137.33333333333331" height="55"/>
@@ -302,6 +305,9 @@
                                                                                         <color key="value" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                                                     </userDefinedRuntimeAttribute>
                                                                                 </userDefinedRuntimeAttributes>
+                                                                                <connections>
+                                                                                    <action selector="mucusLengthTouched:" destination="nez-Db-vhN" eventType="touchUpInside" id="Rnl-RA-diA"/>
+                                                                                </connections>
                                                                             </button>
                                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HOe-Vh-hni" userLabel="One" customClass="MucusButtonWithUnderBar" customModule="Bloom" customModuleProvider="target">
                                                                                 <rect key="frame" x="276.66666666666674" y="0.0" width="137.33333333333331" height="55"/>
@@ -315,6 +321,9 @@
                                                                                         <color key="value" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                                                     </userDefinedRuntimeAttribute>
                                                                                 </userDefinedRuntimeAttributes>
+                                                                                <connections>
+                                                                                    <action selector="mucusLengthTouched:" destination="nez-Db-vhN" eventType="touchUpInside" id="5in-qF-CKi"/>
+                                                                                </connections>
                                                                             </button>
                                                                         </subviews>
                                                                     </stackView>
@@ -622,6 +631,9 @@
                         <outletCollection property="mucusButtons" destination="f4Y-hY-V3c" collectionClass="NSMutableArray" id="6g4-7v-ikT"/>
                         <outletCollection property="mucusButtons" destination="o9n-1i-cLt" collectionClass="NSMutableArray" id="kQh-tb-ZUx"/>
                         <outletCollection property="mucusButtons" destination="vpu-Ce-3FQ" collectionClass="NSMutableArray" id="8eg-gp-Gqw"/>
+                        <outletCollection property="mucusLengthButtons" destination="UpW-aW-VQ8" collectionClass="NSMutableArray" id="rKs-Cp-uQ8"/>
+                        <outletCollection property="mucusLengthButtons" destination="I15-cQ-aM7" collectionClass="NSMutableArray" id="MP1-fY-meI"/>
+                        <outletCollection property="mucusLengthButtons" destination="HOe-Vh-hni" collectionClass="NSMutableArray" id="AkV-Ly-tL6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fnR-Ki-c4e" userLabel="First Responder" sceneMemberID="firstResponder"/>
