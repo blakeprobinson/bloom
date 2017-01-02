@@ -37,7 +37,7 @@ class DayViewController: UIViewController, HideLubricationDelegate, UIPickerView
         }
     }
     
-    @IBOutlet var dryButtons: [DryButtonWithUnderBar]!
+    @IBOutlet var dryButtons: [ButtonWithUnderBar]!
     
     
     @IBOutlet weak var addBleedingButton: PlusMinusButton!
@@ -48,7 +48,7 @@ class DayViewController: UIViewController, HideLubricationDelegate, UIPickerView
         }
     }
     
-    @IBOutlet var bleedingButtons: [BleedingButtonWithUnderBar]!
+    @IBOutlet var bleedingButtons: [ButtonWithUnderBar]!
     
     
     @IBOutlet weak var addMucusButton: PlusMinusButton!
@@ -156,11 +156,7 @@ class DayViewController: UIViewController, HideLubricationDelegate, UIPickerView
     ]
     
     @IBAction func dryButtonTouched(_ sender: ButtonWithUnderBar) {
-        for button in dryButtons {
-            if button != sender {
-                button.isSelected = false
-            }
-        }
+        deselectAllBut(sender: sender, from: dryButtons)
         sender.isSelected = !sender.isSelected
         addMucusButton.isEnabled = !sender.isSelected
         if sender.isSelected {
@@ -173,11 +169,7 @@ class DayViewController: UIViewController, HideLubricationDelegate, UIPickerView
     }
     
     @IBAction func bleedingButtonTouched(_ sender: BleedingButtonWithUnderBar) {
-        for button in bleedingButtons {
-            if button != sender {
-                button.isSelected = false
-            }
-        }
+        deselectAllBut(sender: sender, from: bleedingButtons)
         sender.isSelected = !sender.isSelected
         
         if sender.isSelected {
@@ -195,11 +187,7 @@ class DayViewController: UIViewController, HideLubricationDelegate, UIPickerView
         }
     }
     @IBAction func mucusLengthTouched(_ sender: ButtonWithUnderBar) {
-        for button in mucusLengthButtons {
-            if button != sender {
-                button.isSelected = false
-            }
-        }
+        deselectAllBut(sender: sender, from: mucusLengthButtons)
         sender.isSelected = !sender.isSelected
         
         if sender.isSelected {
@@ -216,7 +204,13 @@ class DayViewController: UIViewController, HideLubricationDelegate, UIPickerView
     }
     
     
-    
+    private func deselectAllBut(sender: ButtonWithUnderBar, from collection: [ButtonWithUnderBar]) {
+        for button in collection {
+            if button != sender {
+                button.isSelected = false
+            }
+        }
+    }
     
     
     private func hideShowView(view: UIView) {
