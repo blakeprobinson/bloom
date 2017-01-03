@@ -249,7 +249,7 @@ class DayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
     }
     
     @IBAction func bleedingButtonTouched(_ sender: ButtonWithUnderBar) {
-        deselectAllBut(sender: sender, from: bleedingButtons)
+        sender.isSelected = !sender.isSelected
         
         if sender.isSelected {
             day?.bleeding = Day.Bleeding(
@@ -258,19 +258,14 @@ class DayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
         } else {
             day?.bleeding = nil
         }
-        
-        if modAndHeavy.contains(sender) {
-            addDryButton.isEnabled = !sender.isSelected
-            addMucusButton.isEnabled = !sender.isSelected
-            hideShowView(view: lubricationView)
-        }
+        updateUI()
     }
     @IBAction func mucusLengthTouched(_ sender: ButtonWithUnderBar) {
-        deselectAllBut(sender: sender, from: mucusLengthButtons)
+        sender.isSelected = !sender.isSelected
         
         if sender.isSelected {
-            if var mucus = day?.mucus {
-                mucus.length = Day.Mucus.Length(
+            if day?.mucus != nil {
+                day?.mucus?.length = Day.Mucus.Length(
                     rawValue: mucusButtonTitleToModel[sender.currentTitle!]!
                     )!
             } else {
@@ -279,13 +274,14 @@ class DayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
         } else {
             day?.mucus?.length = nil
         }
+        updateUI()
     }
     
     @IBAction func mucusColorTouched(_ sender: ButtonWithUnderBar) {
-        deselectAllBut(sender: sender, from: mucusColorButtons)
+        sender.isSelected = !sender.isSelected
         if sender.isSelected {
-            if var mucus = day?.mucus {
-                mucus.color = Day.Mucus.Color(
+            if day?.mucus != nil {
+                day?.mucus?.color = Day.Mucus.Color(
                     rawValue: mucusButtonTitleToModel[sender.currentTitle!]!
                     )!
             } else {
@@ -294,14 +290,14 @@ class DayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
         } else {
             day?.mucus?.color = nil
         }
+        updateUI()
     }
     
     @IBAction func mucusConsistencyTouched(_ sender: ButtonWithUnderBar) {
-        deselectAllBut(sender: sender, from: mucusConsistencyButtons)
-        
+        sender.isSelected = !sender.isSelected
         if sender.isSelected {
-            if var mucus = day?.mucus {
-                mucus.consistency = Day.Mucus.Consistency(
+            if day?.mucus != nil {
+                day?.mucus?.consistency = Day.Mucus.Consistency(
                     rawValue: mucusButtonTitleToModel[sender.currentTitle!]!
                     )!
             } else {
@@ -313,6 +309,7 @@ class DayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
         } else {
             day?.mucus?.consistency = nil
         }
+        updateUI()
     }
     
     
@@ -325,7 +322,7 @@ class DayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
         sender.isSelected = !sender.isSelected
     }
     
-    //MARK: Section Two IBOutlets
+    //MARK: Section Two IBActions
     @IBAction func adjustObservation(_ sender: UIStepper) {
         let observationDescription = sender.value == 1 ? " Observation" : " Observations"
         observation.text = String(Int(sender.value)) + observationDescription
