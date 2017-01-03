@@ -106,27 +106,16 @@ class DayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
     }
     
     private func updateUI() {
+        var modOrHeavySelected = false
         if let day = day {
             if let dry = day.dry {
                 addMucusButton.isEnabled = false
-                for button in dryButtons {
-                    if button.currentTitle! == dryBleedingButtonTitleToModel[dry.observation.rawValue] {
-                        button.isSelected = true
-                    } else {
-                        button.isSelected = false
-                    }
-                }
+                deselectAllBut(title: dryBleedingButtonModelToTitle[dry.observation.rawValue]!, from: dryButtons)
             } else {
                 addMucusButton.isEnabled = true
             }
             if let bleeding = day.bleeding {
-                for button in bleedingButtons {
-                    if button.currentTitle! == dryBleedingButtonTitleToModel[bleeding.intensity.rawValue] {
-                        button.isSelected = true
-                    } else {
-                        button.isSelected = false
-                    }
-                }
+                deselectAllBut(title: dryBleedingButtonModelToTitle[bleeding.intensity.rawValue]!, from: bleedingButtons)
                 for button in modAndHeavy {
                     if button.currentTitle! == dryBleedingButtonTitleToModel[bleeding.intensity.rawValue] {
                         addDryButton.isEnabled = false
@@ -135,8 +124,6 @@ class DayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
                         modOrHeavySelected = true
                     }
                 }
-            } else {
-                
             }
             if let mucus = day.mucus {
                 updateMucusUI(mucus: mucus)
