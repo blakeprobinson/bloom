@@ -142,7 +142,7 @@ class DayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
                 addDryButton.isEnabled = true
             }
             observationStepperValue = Double(day.observation)
-            
+            intercourse.isOn = day.intercourse
             
         }
     }
