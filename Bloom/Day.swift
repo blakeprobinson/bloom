@@ -197,6 +197,10 @@ extension Day {
             
         }
         
+        func allPropertiesNil() -> Bool {
+            return self.length == nil && self.color == nil && self.consistency == nil
+        }
+        
         enum Length: String {
             case quarterInch = "1/4"
             case halfToThreeQuarterInch = "1/2-3/4"
