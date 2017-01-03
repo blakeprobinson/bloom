@@ -637,6 +637,7 @@
                         <outlet property="mucusButtonContainer" destination="AVR-pp-CvA" id="hc1-Z7-WkQ"/>
                         <outlet property="notes" destination="128-z0-z1H" id="7P7-pN-O5P"/>
                         <outlet property="observation" destination="1Ub-Be-cdJ" id="8X1-qU-e78"/>
+                        <outlet property="observationStepper" destination="j95-Zg-LvP" id="gal-Vv-n84"/>
                         <outlet property="picker" destination="zk1-Jx-YLK" id="XKa-3j-s3f"/>
                         <outlet property="requiredInput" destination="eZZ-0P-veK" id="hW3-PK-sMS"/>
                         <outlet property="startNewCycle" destination="kxo-1O-Mep" id="bx5-fJ-Tiv"/>

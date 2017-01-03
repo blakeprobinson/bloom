@@ -61,6 +61,17 @@ class DayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
     
     //MARK: Section 2 Outlets
     @IBOutlet weak var observation: UILabel!
+    @IBOutlet weak var observationStepper: UIStepper!
+    var observationStepperValue: Double {
+        get {
+            return observationStepper.value
+        }
+        set {
+            observationStepper.value = newValue
+            let observationDescription = newValue == 1 ? " Observation" : " Observations"
+            observation.text = String(Int(newValue)) + observationDescription
+        }
+    }
     @IBOutlet weak var intercourse: UISwitch!
     @IBOutlet weak var lubricationView: UIView!
     @IBOutlet weak var lubrication: UISwitch!
@@ -130,6 +141,9 @@ class DayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
             } else if !modOrHeavySelected {
                 addDryButton.isEnabled = true
             }
+            observationStepperValue = Double(day.observation)
+            
+            
         }
     }
     
@@ -324,9 +338,9 @@ class DayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
     
     //MARK: Section Two IBActions
     @IBAction func adjustObservation(_ sender: UIStepper) {
-        let observationDescription = sender.value == 1 ? " Observation" : " Observations"
-        observation.text = String(Int(sender.value)) + observationDescription
+        print(sender.value)
         day?.observation = Int(sender.value)
+        updateUI()
     }
     @IBAction func intercourseToggled(_ sender: UISwitch) {
         day?.intercourse = sender.isOn
