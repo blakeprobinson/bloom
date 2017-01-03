@@ -143,7 +143,19 @@ class DayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
             }
             observationStepperValue = Double(day.observation)
             intercourse.isOn = day.intercourse
+            lubrication.isOn = day.lubrication
             
+            if day.dry != nil || day.lubrication {
+                modAndHeavy.forEach({ $0.isEnabled = false })
+            } else if day.mucus != nil  {
+                if !(day.mucus?.allPropertiesNil())! {
+                    modAndHeavy.forEach({ $0.isEnabled = false })
+                } else {
+                    modAndHeavy.forEach({ $0.isEnabled = true })
+                }
+            } else {
+                modAndHeavy.forEach({ $0.isEnabled = true })
+            }
         }
     }
     
@@ -348,6 +360,7 @@ class DayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
     
     @IBAction func lubricationToggled(_ sender: UISwitch) {
         day?.lubrication = sender.isOn
+        updateUI()
     }
     
     @IBAction func newCycleToggled(_ sender: UISwitch) {
