@@ -139,28 +139,54 @@ class DayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
     
     //MARK: ButtonWithUnderBar IBActions and related
     private var dryBleedingButtonTitleToModel = [
-        "Dry": "Dry",
-        "Damp": "Damp",
-        "Wet": "Wet",
-        "Shiny": "Shiny",
-        "Very Light": "Very Light",
-        "Light": "Light",
-        "Moderate": "Moderate",
-        "Heavy": "Heavy",
-        "Brown": "Brown"
+        "Dry": Day.Dry.Observation.dry.rawValue,
+        "Damp": Day.Dry.Observation.damp.rawValue,
+        "Wet": Day.Dry.Observation.wet.rawValue,
+        "Shiny": Day.Dry.Observation.shiny.rawValue,
+        "Very Light": Day.Bleeding.Intensity.veryLight.rawValue,
+        "Light": Day.Bleeding.Intensity.light.rawValue,
+        "Moderate": Day.Bleeding.Intensity.moderate.rawValue,
+        "Heavy": Day.Bleeding.Intensity.heavy.rawValue,
+        "Brown": Day.Bleeding.Intensity.brown.rawValue
+    ]
+    
+    private var dryBleedingButtonModelToTitle = [
+        Day.Dry.Observation.dry.rawValue: "Dry",
+        Day.Dry.Observation.damp.rawValue: "Damp",
+        Day.Dry.Observation.wet.rawValue: "Wet",
+        Day.Dry.Observation.shiny.rawValue: "Shiny",
+        Day.Bleeding.Intensity.veryLight.rawValue: "Very Light",
+        Day.Bleeding.Intensity.light.rawValue: "Light",
+        Day.Bleeding.Intensity.moderate.rawValue: "Moderate",
+        Day.Bleeding.Intensity.heavy.rawValue: "Heavy",
+        Day.Bleeding.Intensity.brown.rawValue: "Brown"
     ]
     
     private var mucusButtonTitleToModel = [
-        "1/4": "1/4",
-        "1/2-3/4": "1/2-3/4",
-        "1": "1",
-        "Clear": "Clear",
-        "Cloudy- Clear": "Cloudy Clear",
-        "Cloudy": "Cloudy",
-        "Yellow": "Yellow",
-        "Brown": "Brown",
-        "Pasty": "Pasty",
-        "Gummy": "Gummy"
+        "1/4": Day.Mucus.Length.quarterInch.rawValue,
+        "1/2-3/4": Day.Mucus.Length.halfToThreeQuarterInch.rawValue,
+        "1": Day.Mucus.Length.oneInch.rawValue,
+        "Clear": Day.Mucus.Color.clear.rawValue,
+        "Cloudy- Clear": Day.Mucus.Color.cloudyClear.rawValue,
+        "Cloudy": Day.Mucus.Color.cloudy.rawValue,
+        "Yellow": Day.Mucus.Color.yellow.rawValue,
+        "Brown": Day.Mucus.Color.brown.rawValue,
+        "Pasty": Day.Mucus.Consistency.pasty.rawValue,
+        "Gummy": Day.Mucus.Consistency.gummy.rawValue
+    ]
+    
+    private var mucusButtonModelToTitle = [
+        Day.Mucus.Length.quarterInch.rawValue: "1/4",
+        Day.Mucus.Length.halfToThreeQuarterInch.rawValue: "1/2-3/4",
+        Day.Mucus.Length.oneInch.rawValue: "1",
+        Day.Mucus.Color.clear.rawValue: "Clear",
+        Day.Mucus.Color.cloudyClear.rawValue: "Cloudy- Clear",
+        Day.Mucus.Color.cloudy.rawValue: "Cloudy",
+        Day.Mucus.Color.yellow.rawValue: "Yellow",
+        Day.Mucus.Color.brown.rawValue: "Brown",
+        Day.Mucus.Consistency.pasty.rawValue: "Pasty",
+        Day.Mucus.Consistency.gummy.rawValue: "Gummy"
+    
     ]
     
     @IBAction func dryButtonTouched(_ sender: ButtonWithUnderBar) {
