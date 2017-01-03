@@ -119,8 +119,68 @@ class DayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
             } else {
                 addMucusButton.isEnabled = true
             }
+            if let bleeding = day.bleeding {
+                for button in bleedingButtons {
+                    if button.currentTitle! == dryBleedingButtonTitleToModel[bleeding.intensity.rawValue] {
+                        button.isSelected = true
+                    } else {
+                        button.isSelected = false
+                    }
+                }
+                for button in modAndHeavy {
+                    if button.currentTitle! == dryBleedingButtonTitleToModel[bleeding.intensity.rawValue] {
+                        addDryButton.isEnabled = false
+                        addMucusButton.isEnabled = false
+                        hideShowView(view: lubricationView)
+                        modOrHeavySelected = true
+                    }
+                }
+            } else {
+                
+            }
+            if let mucus = day.mucus {
+                updateMucusUI(mucus: mucus)
+            } else if !modOrHeavySelected {
+                addDryButton.isEnabled = true
+            }
         }
     }
+    
+    private func updateMucusUI(mucus: Day.Mucus) {
+        
+        if let length = mucus.length {
+            deselectAllBut(title: mucusButtonModelToTitle[length.rawValue]!, from: mucusLengthButtons)
+        } else {
+            mucusLengthButtons.forEach({ $0.isSelected = false})
+        }
+        if let color = mucus.color {
+            deselectAllBut(title: mucusButtonModelToTitle[color.rawValue]!, from: mucusColorButtons)
+        } else {
+            mucusColorButtons.forEach({ $0.isSelected = false})
+        }
+        if let consistency = mucus.consistency {
+            deselectAllBut(title: mucusButtonModelToTitle[consistency.rawValue]!, from: mucusConsistencyButtons)
+        } else {
+            mucusConsistencyButtons.forEach({ $0.isSelected = false })
+        }
+
+        if mucus.length == nil && mucus.color == nil && mucus.consistency == nil {
+            addDryButton.isEnabled = true
+        } else {
+            addDryButton.isEnabled = false
+        }
+    }
+    
+    private func deselectAllBut(title: String, from collection: [ButtonWithUnderBar]) {
+        for button in collection {
+            if button.currentTitle! == title {
+                button.isSelected = true
+            } else {
+                button.isSelected = false
+            }
+        }
+    }
+    
     //MARK: PlusMinusButton IBActions
     @IBAction func addDryTouched(_ sender: PlusMinusButton) {
         sender.isSelected = !sender.isSelected
