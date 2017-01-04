@@ -126,22 +126,14 @@ class DayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
                 addMucusButton.isEnabled = true
             }
             if let bleeding = day.bleeding {
-                updateBleedingUI
+                modOrHeavySelected = updateBleedingUI(bleeding: bleeding)
             }
             if let mucus = day.mucus {
                 updateMucusUI(mucus: mucus)
             } else if !modOrHeavySelected {
                 addDryButton.isEnabled = true
             }
-            observationStepperValue = Double(day.observation)
-            intercourse.isOn = day.intercourse
-            lubrication.isOn = day.lubrication
-            modAndHeavyIsEnabled(day: day)
-            adjustableDate.text = dateString(date: day.date)
-            pickerViewData = populatePickerViewData(date: day.date)
-            if let dayNotes = day.notes {
-                notes.text = dayNotes
-            }
+            updateSectionTwoAndThreeUI(day: day)
         }
     }
     
@@ -158,7 +150,20 @@ class DayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
         }
     }
     
-    private func updateBleedingUI(bleeding: Day.Bleeding) {
+    private func updateSectionTwoAndThreeUI(day: Day) {
+        observationStepperValue = Double(day.observation)
+        intercourse.isOn = day.intercourse
+        lubrication.isOn = day.lubrication
+        modAndHeavyIsEnabled(day: day)
+        adjustableDate.text = dateString(date: day.date)
+        pickerViewData = populatePickerViewData(date: day.date)
+        if let dayNotes = day.notes {
+            notes.text = dayNotes
+        }
+    }
+    
+    private func updateBleedingUI(bleeding: Day.Bleeding) -> Bool {
+        var modOrHeavySelected = false
         deselectAllBut(title: dryBleedingButtonModelToTitle[bleeding.intensity.rawValue]!, from: bleedingButtons)
         for button in modAndHeavy {
             if button.currentTitle! == dryBleedingButtonTitleToModel[bleeding.intensity.rawValue] {
@@ -168,6 +173,7 @@ class DayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
                 modOrHeavySelected = true
             }
         }
+        return modOrHeavySelected
     }
     
     private func modAndHeavyIsEnabled(day: Day) {
