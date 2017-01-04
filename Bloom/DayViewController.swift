@@ -126,15 +126,7 @@ class DayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
                 addMucusButton.isEnabled = true
             }
             if let bleeding = day.bleeding {
-                deselectAllBut(title: dryBleedingButtonModelToTitle[bleeding.intensity.rawValue]!, from: bleedingButtons)
-                for button in modAndHeavy {
-                    if button.currentTitle! == dryBleedingButtonTitleToModel[bleeding.intensity.rawValue] {
-                        addDryButton.isEnabled = false
-                        addMucusButton.isEnabled = false
-                        hideShowView(view: lubricationView)
-                        modOrHeavySelected = true
-                    }
-                }
+                updateBleedingUI
             }
             if let mucus = day.mucus {
                 updateMucusUI(mucus: mucus)
@@ -163,6 +155,18 @@ class DayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
             let dateFormatter = DateFormatter()
             dateFormatter.dateFormat = "EEEE, MMM d"
             return dateFormatter.string(from: date)
+        }
+    }
+    
+    private func updateBleedingUI(bleeding: Day.Bleeding) {
+        deselectAllBut(title: dryBleedingButtonModelToTitle[bleeding.intensity.rawValue]!, from: bleedingButtons)
+        for button in modAndHeavy {
+            if button.currentTitle! == dryBleedingButtonTitleToModel[bleeding.intensity.rawValue] {
+                addDryButton.isEnabled = false
+                addMucusButton.isEnabled = false
+                hideShowView(view: lubricationView)
+                modOrHeavySelected = true
+            }
         }
     }
     
