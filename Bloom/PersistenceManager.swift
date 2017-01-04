@@ -7,3 +7,15 @@
 //
 
 import Foundation
+
+class PersistanceManager {
+//    func getIDsOrderedByDate () {
+//        
+//    }
+//    func getCycle(uuid: UUID) {
+//        
+//    }
+//    func saveCycle(cycle: Cycle) -> UUID {
+//        
+//    }
+}
