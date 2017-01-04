@@ -93,6 +93,7 @@ class DayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
             picker.alpha = 0
         }
     }
+    var pickerViewData = [String]()
     @IBOutlet weak var notes: UITextView!
     
     
@@ -145,6 +146,7 @@ class DayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
             lubrication.isOn = day.lubrication
             modAndHeavyIsEnabled(day: day)
             adjustableDate.text = dateString(date: day.date)
+            pickerViewData = populatePickerViewData(date: day.date)
             
             
         }
@@ -421,23 +423,23 @@ extension DayViewController {
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return pickerViewData().count
+        return pickerViewData.count
     }
     
     func pickerView(_ pickerView: UIPickerView,
                              titleForRow row: Int,
                              forComponent component: Int) -> String? {
-        return pickerViewData()[row]
+        return pickerViewData[row]
     }
     
-    func pickerViewData() -> [String] {
-        
-        if day == nil {
-            let calendar = NSCalendar(identifier: .gregorian)
-            let threeDaysAgo = calendar?.date(byAdding: NSCalendar.Unit.day, value: -3, to: Date(), options: NSCalendar.Options())
-            return ["Today", "Yesterday", "Day Before Yesterday"] + datesBefore(date: threeDaysAgo!)
+    func populatePickerViewData(date: Date) -> [String] {
+        let calendar = NSCalendar(identifier: .gregorian)
+        if (calendar?.isDateInToday(date))! {
+            let yesterday = calendar?.date(byAdding: NSCalendar.Unit.day, value: -1, to: Date(), options: NSCalendar.Options())
+            return ["Today", "Yesterday"] + datesBefore(date: yesterday!)
         } else {
-            return ["AnotherDay", "Yet another day"]
+            let dayAfterTomorrow = calendar?.date(byAdding: NSCalendar.Unit.day, value: 2, to: Date(), options: NSCalendar.Options())
+            return datesBefore(date: dayAfterTomorrow)
         }
     }
     
