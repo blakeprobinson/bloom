@@ -120,6 +120,7 @@ class DayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
         var modOrHeavySelected = false
         if let day = day {
             headerDate.text = dateString(date: day.date, forHeader: true)
+            circle.backgroundColor = circleBackground(day: day)
             
             
             if let dry = day.dry {
@@ -137,6 +138,22 @@ class DayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
                 addDryButton.isEnabled = true
             }
             updateSectionTwoAndThreeUI(day: day)
+        }
+    }
+    
+    private func circleBackground(day: Day) -> UIColor {
+        if day.bleeding != nil {
+            return UIColor(red:0.80, green:0.00, blue:0.00, alpha:1.0)
+        } else if day.dry != nil  {
+            return UIColor(red:0.42, green:0.66, blue:0.31, alpha:1.0)
+        } else if let mucus = day.mucus {
+            if !mucus.allPropertiesNil() {
+                return UIColor(red:0.94, green:0.94, blue:0.94, alpha:1.0)
+            } else {
+                return UIColor(red:0.60, green:0.60, blue:0.60, alpha:1.0)
+            }
+        } else {
+            return UIColor(red:0.60, green:0.60, blue:0.60, alpha:1.0)
         }
     }
     
