@@ -143,24 +143,37 @@ class DayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
             observationStepperValue = Double(day.observation)
             intercourse.isOn = day.intercourse
             lubrication.isOn = day.lubrication
-            modAndHeavyIsEnabled()
+            modAndHeavyIsEnabled(day: day)
+            adjustableDate.text = dateString(date: day.date)
+            
             
         }
     }
     
-    private func modAndHeavyIsEnabled() {
-        if let day = day {
-            if day.dry != nil || day.lubrication {
+    private func dateString(date: Date) -> String {
+        let calendar = NSCalendar(identifier: .gregorian)
+        if (calendar?.isDateInToday(date))! {
+            return "Today"
+        } else if (calendar?.isDateInYesterday(date))! {
+            return "Yesterday"
+        } else {
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "EEEE, MMM d"
+            return dateFormatter.string(from: date)
+        }
+    }
+    
+    private func modAndHeavyIsEnabled(day: Day) {
+        if day.dry != nil || day.lubrication {
+            modAndHeavy.forEach({ $0.isEnabled = false })
+        } else if day.mucus != nil  {
+            if !(day.mucus?.allPropertiesNil())! {
                 modAndHeavy.forEach({ $0.isEnabled = false })
-            } else if day.mucus != nil  {
-                if !(day.mucus?.allPropertiesNil())! {
-                    modAndHeavy.forEach({ $0.isEnabled = false })
-                } else {
-                    modAndHeavy.forEach({ $0.isEnabled = true })
-                }
             } else {
                 modAndHeavy.forEach({ $0.isEnabled = true })
             }
+        } else {
+            modAndHeavy.forEach({ $0.isEnabled = true })
         }
     }
     
