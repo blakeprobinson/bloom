@@ -80,7 +80,6 @@ class DayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
     //MARK: Section 3 Outlets
     @IBOutlet weak var date: UIButton! {
         didSet {
-            adjustableDate.text = "Today"
             date.addSubview(adjustableDate)
         }
     }
@@ -150,16 +149,18 @@ class DayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
     }
     
     private func modAndHeavyIsEnabled() {
-        if day.dry != nil || day.lubrication {
-            modAndHeavy.forEach({ $0.isEnabled = false })
-        } else if day.mucus != nil  {
-            if !(day.mucus?.allPropertiesNil())! {
+        if let day = day {
+            if day.dry != nil || day.lubrication {
                 modAndHeavy.forEach({ $0.isEnabled = false })
+            } else if day.mucus != nil  {
+                if !(day.mucus?.allPropertiesNil())! {
+                    modAndHeavy.forEach({ $0.isEnabled = false })
+                } else {
+                    modAndHeavy.forEach({ $0.isEnabled = true })
+                }
             } else {
                 modAndHeavy.forEach({ $0.isEnabled = true })
             }
-        } else {
-            modAndHeavy.forEach({ $0.isEnabled = true })
         }
     }
     
