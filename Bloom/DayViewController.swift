@@ -147,8 +147,9 @@ class DayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
             modAndHeavyIsEnabled(day: day)
             adjustableDate.text = dateString(date: day.date)
             pickerViewData = populatePickerViewData(date: day.date)
-            
-            
+            if let dayNotes = day.notes {
+                notes.text = dayNotes
+            }
         }
     }
     
@@ -439,7 +440,7 @@ extension DayViewController {
             return ["Today", "Yesterday"] + datesBefore(date: yesterday!)
         } else {
             let dayAfterTomorrow = calendar?.date(byAdding: NSCalendar.Unit.day, value: 2, to: Date(), options: NSCalendar.Options())
-            return datesBefore(date: dayAfterTomorrow)
+            return datesBefore(date: dayAfterTomorrow!)
         }
     }
     
