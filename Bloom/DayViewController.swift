@@ -11,7 +11,7 @@ import UIKit
 class DayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     
     //MARK: Header Outlets
-    
+    @IBOutlet weak var headerDate: UILabel!
     @IBOutlet weak var circle: UIView! {
         didSet {
             circle.layer.cornerRadius = circle.bounds.height / 2
@@ -119,6 +119,9 @@ class DayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
     private func updateUI() {
         var modOrHeavySelected = false
         if let day = day {
+            headerDate.text = dateString(date: day.date, forHeader: true)
+            
+            
             if let dry = day.dry {
                 addMucusButton.isEnabled = false
                 deselectAllBut(title: dryBleedingButtonModelToTitle[dry.observation.rawValue]!, from: dryButtons)
@@ -137,7 +140,7 @@ class DayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
         }
     }
     
-    private func dateString(date: Date) -> String {
+    private func dateString(date: Date, forHeader: Bool) -> String {
         let calendar = NSCalendar(identifier: .gregorian)
         if (calendar?.isDateInToday(date))! {
             return "Today"
@@ -145,8 +148,13 @@ class DayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
             return "Yesterday"
         } else {
             let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = "EEEE, MMM d"
-            return dateFormatter.string(from: date)
+            if forHeader {
+                dateFormatter.dateFormat = "MM/DD/YY"
+                return dateFormatter.string(from: date)
+            } else {
+                dateFormatter.dateFormat = "EEEE, MMM d"
+                return dateFormatter.string(from: date)
+            }
         }
     }
     
@@ -155,7 +163,7 @@ class DayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
         intercourse.isOn = day.intercourse
         lubrication.isOn = day.lubrication
         modAndHeavyIsEnabled(day: day)
-        adjustableDate.text = dateString(date: day.date)
+        adjustableDate.text = dateString(date: day.date, forHeader: false)
         pickerViewData = populatePickerViewData(date: day.date)
         if let dayNotes = day.notes {
             notes.text = dayNotes

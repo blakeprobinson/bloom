@@ -631,6 +631,7 @@
                         <outlet property="circle" destination="kyF-wa-qWI" id="8nu-MW-Lqz"/>
                         <outlet property="date" destination="y8C-9b-pTn" id="xpM-Bc-q1l"/>
                         <outlet property="dryButtonContainer" destination="KIo-aE-60e" id="4Nr-Ng-pNU"/>
+                        <outlet property="headerDate" destination="gNS-qP-OPh" id="QoK-VO-1ra"/>
                         <outlet property="intercourse" destination="dh0-Qy-vES" id="KLs-cp-Rsq"/>
                         <outlet property="lubrication" destination="fBT-dm-3ko" id="aK2-xJ-uK4"/>
                         <outlet property="lubricationView" destination="DgP-KD-Pvn" id="YyJ-jV-5nO"/>
