@@ -94,7 +94,8 @@ class DayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
             picker.alpha = 0
         }
     }
-    var pickerViewData = [String]()
+    fileprivate var pickerViewData = [String]()
+    fileprivate var pickerSelectedRow = 0
     @IBOutlet weak var notes: UITextView!
     
     
@@ -181,15 +182,32 @@ class DayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
         }
     }
     
+    private var updateSectionTwoAndThreeUIHasBeenCalled = false
+    
     private func updateSectionTwoAndThreeUI(day: Day) {
+        if !updateSectionTwoAndThreeUIHasBeenCalled {
+            pickerViewData = populatePickerViewData(date: day.date)
+        }
         observationStepperValue = Double(day.observation)
         intercourse.isOn = day.intercourse
         lubrication.isOn = day.lubrication
         modAndHeavyIsEnabled(day: day)
         adjustableDate.text = dateString(date: day.date, forHeader: false)
-        pickerViewData = populatePickerViewData(date: day.date)
+        pickerSelectedRow = pickerSelection(date: day.date)
         if let dayNotes = day.notes {
             notes.text = dayNotes
+        }
+        updateSectionTwoAndThreeUIHasBeenCalled = true
+    }
+    
+    private func pickerSelection(date: Date) -> Int {
+        let calendar = NSCalendar(identifier: .gregorian)
+        if (calendar?.isDateInToday(date))! {
+            return 0
+        } else if (calendar?.isDateInYesterday(date))!{
+            return 1
+        } else {
+            return pickerViewData.index(of: dateString(date: day!.date, forHeader: false))!
         }
     }
     
@@ -437,10 +455,15 @@ class DayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
     }
     
     @IBAction func showPicker() {
+        if !self.picker.isHidden {
+            self.updateUI()
+        }
+        picker.selectRow(pickerSelectedRow, inComponent: 0, animated: false)
         UIView.animate(withDuration: 0.1, animations: {
             self.adjustableDate.textColor = self.adjustableDate.textColor == UIColor.black ? UIColor.red : UIColor.black
             self.picker.isHidden = !self.picker.isHidden
             self.picker.alpha = self.picker.isHidden ? 0.0 : 1.0
+            
         })
     }
     
@@ -498,12 +521,12 @@ extension DayViewController {
     
     func populatePickerViewData(date: Date) -> [String] {
         let calendar = NSCalendar(identifier: .gregorian)
-        if (calendar?.isDateInToday(date))! {
+        if (calendar?.isDateInToday(date))! || (calendar?.isDateInYesterday(date))! {
             let yesterday = calendar?.date(byAdding: NSCalendar.Unit.day, value: -1, to: Date(), options: NSCalendar.Options())
             return ["Today", "Yesterday"] + datesBefore(date: yesterday!)
         } else {
-            let dayAfterTomorrow = calendar?.date(byAdding: NSCalendar.Unit.day, value: 2, to: Date(), options: NSCalendar.Options())
-            return datesBefore(date: dayAfterTomorrow!)
+            let threeDaysAfterDate = calendar?.date(byAdding: NSCalendar.Unit.day, value: 3, to: date, options: NSCalendar.Options())
+            return datesBefore(date: threeDaysAfterDate!).reversed()
         }
     }
     
