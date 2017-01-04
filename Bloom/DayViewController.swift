@@ -116,7 +116,7 @@ class DayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
         // Do any additional setup after loading the view.
     }
     
-    private func updateUI() {
+    fileprivate func updateUI() {
         var modOrHeavySelected = false
         if let day = day {
             headerDate.text = dateString(date: day.date, forHeader: true)
@@ -139,6 +139,11 @@ class DayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
             }
             updateSectionTwoAndThreeUI(day: day)
         }
+    }
+    
+    fileprivate func updateDatesInUI() {
+        headerDate.text = dateString(date: day!.date, forHeader: true)
+        adjustableDate.text = dateString(date: day!.date, forHeader: false)
     }
     
     private func circleBackground(day: Day) -> UIColor {
@@ -166,7 +171,7 @@ class DayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
         } else {
             let dateFormatter = DateFormatter()
             if forHeader {
-                dateFormatter.dateFormat = "MM/DD/YY"
+                dateFormatter.dateFormat = "MM/dd/YY"
                 return dateFormatter.string(from: date)
             } else {
                 dateFormatter.dateFormat = "EEEE, MMM d"
@@ -466,6 +471,28 @@ extension DayViewController {
                              titleForRow row: Int,
                              forComponent component: Int) -> String? {
         return pickerViewData[row]
+    }
+    
+    func pickerView(_ pickerView: UIPickerView,
+                             didSelectRow row: Int,
+                             inComponent component: Int) {
+        day?.date = stringToDate(str: pickerViewData[row], row: row)
+        updateDatesInUI()
+    }
+    
+    func stringToDate(str: String, row: Int) -> Date {
+        let calendar = NSCalendar(identifier: .gregorian)
+        switch str {
+        case "Today":
+            return Date()
+        case "Yesterday":
+            let yesterday = calendar?.date(byAdding: NSCalendar.Unit.day, value: -1, to: Date(), options: NSCalendar.Options())
+            return yesterday!
+        default:
+            let day = calendar?.date(byAdding: NSCalendar.Unit.day, value: -row, to: Date(), options: NSCalendar.Options())
+            
+            return day!
+        }
     }
     
     func populatePickerViewData(date: Date) -> [String] {
