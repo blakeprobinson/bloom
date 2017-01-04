@@ -80,10 +80,11 @@ class DayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
     //MARK: Section 3 Outlets
     @IBOutlet weak var date: UIButton! {
         didSet {
+            adjustableDate.textAlignment = .right
             date.addSubview(adjustableDate)
         }
     }
-    var adjustableDate = UILabel(frame: CGRect(x: UIScreen.main.bounds.width-57, y: 7, width: 100, height: 30))
+    var adjustableDate = UILabel(frame: CGRect(x: UIScreen.main.bounds.width-200, y: 7, width: 190, height: 30))
     
     @IBOutlet weak var picker: UIPickerView! {
         didSet {
