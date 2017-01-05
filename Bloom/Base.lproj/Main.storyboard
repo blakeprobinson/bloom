@@ -15,7 +15,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="jPy-HC-3Nk" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Mdl-uM-2z6">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Mdl-uM-2z6">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -641,6 +641,7 @@
                         <outlet property="observationStepper" destination="j95-Zg-LvP" id="gal-Vv-n84"/>
                         <outlet property="picker" destination="zk1-Jx-YLK" id="XKa-3j-s3f"/>
                         <outlet property="requiredInput" destination="eZZ-0P-veK" id="hW3-PK-sMS"/>
+                        <outlet property="scrollView" destination="zVm-HY-yKJ" id="jFF-h2-GdN"/>
                         <outlet property="startNewCycle" destination="kxo-1O-Mep" id="bx5-fJ-Tiv"/>
                         <outletCollection property="dryButtons" destination="W4S-n5-UdY" collectionClass="NSMutableArray" id="cC2-Fz-UBy"/>
                         <outletCollection property="dryButtons" destination="mfR-Bx-bRZ" collectionClass="NSMutableArray" id="HUA-SB-N3v"/>
