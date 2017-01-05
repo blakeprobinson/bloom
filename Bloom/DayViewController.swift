@@ -8,8 +8,9 @@
 
 import UIKit
 
-class DayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+class DayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextViewDelegate {
     
+    @IBOutlet weak var scrollView: UIScrollView!
     //MARK: Header Outlets
     @IBOutlet weak var headerDate: UILabel!
     @IBOutlet weak var circle: UIView! {
@@ -96,7 +97,11 @@ class DayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
     }
     fileprivate var pickerViewData = [String]()
     fileprivate var pickerSelectedRow = 0
-    @IBOutlet weak var notes: UITextView!
+    @IBOutlet weak var notes: UITextView! {
+        didSet {
+            notes.delegate = self
+        }
+    }
     
     
     // MARK: Model
@@ -430,7 +435,6 @@ class DayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
     
     //MARK: Section Two IBActions
     @IBAction func adjustObservation(_ sender: UIStepper) {
-        print(sender.value)
         day?.observation = Int(sender.value)
         updateUI()
     }
@@ -467,6 +471,10 @@ class DayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
         })
     }
     
+    func textViewDidEndEditing(_ textView: UITextView) {
+        day?.notes = textView.text!
+        updateUI()
+    }
     
 
     /*
