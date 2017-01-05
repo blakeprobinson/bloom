@@ -628,6 +628,7 @@
                         <outlet property="addDryButton" destination="dhH-Bb-8PW" id="GlH-rN-ryP"/>
                         <outlet property="addMucusButton" destination="YJK-DS-gde" id="KPb-jC-6NO"/>
                         <outlet property="bleedingButtonContainer" destination="wPQ-UZ-MKW" id="YU8-Yb-Hf7"/>
+                        <outlet property="body" destination="L7Y-iT-uic" id="Xu1-UA-RZn"/>
                         <outlet property="circle" destination="kyF-wa-qWI" id="8nu-MW-Lqz"/>
                         <outlet property="date" destination="y8C-9b-pTn" id="xpM-Bc-q1l"/>
                         <outlet property="dryButtonContainer" destination="KIo-aE-60e" id="4Nr-Ng-pNU"/>
