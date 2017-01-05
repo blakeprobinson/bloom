@@ -119,9 +119,18 @@ class DayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
         if day == nil {
             day = Day()
         }
-        registerForKeyboardNotifications()
         updateUI()
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(false)
+        registerForKeyboardNotifications()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(false)
+        NotificationCenter.default.removeObserver(self)
     }
     
     private func registerForKeyboardNotifications() {
