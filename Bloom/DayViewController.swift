@@ -119,8 +119,43 @@ class DayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
         if day == nil {
             day = Day()
         }
+        registerForKeyboardNotifications()
         updateUI()
         // Do any additional setup after loading the view.
+    }
+    
+    private func registerForKeyboardNotifications() {
+        
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(DayViewController.keyboardWasShown(notification:)), name: NSNotification.Name.UIKeyboardDidShow, object: nil)
+        
+        
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(DayViewController.keyboardWillHide(notification:)),
+                                               name: NSNotification.Name.UIKeyboardWillHide,
+                                               object: nil)
+    }
+    
+    func keyboardWasShown(notification:Notification) {
+        let userInfo: NSDictionary = notification.userInfo! as NSDictionary
+        let keyboardInfo = userInfo[UIKeyboardFrameBeginUserInfoKey] as! NSValue
+        let keyboardSize = keyboardInfo.cgRectValue.size
+        let contentInsets = UIEdgeInsets(top: 0, left: 0, bottom: keyboardSize.height, right: 0)
+        scrollView.contentInset = contentInsets
+        scrollView.scrollIndicatorInsets = contentInsets
+        
+        var viewRect = view.frame
+        viewRect.size.height -= keyboardSize.height
+        let frame = notes.convert(notes.bounds, to: nil)
+        if !viewRect.contains(frame.origin) {
+            let scrollPoint = CGPoint(x: 0, y: frame.maxY - viewRect.size.height)
+            scrollView.setContentOffset(scrollPoint, animated: true)
+        }
+    }
+    
+    func keyboardWillHide(notification: NSNotification) {
+        scrollView.contentInset = UIEdgeInsets.zero
+        scrollView.scrollIndicatorInsets = UIEdgeInsets.zero
     }
     
     fileprivate func updateUI() {
