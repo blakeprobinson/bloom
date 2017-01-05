@@ -236,6 +236,8 @@ class DayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
         pickerSelectedRow = pickerSelection(date: day.date)
         if let dayNotes = day.notes {
             notes.text = dayNotes
+        } else {
+            notes.text = "Notes"
         }
         updateSectionTwoAndThreeUIHasBeenCalled = true
     }
