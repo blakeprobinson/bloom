@@ -521,9 +521,9 @@ class DayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
         })
     }
     
-    func hideKeyboard() {
-        if notes.isFirstResponder {
-            notes.endEditing(true)
+    func hideKeyboard(sender: UIGestureRecognizer?) {
+        if notes.isFirstResponder && sender?.view != notes {
+            notes.resignFirstResponder()
         }
     }
     
