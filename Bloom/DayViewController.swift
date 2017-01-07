@@ -11,12 +11,6 @@ import UIKit
 class DayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextViewDelegate {
     
     @IBOutlet weak var scrollView: UIScrollView!
-    @IBOutlet weak var body: UIStackView! {
-        didSet {
-        let recognizer = UIGestureRecognizer(target: self, action: #selector(DayViewController.hideKeyboard))
-        body.addGestureRecognizer(recognizer)
-        }
-    }
     //MARK: Header Outlets
     @IBOutlet weak var headerDate: UILabel!
     @IBOutlet weak var circle: UIView! {
