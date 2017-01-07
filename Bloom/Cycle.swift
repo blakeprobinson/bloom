@@ -10,42 +10,47 @@ import Foundation
 
 class Cycle: NSObject, NSCoding {
     var days: [Day]
-    let indexInAllCycles: Int
-    var path: String {
+    var uuid = UUID()
+    
+    var startDate: Date {
         get {
-            return "cycle\(indexInAllCycles)"
-        }
-    }
-    var archiveURL: URL {
-        get {
-            let documentsDirectory = FileManager().urls(for: .documentDirectory, in: .userDomainMask).first!
-            return documentsDirectory.appendingPathComponent(path)
+            return days.first!.date
         }
     }
     
-    init(days: [Day], indexInAllCycles: Int) {
+    var endDate: Date? {
+        get {
+            return days.count > 1 ? days.last!.date : nil
+        }
+    }
+    
+    override var description: String {
+        get {
+            let dayDates = days.map { $0.date }
+            return "{ days: [\(dayDates)], uuid: \(self.uuid) }"
+        }
+    }
+    
+    init(days: [Day], uuid: UUID) {
         self.days = days
-        self.indexInAllCycles = indexInAllCycles
-    }
-    
-    func save() -> Bool {
-        return NSKeyedArchiver.archiveRootObject(days, toFile: archiveURL.path)
+        self.uuid = uuid
     }
     
     //MARK: NSCoding
     struct PropertyKey {
         static let days = "days"
-        static let index = "index"
-
+        static let uuid = "uuid"
     }
     
     required convenience init(coder aDecoder: NSCoder) {
         let days = aDecoder.decodeObject(forKey: PropertyKey.days) as! [Day]
-        let index = Int(aDecoder.decodeDouble(forKey: PropertyKey.index))
-        self.init(days: days, indexInAllCycles: index)
+        let uuid = aDecoder.decodeObject(forKey: PropertyKey.uuid) as! UUID
+        days.forEach({ $0.uuid = uuid })
+        self.init(days: days, uuid: uuid)
     }
     
     func encode(with aCoder: NSCoder) {
         aCoder.encode(days, forKey: PropertyKey.days)
+        aCoder.encode(uuid, forKey: PropertyKey.uuid)
     }
 }
