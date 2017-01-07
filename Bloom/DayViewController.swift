@@ -119,6 +119,10 @@ class DayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
         if day == nil {
             day = Day()
         }
+        let recognizer = UITapGestureRecognizer(target: self, action: #selector(DayViewController.hideKeyboard))
+        recognizer.cancelsTouchesInView = false
+        view.addGestureRecognizer(recognizer)
+        
         updateUI()
         // Do any additional setup after loading the view.
     }
