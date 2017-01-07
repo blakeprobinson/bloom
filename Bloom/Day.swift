@@ -20,6 +20,10 @@ class Day: NSObject, NSCoding {
     var date: Date
     var notes:String?
     
+    var isFirstDayOfCycle = false
+    
+    var uuid: UUID?
+    
     init(bleeding: Bleeding?,
         dry: Dry?,
         mucus: Mucus?,
@@ -28,7 +32,8 @@ class Day: NSObject, NSCoding {
         lubrication: Bool,
         pasty: Bool,
         date: Date,
-        notes: String?) {
+        notes: String?,
+        isFirstDayOfCycle: Bool) {
         
         self.bleeding = bleeding
         self.dry = dry
@@ -39,6 +44,7 @@ class Day: NSObject, NSCoding {
         self.pasty = pasty
         self.date = date
         self.notes = notes
+        self.isFirstDayOfCycle = isFirstDayOfCycle
     }
     
     override init() {
@@ -51,6 +57,13 @@ class Day: NSObject, NSCoding {
         self.pasty = false
         self.date = Date()
         self.notes = ""
+        self.isFirstDayOfCycle = false
+    }
+    
+    public override var description: String {
+        get {
+            return "{ bleeding: \(self.bleeding?.intensity.rawValue), dry: \(self.dry?.observation.rawValue), mucus: \(self.mucus), observation: \(self.observation), intercourse: \(self.intercourse), lubrication: \(self.lubrication), pasty: \(self.lubrication), date: \(self.date), notes: \(self.notes) }"
+        }
     }
     
     // MARK: NSCoding
@@ -71,6 +84,7 @@ class Day: NSObject, NSCoding {
         let pasty = aDecoder.decodeBool(forKey: PropertyKey.pasty)
         let date = aDecoder.decodeObject(forKey: PropertyKey.date) as! Date
         let notes = aDecoder.decodeObject(forKey: PropertyKey.notes) as! String?
+        let isFirstDayOfCycle = aDecoder.decodeBool(forKey: PropertyKey.isFirstDayOfCycle)
         
         self.init(bleeding: bleeding,
                   dry: dry,
@@ -80,7 +94,8 @@ class Day: NSObject, NSCoding {
                   lubrication: lubrication,
                   pasty: pasty,
                   date: date,
-                  notes: notes
+                  notes: notes,
+                  isFirstDayOfCycle: isFirstDayOfCycle
             
         )
     }
@@ -98,6 +113,7 @@ class Day: NSObject, NSCoding {
         static let pasty = "pasty"
         static let date = "date"
         static let notes = "notes"
+        static let isFirstDayOfCycle = "isFirstDayOfCycle"
     }
     
     func encode(with aCoder: NSCoder) {
@@ -112,6 +128,7 @@ class Day: NSObject, NSCoding {
         aCoder.encode(pasty, forKey: PropertyKey.pasty)
         aCoder.encode(date, forKey: PropertyKey.date)
         aCoder.encode(notes, forKey: PropertyKey.notes)
+        aCoder.encode(isFirstDayOfCycle, forKey: PropertyKey.isFirstDayOfCycle)
     }
 
 }
