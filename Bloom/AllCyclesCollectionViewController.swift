@@ -10,7 +10,7 @@ import UIKit
 
 private let reuseIdentifier = "Cell"
 
-class AllCyclesCollectionViewController: UICollectionViewController, UICollectionViewDelegate {
+class AllCyclesCollectionViewController: UICollectionViewController {
     
     var persistenceManager = PersistenceManager()
 
