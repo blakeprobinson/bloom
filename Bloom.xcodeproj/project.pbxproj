@@ -17,6 +17,7 @@
 		BA2BB7CB1DF8AE32008F3D51 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA2BB7C91DF8AE32008F3D51 /* LaunchScreen.storyboard */; };
 		BA2BB7D61DF8AF1D008F3D51 /* Day.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA2BB7D51DF8AF1D008F3D51 /* Day.swift */; };
 		BA5FE9481E1C278800755E40 /* PersistenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA5FE9471E1C278800755E40 /* PersistenceManager.swift */; };
+		BA76C4B61E23DB15005A2B12 /* CycleTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA76C4B51E23DB15005A2B12 /* CycleTableViewController.swift */; };
 		BA91F1C01E14346C00C209BC /* PlusMinusButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA91F1BF1E14346C00C209BC /* PlusMinusButton.swift */; };
 /* End PBXBuildFile section */
 
@@ -33,6 +34,7 @@
 		BA2BB7CC1DF8AE32008F3D51 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BA2BB7D51DF8AF1D008F3D51 /* Day.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Day.swift; sourceTree = "<group>"; };
 		BA5FE9471E1C278800755E40 /* PersistenceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersistenceManager.swift; sourceTree = "<group>"; };
+		BA76C4B51E23DB15005A2B12 /* CycleTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CycleTableViewController.swift; sourceTree = "<group>"; };
 		BA91F1BF1E14346C00C209BC /* PlusMinusButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlusMinusButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -67,6 +69,7 @@
 			isa = PBXGroup;
 			children = (
 				BA2BB7C41DF8AE32008F3D51 /* Main.storyboard */,
+				BA76C4B51E23DB15005A2B12 /* CycleTableViewController.swift */,
 				BA91F1C31E15545C00C209BC /* DayView */,
 				BA2BB7D51DF8AF1D008F3D51 /* Day.swift */,
 				BA5FE9471E1C278800755E40 /* PersistenceManager.swift */,
@@ -176,6 +179,7 @@
 				BA0F45891E0C5EE900B23715 /* ButtonWithUnderBar.swift in Sources */,
 				BA5FE9481E1C278800755E40 /* PersistenceManager.swift in Sources */,
 				BA2BB7C11DF8AE32008F3D51 /* AppDelegate.swift in Sources */,
+				BA76C4B61E23DB15005A2B12 /* CycleTableViewController.swift in Sources */,
 				BA02B8AC1E0335A80051BACD /* DayViewController.swift in Sources */,
 				BA91F1C01E14346C00C209BC /* PlusMinusButton.swift in Sources */,
 				BA2BB7D61DF8AF1D008F3D51 /* Day.swift in Sources */,
