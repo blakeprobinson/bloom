@@ -10,37 +10,40 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--All Cycles Table View Controller-->
-        <scene sceneID="Buk-g0-hKt">
+        <!--Collection View Controller-->
+        <scene sceneID="9gB-bn-kcu">
             <objects>
-                <tableViewController id="FHE-Kz-7kC" customClass="AllCyclesTableViewController" customModule="Bloom" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="hGE-mD-y46">
+                <collectionViewController id="yXh-gr-0K6" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="WBj-FG-jLa">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="AGi-4r-mEd">
-                                <rect key="frame" x="0.0" y="28" width="414" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="AGi-4r-mEd" id="LDu-pA-v6p">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="8pD-6C-Ir8">
+                            <size key="itemSize" width="50" height="50"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="fhT-qW-VZL">
+                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                     <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
+                                </view>
+                            </collectionViewCell>
+                        </cells>
                         <connections>
-                            <outlet property="dataSource" destination="FHE-Kz-7kC" id="e0F-Rd-XAM"/>
-                            <outlet property="delegate" destination="FHE-Kz-7kC" id="CTf-7X-KEp"/>
+                            <outlet property="dataSource" destination="yXh-gr-0K6" id="agb-6N-dDP"/>
+                            <outlet property="delegate" destination="yXh-gr-0K6" id="oln-tq-eHO"/>
                         </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" id="d3Z-eV-RkE"/>
-                    <connections>
-                        <segue destination="N6H-bJ-59T" kind="show" id="pv8-6E-1YM"/>
-                    </connections>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="V2M-Ot-DuG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                    </collectionView>
+                    <navigationItem key="navigationItem" id="WZr-6h-qIE"/>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gxc-6j-ZEj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2168" y="-218"/>
+            <point key="canvasLocation" x="2161" y="-225"/>
         </scene>
         <!--Cycle Table View Controller-->
         <scene sceneID="jfZ-dQ-iZP">
@@ -86,7 +89,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zVm-HY-yKJ">
-                                <rect key="frame" x="0.0" y="64" width="414" height="1186"/>
+                                <rect key="frame" x="0.0" y="20" width="414" height="1230"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="GC0-na-Q3n" userLabel="Contents Stack View">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="1107"/>
@@ -95,7 +98,7 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="96"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gNS-qP-OPh" userLabel="Date">
-                                                        <rect key="frame" x="95.333333333333314" y="38.333333333333329" width="41.666666666666686" height="20.333333333333343"/>
+                                                        <rect key="frame" x="95.333333333333314" y="38.333333333333329" width="41.666666666666686" height="20.333333333333336"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -109,7 +112,7 @@
                                                         </constraints>
                                                     </view>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="--" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eZZ-0P-veK" userLabel="Required Input">
-                                                        <rect key="frame" x="277" y="38.333333333333329" width="15.333333333333314" height="20.333333333333343"/>
+                                                        <rect key="frame" x="277" y="38.333333333333329" width="15.333333333333314" height="20.333333333333336"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -726,7 +729,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="FHE-Kz-7kC" kind="relationship" relationship="rootViewController" id="7is-RE-atG"/>
+                        <segue destination="yXh-gr-0K6" kind="relationship" relationship="rootViewController" id="6gt-sx-Ejs"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JKe-sa-oSL" userLabel="First Responder" sceneMemberID="firstResponder"/>
