@@ -8,7 +8,7 @@
 
 import Foundation
 
-class PersistanceManager {
+class PersistenceManager {
     
     var saveDirectory: URL = {
         return FileManager().urls(for: .documentDirectory, in: .userDomainMask).first!
