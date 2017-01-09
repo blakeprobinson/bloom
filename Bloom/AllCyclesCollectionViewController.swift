@@ -30,8 +30,11 @@ class AllCyclesCollectionViewController: UICollectionViewController {
     // MARK: - Navigation
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let destination = segue.destination as! CycleTableViewController
-        destination.cycle = sender as? Cycle
+        if segue.identifier == "AllCyclesToCycle" {
+            let destination = segue.destination as! CycleTableViewController
+            destination.cycle = sender as? Cycle
+        }
+        
     }
 
 
