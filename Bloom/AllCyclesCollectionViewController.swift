@@ -10,7 +10,7 @@ import UIKit
 
 private let reuseIdentifier = "Cell"
 
-class AllCyclesCollectionViewController: UICollectionViewController {
+class AllCyclesCollectionViewController: UICollectionViewController, UICollectionViewDelegate {
     
     var persistenceManager = PersistenceManager()
 
@@ -26,7 +26,7 @@ class AllCyclesCollectionViewController: UICollectionViewController {
         // Do any additional setup after loading the view.
     }
 
-    /*
+
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -34,7 +34,7 @@ class AllCyclesCollectionViewController: UICollectionViewController {
         // Get the new view controller using [segue destinationViewController].
         // Pass the selected object to the new view controller.
     }
-    */
+
 
     // MARK: UICollectionViewDataSource
 
@@ -51,13 +51,17 @@ class AllCyclesCollectionViewController: UICollectionViewController {
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
-    
+        
         // Configure the cell
     
         return cell
     }
 
     // MARK: UICollectionViewDelegate
+    
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "AllCyclesToCycle", sender: self)
+    }
 
     /*
     // Uncomment this method to specify if the specified item should be highlighted during tracking
