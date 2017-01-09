@@ -9,6 +9,8 @@
 import UIKit
 
 class CycleTableViewController: UITableViewController {
+    
+    var persistenceManager = PersistenceManager()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,16 +22,11 @@ class CycleTableViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
