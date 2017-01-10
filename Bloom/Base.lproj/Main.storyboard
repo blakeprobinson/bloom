@@ -703,6 +703,7 @@
                     <size key="freeformSize" width="414" height="1250"/>
                     <connections>
                         <outlet property="addBleedingButton" destination="Pj6-5a-Xpx" id="JvW-1Z-qUF"/>
+                        <outlet property="addButton" destination="5hB-bW-0WG" id="orj-QD-AiU"/>
                         <outlet property="addDryButton" destination="dhH-Bb-8PW" id="GlH-rN-ryP"/>
                         <outlet property="addMucusButton" destination="YJK-DS-gde" id="KPb-jC-6NO"/>
                         <outlet property="bleedingButtonContainer" destination="wPQ-UZ-MKW" id="YU8-Yb-Hf7"/>

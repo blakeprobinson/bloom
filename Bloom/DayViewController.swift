@@ -12,6 +12,7 @@ class DayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
     
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var navbar: UINavigationBar!
+    @IBOutlet weak var addButton: UIBarButtonItem!
     //MARK: Header Outlets
     @IBOutlet weak var headerDate: UILabel!
     @IBOutlet weak var circle: UIView! {
@@ -174,6 +175,7 @@ class DayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
     
     fileprivate func updateUI() {
         var modOrHeavySelected = false
+        var canAdd = false
         if let day = day {
             headerDate.text = dateString(date: day.date, forHeader: true)
             circle.backgroundColor = circleBackground(day: day)
@@ -182,19 +184,22 @@ class DayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
             if let dry = day.dry {
                 addMucusButton.isEnabled = false
                 deselectAllBut(title: dryBleedingButtonModelToTitle[dry.observation.rawValue]!, from: dryButtons)
+                canAdd = true
             } else {
                 addMucusButton.isEnabled = true
             }
             if let bleeding = day.bleeding {
                 modOrHeavySelected = updateBleedingUI(bleeding: bleeding)
+                canAdd = true
             }
             if let mucus = day.mucus {
-                updateMucusUI(mucus: mucus)
+                canAdd = updateMucusUI(mucus: mucus)
             } else if !modOrHeavySelected {
                 addDryButton.isEnabled = true
             }
             updateSectionTwoAndThreeUI(day: day)
         }
+        addButton.isEnabled = canAdd
     }
     
     fileprivate func updateDatesInUI() {
@@ -295,8 +300,7 @@ class DayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
         }
     }
     
-    private func updateMucusUI(mucus: Day.Mucus) {
-        
+    private func updateMucusUI(mucus: Day.Mucus) -> Bool {
         if let length = mucus.length {
             deselectAllBut(title: mucusButtonModelToTitle[length.rawValue]!, from: mucusLengthButtons)
         } else {
@@ -307,17 +311,21 @@ class DayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
         } else {
             mucusColorButtons.forEach({ $0.isSelected = false})
         }
+        //consistency is not a required Input so isMucusInputComplete
+        //won't be involved in this conditional.
         if let consistency = mucus.consistency {
             deselectAllBut(title: mucusButtonModelToTitle[consistency.rawValue]!, from: mucusConsistencyButtons)
         } else {
             mucusConsistencyButtons.forEach({ $0.isSelected = false })
         }
-
+        
         if mucus.length == nil && mucus.color == nil && mucus.consistency == nil {
             addDryButton.isEnabled = true
         } else {
             addDryButton.isEnabled = false
         }
+        
+        return mucus.length != nil && mucus.color != nil
     }
     
     private func deselectAllBut(title: String, from collection: [ButtonWithUnderBar]) {
