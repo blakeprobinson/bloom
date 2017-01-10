@@ -109,11 +109,7 @@ class DayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
     // MARK: Model
     // day is an optional since the model will be nil when a 
     // user is adding a new day
-    var day:Day? {
-        didSet {
-            updateUI()
-        }
-    }
+    var day:Day?
     let persistenceManager = PersistenceManager()
 
     //MARK: View LifeCycle methods
