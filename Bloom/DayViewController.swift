@@ -114,6 +114,7 @@ class DayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
             updateUI()
         }
     }
+    let persistenceManager = PersistenceManager()
 
     //MARK: View LifeCycle methods
     override func viewDidLoad() {
@@ -337,10 +338,16 @@ class DayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
             }
         }
     }
-    
+    //MARK: Navbar IBActions
     @IBAction func cancelTouched() {
         dismiss(animated: true, completion:nil)
     }
+    
+    @IBAction func addTouched(_ sender: UIBarButtonItem) {
+        persistenceManager.saveDay(day: day!)
+        dismiss(animated: true, completion: nil)
+    }
+    
     
     //MARK: PlusMinusButton IBActions
     @IBAction func addDryTouched(_ sender: PlusMinusButton) {

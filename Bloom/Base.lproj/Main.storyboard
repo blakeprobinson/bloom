@@ -120,6 +120,9 @@
                                                         </barButtonItem>
                                                         <barButtonItem key="rightBarButtonItem" enabled="NO" title="Add" id="5hB-bW-0WG">
                                                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                            <connections>
+                                                                <action selector="addTouched:" destination="nez-Db-vhN" id="2gJ-fC-47N"/>
+                                                            </connections>
                                                         </barButtonItem>
                                                     </navigationItem>
                                                 </items>
