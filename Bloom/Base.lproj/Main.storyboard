@@ -68,7 +68,7 @@
                                 <rect key="frame" x="0.0" y="28" width="414" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="2h0-FI-2Kc" id="caZ-pQ-Epa">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -114,6 +114,9 @@
                                                     <navigationItem title="New Day" id="Vmz-nh-hN9">
                                                         <barButtonItem key="leftBarButtonItem" title="Cancel" id="5xw-vh-UUo">
                                                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                            <connections>
+                                                                <action selector="cancelTouched" destination="nez-Db-vhN" id="929-6L-bC4"/>
+                                                            </connections>
                                                         </barButtonItem>
                                                         <barButtonItem key="rightBarButtonItem" enabled="NO" title="Add" id="5hB-bW-0WG">
                                                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -711,6 +714,7 @@
                         <outlet property="lubrication" destination="fBT-dm-3ko" id="aK2-xJ-uK4"/>
                         <outlet property="lubricationView" destination="DgP-KD-Pvn" id="YyJ-jV-5nO"/>
                         <outlet property="mucusButtonContainer" destination="AVR-pp-CvA" id="hc1-Z7-WkQ"/>
+                        <outlet property="navbar" destination="7BP-Wf-r6X" id="vCU-b2-oUw"/>
                         <outlet property="notes" destination="128-z0-z1H" id="7P7-pN-O5P"/>
                         <outlet property="observation" destination="1Ub-Be-cdJ" id="8X1-qU-e78"/>
                         <outlet property="observationStepper" destination="j95-Zg-LvP" id="gal-Vv-n84"/>

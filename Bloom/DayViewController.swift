@@ -11,6 +11,7 @@ import UIKit
 class DayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextViewDelegate {
     
     @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var navbar: UINavigationBar!
     //MARK: Header Outlets
     @IBOutlet weak var headerDate: UILabel!
     @IBOutlet weak var circle: UIView! {
@@ -327,6 +328,10 @@ class DayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
                 button.isSelected = false
             }
         }
+    }
+    
+    @IBAction func cancelTouched() {
+        dismiss(animated: true, completion:nil)
     }
     
     //MARK: PlusMinusButton IBActions
