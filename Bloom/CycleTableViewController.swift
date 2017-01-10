@@ -13,6 +13,7 @@ class CycleTableViewController: UITableViewController {
     var persistenceManager = PersistenceManager()
     
     var cycle:Cycle?
+    var selected:Int?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -64,6 +65,7 @@ class CycleTableViewController: UITableViewController {
     */
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        selected = indexPath.row
         performSegue(withIdentifier: "cycleToEdit", sender: cycle?.days[indexPath.row])
     }
 
@@ -76,6 +78,7 @@ class CycleTableViewController: UITableViewController {
         // Pass the selected object to the new view controller.
         let vc = segue.destination as! DayViewController
         vc.day = sender as? Day
+        vc.dayInCycleText = selected
     }
  
 

@@ -138,9 +138,19 @@
                                                     </label>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kyF-wa-qWI" userLabel="Circle">
                                                         <rect key="frame" x="167" y="8" width="80" height="80"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Md-mu-ijF">
+                                                                <rect key="frame" x="16" y="27.666666666666657" width="49" height="24"/>
+                                                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
+                                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
                                                         <color key="backgroundColor" red="0.57647058819999997" green="0.76862745099999996" blue="0.49019607840000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <constraints>
+                                                            <constraint firstItem="0Md-mu-ijF" firstAttribute="centerX" secondItem="kyF-wa-qWI" secondAttribute="centerX" id="JYc-lD-Uyo"/>
                                                             <constraint firstAttribute="width" constant="80" id="OoV-Xs-81q"/>
+                                                            <constraint firstItem="0Md-mu-ijF" firstAttribute="centerY" secondItem="kyF-wa-qWI" secondAttribute="centerY" id="QgN-2z-xSD"/>
                                                             <constraint firstAttribute="width" secondItem="kyF-wa-qWI" secondAttribute="height" multiplier="1:1" id="WTZ-i3-8CX"/>
                                                         </constraints>
                                                     </view>
@@ -712,6 +722,7 @@
                         <outlet property="bleedingButtonContainer" destination="wPQ-UZ-MKW" id="YU8-Yb-Hf7"/>
                         <outlet property="circle" destination="kyF-wa-qWI" id="8nu-MW-Lqz"/>
                         <outlet property="date" destination="y8C-9b-pTn" id="xpM-Bc-q1l"/>
+                        <outlet property="dayInCycle" destination="0Md-mu-ijF" id="eVL-kd-79A"/>
                         <outlet property="dryButtonContainer" destination="KIo-aE-60e" id="4Nr-Ng-pNU"/>
                         <outlet property="headerDate" destination="gNS-qP-OPh" id="QoK-VO-1ra"/>
                         <outlet property="intercourse" destination="dh0-Qy-vES" id="KLs-cp-Rsq"/>

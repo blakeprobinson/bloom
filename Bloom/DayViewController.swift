@@ -23,6 +23,8 @@ class DayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
         }
     }
     @IBOutlet weak var requiredInput: UILabel!
+    @IBOutlet weak var dayInCycle: UILabel!
+    var dayInCycleText:Int?
     
     //MARK: Section 1 Outlets
     
@@ -117,6 +119,8 @@ class DayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
         super.viewDidLoad()
         if day == nil {
             day = Day()
+        } else {
+            navbar.isHidden = true
         }
         let recognizer = UITapGestureRecognizer(target: self, action: #selector(DayViewController.hideKeyboard))
         recognizer.cancelsTouchesInView = false
@@ -176,8 +180,9 @@ class DayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
         if let day = day {
             headerDate.text = dateString(date: day.date, forHeader: true)
             circle.backgroundColor = circleBackground(day: day)
-            
-            
+            if let dayInCycleText = dayInCycleText {
+                dayInCycle.text = String(dayInCycleText)
+            }
             if let dry = day.dry {
                 addMucusButton.isEnabled = false
                 deselectAllBut(title: dryBleedingButtonModelToTitle[dry.observation.rawValue]!, from: dryButtons)
