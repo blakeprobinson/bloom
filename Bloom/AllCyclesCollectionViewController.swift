@@ -25,6 +25,11 @@ class AllCyclesCollectionViewController: UICollectionViewController {
 
         // Do any additional setup after loading the view.
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        collectionView?.reloadData()
+    }
 
 
     // MARK: - Navigation
@@ -51,6 +56,9 @@ class AllCyclesCollectionViewController: UICollectionViewController {
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
+        let label = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 50))
+        label.text = persistenceManager.getAllCyclesSorted()[indexPath.row].startDate.description
+        cell.contentView.addSubview(label)
     
         return cell
     }
