@@ -22,8 +22,6 @@ class AllCyclesCollectionViewController: UICollectionViewController {
 
         // Register cell classes
         self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
-        
-        collectionView?.setCollectionViewLayout(BidirectionCollectionLayout(), animated: true)
 
         // Do any additional setup after loading the view.
     }
@@ -48,12 +46,16 @@ class AllCyclesCollectionViewController: UICollectionViewController {
     // MARK: UICollectionViewDataSource
 
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 1
+        return persistenceManager.getIDs().count
     }
 
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return persistenceManager.getIDs().count
+        return persistenceManager.getAllCyclesSorted()[section].days.count
+    }
+    
+    func colllectionView(_ collectionView: UICollectionView, layout: UICollectionViewLayout, shouldFloatSectionAtIndex section: Int) -> Bool {
+        return section == 0
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
