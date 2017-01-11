@@ -11,6 +11,9 @@ import UIKit
 class AllCyclesLayout: UICollectionViewLayout {
     
     var layoutInfo = [IndexPath: UICollectionViewLayoutAttributes]
+    let screenSize = UIScreen.main.bounds
+    let itemWidth = screenSize.width / 6
+    let itemHeight = (screenSize.height - 44) / 21
     
     override func prepare() {
         
