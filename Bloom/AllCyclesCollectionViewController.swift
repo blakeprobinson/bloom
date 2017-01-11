@@ -54,15 +54,12 @@ class AllCyclesCollectionViewController: UICollectionViewController {
         return persistenceManager.getAllCyclesSorted()[section].days.count
     }
     
-    func colllectionView(_ collectionView: UICollectionView, layout: UICollectionViewLayout, shouldFloatSectionAtIndex section: Int) -> Bool {
-        return section == 0
-    }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
-        let label = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 50))
-        label.text = persistenceManager.getAllCyclesSorted()[indexPath.row].startDate.description
-        cell.contentView.addSubview(label)
+//        let label = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 50))
+//        label.text = persistenceManager.getAllCyclesSorted()[indexPath.row].startDate.description
+//        cell.contentView.addSubview(label)
     
         return cell
     }
