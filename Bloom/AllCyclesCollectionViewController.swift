@@ -22,6 +22,8 @@ class AllCyclesCollectionViewController: UICollectionViewController {
 
         // Register cell classes
         self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
+        
+        collectionView?.setCollectionViewLayout(BidirectionCollectionLayout(), animated: true)
 
         // Do any additional setup after loading the view.
     }
