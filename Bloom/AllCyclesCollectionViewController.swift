@@ -29,6 +29,7 @@ class AllCyclesCollectionViewController: UICollectionViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         collectionView?.reloadData()
+        print(collectionView?.collectionViewLayout.collectionViewContentSize ?? 0)
     }
 
 
@@ -51,7 +52,7 @@ class AllCyclesCollectionViewController: UICollectionViewController {
 
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return persistenceManager.getAllCyclesSorted()[section].days.count
+        return 100
     }
     
 
@@ -60,7 +61,7 @@ class AllCyclesCollectionViewController: UICollectionViewController {
 //        let label = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 50))
 //        label.text = persistenceManager.getAllCyclesSorted()[indexPath.row].startDate.description
 //        cell.contentView.addSubview(label)
-    
+        cell.backgroundColor = UIColor.red
         return cell
     }
 

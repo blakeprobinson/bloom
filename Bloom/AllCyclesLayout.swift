@@ -9,13 +9,29 @@
 import UIKit
 import CoreGraphics
 
-class AllCyclesLayout: UICollectionViewLayout {
+class AllCyclesLayout: UICollectionViewFlowLayout {
     
     var layoutInfo = [IndexPath: UICollectionViewLayoutAttributes]()
     let itemWidth = UIScreen.main.bounds.width / 6
     let itemHeight = (UIScreen.main.bounds.height - 44) / 21
-    var maxX:Double = 0
-    var maxY:Double = 0
+    var maxX:Double = Double(UIScreen.main.bounds.width / 6)
+    var maxY:Double = Double((UIScreen.main.bounds.height - 44) / 21)
+    
+    override init() {
+        super.init()
+        setup()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        setup()
+    }
+    
+    func setup() {
+        // setting up some inherited values
+        self.itemSize = CGSize(width: itemWidth, height: itemHeight)
+    }
+    
     
     override func prepare() {
         let numberOfSections = collectionView?.numberOfSections ?? 0
@@ -25,6 +41,7 @@ class AllCyclesLayout: UICollectionViewLayout {
                 let indexPath = IndexPath(item: itemIndex, section: sectionIndex)
                 let itemAttributes = UICollectionViewLayoutAttributes(forCellWith: indexPath)
                 itemAttributes.frame = frameForItemAt(indexPath: indexPath)
+                layoutInfo[indexPath] = itemAttributes
             }
             
         }
@@ -52,7 +69,11 @@ class AllCyclesLayout: UICollectionViewLayout {
         return allAttributes
     }
     
+    override func shouldInvalidateLayout(forBoundsChange newBounds: CGRect) -> Bool {
+        return false
+    }
+    
     override var collectionViewContentSize: CGSize {
-        return CGSize(width: maxX, height: maxY)
+        return CGSize(width: maxX+20, height: maxY + 40)
     }
 }
