@@ -17,22 +17,6 @@ class AllCyclesLayout: UICollectionViewFlowLayout {
     var maxX:Double = Double(UIScreen.main.bounds.width / 6)
     var maxY:Double = Double((UIScreen.main.bounds.height - 44) / 21)
     
-    override init() {
-        super.init()
-        setup()
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        setup()
-    }
-    
-    func setup() {
-        // setting up some inherited values
-        self.itemSize = CGSize(width: itemWidth, height: itemHeight)
-    }
-    
-    
     override func prepare() {
         let numberOfSections = collectionView?.numberOfSections ?? 0
         for sectionIndex in 0..<numberOfSections {
@@ -60,6 +44,9 @@ class AllCyclesLayout: UICollectionViewFlowLayout {
     }
     
     override func layoutAttributesForElements(in rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
+        
+        
+        
         var allAttributes = [UICollectionViewLayoutAttributes]()
         for (_, attributes) in layoutInfo {
             if rect.intersects(attributes.frame) {

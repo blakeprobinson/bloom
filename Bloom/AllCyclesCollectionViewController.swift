@@ -47,7 +47,7 @@ class AllCyclesCollectionViewController: UICollectionViewController {
     // MARK: UICollectionViewDataSource
 
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return persistenceManager.getIDs().count
+        return 1
     }
 
 
@@ -58,9 +58,9 @@ class AllCyclesCollectionViewController: UICollectionViewController {
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
-//        let label = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 50))
-//        label.text = persistenceManager.getAllCyclesSorted()[indexPath.row].startDate.description
-//        cell.contentView.addSubview(label)
+        let label = UILabel(frame: CGRect(x: 0, y: 0, width: 40, height: 20))
+        label.text = String(indexPath.item)
+        cell.contentView.addSubview(label)
         cell.backgroundColor = UIColor.red
         return cell
     }
