@@ -10,4 +10,18 @@ import UIKit
 
 class BleedingCollectionViewCell: UICollectionViewCell {
     
+    @IBOutlet weak var dayNumber: UILabel!
+    @IBOutlet weak var daySymbol: UIView! {
+        didSet {
+            daySymbol.layer.cornerRadius = daySymbol.bounds.height / 2
+            daySymbol.backgroundColor = UIColor(red:0.80, green:0.00, blue:0.00, alpha:1.0)
+        }
+    }
+    
+    
+    override func awakeFromNib() {
+        print("daySymbol height = \(daySymbol.frame.height)")
+        print("daySymbol width = \(daySymbol.frame.width)")
+        
+    }
 }

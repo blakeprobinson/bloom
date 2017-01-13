@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="TL9-il-wFj">
-    <device id="retina5_5" orientation="portrait">
+    <device id="retina3_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -15,20 +15,45 @@
             <objects>
                 <collectionViewController id="yXh-gr-0K6" customClass="AllCyclesCollectionViewController" customModule="Bloom" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="WBj-FG-jLa">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <collectionViewLayout key="collectionViewLayout" id="25p-cb-Ycu" customClass="AllCyclesLayout" customModule="Bloom" customModuleProvider="target"/>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="fhT-qW-VZL">
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="bleedingCell" id="fhT-qW-VZL" customClass="BleedingCollectionViewCell" customModule="Bloom" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wfe-5n-XRM">
+                                            <rect key="frame" x="7" y="7" width="36" height="36"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z1Z-ul-HQ5">
+                                                    <rect key="frame" x="14" y="7.5" width="8" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <constraints>
+                                                <constraint firstItem="Z1Z-ul-HQ5" firstAttribute="centerY" secondItem="wfe-5n-XRM" secondAttribute="centerY" id="Csm-Sa-JjN"/>
+                                                <constraint firstAttribute="height" constant="36" id="dpp-DN-ggC"/>
+                                                <constraint firstAttribute="width" constant="36" id="l6c-RA-IlW"/>
+                                                <constraint firstItem="Z1Z-ul-HQ5" firstAttribute="centerX" secondItem="wfe-5n-XRM" secondAttribute="centerX" id="pAX-77-7vC"/>
+                                            </constraints>
+                                        </view>
+                                    </subviews>
                                 </view>
-                                <color key="backgroundColor" red="0.59999999999999998" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="wfe-5n-XRM" firstAttribute="centerY" secondItem="fhT-qW-VZL" secondAttribute="centerY" id="3wn-UU-zqg"/>
+                                    <constraint firstItem="wfe-5n-XRM" firstAttribute="centerX" secondItem="fhT-qW-VZL" secondAttribute="centerX" id="MKd-rb-bt4"/>
+                                </constraints>
                                 <connections>
+                                    <outlet property="dayNumber" destination="Z1Z-ul-HQ5" id="xG4-lG-sU0"/>
+                                    <outlet property="daySymbol" destination="wfe-5n-XRM" id="2gz-hZ-Rxr"/>
                                     <segue destination="N6H-bJ-59T" kind="show" identifier="AllCyclesToCycle" id="ota-8M-Mqj"/>
                                 </connections>
                             </collectionViewCell>
@@ -60,15 +85,15 @@
             <objects>
                 <tableViewController id="N6H-bJ-59T" customClass="CycleTableViewController" customModule="Bloom" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="OuS-vl-8EZ">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="dayInCycle" id="2h0-FI-2Kc">
-                                <rect key="frame" x="0.0" y="28" width="414" height="44"/>
+                                <rect key="frame" x="0.0" y="28" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="2h0-FI-2Kc" id="caZ-pQ-Epa">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -131,7 +156,7 @@
                                                 <rect key="frame" x="0.0" y="44" width="414" height="96"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gNS-qP-OPh" userLabel="Date">
-                                                        <rect key="frame" x="95.333333333333314" y="38.333333333333343" width="41.666666666666686" height="20.333333333333314"/>
+                                                        <rect key="frame" x="95" y="38.5" width="42" height="20.5"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -140,7 +165,7 @@
                                                         <rect key="frame" x="167" y="8" width="80" height="80"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Md-mu-ijF">
-                                                                <rect key="frame" x="16" y="27.666666666666657" width="49" height="24"/>
+                                                                <rect key="frame" x="16" y="27.5" width="49" height="24"/>
                                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
                                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                 <nil key="highlightedColor"/>
@@ -155,7 +180,7 @@
                                                         </constraints>
                                                     </view>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="--" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eZZ-0P-veK" userLabel="Required Input">
-                                                        <rect key="frame" x="277" y="38.333333333333343" width="15.333333333333314" height="20.333333333333314"/>
+                                                        <rect key="frame" x="277" y="38.5" width="15.5" height="20.5"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -196,7 +221,7 @@
                                                                 <rect key="frame" x="0.0" y="40" width="414" height="55"/>
                                                                 <subviews>
                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W4S-n5-UdY" customClass="ButtonWithUnderBar" customModule="Bloom" customModuleProvider="target">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="102.66666666666667" height="55"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="103" height="55"/>
                                                                         <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                                                         <state key="normal" title="Dry">
                                                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -206,7 +231,7 @@
                                                                         </connections>
                                                                     </button>
                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mfR-Bx-bRZ" customClass="ButtonWithUnderBar" customModule="Bloom" customModuleProvider="target">
-                                                                        <rect key="frame" x="103.66666666666666" y="0.0" width="102.99999999999997" height="55"/>
+                                                                        <rect key="frame" x="104" y="0.0" width="102.5" height="55"/>
                                                                         <color key="backgroundColor" red="0.85098039215686272" green="0.91764705882352937" blue="0.82745098039215681" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                         <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                                                         <state key="normal" title="Damp">
@@ -217,7 +242,7 @@
                                                                         </connections>
                                                                     </button>
                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CTS-Oh-a1A" customClass="ButtonWithUnderBar" customModule="Bloom" customModuleProvider="target">
-                                                                        <rect key="frame" x="207.66666666666669" y="0.0" width="102.66666666666669" height="55"/>
+                                                                        <rect key="frame" x="207.5" y="0.0" width="103" height="55"/>
                                                                         <color key="backgroundColor" red="0.71372549019607845" green="0.84313725490196079" blue="0.6588235294117647" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                         <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                                                         <state key="normal" title="Wet">
@@ -228,7 +253,7 @@
                                                                         </connections>
                                                                     </button>
                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z82-Ip-Vua" customClass="ButtonWithUnderBar" customModule="Bloom" customModuleProvider="target">
-                                                                        <rect key="frame" x="311.33333333333326" y="0.0" width="102.66666666666669" height="55"/>
+                                                                        <rect key="frame" x="311.5" y="0.0" width="102.5" height="55"/>
                                                                         <color key="backgroundColor" red="0.57647058823529407" green="0.76862745098039209" blue="0.49019607843137253" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                         <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                                                         <state key="normal" title="Shiny">
@@ -367,7 +392,7 @@
                                                                         <rect key="frame" x="0.0" y="0.0" width="414" height="55"/>
                                                                         <subviews>
                                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UpW-aW-VQ8" userLabel="Quarter" customClass="ButtonWithUnderBar" customModule="Bloom" customModuleProvider="target">
-                                                                                <rect key="frame" x="0.0" y="0.0" width="137.33333333333334" height="55"/>
+                                                                                <rect key="frame" x="0.0" y="0.0" width="137.5" height="55"/>
                                                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                                                                 <state key="normal" title="1/4">
                                                                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -382,7 +407,7 @@
                                                                                 </connections>
                                                                             </button>
                                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I15-cQ-aM7" userLabel="Half" customClass="ButtonWithUnderBar" customModule="Bloom" customModuleProvider="target">
-                                                                                <rect key="frame" x="138.33333333333331" y="0.0" width="137.33333333333331" height="55"/>
+                                                                                <rect key="frame" x="138.5" y="0.0" width="137" height="55"/>
                                                                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                                                                 <state key="normal" title="1/2-3/4">
@@ -398,7 +423,7 @@
                                                                                 </connections>
                                                                             </button>
                                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HOe-Vh-hni" userLabel="One" customClass="ButtonWithUnderBar" customModule="Bloom" customModuleProvider="target">
-                                                                                <rect key="frame" x="276.66666666666674" y="0.0" width="137.33333333333331" height="55"/>
+                                                                                <rect key="frame" x="276.5" y="0.0" width="137.5" height="55"/>
                                                                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                                                                 <state key="normal" title="1">
@@ -552,7 +577,7 @@
                                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="39"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1 Observation" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Ub-Be-cdJ">
-                                                                        <rect key="frame" x="8" y="9.3333333333333712" width="105" height="20.333333333333258"/>
+                                                                        <rect key="frame" x="8" y="9.5" width="105" height="20.5"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                         <nil key="textColor"/>
                                                                         <nil key="highlightedColor"/>
@@ -578,7 +603,7 @@
                                                                 <rect key="frame" x="0.0" y="40" width="414" height="39"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Intercourse" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yTF-LY-zn1">
-                                                                        <rect key="frame" x="8" y="9.3333333333333712" width="86.666666666666671" height="20.333333333333258"/>
+                                                                        <rect key="frame" x="8" y="9.5" width="87" height="20.5"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                         <nil key="textColor"/>
                                                                         <nil key="highlightedColor"/>
@@ -603,7 +628,7 @@
                                                                 <rect key="frame" x="0.0" y="80" width="414" height="39"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lubrication" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kam-HJ-qhK">
-                                                                        <rect key="frame" x="8" y="9.3333333333333712" width="86" height="20.333333333333258"/>
+                                                                        <rect key="frame" x="8" y="9.5" width="86" height="20.5"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                         <nil key="textColor"/>
                                                                         <nil key="highlightedColor"/>
@@ -628,7 +653,7 @@
                                                                 <rect key="frame" x="0.0" y="120" width="414" height="39"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Start New Cycle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="02b-ug-dkI">
-                                                                        <rect key="frame" x="8" y="9.3333333333333712" width="123.66666666666666" height="20.333333333333258"/>
+                                                                        <rect key="frame" x="8" y="9.5" width="123.5" height="20.5"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                         <nil key="textColor"/>
                                                                         <nil key="highlightedColor"/>
@@ -781,6 +806,23 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JKe-sa-oSL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1319" y="-222"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="hEh-PL-9xQ">
+            <objects>
+                <viewController id="5Yo-IE-M2o" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="AxM-GI-fkr"/>
+                        <viewControllerLayoutGuide type="bottom" id="Uv4-qz-3Qd"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="b1p-RJ-oSl">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UWL-8d-NhP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
         </scene>
     </scenes>
     <resources>

@@ -10,6 +10,7 @@
 		BA02B8891E01D2540051BACD /* Cycle.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA02B8881E01D2540051BACD /* Cycle.swift */; };
 		BA02B8AC1E0335A80051BACD /* DayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA02B8AB1E0335A80051BACD /* DayViewController.swift */; };
 		BA0D5C341E2956000087116D /* AllCyclesSectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA0D5C331E2956000087116D /* AllCyclesSectionHeader.swift */; };
+		BA0D5C361E296FF60087116D /* BleedingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA0D5C351E296FF60087116D /* BleedingCollectionViewCell.swift */; };
 		BA0F45891E0C5EE900B23715 /* ButtonWithUnderBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA0F45881E0C5EE900B23715 /* ButtonWithUnderBar.swift */; };
 		BA0F458B1E11BD8500B23715 /* StackViewWithButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA0F458A1E11BD8500B23715 /* StackViewWithButtons.swift */; };
 		BA2BB7C11DF8AE32008F3D51 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA2BB7C01DF8AE32008F3D51 /* AppDelegate.swift */; };
@@ -28,6 +29,7 @@
 		BA02B8881E01D2540051BACD /* Cycle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cycle.swift; sourceTree = "<group>"; };
 		BA02B8AB1E0335A80051BACD /* DayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DayViewController.swift; sourceTree = "<group>"; };
 		BA0D5C331E2956000087116D /* AllCyclesSectionHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllCyclesSectionHeader.swift; sourceTree = "<group>"; };
+		BA0D5C351E296FF60087116D /* BleedingCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BleedingCollectionViewCell.swift; sourceTree = "<group>"; };
 		BA0F45881E0C5EE900B23715 /* ButtonWithUnderBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonWithUnderBar.swift; sourceTree = "<group>"; };
 		BA0F458A1E11BD8500B23715 /* StackViewWithButtons.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StackViewWithButtons.swift; sourceTree = "<group>"; };
 		BA2BB7BD1DF8AE32008F3D51 /* Bloom.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bloom.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -103,6 +105,7 @@
 				BA6637A51E26A34600401A6A /* AllCyclesLayout.swift */,
 				BA76C4BD1E23EA9D005A2B12 /* AllCyclesCollectionViewController.swift */,
 				BA0D5C331E2956000087116D /* AllCyclesSectionHeader.swift */,
+				BA0D5C351E296FF60087116D /* BleedingCollectionViewCell.swift */,
 			);
 			name = AllCyclesView;
 			sourceTree = "<group>";
@@ -197,6 +200,7 @@
 				BA0F458B1E11BD8500B23715 /* StackViewWithButtons.swift in Sources */,
 				BA0F45891E0C5EE900B23715 /* ButtonWithUnderBar.swift in Sources */,
 				BA5FE9481E1C278800755E40 /* PersistenceManager.swift in Sources */,
+				BA0D5C361E296FF60087116D /* BleedingCollectionViewCell.swift in Sources */,
 				BA2BB7C11DF8AE32008F3D51 /* AppDelegate.swift in Sources */,
 				BA76C4B81E23DBDE005A2B12 /* CycleTableViewController.swift in Sources */,
 				BA02B8AC1E0335A80051BACD /* DayViewController.swift in Sources */,
