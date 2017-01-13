@@ -8,7 +8,7 @@
 
 import UIKit
 
-private let reuseIdentifier = "Cell"
+private let reuseIdentifier = "bleedingCell"
 
 class AllCyclesCollectionViewController: UICollectionViewController {
     
@@ -21,7 +21,7 @@ class AllCyclesCollectionViewController: UICollectionViewController {
         // self.clearsSelectionOnViewWillAppear = false
 
         // Register cell classes
-        collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
+//        collectionView!.register(BleedingCollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
         // Register supplementary view class
         collectionView!.register(AllCyclesSectionHeader().classForCoder, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "sectionHeader")
 
@@ -59,21 +59,17 @@ class AllCyclesCollectionViewController: UICollectionViewController {
     
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
-        let label = cell.contentView.subviews.first as? UILabel ?? UILabel(frame: CGRect(x: 0, y: 0, width: 40, height: 20))
-        label.text = "\(indexPath.section) - \(indexPath.item)"
-        label.font = UIFont.systemFont(ofSize: 11)
-        if label.superview == nil {
-            cell.contentView.addSubview(label)
-        }
-        cell.backgroundColor = UIColor.red
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! BleedingCollectionViewCell
+        cell.dayNumber.text = "\(indexPath.section) - \(indexPath.item)"
+        cell.dayNumber.font = UIFont.systemFont(ofSize: 11)
+        
         return cell
     }
 
     // MARK: UICollectionViewDelegate
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        performSegue(withIdentifier: "AllCyclesToCycle", sender: persistenceManager.getAllCyclesSorted()[indexPath.row])
+//        performSegue(withIdentifier: "AllCyclesToCycle", sender: persistenceManager.getAllCyclesSorted()[indexPath.row])
     }
 
     /*
