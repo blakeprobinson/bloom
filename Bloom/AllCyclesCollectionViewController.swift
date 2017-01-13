@@ -49,20 +49,23 @@ class AllCyclesCollectionViewController: UICollectionViewController {
     // MARK: UICollectionViewDataSource
 
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 1
+        return 100
     }
 
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 100
+        return section
     }
     
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
-        let label = UILabel(frame: CGRect(x: 0, y: 0, width: 40, height: 20))
-        label.text = String(indexPath.item)
-        cell.contentView.addSubview(label)
+        let label = cell.contentView.subviews.first as? UILabel ?? UILabel(frame: CGRect(x: 0, y: 0, width: 40, height: 20))
+        label.text = "\(indexPath.section) - \(indexPath.item)"
+        label.font = UIFont.systemFont(ofSize: 11)
+        if label.superview == nil {
+            cell.contentView.addSubview(label)
+        }
         cell.backgroundColor = UIColor.red
         return cell
     }
