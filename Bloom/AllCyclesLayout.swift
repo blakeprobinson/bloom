@@ -56,6 +56,11 @@ class AllCyclesLayout: UICollectionViewFlowLayout {
         return allAttributes
     }
     
+//    override func layoutAttributesForSupplementaryView(ofKind elementKind: String, at indexPath: IndexPath) -> UICollectionViewLayoutAttributes? {
+//        //let contentOffsetY = collectionView?.contentOffset.y
+//        
+//    }
+    
     override func shouldInvalidateLayout(forBoundsChange newBounds: CGRect) -> Bool {
         return false
     }
