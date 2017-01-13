@@ -12,10 +12,10 @@ import CoreGraphics
 class AllCyclesLayout: UICollectionViewFlowLayout {
     
     var layoutInfo = [IndexPath: UICollectionViewLayoutAttributes]()
-    let itemWidth = UIScreen.main.bounds.width / 6
-    let itemHeight = (UIScreen.main.bounds.height - 44) / 21
-    var maxX:Double = Double(UIScreen.main.bounds.width / 6)
-    var maxY:Double = Double((UIScreen.main.bounds.height - 44) / 21)
+    let itemWidth = 44
+    let itemHeight = 44
+    var maxX:Double = 44
+    var maxY:Double = 44
     
     override func prepare() {
         let numberOfSections = collectionView?.numberOfSections ?? 0
@@ -32,8 +32,8 @@ class AllCyclesLayout: UICollectionViewFlowLayout {
     }
     
     private func frameForItemAt(indexPath: IndexPath) -> CGRect {
-        let xPos = CGFloat(indexPath.section) * itemWidth
-        let yPos = CGFloat(indexPath.item) * itemHeight
+        let xPos = indexPath.section * itemWidth
+        let yPos = indexPath.item * itemHeight
         maxX = Double(xPos) > maxX ? Double(xPos) : maxX
         maxY = Double(yPos) > maxY ? Double(yPos) : maxX
         return CGRect(x: xPos, y: yPos, width: itemWidth, height: itemHeight)
