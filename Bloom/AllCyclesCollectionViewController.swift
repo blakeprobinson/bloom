@@ -138,6 +138,11 @@ class AllCyclesCollectionViewController: UICollectionViewController {
             return .mucus
         }
     }
+    
+    override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        let supplementaryView = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "supplementaryView", for: indexPath)
+        return supplementaryView
+    }
 
     // MARK: UICollectionViewDelegate
     
