@@ -97,14 +97,19 @@ class AllCyclesCollectionViewController: UICollectionViewController {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! AllCyclesCollectionViewCell
         cell.dayNumber.text = "\(indexPath.section) - \(indexPath.item)"
         cell.dayNumber.font = UIFont.systemFont(ofSize: 11)
-        cell.category = assignCategory(indexPath: indexPath)
+        cell.category = assignCategory(day: model[indexPath.section].days[indexPath.item])
         
         return cell
     }
     
-    private func assignCategory(indexPath: IndexPath) -> AllCyclesCollectionViewCell.Category {
-        
-        return .dry
+    private func assignCategory(day: Day) -> AllCyclesCollectionViewCell.Category {
+        if day.bleeding != nil {
+            return .bleeding
+        } else if day.dry != nil {
+            return .dry
+        } else {
+            return .mucus
+        }
     }
 
     // MARK: UICollectionViewDelegate
