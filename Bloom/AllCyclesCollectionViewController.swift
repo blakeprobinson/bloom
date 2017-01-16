@@ -145,10 +145,12 @@ class AllCyclesCollectionViewController: UICollectionViewController {
         let startDate = UILabel(frame: CGRect(x: 0, y: 0, width: supplementaryView.bounds.width, height: supplementaryView.bounds.height / 2))
         startDate.text = "Jan 17"
         startDate.font = UIFont.systemFont(ofSize: 11)
+        startDate.textAlignment = .center
         
         let endDate = UILabel(frame: CGRect(x: 0, y: supplementaryView.bounds.height/2, width: supplementaryView.bounds.width, height: supplementaryView.bounds.height / 2))
         endDate.text = "Jan 31"
         endDate.font = UIFont.systemFont(ofSize: 11)
+        endDate.textAlignment = .center
         
         supplementaryView.addSubview(startDate)
         supplementaryView.addSubview(endDate)

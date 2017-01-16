@@ -16,9 +16,9 @@ class AllCyclesSectionHeader: UICollectionReusableView {
     override func awakeFromNib() {
         super.awakeFromNib()
         startDate = UILabel(frame: CGRect(x: 0, y: 0, width: bounds.width, height: bounds.height / 2))
-        startDate.textAlignment = .center
+        
         endDate = UILabel(frame: CGRect(x: 0, y: bounds.height/2, width: bounds.width, height: bounds.height / 2))
-        endDate.textAlignment = .center
+        
         
         backgroundColor = UIColor.purple
     }
