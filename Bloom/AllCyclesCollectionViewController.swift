@@ -25,7 +25,7 @@ class AllCyclesCollectionViewController: UICollectionViewController {
     }
     
     private func createDummyData() -> [Cycle] {
-        let cycles = Array(repeating: Cycle(days: generateDays(daysGenerated: .tooLong), uuid: UUID()), count: 5)
+        let cycles = Array(repeating: Cycle(days: generateDays(daysGenerated: .tooLong), uuid: UUID()), count: 8)
         return cycles
     }
     

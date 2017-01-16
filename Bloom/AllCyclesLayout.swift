@@ -66,6 +66,6 @@ class AllCyclesLayout: UICollectionViewFlowLayout {
     }
     
     override var collectionViewContentSize: CGSize {
-        return CGSize(width: maxX+20, height: maxY + 40)
+        return CGSize(width: maxX + Double(itemWidth), height: maxY + Double(itemHeight))
     }
 }
