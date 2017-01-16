@@ -18,10 +18,17 @@ class BleedingCollectionViewCell: UICollectionViewCell {
         }
     }
     
+    var color: Color?
+    
     
     override func awakeFromNib() {
         print("daySymbol height = \(daySymbol.frame.height)")
         print("daySymbol width = \(daySymbol.frame.width)")
-        
+    }
+    
+    enum Color {
+        case bleeding
+        case dry
+        case mucus
     }
 }
