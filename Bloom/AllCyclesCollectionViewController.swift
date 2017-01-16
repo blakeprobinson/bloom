@@ -142,7 +142,18 @@ class AllCyclesCollectionViewController: UICollectionViewController {
     
     override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         let supplementaryView = collectionView.dequeueReusableSupplementaryView(ofKind: "sectionHeader", withReuseIdentifier: "sectionHeader", for: indexPath)
-        supplementaryView.backgroundColor = UIColor.purple
+        let startDate = UILabel(frame: CGRect(x: 0, y: 0, width: supplementaryView.bounds.width, height: supplementaryView.bounds.height / 2))
+        startDate.text = "Jan 17"
+        startDate.font = UIFont.systemFont(ofSize: 11)
+        
+        let endDate = UILabel(frame: CGRect(x: 0, y: supplementaryView.bounds.height/2, width: supplementaryView.bounds.width, height: supplementaryView.bounds.height / 2))
+        endDate.text = "Jan 31"
+        endDate.font = UIFont.systemFont(ofSize: 11)
+        
+        supplementaryView.addSubview(startDate)
+        supplementaryView.addSubview(endDate)
+        //supplementaryView.endDate.text = "Jan 18"
+        supplementaryView.backgroundColor = UIColor.groupTableViewBackground
         return supplementaryView
     }
 

@@ -10,12 +10,17 @@ import UIKit
 
 class AllCyclesSectionHeader: UICollectionReusableView {
 
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
+    var startDate = UILabel()
+    var endDate = UILabel()
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        startDate = UILabel(frame: CGRect(x: 0, y: 0, width: bounds.width, height: bounds.height / 2))
+        startDate.textAlignment = .center
+        endDate = UILabel(frame: CGRect(x: 0, y: bounds.height/2, width: bounds.width, height: bounds.height / 2))
+        endDate.textAlignment = .center
+        
+        backgroundColor = UIColor.purple
     }
-    */
 
 }
