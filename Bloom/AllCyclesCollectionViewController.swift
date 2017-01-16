@@ -13,19 +13,54 @@ private let reuseIdentifier = "allCyclesCell"
 class AllCyclesCollectionViewController: UICollectionViewController {
     
     var persistenceManager = PersistenceManager()
+    var model = [Cycle]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Register cell classes
-//        collectionView!.register(BleedingCollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
-        // Register supplementary view class
+        model = createDummyData()
+        
         collectionView!.register(AllCyclesSectionHeader().classForCoder, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "sectionHeader")
 
         // Do any additional setup after loading the view.
+    }
+    
+    private func createDummyData() -> [Cycle] {
+        let cycles = Array(repeating: Cycle(days: generateDays(daysGenerated: .tooLong), uuid: UUID()), count: 5)
+        return cycles
+    }
+    
+    private func generateDays(daysGenerated: daysGenerated) -> [Day] {
+        var daysLength = 30
+        switch daysGenerated {
+        case .tooLong:
+            daysLength = 60
+        default:
+            daysLength = 35
+        }
+        var days = [Day]()
+        for _ in 1...daysLength {
+            let day = Day(
+                bleeding: Day.Bleeding.init(intensity: "Moderate"),
+                dry: nil,
+                mucus: nil,
+                observation: 1,
+                intercourse: true,
+                lubrication: true,
+                pasty: false,
+                date: Date(),
+                notes: nil,
+                isFirstDayOfCycle: false)
+            
+            days.append(day)
+        }
+        return days
+    }
+    
+    private enum daysGenerated {
+        case average
+        case allOne
+        case tooLong
+        case tooShort
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -49,12 +84,12 @@ class AllCyclesCollectionViewController: UICollectionViewController {
     // MARK: UICollectionViewDataSource
 
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 100
+        return model.count
     }
 
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return section
+        return model[section].days.count
     }
     
 
