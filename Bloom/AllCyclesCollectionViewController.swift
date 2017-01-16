@@ -122,7 +122,7 @@ class AllCyclesCollectionViewController: UICollectionViewController {
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! AllCyclesCollectionViewCell
-        cell.dayNumber.text = "\(indexPath.section) - \(indexPath.item)"
+        cell.dayNumber.text = "\(indexPath.item)"
         cell.dayNumber.font = UIFont.systemFont(ofSize: 11)
         cell.category = assignCategory(day: model[indexPath.section].days[indexPath.item])
         
