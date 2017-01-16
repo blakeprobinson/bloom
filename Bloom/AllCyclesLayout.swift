@@ -30,7 +30,7 @@ class AllCyclesLayout: UICollectionViewFlowLayout {
                 cellLayoutInfo[indexPath] = itemAttributes
                 
                 let supplementaryAttributes = UICollectionViewLayoutAttributes(forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, with: indexPath)
-                supplementaryAttributes.frame = indexPath.item == 0 ? CGRect(x: (indexPath.item * itemWidth), y: 0, width: itemWidth, height: sectionHeaderHeight) : CGRect(x: 0, y: 0, width: 0, height: 0)
+                supplementaryAttributes.frame = indexPath.item == 0 ? CGRect(x: (indexPath.section * itemWidth), y: 0, width: itemWidth, height: sectionHeaderHeight) : CGRect(x: 0, y: 0, width: 0, height: 0)
                 supplementaryLayoutInfo[indexPath] = supplementaryAttributes
                 
             }
@@ -55,9 +55,16 @@ class AllCyclesLayout: UICollectionViewFlowLayout {
         
         
         var allAttributes = [UICollectionViewLayoutAttributes]()
-        for (_, attributes) in cellLayoutInfo {
-            if rect.intersects(attributes.frame) {
-                allAttributes.append(attributes)
+        for (_, attribute) in cellLayoutInfo {
+            if rect.intersects(attribute.frame) {
+                allAttributes.append(attribute)
+            }
+        }
+        for (_, attribute) in supplementaryLayoutInfo {
+            if attribute.frame.size.width > 0 {
+                if rect.intersects(attribute.frame) {
+                    allAttributes.append(attribute)
+                }
             }
         }
         return allAttributes
