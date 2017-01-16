@@ -73,7 +73,7 @@
                     </navigationItem>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gxc-6j-ZEj" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <collectionReusableView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="supplementaryView" id="ZQP-0G-5JT" customClass="AllCyclesSectionHeader" customModule="Bloom" customModuleProvider="target">
+                <collectionReusableView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="sectionHeader" id="ZQP-0G-5JT" customClass="AllCyclesSectionHeader" customModule="Bloom" customModuleProvider="target">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </collectionReusableView>

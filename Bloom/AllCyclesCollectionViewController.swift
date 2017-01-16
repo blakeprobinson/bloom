@@ -19,7 +19,8 @@ class AllCyclesCollectionViewController: UICollectionViewController {
         super.viewDidLoad()
         model = createDummyData()
         
-        collectionView!.register(AllCyclesSectionHeader().classForCoder, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "sectionHeader")
+        //collectionView!.register(forSupplementaryViewOfKind: "header", withReuseIdentifier: "sectionHeader")
+        collectionView!.register(AllCyclesSectionHeader().classForCoder, forSupplementaryViewOfKind: "sectionHeader", withReuseIdentifier: "sectionHeader")
 
         // Do any additional setup after loading the view.
     }
@@ -140,7 +141,8 @@ class AllCyclesCollectionViewController: UICollectionViewController {
     }
     
     override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        let supplementaryView = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "supplementaryView", for: indexPath)
+        let supplementaryView = collectionView.dequeueReusableSupplementaryView(ofKind: "sectionHeader", withReuseIdentifier: "sectionHeader", for: indexPath)
+        supplementaryView.backgroundColor = UIColor.purple
         return supplementaryView
     }
 
