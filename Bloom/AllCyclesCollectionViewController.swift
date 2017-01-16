@@ -38,19 +38,46 @@ class AllCyclesCollectionViewController: UICollectionViewController {
             daysLength = 35
         }
         var days = [Day]()
-        for _ in 1...daysLength {
-            let day = Day(
-                bleeding: Day.Bleeding.init(intensity: "Moderate"),
-                dry: nil,
-                mucus: nil,
-                observation: 1,
-                intercourse: true,
-                lubrication: true,
-                pasty: false,
-                date: Date(),
-                notes: nil,
-                isFirstDayOfCycle: false)
-            
+        for index in 1...daysLength {
+            var day = Day()
+            if index < 15 {
+                day = Day(
+                    bleeding: Day.Bleeding.init(intensity: "Moderate"),
+                    dry: nil,
+                    mucus: nil,
+                    observation: 1,
+                    intercourse: true,
+                    lubrication: true,
+                    pasty: false,
+                    date: Date(),
+                    notes: nil,
+                    isFirstDayOfCycle: false)
+            } else if index < 25 {
+                day = Day(
+                    bleeding:nil,
+                    dry:  Day.Dry.init(observation: "Dry"),
+                    mucus: nil,
+                    observation: 1,
+                    intercourse: true,
+                    lubrication: true,
+                    pasty: false,
+                    date: Date(),
+                    notes: nil,
+                    isFirstDayOfCycle: false)
+            } else {
+                let mucus = Day.Mucus(length: "1/4", color: "Clear", consistency: "Gummy")
+                day = Day(
+                    bleeding:nil,
+                    dry: nil,
+                    mucus: mucus,
+                    observation: 1,
+                    intercourse: true,
+                    lubrication: true,
+                    pasty: false,
+                    date: Date(),
+                    notes: nil,
+                    isFirstDayOfCycle: false)
+            }
             days.append(day)
         }
         return days
