@@ -11,9 +11,11 @@ import CoreGraphics
 
 class AllCyclesLayout: UICollectionViewFlowLayout {
     
-    var layoutInfo = [IndexPath: UICollectionViewLayoutAttributes]()
+    var cellLayoutInfo = [IndexPath: UICollectionViewLayoutAttributes]()
+    var supplementaryLayoutInfo = [IndexPath: UICollectionViewLayoutAttributes]()
     let itemWidth = 44
     let itemHeight = 44
+    let sectionHeaderHeight = 66
     var maxX:Double = 44
     var maxY:Double = 44
     
@@ -25,7 +27,12 @@ class AllCyclesLayout: UICollectionViewFlowLayout {
                 let indexPath = IndexPath(item: itemIndex, section: sectionIndex)
                 let itemAttributes = UICollectionViewLayoutAttributes(forCellWith: indexPath)
                 itemAttributes.frame = frameForItemAt(indexPath: indexPath)
-                layoutInfo[indexPath] = itemAttributes
+                cellLayoutInfo[indexPath] = itemAttributes
+                
+                let supplementaryAttributes = UICollectionViewLayoutAttributes(forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, with: indexPath)
+                supplementaryAttributes.frame = indexPath.item == 0 ? CGRect(x: (indexPath.item * itemWidth), y: 0, width: itemWidth, height: sectionHeaderHeight) : CGRect(x: 0, y: 0, width: 0, height: 0)
+                supplementaryLayoutInfo[indexPath] = supplementaryAttributes
+                
             }
             
         }
@@ -33,14 +40,14 @@ class AllCyclesLayout: UICollectionViewFlowLayout {
     
     private func frameForItemAt(indexPath: IndexPath) -> CGRect {
         let xPos = indexPath.section * itemWidth
-        let yPos = indexPath.item * itemHeight
+        let yPos = indexPath.item * itemHeight + sectionHeaderHeight
         maxX = Double(xPos) > maxX ? Double(xPos) : maxX
         maxY = Double(yPos) > maxY ? Double(yPos) : maxX
         return CGRect(x: xPos, y: yPos, width: itemWidth, height: itemHeight)
     }
     
     override func layoutAttributesForItem(at indexPath: IndexPath) -> UICollectionViewLayoutAttributes? {
-        return layoutInfo[indexPath]
+        return cellLayoutInfo[indexPath]
     }
     
     override func layoutAttributesForElements(in rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
@@ -48,7 +55,7 @@ class AllCyclesLayout: UICollectionViewFlowLayout {
         
         
         var allAttributes = [UICollectionViewLayoutAttributes]()
-        for (_, attributes) in layoutInfo {
+        for (_, attributes) in cellLayoutInfo {
             if rect.intersects(attributes.frame) {
                 allAttributes.append(attributes)
             }
