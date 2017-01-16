@@ -38,12 +38,6 @@ class AllCyclesCollectionViewCell: UICollectionViewCell {
         }
     }
     
-    
-    override func awakeFromNib() {
-        print("daySymbol height = \(daySymbol.frame.height)")
-        print("daySymbol width = \(daySymbol.frame.width)")
-    }
-    
     enum Category {
         case bleeding
         case dry
