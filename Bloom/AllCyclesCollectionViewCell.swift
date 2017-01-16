@@ -24,8 +24,10 @@ class AllCyclesCollectionViewCell: UICollectionViewCell {
                 switch category {
                 case .bleeding:
                     color = UIColor(red:0.80, green:0.00, blue:0.00, alpha:1.0)
+                    daySymbol.layer.borderWidth = 0
                 case .dry:
                     color = UIColor(red:0.42, green:0.66, blue:0.31, alpha:1.0)
+                    daySymbol.layer.borderWidth = 0
                 case .mucus:
                     color = UIColor.white
                     daySymbol.layer.borderColor = UIColor(red:1.00, green:0.49, blue:0.98, alpha:1.0).cgColor
