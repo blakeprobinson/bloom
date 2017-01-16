@@ -8,7 +8,7 @@
 
 import UIKit
 
-private let reuseIdentifier = "bleedingCell"
+private let reuseIdentifier = "allCyclesCell"
 
 class AllCyclesCollectionViewController: UICollectionViewController {
     
@@ -59,17 +59,17 @@ class AllCyclesCollectionViewController: UICollectionViewController {
     
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! BleedingCollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! AllCyclesCollectionViewCell
         cell.dayNumber.text = "\(indexPath.section) - \(indexPath.item)"
         cell.dayNumber.font = UIFont.systemFont(ofSize: 11)
-        cell.color = assignColor(indexPath: indexPath)
+        cell.category = assignCategory(indexPath: indexPath)
         
         return cell
     }
     
-    private func assignColor(indexPath: IndexPath) -> BleedingCollectionViewCell.Color {
+    private func assignCategory(indexPath: IndexPath) -> AllCyclesCollectionViewCell.Category {
         
-        return .bleeding
+        return .dry
     }
 
     // MARK: UICollectionViewDelegate

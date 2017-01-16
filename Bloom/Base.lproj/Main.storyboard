@@ -20,7 +20,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <collectionViewLayout key="collectionViewLayout" id="25p-cb-Ycu" customClass="AllCyclesLayout" customModule="Bloom" customModuleProvider="target"/>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="bleedingCell" id="fhT-qW-VZL" customClass="BleedingCollectionViewCell" customModule="Bloom" customModuleProvider="target">
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="allCyclesCell" id="fhT-qW-VZL" userLabel="AllCyclesCell" customClass="AllCyclesCollectionViewCell" customModule="Bloom" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -52,8 +52,8 @@
                                     <constraint firstItem="wfe-5n-XRM" firstAttribute="centerX" secondItem="fhT-qW-VZL" secondAttribute="centerX" id="MKd-rb-bt4"/>
                                 </constraints>
                                 <connections>
-                                    <outlet property="dayNumber" destination="Z1Z-ul-HQ5" id="xG4-lG-sU0"/>
-                                    <outlet property="daySymbol" destination="wfe-5n-XRM" id="2gz-hZ-Rxr"/>
+                                    <outlet property="dayNumber" destination="Z1Z-ul-HQ5" id="bqh-Gx-IWa"/>
+                                    <outlet property="daySymbol" destination="wfe-5n-XRM" id="STa-jP-JNf"/>
                                     <segue destination="N6H-bJ-59T" kind="show" identifier="AllCyclesToCycle" id="ota-8M-Mqj"/>
                                 </connections>
                             </collectionViewCell>
@@ -93,7 +93,7 @@
                                 <rect key="frame" x="0.0" y="28" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="2h0-FI-2Kc" id="caZ-pQ-Epa">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
