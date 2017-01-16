@@ -62,8 +62,14 @@ class AllCyclesCollectionViewController: UICollectionViewController {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! BleedingCollectionViewCell
         cell.dayNumber.text = "\(indexPath.section) - \(indexPath.item)"
         cell.dayNumber.font = UIFont.systemFont(ofSize: 11)
+        cell.color = assignColor(indexPath: indexPath)
         
         return cell
+    }
+    
+    private func assignColor(indexPath: IndexPath) -> BleedingCollectionViewCell.Color {
+        
+        return .bleeding
     }
 
     // MARK: UICollectionViewDelegate
