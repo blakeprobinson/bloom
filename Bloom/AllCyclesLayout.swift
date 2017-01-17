@@ -41,7 +41,6 @@ class AllCyclesLayout: UICollectionViewFlowLayout {
     
     private func frameForSupplementaryViewAt(indexPath: IndexPath) -> CGRect {
         let xPos = Double(indexPath.section) * (itemWidth + 0.5)
-        print("this is xpos: \(xPos)")
         if indexPath.item == 0 {
             return CGRect(x: xPos, y: 0.0, width: itemWidth, height: sectionHeaderHeight)
         } else {

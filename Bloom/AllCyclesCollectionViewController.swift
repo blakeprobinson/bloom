@@ -14,6 +14,7 @@ class AllCyclesCollectionViewController: UICollectionViewController {
     
     var persistenceManager = PersistenceManager()
     var model = [Cycle]()
+    let dateFormatter = DateFormatter()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -143,23 +144,25 @@ class AllCyclesCollectionViewController: UICollectionViewController {
     override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         let supplementaryView = collectionView.dequeueReusableSupplementaryView(ofKind: "sectionHeader", withReuseIdentifier: "sectionHeader", for: indexPath)
         
-//        supplementaryView.layer.borderColor = UIColor.lightGray.cgColor
-//        supplementaryView.layer.borderWidth = 1
-        
+        dateFormatter.dateFormat = "MMM dd"
         
         let startDate = UILabel(frame: CGRect(x: 0, y: 0, width: supplementaryView.bounds.width, height: supplementaryView.bounds.height / 2))
-        startDate.text = "Jan 17"
+        startDate.text = dateFormatter.string(from: model[indexPath.section].startDate) + "-"
         startDate.font = UIFont.systemFont(ofSize: 11)
         startDate.textAlignment = .center
         
         let endDate = UILabel(frame: CGRect(x: 0, y: supplementaryView.bounds.height/2, width: supplementaryView.bounds.width, height: supplementaryView.bounds.height / 2))
-        endDate.text = "Jan 31"
+        if let date = model[indexPath.section].endDate {
+            endDate.text = dateFormatter.string(from: date)
+        } else {
+            endDate.text = ""
+        }
+    
         endDate.font = UIFont.systemFont(ofSize: 11)
         endDate.textAlignment = .center
         
         supplementaryView.addSubview(startDate)
         supplementaryView.addSubview(endDate)
-        //supplementaryView.endDate.text = "Jan 18"
         supplementaryView.backgroundColor = UIColor.groupTableViewBackground
         return supplementaryView
     }
