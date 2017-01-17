@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--All Cycles Collection View Controller-->
+        <!--Cycles-->
         <scene sceneID="9gB-bn-kcu">
             <objects>
                 <collectionViewController id="yXh-gr-0K6" customClass="AllCyclesCollectionViewController" customModule="Bloom" customModuleProvider="target" sceneMemberID="viewController">
@@ -63,7 +63,7 @@
                             <outlet property="delegate" destination="yXh-gr-0K6" id="oln-tq-eHO"/>
                         </connections>
                     </collectionView>
-                    <navigationItem key="navigationItem" id="WZr-6h-qIE">
+                    <navigationItem key="navigationItem" title="Cycles" id="WZr-6h-qIE">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="gTz-Vd-9ED">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
@@ -80,7 +80,7 @@
             </objects>
             <point key="canvasLocation" x="2160.8695652173915" y="-225.00000000000003"/>
         </scene>
-        <!--Cycle Table View Controller-->
+        <!--Cycle-->
         <scene sceneID="jfZ-dQ-iZP">
             <objects>
                 <tableViewController id="N6H-bJ-59T" customClass="CycleTableViewController" customModule="Bloom" customModuleProvider="target" sceneMemberID="viewController">
@@ -103,6 +103,7 @@
                             <outlet property="delegate" destination="N6H-bJ-59T" id="wUs-BP-IrS"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" title="Cycle" id="ZlB-dj-vXl"/>
                     <connections>
                         <segue destination="nez-Db-vhN" kind="show" identifier="cycleToEdit" id="aKK-Vu-p9W"/>
                     </connections>
@@ -134,7 +135,7 @@
                                                 <color key="backgroundColor" red="0.46274509803921571" green="0.6470588235294118" blue="0.68627450980392157" alpha="1" colorSpace="calibratedRGB"/>
                                                 <color key="barTintColor" red="0.46274509800000002" green="0.64705882349999999" blue="0.68627450980000004" alpha="1" colorSpace="calibratedRGB"/>
                                                 <textAttributes key="titleTextAttributes">
-                                                    <color key="textColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </textAttributes>
                                                 <items>
                                                     <navigationItem title="New Day" id="Vmz-nh-hN9">
@@ -798,6 +799,10 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="xsa-Vf-9iX">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.46274509800000002" green="0.64705882349999999" blue="0.68627450980000004" alpha="1" colorSpace="calibratedRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>

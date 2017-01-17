@@ -20,7 +20,6 @@ class AllCyclesCollectionViewController: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         model = createDummyData()
-        navigationController?.navigationBar.barTintColor = UIColor(red:0.46, green:0.65, blue:0.69, alpha:1.0)
         navigationController?.navigationBar.tintColor = UIColor.white
         
         //collectionView!.register(forSupplementaryViewOfKind: "header", withReuseIdentifier: "sectionHeader")

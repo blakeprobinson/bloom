@@ -38,7 +38,7 @@ class CycleTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "dayInCycle", for: indexPath)
 
-        cell.textLabel?.text = String(indexPath.row)
+        cell.textLabel?.text = String(indexPath.row + 1)
 
         return cell
     }
@@ -77,7 +77,7 @@ class CycleTableViewController: UITableViewController {
         // Pass the selected object to the new view controller.
         let vc = segue.destination as! DayViewController
         vc.day = sender as? Day
-        vc.dayInCycleText = selected
+        vc.dayInCycleText = selected! + 1
     }
  
 
