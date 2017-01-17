@@ -32,10 +32,10 @@ class AllCyclesCollectionViewController: UICollectionViewController {
     }
     
     private func generateDays(daysGenerated: daysGenerated) -> [Day] {
-        var daysLength = 30
+        var daysLength = 1
         switch daysGenerated {
         case .tooLong:
-            daysLength = 60
+            daysLength = 1
         default:
             daysLength = 35
         }
@@ -124,7 +124,7 @@ class AllCyclesCollectionViewController: UICollectionViewController {
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! AllCyclesCollectionViewCell
-        cell.dayNumber.text = "\(indexPath.item)"
+        cell.dayNumber.text = "\(indexPath.item + 1)"
         cell.dayNumber.font = UIFont.systemFont(ofSize: 11)
         cell.category = assignCategory(day: model[indexPath.section].days[indexPath.item])
         
