@@ -17,6 +17,8 @@ class AllCyclesCollectionViewCell: UICollectionViewCell {
         }
     }
     
+    var indexPath: IndexPath?
+    
     var category: Category? {
         didSet {
             var color: UIColor?

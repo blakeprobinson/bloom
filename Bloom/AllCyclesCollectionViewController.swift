@@ -15,6 +15,7 @@ class AllCyclesCollectionViewController: UICollectionViewController {
     var persistenceManager = PersistenceManager()
     var model = [Cycle]()
     let dateFormatter = DateFormatter()
+    var selected = IndexPath()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,7 +36,7 @@ class AllCyclesCollectionViewController: UICollectionViewController {
         var daysLength = 1
         switch daysGenerated {
         case .tooLong:
-            daysLength = 1
+            daysLength = 45
         default:
             daysLength = 35
         }
@@ -102,9 +103,10 @@ class AllCyclesCollectionViewController: UICollectionViewController {
     // MARK: - Navigation
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "AllCyclesToCycle" {
+        if segue.identifier == "allCyclesToCycle" {
             let destination = segue.destination as! CycleTableViewController
-            destination.cycle = sender as? Cycle
+            let cell = sender as? AllCyclesCollectionViewCell
+            destination.cycle = model[(cell?.indexPath?.section)!]
         }
         
     }
@@ -127,6 +129,7 @@ class AllCyclesCollectionViewController: UICollectionViewController {
         cell.dayNumber.text = "\(indexPath.item + 1)"
         cell.dayNumber.font = UIFont.systemFont(ofSize: 11)
         cell.category = assignCategory(day: model[indexPath.section].days[indexPath.item])
+        cell.indexPath = indexPath
         
         return cell
     }
@@ -168,10 +171,6 @@ class AllCyclesCollectionViewController: UICollectionViewController {
     }
 
     // MARK: UICollectionViewDelegate
-    
-    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//        performSegue(withIdentifier: "AllCyclesToCycle", sender: persistenceManager.getAllCyclesSorted()[indexPath.row])
-    }
 
     /*
     // Uncomment this method to specify if the specified item should be highlighted during tracking
