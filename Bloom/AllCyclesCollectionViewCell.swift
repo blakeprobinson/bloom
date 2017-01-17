@@ -38,6 +38,10 @@ class AllCyclesCollectionViewCell: UICollectionViewCell {
         }
     }
     
+    override func awakeFromNib() {
+        backgroundColor = UIColor.white
+    }
+    
     enum Category {
         case bleeding
         case dry
