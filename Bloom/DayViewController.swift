@@ -119,6 +119,13 @@ class DayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
         super.viewDidLoad()
         if day == nil {
             day = Day()
+            let statusBar: UIView = UIApplication.shared.value(forKey: "statusBar") as! UIView
+            
+            if statusBar.responds(to: #selector(setter: UIView.backgroundColor)) {
+                UIView.animate(withDuration: 0.1, animations: {
+                    statusBar.backgroundColor = UIColor(red:0.46, green:0.65, blue:0.69, alpha:0.8)
+                })
+            }
         } else {
             navbar.isHidden = true
         }
@@ -138,6 +145,19 @@ class DayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(false)
         NotificationCenter.default.removeObserver(self)
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        if navbar.isHidden == false {
+            let statusBar: UIView = UIApplication.shared.value(forKey: "statusBar") as! UIView
+            
+            if statusBar.responds(to: #selector(setter: UIView.backgroundColor)) {
+                UIView.animate(withDuration: 1.0, animations: {
+                    statusBar.backgroundColor = UIColor.clear
+                })
+            }
+        }
     }
     
     private func registerForKeyboardNotifications() {
