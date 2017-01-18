@@ -121,7 +121,7 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CG2-Wo-kNf">
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CG2-Wo-kNf" customClass="IntercourseHeart" customModule="Bloom" customModuleProvider="target">
                                             <rect key="frame" x="268" y="3" width="36" height="36"/>
                                             <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                             <constraints>
@@ -143,6 +143,7 @@
                                     <outlet property="dayDescription" destination="ssf-sC-afY" id="Q7f-PB-j8R"/>
                                     <outlet property="dayNumber" destination="Zbv-Ot-Zvb" id="8bR-Ci-2uZ"/>
                                     <outlet property="daySymbol" destination="BMW-vh-h27" id="8tS-Tm-D4T"/>
+                                    <outlet property="intercourseHeart" destination="CG2-Wo-kNf" id="6zp-6X-cMp"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>

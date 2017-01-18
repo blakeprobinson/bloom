@@ -18,6 +18,9 @@ class CycleTableViewCell: UITableViewCell {
     @IBOutlet weak var dayNumber: UILabel!
     @IBOutlet weak var dayDescription: UILabel!
     
+    @IBOutlet weak var intercourseHeart: IntercourseHeart!
+    
+    
     var category: Day.Category? {
         didSet {
             var color: UIColor?
