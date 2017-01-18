@@ -121,11 +121,21 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CG2-Wo-kNf">
+                                            <rect key="frame" x="268" y="3" width="36" height="36"/>
+                                            <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="36" id="59O-lv-4LS"/>
+                                                <constraint firstAttribute="width" constant="36" id="IAU-IK-eJ8"/>
+                                            </constraints>
+                                        </view>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="BMW-vh-h27" firstAttribute="centerY" secondItem="ssf-sC-afY" secondAttribute="centerY" id="8I3-IV-VKI"/>
                                         <constraint firstItem="BMW-vh-h27" firstAttribute="leading" secondItem="caZ-pQ-Epa" secondAttribute="leadingMargin" constant="5" id="93d-04-tOn"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="CG2-Wo-kNf" secondAttribute="trailing" constant="8" id="dOX-NY-Li2"/>
                                         <constraint firstItem="ssf-sC-afY" firstAttribute="leading" secondItem="BMW-vh-h27" secondAttribute="trailing" constant="8" id="taU-3x-InE"/>
+                                        <constraint firstItem="CG2-Wo-kNf" firstAttribute="centerY" secondItem="caZ-pQ-Epa" secondAttribute="centerY" id="uHH-SJ-rNh"/>
                                         <constraint firstItem="BMW-vh-h27" firstAttribute="centerY" secondItem="caZ-pQ-Epa" secondAttribute="centerY" id="xaH-QV-BrO"/>
                                     </constraints>
                                 </tableViewCellContentView>
@@ -148,7 +158,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EMl-8U-zcf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2980" y="-223"/>
+            <point key="canvasLocation" x="2979.375" y="-223.94366197183098"/>
         </scene>
         <!--Day View Controller-->
         <scene sceneID="llW-4c-C6y">
