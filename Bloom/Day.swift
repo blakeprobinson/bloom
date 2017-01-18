@@ -255,4 +255,20 @@ extension Day {
             ]
         }
     }
+    
+    enum Category {
+        case bleeding
+        case dry
+        case mucus
+    }
+    
+    static func assignCategory(day: Day) -> Day.Category {
+        if day.bleeding != nil {
+            return .bleeding
+        } else if day.dry != nil {
+            return .dry
+        } else {
+            return .mucus
+        }
+    }
 }

@@ -13,7 +13,7 @@ class CycleTableViewCell: UITableViewCell {
     @IBOutlet weak var daySymbol: UIView!
     @IBOutlet weak var dayNumber: UILabel!
     
-    var category: AllCyclesCollectionViewCell.Category? {
+    var category: Day.Category? {
         didSet {
             var color: UIColor?
             if let category = category {

@@ -39,6 +39,7 @@ class CycleTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "dayInCycle", for: indexPath) as! CycleTableViewCell
 
         cell.dayNumber.text = String(indexPath.row + 1)
+        cell.category = Day.Category.bleeding
 
         return cell
     }

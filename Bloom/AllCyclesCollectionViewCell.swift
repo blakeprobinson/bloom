@@ -19,7 +19,7 @@ class AllCyclesCollectionViewCell: UICollectionViewCell {
     
     var indexPath: IndexPath?
     
-    var category: Category? {
+    var category: Day.Category? {
         didSet {
             var color: UIColor?
             if let category = category {
@@ -42,11 +42,5 @@ class AllCyclesCollectionViewCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         backgroundColor = UIColor.white
-    }
-    
-    enum Category {
-        case bleeding
-        case dry
-        case mucus
     }
 }
