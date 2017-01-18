@@ -10,8 +10,13 @@ import UIKit
 
 class CycleTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var daySymbol: UIView!
+    @IBOutlet weak var daySymbol: UIView! {
+        didSet {
+            daySymbol.layer.cornerRadius = daySymbol.bounds.height / 2
+        }
+    }
     @IBOutlet weak var dayNumber: UILabel!
+    @IBOutlet weak var dayDescription: UILabel!
     
     var category: Day.Category? {
         didSet {

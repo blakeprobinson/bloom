@@ -115,13 +115,22 @@
                                                 <constraint firstAttribute="height" constant="36" id="qya-f7-y8O"/>
                                             </constraints>
                                         </view>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ssf-sC-afY">
+                                            <rect key="frame" x="57" y="11" width="42" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                     <constraints>
+                                        <constraint firstItem="BMW-vh-h27" firstAttribute="centerY" secondItem="ssf-sC-afY" secondAttribute="centerY" id="8I3-IV-VKI"/>
                                         <constraint firstItem="BMW-vh-h27" firstAttribute="leading" secondItem="caZ-pQ-Epa" secondAttribute="leadingMargin" constant="5" id="93d-04-tOn"/>
+                                        <constraint firstItem="ssf-sC-afY" firstAttribute="leading" secondItem="BMW-vh-h27" secondAttribute="trailing" constant="8" id="taU-3x-InE"/>
                                         <constraint firstItem="BMW-vh-h27" firstAttribute="centerY" secondItem="caZ-pQ-Epa" secondAttribute="centerY" id="xaH-QV-BrO"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="dayDescription" destination="ssf-sC-afY" id="Q7f-PB-j8R"/>
                                     <outlet property="dayNumber" destination="Zbv-Ot-Zvb" id="8bR-Ci-2uZ"/>
                                     <outlet property="daySymbol" destination="BMW-vh-h27" id="8tS-Tm-D4T"/>
                                 </connections>

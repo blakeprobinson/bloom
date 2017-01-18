@@ -24,6 +24,36 @@ class Day: NSObject, NSCoding {
     
     var uuid: UUID?
     
+    var category: Category? {
+        get {
+            return Day.assignCategory(day: self)
+        }
+    }
+    
+    var shortDescription: String? {
+        get {
+            if let category = category {
+                switch category {
+                case .bleeding:
+                    return bleeding?.intensity.rawValue
+                case .dry:
+                    return dry?.observation.rawValue
+                case .mucus:
+                    guard let length = mucus?.length else { return nil }
+                    guard let color = mucus?.color else { return nil }
+                    
+                    if let consistency = mucus?.consistency {
+                        return "\(length.rawValue) \(color.rawValue) \(consistency.rawValue)"
+                    } else {
+                        return "\(length.rawValue) \(color.rawValue)"
+                    }
+                }
+            } else {
+                return nil
+            }
+        }
+    }
+    
     init(bleeding: Bleeding?,
         dry: Dry?,
         mucus: Mucus?,
