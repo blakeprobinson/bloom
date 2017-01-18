@@ -36,9 +36,9 @@ class CycleTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "dayInCycle", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "dayInCycle", for: indexPath) as! CycleTableViewCell
 
-        cell.textLabel?.text = String(indexPath.row + 1)
+        cell.dayNumber.text = String(indexPath.row + 1)
 
         return cell
     }

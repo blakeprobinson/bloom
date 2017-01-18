@@ -7,6 +7,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -89,13 +90,41 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="dayInCycle" id="2h0-FI-2Kc">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="dayInCycle" id="2h0-FI-2Kc" customClass="CycleTableViewCell" customModule="Bloom" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="2h0-FI-2Kc" id="caZ-pQ-Epa">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BMW-vh-h27">
+                                            <rect key="frame" x="13" y="3" width="36" height="36"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zbv-Ot-Zvb">
+                                                    <rect key="frame" x="14" y="8" width="8" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="36" id="Ceg-8z-Uy8"/>
+                                                <constraint firstItem="Zbv-Ot-Zvb" firstAttribute="centerY" secondItem="BMW-vh-h27" secondAttribute="centerY" id="FGQ-z8-LET"/>
+                                                <constraint firstItem="Zbv-Ot-Zvb" firstAttribute="centerX" secondItem="BMW-vh-h27" secondAttribute="centerX" id="Nky-BP-xZ7"/>
+                                                <constraint firstAttribute="height" constant="36" id="qya-f7-y8O"/>
+                                            </constraints>
+                                        </view>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="BMW-vh-h27" firstAttribute="leading" secondItem="caZ-pQ-Epa" secondAttribute="leadingMargin" constant="5" id="93d-04-tOn"/>
+                                        <constraint firstItem="BMW-vh-h27" firstAttribute="centerY" secondItem="caZ-pQ-Epa" secondAttribute="centerY" id="xaH-QV-BrO"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="dayNumber" destination="Zbv-Ot-Zvb" id="8bR-Ci-2uZ"/>
+                                    <outlet property="daySymbol" destination="BMW-vh-h27" id="8tS-Tm-D4T"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -125,7 +154,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zVm-HY-yKJ">
-                                <rect key="frame" x="0.0" y="20" width="414" height="1230"/>
+                                <rect key="frame" x="0.0" y="64" width="414" height="1186"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="GC0-na-Q3n" userLabel="Contents Stack View">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="1151"/>
@@ -832,6 +861,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="2wh-gN-Y9D"/>
+        <segue reference="aKK-Vu-p9W"/>
     </inferredMetricsTieBreakers>
 </document>
