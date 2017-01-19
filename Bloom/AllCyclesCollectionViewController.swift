@@ -16,6 +16,16 @@ class AllCyclesCollectionViewController: UICollectionViewController {
     var model = [Cycle]()
     let dateFormatter = DateFormatter()
     var selected = IndexPath()
+    
+    private var dateOfMostRecentDay: Date? {
+        get {
+            if model.count > 0 {
+                return model[0].days[0].date
+            } else {
+                return nil
+            }
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
