@@ -104,15 +104,24 @@ class AllCyclesCollectionViewController: UICollectionViewController {
 
     // MARK: - Navigation
     
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+        if identifier == "newDayFromAllCycles" {
+            if model.count == 0 {
+                return true
+            } else {
+                return false
+            }
+        } else {
+            return true
+        }
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "allCyclesToCycle" {
             let destination = segue.destination as! CycleTableViewController
             let cell = sender as? AllCyclesCollectionViewCell
             destination.cycle = model[(cell?.indexPath?.section)!]
-        } else if segue.identifier == "newDayFromAllCycles" {
-
         }
-        
     }
 
 
