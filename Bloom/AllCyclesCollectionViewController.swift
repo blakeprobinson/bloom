@@ -26,6 +26,8 @@ class AllCyclesCollectionViewController: UICollectionViewController {
             }
         }
     }
+    
+    private var dateToPassToNewDayView: Date?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -117,14 +119,17 @@ class AllCyclesCollectionViewController: UICollectionViewController {
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
         if identifier == "newDayFromAllCycles" {
             let date = Date()
-            let dateComponents = NSDateComponents()
             
-            guard let gregorianCalendar = NSCalendar(calendarIdentifier: .gregorian) else { return true }
-            let isMorning = gregorianCalendar.component(.hour, from: date) < 12
-            
+            guard let calendar = NSCalendar(calendarIdentifier: .gregorian) else { return true }
+            let isMorning = calendar.component(.hour, from: date) < 12
 
             //conditions to send user to dayView for today
-            if model.count == 0 || !isMorning {
+            if model.count == 0 {
+                if isMorning  {
+                    dateToPassToNewDayView = calendar.date(byAdding: .day, value: -1, to: date, options: NSCalendar.Options())
+                } else {
+                    dateToPassToNewDayView = date
+                }
                 return true
             } else {
                 return false
