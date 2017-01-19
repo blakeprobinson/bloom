@@ -142,7 +142,7 @@ class AllCyclesCollectionViewController: UICollectionViewController {
                 //I don't think we care if it's in the most recent week
                 //we'll just pass the date to a function to figure out what the alert view will look like.
                 //(date - dateOfMostRecentDay) > two days
-            } else if !calendar.isDateInToday(dateOfMostRecentDay!) && !calendar.isDateInYesterday(dateOfMostRecentDay!) {
+            } else if calendar.components(.day, from:dateOfMostRecentDay!, to:date, options: NSCalendar.Options()).day! > 1 {
                 //yay!  set up the alert view!!
                 return false
             }
@@ -154,15 +154,36 @@ class AllCyclesCollectionViewController: UICollectionViewController {
     
     private func showActionSheet() {
         let alertController = UIAlertController(title: "What day would you like to record?", message: nil, preferredStyle: .actionSheet)
-        let oneAction = UIAlertAction(title: "One", style: .default) { _ in }
-        let twoAction = UIAlertAction(title: "Two", style: .default) { _ in }
-        let threeAction = UIAlertAction(title: "Three", style: .default) { _ in }
+        let date = Date()
+        let todayAction = UIAlertAction(title: "Today", style: .default) { _ in }
+        let yesterdayAction = UIAlertAction(title: "Yesterday", style: .default) { _ in }
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { _ in }
+        var actions = [UIAlertAction]()
         
-        alertController.addAction(oneAction)
-        alertController.addAction(twoAction)
-        alertController.addAction(threeAction)
-        alertController.addAction(cancelAction)
+        if let calendar = NSCalendar(calendarIdentifier: .gregorian) {
+            let difBetweenDates = calendar.components(.day, from:dateOfMostRecentDay!, to:date, options: NSCalendar.Options()).day!
+            switch difBetweenDates {
+            case 2:
+                actions = [todayAction, yesterdayAction, cancelAction]
+            default: break
+            }
+            //case 1
+            
+            
+            
+        }
+        
+        //case 1: action sheet shows today, yesterday
+        //case 2: action sheet shows today, yesterday, yesterday -1
+        //case 3: action sheet shows today, yesterday, yesterday -1, yesterday -2
+        //case 4: action sheet shows today, yesterday, yesterday -1, yesterday -2, yesterday -3
+        
+    
+        
+        
+        for action in actions {
+            alertController.addAction(action)
+        }
         
         present(alertController, animated: true, completion: nil)
     }
