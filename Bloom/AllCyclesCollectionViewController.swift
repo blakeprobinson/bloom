@@ -137,11 +137,6 @@ class AllCyclesCollectionViewController: UICollectionViewController {
                     return true
                 }
                 
-                // interval between today and lastDate is greater than 2 days
-                //if dateOfMostRecentDay is not today, yesterday, but it is within the last week
-                //I don't think we care if it's in the most recent week
-                //we'll just pass the date to a function to figure out what the alert view will look like.
-                //(date - dateOfMostRecentDay) > two days
             } else if calendar.components(.day, from:dateOfMostRecentDay!, to:date, options: NSCalendar.Options()).day! > 1 {
                 //yay!  set up the alert view!!
                 return false
@@ -163,19 +158,42 @@ class AllCyclesCollectionViewController: UICollectionViewController {
             }
             let yesterdayAction = UIAlertAction(title: "Yesterday", style: .default) {
                 _ in self.dateToPassToNewDayView =  calendar.date(byAdding: .day, value: -1, to: date, options: NSCalendar.Options())
+                self.performSegue(withIdentifier: "newDayFromAllCycles", sender: alertController)
+            }
+            
+            let dateFormatter = DateFormatter()
+            
+            let twoDaysAgo = calendar.date(byAdding: .day, value: -2, to: date, options: NSCalendar.Options())
+            let twoDaysAgoDay = dateFormatter.weekdaySymbols[calendar.component(.weekday, from: twoDaysAgo!) - 1]
+
+            
+            let twoDaysAgoAction = UIAlertAction(title: twoDaysAgoDay, style: .default) {
+                _ in self.dateToPassToNewDayView =  calendar.date(byAdding: .day, value: -3, to: date, options: NSCalendar.Options())
+                self.performSegue(withIdentifier: "newDayFromAllCycles", sender: alertController)
+            }
+            
+            let threeDaysAgo = calendar.date(byAdding: .day, value: -3, to: date, options: NSCalendar.Options())
+            let threeDaysAgoDay = dateFormatter.weekdaySymbols[calendar.component(.weekday, from: threeDaysAgo!) - 1]
+            print("date: \(twoDaysAgo), day of week:\(twoDaysAgoDay)")
+            
+            let threeDaysAgoAction = UIAlertAction(title: threeDaysAgoDay, style: .default) {
+                _ in self.dateToPassToNewDayView =  calendar.date(byAdding: .day, value: -3, to: date, options: NSCalendar.Options())
+                self.performSegue(withIdentifier: "newDayFromAllCycles", sender: alertController)
             }
             let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { _ in }
             var actions = [UIAlertAction]()
             
-            let difBetweenDates = calendar.components(.day, from:calendar.date(byAdding: .day, value: -2, to: date, options: NSCalendar.Options())!, to:date, options: NSCalendar.Options()).day!
+            let difBetweenDates = calendar.components(.day, from:calendar.date(byAdding: .day, value: -5, to: date, options: NSCalendar.Options())!, to:date, options: NSCalendar.Options()).day!
 //            let difBetweenDates = calendar.components(.day, from:dateOfMostRecentDay!, to:date, options: NSCalendar.Options()).day!
+            
             switch difBetweenDates {
             case 2:
                 actions = [todayAction, yesterdayAction, cancelAction]
+            case 3:
+                actions = [todayAction, yesterdayAction, twoDaysAgoAction, cancelAction]
             default:
-                actions = [todayAction, yesterdayAction, cancelAction]
+                actions = [todayAction, yesterdayAction, twoDaysAgoAction, threeDaysAgoAction, cancelAction]
             }
-            //case 1
             
             for action in actions {
                 alertController.addAction(action)
@@ -185,15 +203,6 @@ class AllCyclesCollectionViewController: UICollectionViewController {
             
             
         }
-        
-        //case 1: action sheet shows today, yesterday
-        //case 2: action sheet shows today, yesterday, yesterday -1
-        //case 3: action sheet shows today, yesterday, yesterday -1, yesterday -2
-        //case 4: action sheet shows today, yesterday, yesterday -1, yesterday -2, yesterday -3
-        
-    
-        
-    
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
