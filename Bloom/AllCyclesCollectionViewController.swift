@@ -118,25 +118,53 @@ class AllCyclesCollectionViewController: UICollectionViewController {
     
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
         if identifier == "newDayFromAllCycles" {
+            showActionSheet()
+            return false
             let date = Date()
             
             guard let calendar = NSCalendar(calendarIdentifier: .gregorian) else { return true }
             let isMorning = calendar.component(.hour, from: date) < 12
 
             //conditions to send user to dayView for today
+            
+            //or neither yesterday nor today has an input
             if model.count == 0 {
                 if isMorning  {
                     dateToPassToNewDayView = calendar.date(byAdding: .day, value: -1, to: date, options: NSCalendar.Options())
+                    return true
                 } else {
                     dateToPassToNewDayView = date
+                    return true
                 }
-                return true
-            } else {
+                
+                // interval between today and lastDate is greater than 2 days
+                //if dateOfMostRecentDay is not today, yesterday, but it is within the last week
+                //I don't think we care if it's in the most recent week
+                //we'll just pass the date to a function to figure out what the alert view will look like.
+                //(date - dateOfMostRecentDay) > two days
+            } else if !calendar.isDateInToday(dateOfMostRecentDay!) && !calendar.isDateInYesterday(dateOfMostRecentDay!) {
+                //yay!  set up the alert view!!
                 return false
             }
         } else {
             return true
         }
+        return true
+    }
+    
+    private func showActionSheet() {
+        let alertController = UIAlertController(title: "What day would you like to record?", message: nil, preferredStyle: .actionSheet)
+        let oneAction = UIAlertAction(title: "One", style: .default) { _ in }
+        let twoAction = UIAlertAction(title: "Two", style: .default) { _ in }
+        let threeAction = UIAlertAction(title: "Three", style: .default) { _ in }
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { _ in }
+        
+        alertController.addAction(oneAction)
+        alertController.addAction(twoAction)
+        alertController.addAction(threeAction)
+        alertController.addAction(cancelAction)
+        
+        present(alertController, animated: true, completion: nil)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
