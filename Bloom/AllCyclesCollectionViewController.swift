@@ -116,7 +116,15 @@ class AllCyclesCollectionViewController: UICollectionViewController {
     
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
         if identifier == "newDayFromAllCycles" {
-            if model.count == 0 {
+            let date = Date()
+            let dateComponents = NSDateComponents()
+            
+            guard let gregorianCalendar = NSCalendar(calendarIdentifier: .gregorian) else { return true }
+            let isMorning = gregorianCalendar.component(.hour, from: date) < 12
+            
+
+            //conditions to send user to dayView for today
+            if model.count == 0 || !isMorning {
                 return true
             } else {
                 return false
