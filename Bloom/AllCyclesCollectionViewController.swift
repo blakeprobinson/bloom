@@ -19,7 +19,7 @@ class AllCyclesCollectionViewController: UICollectionViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        model = createDummyData()
+        model = persistenceManager.getAllCyclesSorted()
         navigationController?.navigationBar.tintColor = UIColor.white
         
         //collectionView!.register(forSupplementaryViewOfKind: "header", withReuseIdentifier: "sectionHeader")
@@ -96,6 +96,7 @@ class AllCyclesCollectionViewController: UICollectionViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        model = persistenceManager.getAllCyclesSorted()
         collectionView?.reloadData()
         print(collectionView?.collectionViewLayout.collectionViewContentSize ?? 0)
     }
@@ -108,6 +109,8 @@ class AllCyclesCollectionViewController: UICollectionViewController {
             let destination = segue.destination as! CycleTableViewController
             let cell = sender as? AllCyclesCollectionViewCell
             destination.cycle = model[(cell?.indexPath?.section)!]
+        } else if segue.identifier == "newDayFromAllCycles" {
+
         }
         
     }
