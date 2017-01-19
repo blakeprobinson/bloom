@@ -125,9 +125,9 @@ class AllCyclesCollectionViewController: UICollectionViewController {
             guard let calendar = NSCalendar(calendarIdentifier: .gregorian) else { return true }
             let isMorning = calendar.component(.hour, from: date) < 12
 
-            //conditions to send user to dayView for today
-            
-            //or neither yesterday nor today has an input
+            if sender is UIAlertController {
+                return true
+            }
             if model.count == 0 {
                 if isMorning  {
                     dateToPassToNewDayView = calendar.date(byAdding: .day, value: -1, to: date, options: NSCalendar.Options())
