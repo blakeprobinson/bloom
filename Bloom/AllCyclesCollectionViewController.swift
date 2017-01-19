@@ -154,21 +154,34 @@ class AllCyclesCollectionViewController: UICollectionViewController {
     
     private func showActionSheet() {
         let alertController = UIAlertController(title: "What day would you like to record?", message: nil, preferredStyle: .actionSheet)
-        let date = Date()
-        let todayAction = UIAlertAction(title: "Today", style: .default) { _ in }
-        let yesterdayAction = UIAlertAction(title: "Yesterday", style: .default) { _ in }
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { _ in }
-        var actions = [UIAlertAction]()
         
         if let calendar = NSCalendar(calendarIdentifier: .gregorian) {
-            let difBetweenDates = calendar.components(.day, from:dateOfMostRecentDay!, to:date, options: NSCalendar.Options()).day!
+            let date = Date()
+            let todayAction = UIAlertAction(title: "Today", style: .default) {
+                _ in self.dateToPassToNewDayView = Date()
+                self.performSegue(withIdentifier: "newDayFromAllCycles", sender: alertController)
+            }
+            let yesterdayAction = UIAlertAction(title: "Yesterday", style: .default) {
+                _ in self.dateToPassToNewDayView =  calendar.date(byAdding: .day, value: -1, to: date, options: NSCalendar.Options())
+            }
+            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { _ in }
+            var actions = [UIAlertAction]()
+            
+            let difBetweenDates = calendar.components(.day, from:calendar.date(byAdding: .day, value: -2, to: date, options: NSCalendar.Options())!, to:date, options: NSCalendar.Options()).day!
+//            let difBetweenDates = calendar.components(.day, from:dateOfMostRecentDay!, to:date, options: NSCalendar.Options()).day!
             switch difBetweenDates {
             case 2:
                 actions = [todayAction, yesterdayAction, cancelAction]
-            default: break
+            default:
+                actions = [todayAction, yesterdayAction, cancelAction]
             }
             //case 1
             
+            for action in actions {
+                alertController.addAction(action)
+            }
+            
+            present(alertController, animated: true, completion: nil)
             
             
         }
@@ -180,12 +193,7 @@ class AllCyclesCollectionViewController: UICollectionViewController {
         
     
         
-        
-        for action in actions {
-            alertController.addAction(action)
-        }
-        
-        present(alertController, animated: true, completion: nil)
+    
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
