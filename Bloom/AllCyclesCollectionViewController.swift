@@ -35,7 +35,7 @@ class AllCyclesCollectionViewController: UICollectionViewController {
         navigationController?.navigationBar.tintColor = UIColor.white
         
         //collectionView!.register(forSupplementaryViewOfKind: "header", withReuseIdentifier: "sectionHeader")
-        collectionView!.register(AllCyclesSectionHeader().classForCoder, forSupplementaryViewOfKind: "sectionHeader", withReuseIdentifier: "sectionHeader")
+        collectionView!.register(AllCyclesSectionHeader.self, forSupplementaryViewOfKind: "sectionHeader", withReuseIdentifier: "sectionHeader")
 
         // Do any additional setup after loading the view.
     }
@@ -118,32 +118,29 @@ class AllCyclesCollectionViewController: UICollectionViewController {
     
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
         if identifier == "newDayFromAllCycles" {
-            showActionSheet()
-            return false
             let date = Date()
             
             guard let calendar = NSCalendar(calendarIdentifier: .gregorian) else { return true }
-            let isMorning = calendar.component(.hour, from: date) < 12
+            //let isMorning = calendar.component(.hour, from: date) < 12
 
             if sender is UIAlertAction {
                 return true
             }
             if model.count == 0 {
-                if isMorning  {
-                    dateToPassToNewDayView = calendar.date(byAdding: .day, value: -1, to: date, options: NSCalendar.Options())
-                    return true
-                } else {
-                    dateToPassToNewDayView = date
-                    return true
-                }
+                showActionSheet()
+                
+            } else if calendar.isDateInToday(dateOfMostRecentDay!) {
                 
             } else if calendar.components(.day, from:dateOfMostRecentDay!, to:date, options: NSCalendar.Options()).day! > 1 {
-                //yay!  set up the alert view!!
+                showActionSheet()
                 return false
+            } else {
+                return true
             }
         } else {
             return true
         }
+        return true
     }
     
     private func showActionSheet() {
@@ -258,28 +255,11 @@ class AllCyclesCollectionViewController: UICollectionViewController {
     }
     
     override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        let supplementaryView = collectionView.dequeueReusableSupplementaryView(ofKind: "sectionHeader", withReuseIdentifier: "sectionHeader", for: indexPath)
+        let supplementaryView = collectionView.dequeueReusableSupplementaryView(ofKind: "sectionHeader", withReuseIdentifier: "sectionHeader", for: indexPath) as! AllCyclesSectionHeader
         
-        dateFormatter.dateFormat = "MMM dd"
+        supplementaryView.configure(model[indexPath.section])
         
-        let startDate = UILabel(frame: CGRect(x: 0, y: 0, width: supplementaryView.bounds.width, height: supplementaryView.bounds.height / 2))
-        startDate.text = dateFormatter.string(from: model[indexPath.section].startDate) + "-"
-        startDate.font = UIFont.systemFont(ofSize: 11)
-        startDate.textAlignment = .center
         
-        let endDate = UILabel(frame: CGRect(x: 0, y: supplementaryView.bounds.height/2, width: supplementaryView.bounds.width, height: supplementaryView.bounds.height / 2))
-        if let date = model[indexPath.section].endDate {
-            endDate.text = dateFormatter.string(from: date)
-        } else {
-            endDate.text = ""
-        }
-    
-        endDate.font = UIFont.systemFont(ofSize: 11)
-        endDate.textAlignment = .center
-        
-        supplementaryView.addSubview(startDate)
-        supplementaryView.addSubview(endDate)
-        supplementaryView.backgroundColor = UIColor.groupTableViewBackground
         return supplementaryView
     }
 

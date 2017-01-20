@@ -15,7 +15,7 @@ class AllCyclesLayout: UICollectionViewFlowLayout {
     var supplementaryLayoutInfo = [IndexPath: UICollectionViewLayoutAttributes]()
     let itemWidth = 58.0
     let itemHeight = 44.0
-    let sectionHeaderHeight = 66.0
+    let sectionHeaderHeight = 54.0
     var maxX:Double = 44
     var maxY:Double = 44
     
