@@ -126,6 +126,10 @@ class DayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
                     statusBar.backgroundColor = UIColor(red:0.46, green:0.65, blue:0.69, alpha:0.8)
                 })
             }
+            
+            if day == nil {
+                day = Day()
+            }
         } else {
             navbar.isHidden = true
         }
