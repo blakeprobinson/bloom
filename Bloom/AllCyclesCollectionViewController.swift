@@ -226,7 +226,9 @@ class AllCyclesCollectionViewController: UICollectionViewController {
         } else {
             let destination = segue.destination as! DayViewController
             if sender is UIAlertAction {
-                destination.day = Day(date: sender.)
+                let sender = sender as! UIAlertAction
+                let calendar = Calendar(identifier: .gregorian)
+                destination.day = Day(date: calendar.date(fromWeekday: sender.title!)!)
             }
         }
     }
