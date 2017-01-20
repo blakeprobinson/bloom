@@ -118,7 +118,6 @@ class DayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
     override func viewDidLoad() {
         super.viewDidLoad()
         if day == nil || fromAllCyclesVC {
-            day = Day()
             let statusBar: UIView = UIApplication.shared.value(forKey: "statusBar") as! UIView
             
             if statusBar.responds(to: #selector(setter: UIView.backgroundColor)) {
