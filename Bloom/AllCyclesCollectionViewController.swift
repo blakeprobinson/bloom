@@ -166,20 +166,16 @@ class AllCyclesCollectionViewController: UICollectionViewController {
             }
             
             present(alertController, animated: true, completion: nil)
-            
-            
         }
     }
     
     private func createActionsFor(days differenceBetweenDates: Int, in calendar: NSCalendar) -> [UIAlertAction] {
         let date = Date()
         let todayAction = UIAlertAction(title: "Today", style: .default) {
-            _ in self.dateToPassToNewDayView = Date()
-            self.performSegue(withIdentifier: "newDayFromAllCycles", sender: self.alertController)
+            _ in self.actionClosure(days: 0, in: calendar)
         }
         let yesterdayAction = UIAlertAction(title: "Yesterday", style: .default) {
-            _ in self.dateToPassToNewDayView =  calendar.date(byAdding: .day, value: -1, to: date, options: NSCalendar.Options())
-            self.performSegue(withIdentifier: "newDayFromAllCycles", sender: self.alertController)
+            _ in self.actionClosure(days: -1, in: calendar)
         }
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { _ in }
         
@@ -195,8 +191,7 @@ class AllCyclesCollectionViewController: UICollectionViewController {
             
             
             let twoDaysAgoAction = UIAlertAction(title: twoDaysAgoDay, style: .default) {
-                _ in self.dateToPassToNewDayView =  calendar.date(byAdding: .day, value: -3, to: date, options: NSCalendar.Options())
-                self.performSegue(withIdentifier: "newDayFromAllCycles", sender: self.alertController)
+                _ in self.actionClosure(days: -2, in: calendar)
             }
             
             if differenceBetweenDates == 3 {
@@ -206,13 +201,22 @@ class AllCyclesCollectionViewController: UICollectionViewController {
                 let threeDaysAgoDay = dateFormatter.weekdaySymbols[calendar.component(.weekday, from: threeDaysAgo!) - 1]
                 
                 let threeDaysAgoAction = UIAlertAction(title: threeDaysAgoDay, style: .default) {
-                    _ in self.dateToPassToNewDayView =  calendar.date(byAdding: .day, value: -3, to: date, options: NSCalendar.Options())
-                    self.performSegue(withIdentifier: "newDayFromAllCycles", sender: self.alertController)
+                    _ in self.actionClosure(days: -3, in: calendar)
                 }
                 actions += [twoDaysAgoAction, threeDaysAgoAction, cancelAction]
             }
         }
         return actions
+    }
+    
+    private func actionClosure(days: Int, in calendar: NSCalendar) {
+        let date = Date()
+        if days == 0 {
+            self.dateToPassToNewDayView = date
+        } else {
+            self.dateToPassToNewDayView =  calendar.date(byAdding: .day, value: days, to: date, options: NSCalendar.Options())
+        }
+        self.performSegue(withIdentifier: "newDayFromAllCycles", sender: self.alertController)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
