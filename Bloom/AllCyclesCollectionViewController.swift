@@ -118,29 +118,23 @@ class AllCyclesCollectionViewController: UICollectionViewController {
     
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
         if identifier == "newDayFromAllCycles" {
-            let date = Date()
-            
-            guard let calendar = NSCalendar(calendarIdentifier: .gregorian) else { return true }
-            //let isMorning = calendar.component(.hour, from: date) < 12
-
             if sender is UIAlertAction {
                 return true
             }
-            if model.count == 0 {
-                showActionSheet()
-                
-            } else if calendar.isDateInToday(dateOfMostRecentDay!) {
-                
-            } else if calendar.components(.day, from:dateOfMostRecentDay!, to:date, options: NSCalendar.Options()).day! > 1 {
+            guard let calendar = NSCalendar(calendarIdentifier: .gregorian) else { return true }
+            guard let dateOfMostRecentDay = dateOfMostRecentDay else {
                 showActionSheet()
                 return false
-            } else {
+            }
+            if calendar.isDateInYesterday(dateOfMostRecentDay) {
                 return true
+            } else {
+                showActionSheet()
+                return false
             }
         } else {
             return true
         }
-        return true
     }
     
     private func showActionSheet() {
@@ -178,7 +172,9 @@ class AllCyclesCollectionViewController: UICollectionViewController {
         
         var actions = [todayAction, yesterdayAction]
         
-        if differenceBetweenDates == 2 {
+        if differenceBetweenDates == 0 {
+            //look to see where the next date is...
+        } else if differenceBetweenDates == 2 {
             actions.append(cancelAction)
         } else {
             let dateFormatter = DateFormatter()
