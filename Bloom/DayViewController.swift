@@ -107,17 +107,17 @@ class DayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
         }
     }
     
+    var fromAllCyclesVC = false
+    
     
     // MARK: Model
-    // day is an optional since the model will be nil when a 
-    // user is adding a new day
     var day:Day?
     let persistenceManager = PersistenceManager()
 
     //MARK: View LifeCycle methods
     override func viewDidLoad() {
         super.viewDidLoad()
-        if day == nil {
+        if day == nil || fromAllCyclesVC {
             day = Day()
             let statusBar: UIView = UIApplication.shared.value(forKey: "statusBar") as! UIView
             

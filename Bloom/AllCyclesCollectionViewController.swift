@@ -229,6 +229,7 @@ class AllCyclesCollectionViewController: UICollectionViewController {
                 let sender = sender as! UIAlertAction
                 let calendar = Calendar(identifier: .gregorian)
                 destination.day = Day(date: calendar.date(fromWeekday: sender.title!)!)
+                destination.fromAllCyclesVC = true
             }
         }
     }
