@@ -90,6 +90,19 @@ class Day: NSObject, NSCoding {
         self.isFirstDayOfCycle = false
     }
     
+    convenience init(date: Date) {
+        self.init(bleeding: nil,
+                  dry: nil,
+                  mucus: nil,
+                  observation: 1,
+                  intercourse: false,
+                  lubrication: false,
+                  pasty: false,
+                  date: date,
+                  notes: "",
+                  isFirstDayOfCycle: false)
+    }
+    
     public override var description: String {
         get {
             return "{ bleeding: \(self.bleeding?.intensity.rawValue), dry: \(self.dry?.observation.rawValue), mucus: \(self.mucus), observation: \(self.observation), intercourse: \(self.intercourse), lubrication: \(self.lubrication), pasty: \(self.lubrication), date: \(self.date), notes: \(self.notes) }"

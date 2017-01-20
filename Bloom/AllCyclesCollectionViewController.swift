@@ -223,6 +223,11 @@ class AllCyclesCollectionViewController: UICollectionViewController {
             let destination = segue.destination as! CycleTableViewController
             let cell = sender as? AllCyclesCollectionViewCell
             destination.cycle = model[(cell?.indexPath?.section)!]
+        } else {
+            let destination = segue.destination as! DayViewController
+            if sender is UIAlertAction {
+                destination.day = Day(date: sender.)
+            }
         }
     }
 
