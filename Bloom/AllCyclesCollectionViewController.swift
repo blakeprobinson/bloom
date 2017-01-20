@@ -125,7 +125,7 @@ class AllCyclesCollectionViewController: UICollectionViewController {
             guard let calendar = NSCalendar(calendarIdentifier: .gregorian) else { return true }
             let isMorning = calendar.component(.hour, from: date) < 12
 
-            if sender is UIAlertController {
+            if sender is UIAlertAction {
                 return true
             }
             if model.count == 0 {
@@ -172,10 +172,10 @@ class AllCyclesCollectionViewController: UICollectionViewController {
     private func createActionsFor(days differenceBetweenDates: Int, in calendar: NSCalendar) -> [UIAlertAction] {
         let date = Date()
         let todayAction = UIAlertAction(title: "Today", style: .default) {
-            _ in self.actionClosure(days: 0, in: calendar)
+            action in self.actionClosure(action, days: 0, in: calendar)
         }
         let yesterdayAction = UIAlertAction(title: "Yesterday", style: .default) {
-            _ in self.actionClosure(days: -1, in: calendar)
+            action in self.actionClosure(action, days: -1, in: calendar)
         }
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { _ in }
         
@@ -189,9 +189,8 @@ class AllCyclesCollectionViewController: UICollectionViewController {
             let twoDaysAgo = calendar.date(byAdding: .day, value: -2, to: date, options: NSCalendar.Options())
             let twoDaysAgoDay = dateFormatter.weekdaySymbols[calendar.component(.weekday, from: twoDaysAgo!) - 1]
             
-            
             let twoDaysAgoAction = UIAlertAction(title: twoDaysAgoDay, style: .default) {
-                _ in self.actionClosure(days: -2, in: calendar)
+                action in self.actionClosure(action, days: -2, in: calendar)
             }
             
             if differenceBetweenDates == 3 {
@@ -201,7 +200,7 @@ class AllCyclesCollectionViewController: UICollectionViewController {
                 let threeDaysAgoDay = dateFormatter.weekdaySymbols[calendar.component(.weekday, from: threeDaysAgo!) - 1]
                 
                 let threeDaysAgoAction = UIAlertAction(title: threeDaysAgoDay, style: .default) {
-                    _ in self.actionClosure(days: -3, in: calendar)
+                    action in self.actionClosure(action, days: -3, in: calendar)
                 }
                 actions += [twoDaysAgoAction, threeDaysAgoAction, cancelAction]
             }
@@ -209,14 +208,14 @@ class AllCyclesCollectionViewController: UICollectionViewController {
         return actions
     }
     
-    private func actionClosure(days: Int, in calendar: NSCalendar) {
+    private func actionClosure(_ action: UIAlertAction, days: Int, in calendar: NSCalendar) {
         let date = Date()
         if days == 0 {
             self.dateToPassToNewDayView = date
         } else {
             self.dateToPassToNewDayView =  calendar.date(byAdding: .day, value: days, to: date, options: NSCalendar.Options())
         }
-        self.performSegue(withIdentifier: "newDayFromAllCycles", sender: self.alertController)
+        self.performSegue(withIdentifier: "newDayFromAllCycles", sender: action)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
