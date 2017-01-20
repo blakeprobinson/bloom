@@ -16,8 +16,7 @@ class AllCyclesCollectionViewController: UICollectionViewController {
     var model = [Cycle]()
     let dateFormatter = DateFormatter()
     var selected = IndexPath()
-    let alertController = UIAlertController(title: "What day would you like to record?", message: nil, preferredStyle: .actionSheet)
-    
+    var alertController = UIAlertController()
     private var dateOfMostRecentDay: Date? {
         get {
             if model.count > 0 {
@@ -161,6 +160,7 @@ class AllCyclesCollectionViewController: UICollectionViewController {
             
             let actions = createActionsFor(days: difBetweenDates, in: calendar)
             
+            alertController = UIAlertController(title: "What day would you like to record?", message: nil, preferredStyle: .actionSheet)
             for action in actions {
                 alertController.addAction(action)
             }
