@@ -14,6 +14,35 @@ class CycleTableViewController: UITableViewController {
     
     var cycle:Cycle?
     var selected:Int?
+    var displayCycle:Cycle? {
+        get {
+            guard let cycle = cycle else { return nil }
+            guard let endDate = cycle.endDate else { return cycle }
+            
+            let calendar = Calendar(identifier: .gregorian)
+            
+            var displayDays = [Day]()
+            for day in cycle.days {
+                if day == cycle.days.last {
+                    displayDays.append(day)
+                    break
+                } else {
+                    displayDays.append(day)
+                    let daysBetweenDays = calendar.dateComponents([.day], from: cycle.startDate, to: endDate).day!
+                    if daysBetweenDays > 0 {
+                        for index in 1..<daysBetweenDays {
+                            var dateComponents = DateComponents()
+                            dateComponents.day = index
+                            let date = calendar.date(byAdding: dateComponents, to: day.date)!
+                            let day = Day(date: date)
+                            displayDays.append(day)
+                        }
+                    }
+                }
+            }
+            return Cycle(days: displayDays, uuid: UUID())
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,12 +61,12 @@ class CycleTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return cycle!.days.count
+        return displayCycle!.days.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "dayInCycle", for: indexPath) as! CycleTableViewCell
-        let day = cycle!.days[indexPath.row]
+        let day = displayCycle!.days[indexPath.row]
 
         cell.dayNumber.text = String(indexPath.row + 1)
         cell.category = day.category
