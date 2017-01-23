@@ -27,6 +27,12 @@ class AllCyclesCollectionViewController: UICollectionViewController {
         }
     }
     
+    private var displayModel: [Cycle] {
+        get {
+            return model.map({ displayCycle(from: $0) })
+        }
+    }
+    
     private var dateToPassToNewDayView: Date?
 
     override func viewDidLoad() {
@@ -250,12 +256,12 @@ class AllCyclesCollectionViewController: UICollectionViewController {
     // MARK: UICollectionViewDataSource
 
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return model.count
+        return displayModel.count
     }
 
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return model[section].days.count
+        return displayModel[section].days.count
     }
     
 
@@ -263,7 +269,7 @@ class AllCyclesCollectionViewController: UICollectionViewController {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! AllCyclesCollectionViewCell
         cell.dayNumber.text = "\(indexPath.item + 1)"
         cell.dayNumber.font = UIFont.systemFont(ofSize: 11)
-        cell.category = Day.assignCategory(day: model[indexPath.section].days[indexPath.item])
+        cell.category = Day.assignCategory(day: displayModel[indexPath.section].days[indexPath.item])
         cell.indexPath = indexPath
         
         return cell
@@ -272,7 +278,7 @@ class AllCyclesCollectionViewController: UICollectionViewController {
     override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         let supplementaryView = collectionView.dequeueReusableSupplementaryView(ofKind: "sectionHeader", withReuseIdentifier: "sectionHeader", for: indexPath) as! AllCyclesSectionHeader
         
-        supplementaryView.configure(model[indexPath.section])
+        supplementaryView.configure(displayModel[indexPath.section])
         
         
         return supplementaryView
