@@ -174,7 +174,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zVm-HY-yKJ">
-                                <rect key="frame" x="0.0" y="20" width="414" height="1230"/>
+                                <rect key="frame" x="0.0" y="64" width="414" height="1186"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="GC0-na-Q3n" userLabel="Contents Stack View">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="1151"/>
@@ -881,6 +881,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="2wh-gN-Y9D"/>
+        <segue reference="aKK-Vu-p9W"/>
     </inferredMetricsTieBreakers>
 </document>
