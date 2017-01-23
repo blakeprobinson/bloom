@@ -20,7 +20,7 @@ class AllCyclesCollectionViewController: UICollectionViewController {
     private var dateOfMostRecentDay: Date? {
         get {
             if model.count > 0 {
-                return model[0].days[0].date
+                return model[0].days.last?.date
             } else {
                 return nil
             }
