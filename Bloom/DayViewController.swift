@@ -13,6 +13,10 @@ class DayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var navbar: UINavigationBar!
     @IBOutlet weak var addButton: UIBarButtonItem!
+    
+    @IBOutlet weak var saveButton: UIBarButtonItem!
+    
+    
     //MARK: Header Outlets
     @IBOutlet weak var headerDate: UILabel!
     @IBOutlet weak var circle: UIView! {

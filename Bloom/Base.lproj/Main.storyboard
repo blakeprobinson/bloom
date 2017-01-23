@@ -790,7 +790,11 @@
                             <constraint firstItem="dQ0-SZ-OzE" firstAttribute="top" secondItem="zVm-HY-yKJ" secondAttribute="bottom" id="knK-Zp-I6s"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Day" id="ctH-G5-heg"/>
+                    <navigationItem key="navigationItem" title="Day" id="ctH-G5-heg">
+                        <barButtonItem key="rightBarButtonItem" enabled="NO" style="plain" systemItem="save" id="zsg-gj-lNk">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </barButtonItem>
+                    </navigationItem>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="414" height="1250"/>
                     <connections>
@@ -814,6 +818,7 @@
                         <outlet property="observationStepper" destination="j95-Zg-LvP" id="gal-Vv-n84"/>
                         <outlet property="picker" destination="zk1-Jx-YLK" id="XKa-3j-s3f"/>
                         <outlet property="requiredInput" destination="eZZ-0P-veK" id="hW3-PK-sMS"/>
+                        <outlet property="saveButton" destination="zsg-gj-lNk" id="fyr-8M-v6b"/>
                         <outlet property="scrollView" destination="zVm-HY-yKJ" id="jFF-h2-GdN"/>
                         <outlet property="startNewCycle" destination="kxo-1O-Mep" id="bx5-fJ-Tiv"/>
                         <outletCollection property="dryButtons" destination="W4S-n5-UdY" collectionClass="NSMutableArray" id="cC2-Fz-UBy"/>
