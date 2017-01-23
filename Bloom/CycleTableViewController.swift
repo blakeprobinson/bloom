@@ -22,13 +22,13 @@ class CycleTableViewController: UITableViewController {
             let calendar = Calendar(identifier: .gregorian)
             
             var displayDays = [Day]()
-            for day in cycle.days {
+            for (index, day) in cycle.days.enumerated() {
                 if day == cycle.days.last {
                     displayDays.append(day)
                     break
                 } else {
                     displayDays.append(day)
-                    let daysBetweenDays = calendar.dateComponents([.day], from: cycle.startDate, to: endDate).day!
+                    let daysBetweenDays = calendar.dateComponents([.day], from: calendar.startOfDay(for: day.date), to: calendar.startOfDay(for: cycle.days[index + 1].date)).day!
                     if daysBetweenDays > 0 {
                         for index in 1..<daysBetweenDays {
                             var dateComponents = DateComponents()
@@ -98,7 +98,7 @@ class CycleTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         selected = indexPath.row
-        performSegue(withIdentifier: "cycleToEdit", sender: cycle?.days[indexPath.row])
+        performSegue(withIdentifier: "cycleToEdit", sender: displayCycle?.days[indexPath.row])
     }
 
     
