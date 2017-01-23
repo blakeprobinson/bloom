@@ -273,6 +273,7 @@ class AllCyclesCollectionViewController: UICollectionViewController {
                 destination.fromAllCyclesVC = true
             } else {
                 destination.day = Day(date: dateToPassToNewDayView!)
+                destination.fromAllCyclesVC = true
             }
         }
     }
