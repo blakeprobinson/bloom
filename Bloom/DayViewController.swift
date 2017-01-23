@@ -379,6 +379,11 @@ class DayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
         }
     }
     //MARK: Navbar IBActions
+    
+    @IBAction func saveTouched(_ sender: UIBarButtonItem) {
+        persistenceManager.saveDay(day: day!)
+    }
+    
     @IBAction func cancelTouched() {
         dismiss(animated: true, completion:nil)
     }

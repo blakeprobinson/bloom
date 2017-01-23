@@ -793,6 +793,9 @@
                     <navigationItem key="navigationItem" title="Day" id="ctH-G5-heg">
                         <barButtonItem key="rightBarButtonItem" enabled="NO" style="plain" systemItem="save" id="zsg-gj-lNk">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="saveTouched:" destination="nez-Db-vhN" id="Zfu-Ei-uNC"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
