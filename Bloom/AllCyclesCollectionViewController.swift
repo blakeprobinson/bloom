@@ -22,7 +22,6 @@ class AllCyclesCollectionViewController: UICollectionViewController {
     private var shouldEnableAddDay: Bool {
         get {
             if model.count > 0 {
-                
                 if model[0].days.count < 4 {
                     return true
                 } else {
@@ -56,6 +55,9 @@ class AllCyclesCollectionViewController: UICollectionViewController {
             if displayModel[0].days.count > 1 {
                 return displayModel[0].days[displayModel[0].days.count - 2]
             } else {
+                if displayModel.count > 1 {
+                    return displayModel[1].days.last
+                }
                 return nil
             }
         }
