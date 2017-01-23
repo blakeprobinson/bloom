@@ -137,7 +137,10 @@ class AllCyclesCollectionViewController: UICollectionViewController {
             if sender is UIAlertAction {
                 return true
             }
-            guard let calendar = NSCalendar(calendarIdentifier: .gregorian) else { return true }
+            guard let calendar = NSCalendar(calendarIdentifier: .gregorian) else {
+                dateToPassToNewDayView = Date()
+                return true
+            }
             guard let dateOfMostRecentDay = dateOfMostRecentDay else {
                 showActionSheet()
                 return false
@@ -148,15 +151,17 @@ class AllCyclesCollectionViewController: UICollectionViewController {
             }
         
             if calendar.isDateInYesterday(dateOfMostRecentDay) {
+                dateToPassToNewDayView = Date()
                 return true
             } else if calendar.isDateInToday(dateOfMostRecentDay) && dayBeforeMostRecentDay.category == nil   {
-                //make dayview show yesterday
+                dateToPassToNewDayView = dayBeforeMostRecentDay.date
                 return true
             } else {
                 showActionSheet()
                 return false
             }
         } else {
+            dateToPassToNewDayView = Date()
             return true
         }
     }
@@ -266,6 +271,8 @@ class AllCyclesCollectionViewController: UICollectionViewController {
                 let calendar = Calendar(identifier: .gregorian)
                 destination.day = Day(date: calendar.date(fromWeekday: sender.title!)!)
                 destination.fromAllCyclesVC = true
+            } else {
+                destination.day = Day(date: dateToPassToNewDayView!)
             }
         }
     }
