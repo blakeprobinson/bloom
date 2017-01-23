@@ -17,6 +17,30 @@ class AllCyclesCollectionViewController: UICollectionViewController {
     let dateFormatter = DateFormatter()
     var selected = IndexPath()
     var alertController = UIAlertController()
+    
+    @IBOutlet weak var addDay: UIBarButtonItem!
+    private var shouldEnableAddDay: Bool {
+        get {
+            if model.count > 0 {
+                
+                if model[0].days.count < 4 {
+                    return true
+                } else {
+                    for (index, day) in model[0].days.reversed().enumerated() {
+                        if index < 4 {
+                            if day.category == nil {
+                                return false
+                            }
+                        }
+                    }
+                    return true
+                }
+            } else {
+                return true
+            }
+        }
+    }
+    
     private var dateOfMostRecentDay: Date? {
         get {
             if model.count > 0 {
@@ -126,7 +150,7 @@ class AllCyclesCollectionViewController: UICollectionViewController {
         super.viewWillAppear(animated)
         model = persistenceManager.getAllCyclesSorted()
         collectionView?.reloadData()
-        print(collectionView?.collectionViewLayout.collectionViewContentSize ?? 0)
+        addDay.isEnabled = shouldEnableAddDay
     }
 
 
