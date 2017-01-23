@@ -207,6 +207,10 @@ class DayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
                 dayInCycle.text = String(dayInCycleText)
             }
             if let dry = day.dry {
+                if !addDryButton.isSelected {
+                    addDryButton.isSelected = true
+                    hideShowView(view: dryButtonContainer)
+                }
                 addMucusButton.isEnabled = false
                 deselectAllBut(title: dryBleedingButtonModelToTitle[dry.observation.rawValue]!, from: dryButtons)
                 canAdd = true
@@ -214,10 +218,18 @@ class DayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
                 addMucusButton.isEnabled = true
             }
             if let bleeding = day.bleeding {
+                if !addBleedingButton.isSelected {
+                    addBleedingButton.isSelected = true
+                    hideShowView(view: bleedingButtonContainer)
+                }
                 modOrHeavySelected = updateBleedingUI(bleeding: bleeding)
                 canAdd = true
             }
             if let mucus = day.mucus {
+                if !addMucusButton.isSelected {
+                    addMucusButton.isSelected = true
+                    hideShowView(view: mucusButtonContainer)
+                }
                 canAdd = updateMucusUI(mucus: mucus)
             } else if !modOrHeavySelected {
                 addDryButton.isEnabled = true
