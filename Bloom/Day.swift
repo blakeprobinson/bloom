@@ -305,13 +305,15 @@ extension Day {
         case mucus
     }
     
-    static func assignCategory(day: Day) -> Day.Category {
+    static func assignCategory(day: Day) -> Day.Category? {
         if day.bleeding != nil {
             return .bleeding
         } else if day.dry != nil {
             return .dry
-        } else {
+        } else if day.mucus != nil {
             return .mucus
+        } else {
+            return nil
         }
     }
 }

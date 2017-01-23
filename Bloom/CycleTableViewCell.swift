@@ -38,6 +38,9 @@ class CycleTableViewCell: UITableViewCell {
                     daySymbol.layer.borderWidth = 2
                 }
                 daySymbol.backgroundColor = color
+            } else {
+                color = UIColor.darkGray
+                daySymbol.layer.borderWidth = 0
             }
         }
     }
