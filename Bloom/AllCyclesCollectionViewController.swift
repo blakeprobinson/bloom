@@ -39,6 +39,15 @@ class AllCyclesCollectionViewController: UICollectionViewController {
             }
         }
     }
+    private var currentCycleUUID: UUID? {
+        get {
+            if model.count > 0 {
+                return model[0].uuid
+            } else {
+                return nil
+            }
+        }
+    }
     
     private var dateOfMostRecentDay: Date? {
         get {
@@ -172,8 +181,13 @@ class AllCyclesCollectionViewController: UICollectionViewController {
                 return false
             }
             guard let dayBeforeMostRecentDay = dayBeforeMostRecentDay else {
-                showActionSheet()
-                return false
+                if calendar.isDateInToday(dateOfMostRecentDay) {
+                    dateToPassToNewDayView = calendar.date(byAdding: .day, value: -1, to: Date(), options: NSCalendar.Options())
+                    return true
+                } else {
+                    showActionSheet()
+                    return false
+                }
             }
         
             if calendar.isDateInYesterday(dateOfMostRecentDay) {
@@ -290,10 +304,10 @@ class AllCyclesCollectionViewController: UICollectionViewController {
             if sender is UIAlertAction {
                 let sender = sender as! UIAlertAction
                 let calendar = Calendar(identifier: .gregorian)
-                destination.day = Day(date: calendar.date(fromWeekday: sender.title!)!)
+                destination.day = Day(date: calendar.date(fromWeekday: sender.title!)!, uuid: currentCycleUUID)
                 destination.fromAllCyclesVC = true
             } else {
-                destination.day = Day(date: dateToPassToNewDayView!)
+                destination.day = Day(date: dateToPassToNewDayView!, uuid: currentCycleUUID)
                 destination.fromAllCyclesVC = true
             }
         }

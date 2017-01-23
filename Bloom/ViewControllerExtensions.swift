@@ -25,7 +25,7 @@ extension UIViewController {
                         var dateComponents = DateComponents()
                         dateComponents.day = index
                         let date = calendar.date(byAdding: dateComponents, to: day.date)!
-                        let day = Day(date: date)
+                        let day = Day(date: date, uuid: cycle.uuid)
                         displayDays.append(day)
                     }
                 }

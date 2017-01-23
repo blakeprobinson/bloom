@@ -90,7 +90,7 @@ class Day: NSObject, NSCoding {
         self.isFirstDayOfCycle = false
     }
     
-    convenience init(date: Date) {
+    convenience init(date: Date, uuid: UUID?) {
         self.init(bleeding: nil,
                   dry: nil,
                   mucus: nil,
@@ -101,6 +101,7 @@ class Day: NSObject, NSCoding {
                   date: date,
                   notes: "",
                   isFirstDayOfCycle: false)
+        self.uuid = uuid
     }
     
     public override var description: String {
