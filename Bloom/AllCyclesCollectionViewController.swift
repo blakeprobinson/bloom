@@ -225,52 +225,47 @@ class AllCyclesCollectionViewController: UICollectionViewController {
         
         var actions = [todayAction, yesterdayAction]
         
-        if differenceBetweenDates == 2 {
-            actions.append(cancelAction)
-        } else {
-            let dateFormatter = DateFormatter()
-            
-            let twoDaysAgo = calendar.date(byAdding: .day, value: -2, to: date, options: NSCalendar.Options())
-            let twoDaysAgoDay = dateFormatter.weekdaySymbols[calendar.component(.weekday, from: twoDaysAgo!) - 1]
-            
-            let twoDaysAgoAction = UIAlertAction(title: twoDaysAgoDay, style: .default) {
-                action in self.actionClosure(action, days: -2, in: calendar)
-            }
-            
-            let threeDaysAgo = calendar.date(byAdding: .day, value: -3, to: date, options: NSCalendar.Options())
-            let threeDaysAgoDay = dateFormatter.weekdaySymbols[calendar.component(.weekday, from: threeDaysAgo!) - 1]
-            
-            let threeDaysAgoAction = UIAlertAction(title: threeDaysAgoDay, style: .default) {
-                action in self.actionClosure(action, days: -3, in: calendar)
-            }
-            
-            if differenceBetweenDates == 0 {
-                actions.removeFirst()
-                switch daysToAppend() {
-                case 0:
-                    break
-                case 1:
+        if differenceBetweenDates >= 2 {
+            if differenceBetweenDates == 2 {
+                actions.append(cancelAction)
+            } else {
+                let dateFormatter = DateFormatter()
+                
+                let twoDaysAgo = calendar.date(byAdding: .day, value: -2, to: date, options: NSCalendar.Options())
+                let twoDaysAgoDay = dateFormatter.weekdaySymbols[calendar.component(.weekday, from: twoDaysAgo!) - 1]
+                
+                let twoDaysAgoAction = UIAlertAction(title: twoDaysAgoDay, style: .default) {
+                    action in self.actionClosure(action, days: -2, in: calendar)
+                }
+                
+                let threeDaysAgo = calendar.date(byAdding: .day, value: -3, to: date, options: NSCalendar.Options())
+                let threeDaysAgoDay = dateFormatter.weekdaySymbols[calendar.component(.weekday, from: threeDaysAgo!) - 1]
+                
+                let threeDaysAgoAction = UIAlertAction(title: threeDaysAgoDay, style: .default) {
+                    action in self.actionClosure(action, days: -3, in: calendar)
+                }
+                
+                if differenceBetweenDates == 3 {
                     actions += [twoDaysAgoAction, cancelAction]
-                default:
+                } else {
                     actions += [twoDaysAgoAction, threeDaysAgoAction, cancelAction]
                 }
-            } else if differenceBetweenDates == 3 {
-                actions += [twoDaysAgoAction, cancelAction]
-            } else {
-                
-                actions += [twoDaysAgoAction, threeDaysAgoAction, cancelAction]
             }
+        } else {
+            //get an array with the days that need to be represented
+            let dummyDaysAtStartOfCycle = displayModel[0].days.filter({ $0.category == nil })
+            if differenceBetweenDates == 0 {
+                
+            } else {
+                actions.removeFirst()
+            }
+            //case 1 Today and Yesterday are recorded, but two previous days are not
+            //case 2 Today is recorded, but yesterday and prior two days are not
+            //case 3 Today is not recorded, but yesterday is and prior to days are not
+            
+            
         }
         return actions
-    }
-    
-    private func daysToAppend() -> Int {
-        let calendar = Calendar(identifier: .gregorian)
-        guard let dateOfSecondMostRecentDayInCycle = model.first?.days[1].date else {
-            return 0
-        }
-        let date = Date()
-        return calendar.dateComponents([.day], from:dateOfSecondMostRecentDayInCycle, to:date).day!
     }
     
     private func actionClosure(_ action: UIAlertAction, days: Int, in calendar: NSCalendar) {
