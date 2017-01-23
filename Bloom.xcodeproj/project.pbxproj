@@ -18,6 +18,7 @@
 		BA2BB7C81DF8AE32008F3D51 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BA2BB7C71DF8AE32008F3D51 /* Assets.xcassets */; };
 		BA2BB7CB1DF8AE32008F3D51 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA2BB7C91DF8AE32008F3D51 /* LaunchScreen.storyboard */; };
 		BA2BB7D61DF8AF1D008F3D51 /* Day.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA2BB7D51DF8AF1D008F3D51 /* Day.swift */; };
+		BA3D5A7C1E36536100B0C079 /* ViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA3D5A7B1E36536100B0C079 /* ViewControllerExtensions.swift */; };
 		BA5FE9481E1C278800755E40 /* PersistenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA5FE9471E1C278800755E40 /* PersistenceManager.swift */; };
 		BA6637A61E26A34700401A6A /* AllCyclesLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA6637A51E26A34600401A6A /* AllCyclesLayout.swift */; };
 		BA710AC31E326994002B3380 /* CalendarExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA710AC21E326994002B3380 /* CalendarExtensions.swift */; };
@@ -42,6 +43,7 @@
 		BA2BB7CA1DF8AE32008F3D51 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BA2BB7CC1DF8AE32008F3D51 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BA2BB7D51DF8AF1D008F3D51 /* Day.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Day.swift; sourceTree = "<group>"; };
+		BA3D5A7B1E36536100B0C079 /* ViewControllerExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerExtensions.swift; sourceTree = "<group>"; };
 		BA5FE9471E1C278800755E40 /* PersistenceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersistenceManager.swift; sourceTree = "<group>"; };
 		BA6637A51E26A34600401A6A /* AllCyclesLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllCyclesLayout.swift; sourceTree = "<group>"; };
 		BA710AC21E326994002B3380 /* CalendarExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarExtensions.swift; sourceTree = "<group>"; };
@@ -90,6 +92,7 @@
 				BA5FE9471E1C278800755E40 /* PersistenceManager.swift */,
 				BA02B8881E01D2540051BACD /* Cycle.swift */,
 				BA710AC21E326994002B3380 /* CalendarExtensions.swift */,
+				BA3D5A7B1E36536100B0C079 /* ViewControllerExtensions.swift */,
 				BA2BB7D21DF8AE49008F3D51 /* Supporting Files */,
 			);
 			path = Bloom;
@@ -227,6 +230,7 @@
 				BA76C4BE1E23EA9D005A2B12 /* AllCyclesCollectionViewController.swift in Sources */,
 				BA710AC31E326994002B3380 /* CalendarExtensions.swift in Sources */,
 				BA91F1C01E14346C00C209BC /* PlusMinusButton.swift in Sources */,
+				BA3D5A7C1E36536100B0C079 /* ViewControllerExtensions.swift in Sources */,
 				BA2BB7D61DF8AF1D008F3D51 /* Day.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
