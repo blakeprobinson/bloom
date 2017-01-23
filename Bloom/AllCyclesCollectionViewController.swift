@@ -27,6 +27,16 @@ class AllCyclesCollectionViewController: UICollectionViewController {
         }
     }
     
+    private var dayBeforeMostRecentDay: Day? {
+        get {
+            if displayModel[0].days.count > 1 {
+                return displayModel[0].days[displayModel[0].days.count - 2]
+            } else {
+                return nil
+            }
+        }
+    }
+    
     private var displayModel: [Cycle] {
         get {
             return model.map({ displayCycle(from: $0) })
@@ -132,7 +142,15 @@ class AllCyclesCollectionViewController: UICollectionViewController {
                 showActionSheet()
                 return false
             }
+            guard let dayBeforeMostRecentDay = dayBeforeMostRecentDay else {
+                showActionSheet()
+                return false
+            }
+        
             if calendar.isDateInYesterday(dateOfMostRecentDay) {
+                return true
+            } else if calendar.isDateInToday(dateOfMostRecentDay) && dayBeforeMostRecentDay.category == nil   {
+                //make dayview show yesterday
                 return true
             } else {
                 showActionSheet()
