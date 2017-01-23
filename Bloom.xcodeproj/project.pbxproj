@@ -358,7 +358,7 @@
 				DEVELOPMENT_TEAM = LKB4DCJBWL;
 				INFOPLIST_FILE = Bloom/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = blakeRobinson.Bloom;
+				PRODUCT_BUNDLE_IDENTIFIER = LKB4DCJBWL.blakeRobinson.Bloom;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -374,7 +374,7 @@
 				DEVELOPMENT_TEAM = LKB4DCJBWL;
 				INFOPLIST_FILE = Bloom/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = blakeRobinson.Bloom;
+				PRODUCT_BUNDLE_IDENTIFIER = LKB4DCJBWL.blakeRobinson.Bloom;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 3.0;
