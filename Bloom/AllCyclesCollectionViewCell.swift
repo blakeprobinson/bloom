@@ -36,6 +36,11 @@ class AllCyclesCollectionViewCell: UICollectionViewCell {
                     daySymbol.layer.borderWidth = 2
                 }
                 daySymbol.backgroundColor = color
+            } else {
+                color = UIColor.lightGray
+                daySymbol.backgroundColor = color
+                daySymbol.layer.borderWidth = 0
+                dayNumber.textColor = UIColor.darkGray
             }
         }
     }
