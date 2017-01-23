@@ -164,7 +164,7 @@
             </objects>
             <point key="canvasLocation" x="2979.375" y="-223.94366197183098"/>
         </scene>
-        <!--Day View Controller-->
+        <!--Day-->
         <scene sceneID="llW-4c-C6y">
             <objects>
                 <viewController automaticallyAdjustsScrollViewInsets="NO" id="nez-Db-vhN" customClass="DayViewController" customModule="Bloom" customModuleProvider="target" sceneMemberID="viewController">
@@ -790,7 +790,7 @@
                             <constraint firstItem="dQ0-SZ-OzE" firstAttribute="top" secondItem="zVm-HY-yKJ" secondAttribute="bottom" id="knK-Zp-I6s"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="ctH-G5-heg"/>
+                    <navigationItem key="navigationItem" title="Day" id="ctH-G5-heg"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="414" height="1250"/>
                     <connections>
