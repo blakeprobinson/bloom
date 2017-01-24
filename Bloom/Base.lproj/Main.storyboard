@@ -733,7 +733,7 @@
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="GgR-Sm-M8z" userLabel="Section 3">
                                                         <rect key="frame" x="0.0" y="626" width="414" height="385"/>
                                                         <subviews>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y8C-9b-pTn">
+                                                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y8C-9b-pTn">
                                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="39"/>
                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                 <constraints>
@@ -748,7 +748,7 @@
                                                                     <action selector="showPicker" destination="nez-Db-vhN" eventType="touchUpInside" id="5cF-yi-Yyh"/>
                                                                 </connections>
                                                             </button>
-                                                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zk1-Jx-YLK">
+                                                            <pickerView hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zk1-Jx-YLK">
                                                                 <rect key="frame" x="0.0" y="40" width="414" height="216"/>
                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                 <constraints>
