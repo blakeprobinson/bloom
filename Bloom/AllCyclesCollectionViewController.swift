@@ -59,19 +59,6 @@ class AllCyclesCollectionViewController: UICollectionViewController {
         }
     }
     
-    private var dayBeforeMostRecentDay: Day? {
-        get {
-            if displayModel[0].days.count > 1 {
-                return displayModel[0].days[displayModel[0].days.count - 2]
-            } else {
-                if displayModel.count > 1 {
-                    return displayModel[1].days.last
-                }
-                return nil
-            }
-        }
-    }
-    
     private var displayModel: [Cycle] {
         get {
             return model.map({ displayCycle(from: $0) })
@@ -167,48 +154,30 @@ class AllCyclesCollectionViewController: UICollectionViewController {
 
     // MARK: - Navigation
     
-    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
-        if identifier == "newDayFromAllCycles" {
-            if sender is UIAlertAction {
-                return true
-            }
-            guard let calendar = NSCalendar(calendarIdentifier: .gregorian) else {
-                dateToPassToNewDayView = Date()
-                return true
-            }
-            guard let dateOfMostRecentDay = dateOfMostRecentDay else {
-                showActionSheet()
-                return false
-            }
-            guard let dayBeforeMostRecentDay = dayBeforeMostRecentDay else {
-                if calendar.isDateInToday(dateOfMostRecentDay) {
-                    dateToPassToNewDayView = calendar.date(byAdding: .day, value: -1, to: Date(), options: NSCalendar.Options())
-                    return true
-                } else {
-                    showActionSheet()
-                    return false
-                }
-            }
+    @IBAction func plusTouched(_ sender: UIBarButtonItem) {
+        let calendar = NSCalendar(calendarIdentifier: .gregorian)!
         
-            if calendar.isDateInYesterday(dateOfMostRecentDay) {
-                dateToPassToNewDayView = Date()
-                return true
-            } else if calendar.isDateInToday(dateOfMostRecentDay) && dayBeforeMostRecentDay.category == nil   {
-                dateToPassToNewDayView = dayBeforeMostRecentDay.date
-                return true
-            } else {
-                showActionSheet()
-                return false
-            }
-        } else {
+        //if dateOfMostRecentDay is in last cycle...
+        //the plus sign should only add days to the current cycle...
+        guard let dateOfMostRecentDay = dateOfMostRecentDay else {
             dateToPassToNewDayView = Date()
-            return true
+            performSegue(withIdentifier: "newDayFromAllCycles", sender: sender)
+            return
         }
+        
+        if calendar.isDateInYesterday(dateOfMostRecentDay) {
+            dateToPassToNewDayView = Date()
+            performSegue(withIdentifier: "newDayFromAllCycles", sender: sender)
+        } else {
+            showActionSheet()
+        }
+
     }
     
     private func showActionSheet() {
         if let calendar = NSCalendar(calendarIdentifier: .gregorian) {
-            
+            //array of dates...between today and four days ago...filter out days already in 
+            //my database...if automatic move doesn't apply...then ask them for alert prompt asking them for which day...
             let date = Date()
             var difBetweenDates = Int()
             

@@ -54,32 +54,35 @@ class PersistenceManager {
     }
     
     func saveDay(day: Day) -> UUID {
-        var cycleToSave:Cycle?
-        if day.uuid == nil {
-            cycleToSave = Cycle(days: [day], uuid: UUID())
+        let cycleToSave:Cycle!
+        if let cycle = getAllCyclesSorted().first(where: { $0.uuid == day.uuid }) {
+            cycleToSave = cycle
         } else {
-            if let cycle = getAllCyclesSorted().first(where: { $0.uuid == day.uuid }) {
-                let calendar = Calendar(identifier: .gregorian)
-                if let sameDay = cycle.days.first(where: { calendar.isDate($0.date, inSameDayAs: day.date) }) {
-                    let index = cycle.days.index(of: sameDay)!
-                    cycle.days.replaceSubrange(index..<(index + 1), with: [day])
-                } else {
-                    if let index = cycle.days.index(where: { $0.date > day.date }) {
-                        cycle.days.insert(day, at: index)
-                    } else {
-                        cycle.days.append(day)
-                    }
-                }
-                cycleToSave = cycle
-            } else {
-               cycleToSave = Cycle(days: [day], uuid: UUID())
-            }
+            cycleToSave = Cycle(days: [day], uuid: UUID())
         }
-        return saveCycle(cycle: cycleToSave!)
+        cycleToSave.attach(day)
+        
+        return saveCycle(cycle: cycleToSave)
     }
     
     func shouldDayStartCycle(_ day: Day) -> Bool {
         
         return false
+    }
+}
+
+fileprivate extension Cycle {
+    func attach(_ day: Day) {
+        let calendar = Calendar(identifier: .gregorian)
+        if let sameDay = days.first(where: { calendar.isDate($0.date, inSameDayAs: day.date) }) {
+            let index = days.index(of: sameDay)!
+            days.replaceSubrange(index..<(index + 1), with: [day])
+        } else {
+            if let index = days.index(where: { $0.date > day.date }) {
+                days.insert(day, at: index)
+            } else {
+                days.append(day)
+            }
+        }
     }
 }

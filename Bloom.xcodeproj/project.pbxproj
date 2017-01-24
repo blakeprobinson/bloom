@@ -19,6 +19,10 @@
 		BA2BB7CB1DF8AE32008F3D51 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA2BB7C91DF8AE32008F3D51 /* LaunchScreen.storyboard */; };
 		BA2BB7D61DF8AF1D008F3D51 /* Day.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA2BB7D51DF8AF1D008F3D51 /* Day.swift */; };
 		BA3D5A7C1E36536100B0C079 /* ViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA3D5A7B1E36536100B0C079 /* ViewControllerExtensions.swift */; };
+		BA4D62261E37E61D0054457B /* PersistenceManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA4D62251E37E61D0054457B /* PersistenceManagerTests.swift */; };
+		BA4D622D1E37E6380054457B /* PersistenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA5FE9471E1C278800755E40 /* PersistenceManager.swift */; };
+		BA4D622E1E37E7920054457B /* Day.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA2BB7D51DF8AF1D008F3D51 /* Day.swift */; };
+		BA4D622F1E37E7960054457B /* Cycle.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA02B8881E01D2540051BACD /* Cycle.swift */; };
 		BA5FE9481E1C278800755E40 /* PersistenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA5FE9471E1C278800755E40 /* PersistenceManager.swift */; };
 		BA6637A61E26A34700401A6A /* AllCyclesLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA6637A51E26A34600401A6A /* AllCyclesLayout.swift */; };
 		BA710AC31E326994002B3380 /* CalendarExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA710AC21E326994002B3380 /* CalendarExtensions.swift */; };
@@ -28,6 +32,16 @@
 		BA76C4BE1E23EA9D005A2B12 /* AllCyclesCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA76C4BD1E23EA9D005A2B12 /* AllCyclesCollectionViewController.swift */; };
 		BA91F1C01E14346C00C209BC /* PlusMinusButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA91F1BF1E14346C00C209BC /* PlusMinusButton.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		BA4D62281E37E61D0054457B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BA2BB7B51DF8AE31008F3D51 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BA2BB7BC1DF8AE32008F3D51;
+			remoteInfo = Bloom;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		BA02B8881E01D2540051BACD /* Cycle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cycle.swift; sourceTree = "<group>"; };
@@ -44,6 +58,9 @@
 		BA2BB7CC1DF8AE32008F3D51 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BA2BB7D51DF8AF1D008F3D51 /* Day.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Day.swift; sourceTree = "<group>"; };
 		BA3D5A7B1E36536100B0C079 /* ViewControllerExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerExtensions.swift; sourceTree = "<group>"; };
+		BA4D62231E37E61D0054457B /* BloomTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BloomTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BA4D62251E37E61D0054457B /* PersistenceManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceManagerTests.swift; sourceTree = "<group>"; };
+		BA4D62271E37E61D0054457B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BA5FE9471E1C278800755E40 /* PersistenceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersistenceManager.swift; sourceTree = "<group>"; };
 		BA6637A51E26A34600401A6A /* AllCyclesLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllCyclesLayout.swift; sourceTree = "<group>"; };
 		BA710AC21E326994002B3380 /* CalendarExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarExtensions.swift; sourceTree = "<group>"; };
@@ -62,6 +79,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		BA4D62201E37E61D0054457B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -69,6 +93,7 @@
 			isa = PBXGroup;
 			children = (
 				BA2BB7BF1DF8AE32008F3D51 /* Bloom */,
+				BA4D62241E37E61D0054457B /* BloomTests */,
 				BA2BB7BE1DF8AE32008F3D51 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -77,6 +102,7 @@
 			isa = PBXGroup;
 			children = (
 				BA2BB7BD1DF8AE32008F3D51 /* Bloom.app */,
+				BA4D62231E37E61D0054457B /* BloomTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -107,6 +133,15 @@
 				BA2BB7CC1DF8AE32008F3D51 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		BA4D62241E37E61D0054457B /* BloomTests */ = {
+			isa = PBXGroup;
+			children = (
+				BA4D62251E37E61D0054457B /* PersistenceManagerTests.swift */,
+				BA4D62271E37E61D0054457B /* Info.plist */,
+			);
+			path = BloomTests;
 			sourceTree = "<group>";
 		};
 		BA66379F1E266C0000401A6A /* AllCyclesView */ = {
@@ -161,13 +196,31 @@
 			productReference = BA2BB7BD1DF8AE32008F3D51 /* Bloom.app */;
 			productType = "com.apple.product-type.application";
 		};
+		BA4D62221E37E61D0054457B /* BloomTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BA4D622C1E37E61D0054457B /* Build configuration list for PBXNativeTarget "BloomTests" */;
+			buildPhases = (
+				BA4D621F1E37E61D0054457B /* Sources */,
+				BA4D62201E37E61D0054457B /* Frameworks */,
+				BA4D62211E37E61D0054457B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BA4D62291E37E61D0054457B /* PBXTargetDependency */,
+			);
+			name = BloomTests;
+			productName = BloomTests;
+			productReference = BA4D62231E37E61D0054457B /* BloomTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		BA2BB7B51DF8AE31008F3D51 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0810;
+				LastSwiftUpdateCheck = 0820;
 				LastUpgradeCheck = 0810;
 				ORGANIZATIONNAME = "Blake Robinson";
 				TargetAttributes = {
@@ -176,6 +229,11 @@
 						DevelopmentTeam = LKB4DCJBWL;
 						LastSwiftMigration = 0820;
 						ProvisioningStyle = Automatic;
+					};
+					BA4D62221E37E61D0054457B = {
+						CreatedOnToolsVersion = 8.2.1;
+						ProvisioningStyle = Automatic;
+						TestTargetID = BA2BB7BC1DF8AE32008F3D51;
 					};
 				};
 			};
@@ -193,6 +251,7 @@
 			projectRoot = "";
 			targets = (
 				BA2BB7BC1DF8AE32008F3D51 /* Bloom */,
+				BA4D62221E37E61D0054457B /* BloomTests */,
 			);
 		};
 /* End PBXProject section */
@@ -205,6 +264,13 @@
 				BA2BB7CB1DF8AE32008F3D51 /* LaunchScreen.storyboard in Resources */,
 				BA2BB7C81DF8AE32008F3D51 /* Assets.xcassets in Resources */,
 				BA2BB7C61DF8AE32008F3D51 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BA4D62211E37E61D0054457B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -235,7 +301,26 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		BA4D621F1E37E61D0054457B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BA4D62261E37E61D0054457B /* PersistenceManagerTests.swift in Sources */,
+				BA4D622D1E37E6380054457B /* PersistenceManager.swift in Sources */,
+				BA4D622F1E37E7960054457B /* Cycle.swift in Sources */,
+				BA4D622E1E37E7920054457B /* Day.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		BA4D62291E37E61D0054457B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BA2BB7BC1DF8AE32008F3D51 /* Bloom */;
+			targetProxy = BA4D62281E37E61D0054457B /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		BA2BB7C41DF8AE32008F3D51 /* Main.storyboard */ = {
@@ -381,6 +466,36 @@
 			};
 			name = Release;
 		};
+		BA4D622A1E37E61D0054457B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				INFOPLIST_FILE = BloomTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = BlakeRobinson.BloomTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Bloom.app/Bloom";
+			};
+			name = Debug;
+		};
+		BA4D622B1E37E61D0054457B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				INFOPLIST_FILE = BloomTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = BlakeRobinson.BloomTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Bloom.app/Bloom";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -401,6 +516,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		BA4D622C1E37E61D0054457B /* Build configuration list for PBXNativeTarget "BloomTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BA4D622A1E37E61D0054457B /* Debug */,
+				BA4D622B1E37E61D0054457B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};
