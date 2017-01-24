@@ -19,26 +19,7 @@ class AllCyclesCollectionViewController: UICollectionViewController {
     var alertController = UIAlertController()
     
     @IBOutlet weak var addDay: UIBarButtonItem!
-    private var shouldEnableAddDay: Bool {
-        get {
-            if model.count > 0 {
-                if model[0].days.count < 4 {
-                    return true
-                } else {
-                    for (index, day) in model[0].days.reversed().enumerated() {
-                        if index < 4 {
-                            if day.category == nil {
-                                return false
-                            }
-                        }
-                    }
-                    return true
-                }
-            } else {
-                return true
-            }
-        }
-    }
+    
     private var currentCycleUUID: UUID? {
         get {
             if model.count > 0 {
@@ -148,7 +129,42 @@ class AllCyclesCollectionViewController: UICollectionViewController {
         super.viewWillAppear(animated)
         model = persistenceManager.getAllCyclesSorted()
         collectionView?.reloadData()
-        addDay.isEnabled = shouldEnableAddDay
+        addDay.isEnabled = shouldEnableAddDay()
+    }
+    
+    private var lastDaysInCurrentCycle: [Day] {
+        get {
+            if let days = model.first?.days {
+                var lastDays = [Day]()
+                for (index, day) in days.reversed().enumerated() {
+                    if index < 4 {
+                        lastDays.append(day)
+                    }
+                }
+                return lastDays
+            } else {
+                return []
+            }
+        }
+    }
+    
+    private func shouldEnableAddDay() -> Bool {
+        if model.count > 0 {
+            if model[0].days.count < 4 {
+                return true
+            } else {
+                for (index, day) in model[0].days.reversed().enumerated() {
+                    if index < 4 {
+                        if day.category == nil {
+                            return false
+                        }
+                    }
+                }
+                return true
+            }
+        } else {
+            return true
+        }
     }
 
 
@@ -178,6 +194,9 @@ class AllCyclesCollectionViewController: UICollectionViewController {
         if let calendar = NSCalendar(calendarIdentifier: .gregorian) {
             //array of dates...between today and four days ago...filter out days already in 
             //my database...if automatic move doesn't apply...then ask them for alert prompt asking them for which day...
+            
+            
+            
             let date = Date()
             var difBetweenDates = Int()
             
