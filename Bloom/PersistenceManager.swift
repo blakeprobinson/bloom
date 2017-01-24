@@ -55,7 +55,7 @@ class PersistenceManager {
     
     func saveDay(day: Day) -> UUID {
         var cycleToSave:Cycle?
-        if day.isFirstDayOfCycle || getAllCyclesSorted().count == 0 {
+        if day.isFirstDayOfCycle {
             cycleToSave = Cycle(days: [day], uuid: UUID())
         } else {
             for cycle in getAllCyclesSorted().reversed() {
@@ -84,5 +84,10 @@ class PersistenceManager {
             }
         }
         return saveCycle(cycle: cycleToSave!)
+    }
+    
+    func shouldDayStartCycle(_ day: Day) -> Bool {
+        
+        return false
     }
 }
