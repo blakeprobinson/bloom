@@ -55,32 +55,25 @@ class PersistenceManager {
     
     func saveDay(day: Day) -> UUID {
         var cycleToSave:Cycle?
-        if day.isFirstDayOfCycle {
+        if day.uuid == nil {
             cycleToSave = Cycle(days: [day], uuid: UUID())
         } else {
-            for cycle in getAllCyclesSorted().reversed() {
-                if let endDate = cycle.endDate {
-                    if endDate.compare(day.date) == .orderedAscending {
+            if let cycle = getAllCyclesSorted().first(where: { $0.uuid == day.uuid }) {
+                let calendar = Calendar(identifier: .gregorian)
+                if let sameDay = cycle.days.first(where: { calendar.isDate($0.date, inSameDayAs: day.date) }) {
+                    let index = cycle.days.index(of: sameDay)!
+                    cycle.days.replaceSubrange(index..<(index + 1), with: [day])
+                    cycleToSave = cycle
+                } else {
+                    if let index = cycle.days.index(where: { $0.date > day.date }) {
+                        cycle.days.insert(day, at: index)
+                    } else {
                         cycle.days.append(day)
                         cycleToSave = cycle
-                        break
-                    } else if (cycle.startDate...endDate).contains(day.date) {
-                        var indexToInsert = 0
-                        for (index, cycleDay) in cycle.days.enumerated() {
-                            if (cycleDay.date...cycle.days[index+1].date).contains(day.date) {
-                                indexToInsert = index + 1
-                                break
-                            }
-                        }
-                        cycle.days.insert(day, at: indexToInsert)
-                        cycleToSave = cycle
-                        break
                     }
-                } else if cycle.startDate.compare(day.date) == .orderedAscending {
-                    cycle.days.append(day)
-                    cycleToSave = cycle
-                    break
                 }
+            } else {
+               cycleToSave = Cycle(days: [day], uuid: UUID())
             }
         }
         return saveCycle(cycle: cycleToSave!)
