@@ -305,6 +305,8 @@ class AllCyclesCollectionViewController: UICollectionViewController {
                 let sender = sender as! UIAlertAction
                 let calendar = Calendar(identifier: .gregorian)
                 destination.day = Day(date: calendar.date(fromWeekday: sender.title!)!, uuid: currentCycleUUID)
+                let cycle = persistenceManager.getCycle(uuid: currentCycleUUID)
+                destination.dayInCycleText = cycle?.days.index(where: { $0.date > (destination.day?.date)! }) ?? cycle?.days.count
                 destination.day?.isFirstDayOfCycle = persistenceManager.shouldDayStartCycle(destination.day!)
                 destination.fromAllCyclesVC = true
             } else {
