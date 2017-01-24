@@ -63,15 +63,14 @@ class PersistenceManager {
                 if let sameDay = cycle.days.first(where: { calendar.isDate($0.date, inSameDayAs: day.date) }) {
                     let index = cycle.days.index(of: sameDay)!
                     cycle.days.replaceSubrange(index..<(index + 1), with: [day])
-                    cycleToSave = cycle
                 } else {
                     if let index = cycle.days.index(where: { $0.date > day.date }) {
                         cycle.days.insert(day, at: index)
                     } else {
                         cycle.days.append(day)
-                        cycleToSave = cycle
                     }
                 }
+                cycleToSave = cycle
             } else {
                cycleToSave = Cycle(days: [day], uuid: UUID())
             }
