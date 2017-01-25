@@ -269,25 +269,9 @@ class AllCyclesCollectionViewController: UICollectionViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "allCyclesToCycle" {
-            let destination = segue.destination as! CycleTableViewController
-            let cell = sender as? AllCyclesCollectionViewCell
-            destination.cycle = model[(cell?.indexPath?.section)!]
-        } else {
-            let destination = segue.destination as! DayViewController
-            if sender is UIAlertAction {
-                let sender = sender as! UIAlertAction
-                let calendar = Calendar(identifier: .gregorian)
-                destination.day = Day(date: calendar.date(fromWeekday: sender.title!)!, uuid: currentCycleUUID)
-                let cycle = persistenceManager.getCycle(uuid: currentCycleUUID)
-                destination.dayInCycleText = cycle?.days.index(where: { $0.date > (destination.day?.date)! }) ?? cycle?.days.count
-                destination.day?.isFirstDayOfCycle = persistenceManager.shouldDayStartCycle(destination.day!)
-                destination.fromAllCyclesVC = true
-            } else {
-                destination.day = Day(date: dateToPassToNewDayView!, uuid: currentCycleUUID)
-                destination.fromAllCyclesVC = true
-            }
-        }
+        let destination = segue.destination as! CycleTableViewController
+        let cell = sender as? AllCyclesCollectionViewCell
+        destination.cycle = model[(cell?.indexPath?.section)!]
     }
 
 
