@@ -40,11 +40,7 @@ class AllCyclesCollectionViewController: UICollectionViewController {
         }
     }
     
-    private var displayModel: [Cycle] {
-        get {
-            return model.map({ displayCycle(from: $0) })
-        }
-    }
+    private var displayModel: [Cycle]!
     
     private var dateToPassToNewDayView: Date?
 
@@ -130,6 +126,7 @@ class AllCyclesCollectionViewController: UICollectionViewController {
         super.viewWillAppear(animated)
         //model = persistenceManager.getAllCyclesSorted()
         model = createDummyData()
+        displayModel = model.map({ displayCycle(from: $0) })
         collectionView?.reloadData()
         addDay.isEnabled = shouldEnableAddDay()
     }
