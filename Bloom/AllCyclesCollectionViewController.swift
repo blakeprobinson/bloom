@@ -265,7 +265,7 @@ class AllCyclesCollectionViewController: UICollectionViewController {
         } else {
             self.dateToPassToNewDayView =  calendar.date(byAdding: .day, value: days, to: date, options: NSCalendar.Options())
         }
-        self.performSegue(withIdentifier: "newDayFromAllCycles", sender: action)
+        presentDayView(action)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
