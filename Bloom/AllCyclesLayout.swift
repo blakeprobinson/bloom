@@ -40,7 +40,7 @@ class AllCyclesLayout: UICollectionViewFlowLayout {
     }
     
     private func frameForSupplementaryViewAt(indexPath: IndexPath) -> CGRect {
-        let xPos = Double(indexPath.section) * (itemWidth + 0.5)
+        let xPos = Double(indexPath.section) * (itemWidth)
         if indexPath.item == 0 {
             return CGRect(x: xPos, y: 0.0, width: itemWidth, height: sectionHeaderHeight)
         } else {
@@ -49,8 +49,8 @@ class AllCyclesLayout: UICollectionViewFlowLayout {
     }
     
     private func frameForItemAt(indexPath: IndexPath) -> CGRect {
-        let xPos = Double(indexPath.section) * (itemWidth + 0.5)
-        let yPos = Double(indexPath.item) * itemHeight + sectionHeaderHeight
+        let xPos = Double(indexPath.section) * (itemWidth)
+        let yPos = Double(indexPath.item) * (itemHeight - 1) + sectionHeaderHeight - 0.5
         maxX = Double(xPos) > maxX ? Double(xPos) : maxX
         maxY = Double(yPos) > maxY ? Double(yPos) : maxX
         return CGRect(x: xPos, y: yPos, width: itemWidth, height: itemHeight)

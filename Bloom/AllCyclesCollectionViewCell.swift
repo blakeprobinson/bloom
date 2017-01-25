@@ -48,4 +48,16 @@ class AllCyclesCollectionViewCell: UICollectionViewCell {
     override func awakeFromNib() {
         backgroundColor = UIColor.white
     }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        layer.borderColor = UIColor.lightGray.cgColor
+        let borderWidth:CGFloat = 0.5
+        layer.borderWidth = borderWidth
+        let mask = UIView(frame: CGRect(x: 0, y: borderWidth, width: frame.width, height: frame.height-(borderWidth*2)))
+        mask.backgroundColor = UIColor.black
+        layer.mask = mask.layer
+        print("width \(frame.width)")
+        print("height \(frame.height)")
+    }
 }

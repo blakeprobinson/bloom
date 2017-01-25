@@ -60,6 +60,9 @@ class AllCyclesSectionHeader: UICollectionReusableView {
         
         startDate = startLabel
         endDate = endLabel
+        
+        layer.borderColor = UIColor.lightGray.cgColor
+        layer.borderWidth = 0.5
     }
     
     func configure(_ cycle:Cycle) {
