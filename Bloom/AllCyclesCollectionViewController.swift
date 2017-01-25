@@ -182,16 +182,17 @@ class AllCyclesCollectionViewController: UICollectionViewController {
     
     private func presentDayView(_ sender: Any?) {
         let destination = self.storyboard?.instantiateViewController(withIdentifier: "dayViewController") as! DayViewController
+        let cycle = persistenceManager.getCycle(uuid: currentCycleUUID)
         
         if sender is UIAlertAction {
             let sender = sender as! UIAlertAction
             let calendar = Calendar(identifier: .gregorian)
             destination.day = Day(date: calendar.date(fromWeekday: sender.title!)!, uuid: currentCycleUUID)
-            let cycle = persistenceManager.getCycle(uuid: currentCycleUUID)
             destination.dayInCycleText = cycle?.days.index(where: { $0.date > (destination.day?.date)! }) ?? cycle?.days.count
             destination.day?.isFirstDayOfCycle = persistenceManager.shouldDayStartCycle(destination.day!)
             destination.fromAllCyclesVC = true
         } else {
+            destination.dayInCycleText = cycle?.days.index(where: { $0.date > (destination.day?.date)! }) ?? cycle?.days.count
             destination.day = Day(date: dateToPassToNewDayView!, uuid: currentCycleUUID)
             destination.fromAllCyclesVC = true
         }
