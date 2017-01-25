@@ -134,7 +134,7 @@ class AllCyclesCollectionViewController: UICollectionViewController {
     
     private var lastDaysInCurrentCycle: [Day] {
         get {
-            if let days = model.first?.days {
+            if let days = displayModel.first?.days {
                 var lastDays = [Day]()
                 for (index, day) in days.reversed().enumerated() {
                     if index < 4 {
@@ -194,8 +194,6 @@ class AllCyclesCollectionViewController: UICollectionViewController {
         if let calendar = NSCalendar(calendarIdentifier: .gregorian) {
             //array of dates...between today and four days ago...filter out days already in 
             //my database...if automatic move doesn't apply...then ask them for alert prompt asking them for which day...
-            
-            
             
             let date = Date()
             var difBetweenDates = Int()
