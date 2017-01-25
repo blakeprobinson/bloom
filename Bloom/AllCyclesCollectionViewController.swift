@@ -132,7 +132,7 @@ class AllCyclesCollectionViewController: UICollectionViewController {
         addDay.isEnabled = shouldEnableAddDay()
     }
     
-    private var lastDaysInCurrentCycle: [Day] {
+    private var lastDaysInCurrentDisplayCycle: [Day] {
         get {
             if let days = displayModel.first?.days {
                 var lastDays = [Day]()
@@ -149,22 +149,14 @@ class AllCyclesCollectionViewController: UICollectionViewController {
     }
     
     private func shouldEnableAddDay() -> Bool {
-        if model.count > 0 {
-            if model[0].days.count < 4 {
-                return true
-            } else {
-                for (index, day) in model[0].days.reversed().enumerated() {
-                    if index < 4 {
-                        if day.category == nil {
-                            return false
-                        }
-                    }
-                }
-                return true
+        var enable = false
+        for day in lastDaysInCurrentDisplayCycle {
+            if day.category == nil {
+                enable = true
+                break
             }
-        } else {
-            return true
         }
+        return enable
     }
 
 
