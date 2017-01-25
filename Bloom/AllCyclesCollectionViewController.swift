@@ -165,21 +165,37 @@ class AllCyclesCollectionViewController: UICollectionViewController {
     @IBAction func plusTouched(_ sender: UIBarButtonItem) {
         let calendar = NSCalendar(calendarIdentifier: .gregorian)!
         
-        //if dateOfMostRecentDay is in last cycle...
-        //the plus sign should only add days to the current cycle...
         guard let dateOfMostRecentDay = dateOfMostRecentDay else {
             dateToPassToNewDayView = Date()
-            performSegue(withIdentifier: "newDayFromAllCycles", sender: sender)
+            presentDayView(sender)
             return
         }
         
         if calendar.isDateInYesterday(dateOfMostRecentDay) {
             dateToPassToNewDayView = Date()
-            performSegue(withIdentifier: "newDayFromAllCycles", sender: sender)
+            presentDayView(sender)
         } else {
             showActionSheet()
         }
-
+ 
+    }
+    
+    private func presentDayView(_ sender: Any?) {
+        let destination = self.storyboard?.instantiateViewController(withIdentifier: "dayViewController") as! DayViewController
+        
+        if sender is UIAlertAction {
+            let sender = sender as! UIAlertAction
+            let calendar = Calendar(identifier: .gregorian)
+            destination.day = Day(date: calendar.date(fromWeekday: sender.title!)!, uuid: currentCycleUUID)
+            let cycle = persistenceManager.getCycle(uuid: currentCycleUUID)
+            destination.dayInCycleText = cycle?.days.index(where: { $0.date > (destination.day?.date)! }) ?? cycle?.days.count
+            destination.day?.isFirstDayOfCycle = persistenceManager.shouldDayStartCycle(destination.day!)
+            destination.fromAllCyclesVC = true
+        } else {
+            destination.day = Day(date: dateToPassToNewDayView!, uuid: currentCycleUUID)
+            destination.fromAllCyclesVC = true
+        }
+        present(destination, animated: true, completion: nil)
     }
     
     private func showActionSheet() {
