@@ -150,10 +150,15 @@ class AllCyclesCollectionViewController: UICollectionViewController {
     
     private func shouldEnableAddDay() -> Bool {
         var enable = false
-        for day in lastDaysInCurrentDisplayCycle {
-            if day.category == nil {
-                enable = true
-                break
+        let userIsJustStarting = model.count == 1 && lastDaysInCurrentDisplayCycle.count < 4
+        if lastDaysInCurrentDisplayCycle.count == 0 || userIsJustStarting {
+            enable = true
+        } else {
+            for day in lastDaysInCurrentDisplayCycle {
+                if day.category == nil {
+                    enable = true
+                    break
+                }
             }
         }
         return enable
