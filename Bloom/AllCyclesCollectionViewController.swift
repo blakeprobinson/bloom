@@ -196,18 +196,27 @@ class AllCyclesCollectionViewController: UICollectionViewController {
                 difBetweenDates = calendar.components(.day, from:calendar.date(byAdding: .day, value: -4, to: date, options: NSCalendar.Options())!, to:date, options: NSCalendar.Options()).day!
             }
             
-            let actions = createActionsFor(days: difBetweenDates, in: calendar)
+            var indeces = [Int]()
+            for (index, day) in lastDaysInCurrentDisplayCycle.reversed().enumerated() {
+                //if day is a recorded day, then append the index
+                if day.category != nil {
+                    indeces.append(index)
+                }
+            }
+            
+            var actions = createActions(from: calendar)
+            indeces.forEach({ actions.remove(at: $0)})
+            actions.append(UIAlertAction(title: "Cancel", style: .cancel) { _ in })
             
             alertController = UIAlertController(title: "What day would you like to record?", message: nil, preferredStyle: .actionSheet)
-            for action in actions {
-                alertController.addAction(action)
-            }
+            
+            actions.forEach({ alertController.addAction($0) })
             
             present(alertController, animated: true, completion: nil)
         }
     }
     
-    private func createActionsFor(days differenceBetweenDates: Int, in calendar: NSCalendar) -> [UIAlertAction] {
+    private func createActions(from calendar: NSCalendar) -> [UIAlertAction] {
         let date = Date()
         let todayAction = UIAlertAction(title: "Today", style: .default) {
             action in self.actionClosure(action, days: 0, in: calendar)
@@ -215,51 +224,22 @@ class AllCyclesCollectionViewController: UICollectionViewController {
         let yesterdayAction = UIAlertAction(title: "Yesterday", style: .default) {
             action in self.actionClosure(action, days: -1, in: calendar)
         }
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { _ in }
         
-        var actions = [todayAction, yesterdayAction]
+        let dateFormatter = DateFormatter()
         
-        if differenceBetweenDates >= 2 {
-            if differenceBetweenDates == 2 {
-                actions.append(cancelAction)
-            } else {
-                let dateFormatter = DateFormatter()
-                
-                let twoDaysAgo = calendar.date(byAdding: .day, value: -2, to: date, options: NSCalendar.Options())
-                let twoDaysAgoDay = dateFormatter.weekdaySymbols[calendar.component(.weekday, from: twoDaysAgo!) - 1]
-                
-                let twoDaysAgoAction = UIAlertAction(title: twoDaysAgoDay, style: .default) {
-                    action in self.actionClosure(action, days: -2, in: calendar)
-                }
-                
-                let threeDaysAgo = calendar.date(byAdding: .day, value: -3, to: date, options: NSCalendar.Options())
-                let threeDaysAgoDay = dateFormatter.weekdaySymbols[calendar.component(.weekday, from: threeDaysAgo!) - 1]
-                
-                let threeDaysAgoAction = UIAlertAction(title: threeDaysAgoDay, style: .default) {
-                    action in self.actionClosure(action, days: -3, in: calendar)
-                }
-                
-                if differenceBetweenDates == 3 {
-                    actions += [twoDaysAgoAction, cancelAction]
-                } else {
-                    actions += [twoDaysAgoAction, threeDaysAgoAction, cancelAction]
-                }
-            }
-        } else {
-            //get an array with the days that need to be represented
-            let dummyDaysAtStartOfCycle = displayModel[0].days.filter({ $0.category == nil })
-            if differenceBetweenDates == 0 {
-                
-            } else {
-                actions.removeFirst()
-            }
-            //case 1 Today and Yesterday are recorded, but two previous days are not
-            //case 2 Today is recorded, but yesterday and prior two days are not
-            //case 3 Today is not recorded, but yesterday is and prior to days are not
-            
-            
+        let twoDaysAgo = calendar.date(byAdding: .day, value: -2, to: date, options: NSCalendar.Options())
+        let twoDaysAgoDay = dateFormatter.weekdaySymbols[calendar.component(.weekday, from: twoDaysAgo!) - 1]
+        let twoDaysAgoAction = UIAlertAction(title: twoDaysAgoDay, style: .default) {
+            action in self.actionClosure(action, days: -2, in: calendar)
         }
-        return actions
+        
+        let threeDaysAgo = calendar.date(byAdding: .day, value: -3, to: date, options: NSCalendar.Options())
+        let threeDaysAgoDay = dateFormatter.weekdaySymbols[calendar.component(.weekday, from: threeDaysAgo!) - 1]
+        let threeDaysAgoAction = UIAlertAction(title: threeDaysAgoDay, style: .default) {
+            action in self.actionClosure(action, days: -3, in: calendar)
+        }
+        
+        return [todayAction, yesterdayAction, twoDaysAgoAction, threeDaysAgoAction]
     }
     
     private func actionClosure(_ action: UIAlertAction, days: Int, in calendar: NSCalendar) {
