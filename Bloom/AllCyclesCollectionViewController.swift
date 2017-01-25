@@ -50,7 +50,8 @@ class AllCyclesCollectionViewController: UICollectionViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        model = persistenceManager.getAllCyclesSorted()
+        //model = persistenceManager.getAllCyclesSorted()
+        model = createDummyData()
         navigationController?.navigationBar.tintColor = UIColor.white
         
         //collectionView!.register(forSupplementaryViewOfKind: "header", withReuseIdentifier: "sectionHeader")
@@ -127,7 +128,8 @@ class AllCyclesCollectionViewController: UICollectionViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        model = persistenceManager.getAllCyclesSorted()
+        //model = persistenceManager.getAllCyclesSorted()
+        model = createDummyData()
         collectionView?.reloadData()
         addDay.isEnabled = shouldEnableAddDay()
     }
