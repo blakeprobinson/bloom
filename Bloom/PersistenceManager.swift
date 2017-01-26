@@ -45,6 +45,18 @@ class PersistenceManager {
         
     }
     
+    func getPreviousCycle(uuid: UUID) -> Cycle? {
+        let cycles = getAllCyclesSorted()
+        for (index, cycle) in cycles.enumerated() {
+            if cycle.uuid == uuid {
+                if index + 1 < cycles.count {
+                    return cycles[index + 1]
+                }
+            }
+        }
+        return nil
+    }
+    
     func saveCycle(cycle: Cycle) {
         let archiveURL = saveDirectory.appendingPathComponent(cycle.uuid.uuidString + ".bplist")
         print("saveCycle path " + archiveURL.path)
