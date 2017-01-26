@@ -250,18 +250,16 @@ class DayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
     }
     
     private func circleBackground(day: Day) -> UIColor {
-        if day.bleeding != nil {
-            return UIColor(red:0.80, green:0.00, blue:0.00, alpha:1.0)
-        } else if day.dry != nil  {
-            return UIColor(red:0.42, green:0.66, blue:0.31, alpha:1.0)
-        } else if let mucus = day.mucus {
-            if !mucus.allPropertiesNil() {
-                return UIColor(red:0.94, green:0.94, blue:0.94, alpha:1.0)
-            } else {
-                return UIColor(red:0.60, green:0.60, blue:0.60, alpha:1.0)
-            }
-        } else {
+        guard let category = day.category else {
             return UIColor(red:0.60, green:0.60, blue:0.60, alpha:1.0)
+        }
+        switch category {
+        case .bleeding:
+            return UIColor(red:0.80, green:0.00, blue:0.00, alpha:1.0)
+        case .dry:
+            return UIColor(red:0.42, green:0.66, blue:0.31, alpha:1.0)
+        case .mucus:
+            return UIColor.white
         }
     }
     
