@@ -298,6 +298,11 @@ class AllCyclesCollectionViewController: UICollectionViewController {
         cell.dayNumber.font = UIFont.systemFont(ofSize: 11)
         cell.category = Day.assignCategory(day: displayModel[indexPath.section].days[indexPath.item])
         cell.indexPath = indexPath
+        if indexPath.row == displayModel[indexPath.section].days.count - 1 {
+            cell.bottomBorder = true
+        } else {
+            cell.bottomBorder = false
+        }
         
         return cell
     }
