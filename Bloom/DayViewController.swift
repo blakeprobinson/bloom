@@ -556,6 +556,7 @@ class DayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
     }
     @IBAction func intercourseToggled(_ sender: UISwitch) {
         day?.intercourse = sender.isOn
+        updateUIToSave(true)
     }
     
     @IBAction func lubricationToggled(_ sender: UISwitch) {
