@@ -31,7 +31,9 @@ class DayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
     var dayInCycleText:Int? {
         didSet {
             guard let dayInCycleText = dayInCycleText else { return }
-            if dayInCycleText <= 14 {
+            if dayInCycleText == 1 {
+                startNewCycleHidden = false
+            } else if dayInCycleText <= 14 {
                 startNewCycleHidden = true
             } else {
                 startNewCycle.isHidden = false
