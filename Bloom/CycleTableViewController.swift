@@ -30,6 +30,13 @@ class CycleTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        
+        let notificationCenter = NotificationCenter.default
+        var observer: NSObjectProtocol?
+        observer = notificationCenter.addObserver(forName: Notification.Name(rawValue: "cycle saved"), object: nil, queue: OperationQueue.main, using: { (notification) in
+            self.cycle = self.persistenceManager.getCycle(uuid: self.cycle?.uuid)
+            self.tableView.reloadData()
+            })
     }
 
     // MARK: - Table view data source
