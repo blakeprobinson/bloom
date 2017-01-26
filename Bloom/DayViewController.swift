@@ -99,6 +99,12 @@ class DayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
         }
     }
     var startNewCycleHidden = false
+    @IBOutlet weak var startCycleSwitch: UISwitch! {
+        didSet {
+            startCycleSwitch.isOn = dayInCycleText == 1
+        }
+    }
+    
     
     //MARK: Section 3 Outlets
     @IBOutlet weak var date: UIButton! {
