@@ -23,7 +23,7 @@ class IntercourseHeart: UIView {
 
 public extension UIBezierPath  {
     
-    func getHearts(originalRect: CGRect, scale: Double) -> UIBezierPath {
+    func getHearts(originalRect: CGRect, scale: Double) {
         
         //Scaling will take bounds from the originalRect passed
         let scaledWidth = (originalRect.size.width * CGFloat(scale))
@@ -54,6 +54,5 @@ public extension UIBezierPath  {
                       controlPoint1: CGPoint(x: (scaledRect.origin.x + scaledRect.size.width), y: (scaledRect.origin.y + (scaledRect.size.height/2))),
                       controlPoint2: CGPoint(x: (scaledRect.origin.x + (scaledRect.size.width/2)), y: (scaledRect.origin.y + (scaledRect.size.height*3/4))) )
         self.close()
-        return self
     }
 }
