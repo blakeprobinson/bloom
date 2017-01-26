@@ -309,10 +309,16 @@ extension Day {
     static func assignCategory(day: Day) -> Day.Category? {
         if day.bleeding != nil {
             return .bleeding
+        } else if day.lubrication {
+            return .mucus
         } else if day.dry != nil {
             return .dry
         } else if day.mucus != nil {
-            return .mucus
+            if !(day.mucus?.allPropertiesNil())! {
+                return .mucus
+            } else {
+                return nil
+            }
         } else {
             return nil
         }
