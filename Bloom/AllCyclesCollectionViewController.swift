@@ -204,37 +204,27 @@ class AllCyclesCollectionViewController: UICollectionViewController {
     }
     
     private func showActionSheet() {
-        if let calendar = NSCalendar(calendarIdentifier: .gregorian) {
-            //array of dates...between today and four days ago...filter out days already in 
-            //my database...if automatic move doesn't apply...then ask them for alert prompt asking them for which day...
+        guard let calendar = NSCalendar(calendarIdentifier: .gregorian) else { return }
             
-            let date = Date()
-            var difBetweenDates = Int()
-            
-            if let dateOfMostRecentDay = dateOfMostRecentDay {
-                difBetweenDates = calendar.components(.day, from:dateOfMostRecentDay, to:date, options: NSCalendar.Options()).day!
-            } else {
-                difBetweenDates = calendar.components(.day, from:calendar.date(byAdding: .day, value: -4, to: date, options: NSCalendar.Options())!, to:date, options: NSCalendar.Options()).day!
+        var indeces = [Int]()
+        print(lastDaysInCurrentDisplayCycle.reversed())
+        for (index, day) in lastDaysInCurrentDisplayCycle.enumerated() {
+            //if day is a recorded day, then append the index
+            print(day)
+            if day.category != nil {
+                indeces.append(index)
             }
-            
-            var indeces = [Int]()
-            for (index, day) in lastDaysInCurrentDisplayCycle.reversed().enumerated() {
-                //if day is a recorded day, then append the index
-                if day.category != nil {
-                    indeces.append(index)
-                }
-            }
-            
-            var actions = createActions(from: calendar)
-            indeces.forEach({ actions.remove(at: $0)})
-            actions.append(UIAlertAction(title: "Cancel", style: .cancel) { _ in })
-            
-            alertController = UIAlertController(title: "What day would you like to record?", message: nil, preferredStyle: .actionSheet)
-            
-            actions.forEach({ alertController.addAction($0) })
-            
-            present(alertController, animated: true, completion: nil)
         }
+        
+        var actions = createActions(from: calendar)
+        indeces.forEach({ actions.remove(at: $0)})
+        actions.append(UIAlertAction(title: "Cancel", style: .cancel) { _ in })
+        
+        alertController = UIAlertController(title: "What day would you like to record?", message: nil, preferredStyle: .actionSheet)
+        
+        actions.forEach({ alertController.addAction($0) })
+        
+        present(alertController, animated: true, completion: nil)
     }
     
     private func createActions(from calendar: NSCalendar) -> [UIAlertAction] {
