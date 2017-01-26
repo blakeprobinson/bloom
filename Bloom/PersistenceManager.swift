@@ -45,16 +45,15 @@ class PersistenceManager {
         
     }
     
-    func saveCycle(cycle: Cycle) -> UUID {
+    func saveCycle(cycle: Cycle) {
         let archiveURL = saveDirectory.appendingPathComponent(cycle.uuid.uuidString + ".bplist")
         print("saveCycle path " + archiveURL.path)
         let didSave = NSKeyedArchiver.archiveRootObject(cycle, toFile: archiveURL.path)
         print("did save cycle \(didSave)")
         sendCycleSavedNotification()
-        return cycle.uuid
     }
     
-    func saveDay(day: Day) -> UUID {
+    func saveDay(day: Day) {
         let cycleToSave:Cycle!
         if let cycle = getAllCyclesSorted().first(where: { $0.uuid == day.uuid }) {
             cycleToSave = cycle
@@ -63,7 +62,7 @@ class PersistenceManager {
         }
         cycleToSave.attach(day)
         
-        return saveCycle(cycle: cycleToSave)
+        saveCycle(cycle: cycleToSave)
     }
     
     func shouldDayStartCycle(_ day: Day) -> Bool {
