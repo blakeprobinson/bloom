@@ -382,6 +382,7 @@ class DayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
     
     @IBAction func saveTouched(_ sender: UIBarButtonItem) {
         persistenceManager.saveDay(day: day!)
+        let _ = navigationController?.popViewController(animated: true)
     }
     
     @IBAction func cancelTouched() {
