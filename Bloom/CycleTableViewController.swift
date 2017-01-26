@@ -17,9 +17,11 @@ class CycleTableViewController: UITableViewController {
     var displayCycle:Cycle? {
         get {
             guard let cycle = cycle else { return nil }
-            guard let endDate = cycle.endDate else { return cycle }
-            
-            return displayCycle(from: cycle)
+            if cycle.endDate == nil {
+                return cycle
+            } else {
+                return displayCycle(from: cycle)
+            }
         }
     }
 
