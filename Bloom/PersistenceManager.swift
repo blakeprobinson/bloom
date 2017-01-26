@@ -50,6 +50,7 @@ class PersistenceManager {
         print("saveCycle path " + archiveURL.path)
         let didSave = NSKeyedArchiver.archiveRootObject(cycle, toFile: archiveURL.path)
         print("did save cycle \(didSave)")
+        sendCycleSavedNotification()
         return cycle.uuid
     }
     
@@ -68,6 +69,11 @@ class PersistenceManager {
     func shouldDayStartCycle(_ day: Day) -> Bool {
         
         return false
+    }
+    
+    private func sendCycleSavedNotification() {
+        let notification = Notification(name: Notification.Name(rawValue: "cycle saved"))
+        NotificationCenter.default.post(notification)
     }
 }
 
