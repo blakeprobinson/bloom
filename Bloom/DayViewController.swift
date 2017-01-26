@@ -207,6 +207,7 @@ class DayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
         if let day = day {
             headerDate.text = dateString(date: day.date, forHeader: true)
             circle.backgroundColor = circleBackground(day: day)
+            circle.layer.borderColor = day.category == .mucus ? UIColor(red:1.00, green:0.49, blue:0.98, alpha:1.0).cgColor : UIColor(red:0.60, green:0.60, blue:0.60, alpha:1.0).cgColor
             if let dayInCycleText = dayInCycleText {
                 dayInCycle.text = String(dayInCycleText)
             }
