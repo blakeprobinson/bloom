@@ -36,6 +36,13 @@ class Cycle: NSObject, NSCoding {
         self.uuid = uuid
     }
     
+    func removeDay(_ day: Day) -> Day? {
+        guard let index = days.index(of: day) else {
+            return nil
+        }
+        return days.remove(at: index)
+    }
+    
     //MARK: NSCoding
     struct PropertyKey {
         static let days = "days"
