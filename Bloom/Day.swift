@@ -347,9 +347,13 @@ extension Day {
 // MARK: Equatable
 
 extension Day {
-    static func == (lhs: Day, rhs: Day) -> Bool {
-        return lhs.date == rhs.date
-        
+    override func isEqual(_ object: Any?) -> Bool {
+        if object is Day {
+            let day = object as! Day
+            return day.date == date
+        } else {
+            return false
+        }
     }
     
     static func > (lhs: Day, rhs: Day) -> Bool {
