@@ -24,9 +24,9 @@ class CycleTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         let notificationCenter = NotificationCenter.default
-        let _ = notificationCenter.addObserver(forName: Notification.Name(rawValue: "cycle saved"), object: nil, queue: OperationQueue.main, using: { (notification) in
-            self.cycle = self.persistenceManager.getCycle(uuid: self.cycle?.uuid)
-            self.tableView.reloadData()
+        let _ = notificationCenter.addObserver(forName: Notification.Name(rawValue: "cycle saved"), object: nil, queue: OperationQueue.main, using: { [ weak weakSelf = self] (notification) in
+            weakSelf?.cycle = weakSelf?.persistenceManager.getCycle(uuid: weakSelf?.cycle?.uuid)
+            weakSelf?.tableView.reloadData()
         })
     }
 
