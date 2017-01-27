@@ -50,6 +50,7 @@ class AllCyclesCollectionViewController: UICollectionViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        //model = createDummyData()
         model = persistenceManager.getAllCyclesSorted()
         navigationController?.navigationBar.tintColor = UIColor.white
         
