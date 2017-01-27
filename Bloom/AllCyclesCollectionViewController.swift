@@ -200,7 +200,16 @@ class AllCyclesCollectionViewController: UICollectionViewController {
             destination.day?.isFirstDayOfCycle = persistenceManager.shouldDayStartCycle(destination.day!)
             destination.fromAllCyclesVC = true
         } else {
-            destination.dayInCycleText = cycle?.days.index(where: { $0.date > (destination.day?.date)! }) ?? cycle?.days.count
+            if let count = cycle?.days.count {
+                if count > 0 {
+                    destination.dayInCycleText = cycle?.days.index(where: { $0.date > (destination.day?.date)! }) ?? count
+                } else {
+                    destination.dayInCycleText = 1
+                }
+            } else {
+                destination.dayInCycleText = 1
+            }
+            
             destination.day = Day(date: dateToPassToNewDayView!, uuid: currentCycleUUID)
             destination.fromAllCyclesVC = true
         }
