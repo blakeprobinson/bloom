@@ -10,15 +10,15 @@ import UIKit
 
 extension UIViewController {
     func displayCycles(from cycles: [Cycle]) -> [Cycle] {
-        var cycles = [Cycle]()
+        var displayCycles = [Cycle]()
         for (index, cycle) in cycles.reversed().enumerated() {
             if index + 1 < cycles.count {
-                cycles.append(displayCycle(from: cycle, givenLaterCycle: cycles.reversed()[index + 1]))
+                displayCycles.append(displayCycle(from: cycle, givenLaterCycle: cycles.reversed()[index + 1]))
             } else {
-                cycles.append(displayCycle(from: cycle, givenLaterCycle: nil))
+                displayCycles.append(displayCycle(from: cycle, givenLaterCycle: nil))
             }
         }
-        return cycles
+        return displayCycles.reversed()
     }
     
     func displayCycle(from cycle: Cycle) -> Cycle {
