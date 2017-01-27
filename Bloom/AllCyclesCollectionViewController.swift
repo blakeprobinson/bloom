@@ -47,6 +47,18 @@ class AllCyclesCollectionViewController: UICollectionViewController {
     private var displayModel: [Cycle]!
     
     private var dateToPassToNewDayView: Date?
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        let notificationCenter = NotificationCenter.default
+        let _ = notificationCenter.addObserver(forName: Notification.Name(rawValue: "cycle saved"), object: nil, queue: OperationQueue.main, using: { [ weak weakSelf = self] (notification) in
+            guard let strongSelf = weakSelf else {
+                return
+            }
+            strongSelf.model = strongSelf.persistenceManager.getAllCyclesSorted()
+            strongSelf.collectionView?.reloadData()
+        })
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,11 +68,6 @@ class AllCyclesCollectionViewController: UICollectionViewController {
         
         //collectionView!.register(forSupplementaryViewOfKind: "header", withReuseIdentifier: "sectionHeader")
         collectionView!.register(AllCyclesSectionHeader.self, forSupplementaryViewOfKind: "sectionHeader", withReuseIdentifier: "sectionHeader")
-        let notificationCenter = NotificationCenter.default
-        let _ = notificationCenter.addObserver(forName: Notification.Name(rawValue: "cycle saved"), object: nil, queue: OperationQueue.main, using: { [ weak weakSelf = self] (notification) in
-            weakSelf?.model = (weakSelf?.persistenceManager.getAllCyclesSorted())!
-            weakSelf?.collectionView?.reloadData()
-        })
     }
     
     private func createDummyData() -> [Cycle] {
