@@ -12,27 +12,22 @@ class CycleTableViewController: UITableViewController {
     
     var persistenceManager = PersistenceManager()
     
-    var cycle:Cycle?
     var selected:Int?
-    var displayCycle:Cycle? {
-        get {
-            guard let cycle = cycle else { return nil }
-            if cycle.endDate == nil {
-                return cycle
-            } else {
-                return displayCycle(from: cycle)
-            }
+    var cycle:Cycle? {
+        didSet {
+            guard let cycle = cycle else { return }
+            displayDays = displayCycle(from: cycle).days
         }
     }
+    private var displayDays = [Day]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         let notificationCenter = NotificationCenter.default
         let _ = notificationCenter.addObserver(forName: Notification.Name(rawValue: "cycle saved"), object: nil, queue: OperationQueue.main, using: { (notification) in
             self.cycle = self.persistenceManager.getCycle(uuid: self.cycle?.uuid)
             self.tableView.reloadData()
-            })
+        })
     }
 
     // MARK: - Table view data source
@@ -43,12 +38,12 @@ class CycleTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return displayCycle!.days.count
+        return displayDays.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "dayInCycle", for: indexPath) as! CycleTableViewCell
-        let day = displayCycle!.days[indexPath.row]
+        let day = displayDays[indexPath.row]
 
         cell.dayNumber.text = String(indexPath.row + 1)
         cell.category = day.category
@@ -80,7 +75,7 @@ class CycleTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         selected = indexPath.row
-        performSegue(withIdentifier: "cycleToEdit", sender: displayCycle?.days[indexPath.row])
+        performSegue(withIdentifier: "cycleToEdit", sender: displayDays[indexPath.row])
     }
 
     
