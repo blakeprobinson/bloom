@@ -189,7 +189,7 @@ class Day: NSObject, NSCoding {
 
 extension Day {
     
-    struct Bleeding {
+    struct Bleeding: Equatable {
         var intensity: Intensity
         
         init?(intensity: String?) {
@@ -213,9 +213,12 @@ extension Day {
             ]
             
         }
+        static func == (lhs: Bleeding, rhs: Bleeding) -> Bool {
+            return lhs.intensity == rhs.intensity
+        }
     }
     
-    struct Dry {
+    struct Dry: Equatable {
         var observation: Observation
         
         init?(observation: String?) {
@@ -236,7 +239,9 @@ extension Day {
                 Observation.shiny.rawValue,
             ]
         }
-        
+        static func == (lhs: Dry, rhs: Dry) -> Bool {
+            return lhs.observation == rhs.observation
+        }
     }
     
     
@@ -308,6 +313,10 @@ extension Day {
                 Consistency.pasty.rawValue
             ]
         }
+        
+        static func == (lhs: Mucus, rhs: Mucus) -> Bool {
+            return lhs.length == rhs.length && lhs.color == rhs.color && lhs.consistency == rhs.consistency
+        }
     }
     
     enum Category {
@@ -334,3 +343,50 @@ extension Day {
         }
     }
 }
+
+// MARK: Equatable
+
+extension Day {
+    static func == (lhs: Day, rhs: Day) -> Bool {
+        return lhs.date == rhs.date
+        
+    }
+    
+    static func > (lhs: Day, rhs: Day) -> Bool {
+        return lhs.date > rhs.date
+    }
+}
+/*
+extension Optional: Equatable {
+    public static func ==<T:Equatable>(lhs: T?, rhs: T?) -> Bool {
+        switch (lhs, rhs) {
+        case let (l?, r?):
+            return l == r
+        case (nil, nil):
+            return true
+        default:
+            return false
+        }
+    }
+    /*
+    public static func == (lhs: Optional, rhs: Optional) -> Bool {
+        switch lhs {
+        case .some(let lhsValue):
+            switch rhs {
+            case .some(let rhsValue):
+                return lhsValue == rhsValue
+            case .none:
+                return false
+            }
+        case .none:
+            switch rhs {
+            case .some(_):
+                return false
+            case .none:
+                return true
+            }
+        }
+    }
+ */
+}
+*/
