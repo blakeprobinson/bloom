@@ -45,8 +45,19 @@ class PersistenceManager {
         
     }
     
-    func getPreviousCycle(uuid: UUID) -> Cycle? {
-        let cycles = getAllCyclesSorted()
+    func getEarlierCycle(uuid: UUID) -> Cycle? {
+        return getAdjacentCycle(uuid: uuid, earlier: true)
+    }
+    
+    func getLaterCycle(uuid: UUID) -> Cycle? {
+        return getAdjacentCycle(uuid: uuid, earlier: false)
+    }
+    
+    private func getAdjacentCycle(uuid: UUID, earlier: Bool) -> Cycle? {
+        var cycles = getAllCyclesSorted()
+        if !earlier {
+            cycles = cycles.reversed()
+        }
         for (index, cycle) in cycles.enumerated() {
             if cycle.uuid == uuid {
                 if index + 1 < cycles.count {
