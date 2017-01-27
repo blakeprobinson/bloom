@@ -102,7 +102,8 @@ class PersistenceManager {
 
 fileprivate extension Cycle {
     func attach(_ day: Day) {
-        let calendar = Calendar(identifier: .gregorian)
+        var calendar = Calendar(identifier: .gregorian)
+        calendar.timeZone = TimeZone(abbreviation: "GMT")!
         if let sameDay = days.first(where: { calendar.isDate($0.date, inSameDayAs: day.date) }) {
             let index = days.index(of: sameDay)!
             days.replaceSubrange(index..<(index + 1), with: [day])

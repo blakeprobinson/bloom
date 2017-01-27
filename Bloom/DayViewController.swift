@@ -287,6 +287,7 @@ class DayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
     
     private func dateString(date: Date, forHeader: Bool) -> String {
         let calendar = NSCalendar(identifier: .gregorian)
+        calendar?.timeZone = TimeZone(abbreviation: "GMT")!
         if (calendar?.isDateInToday(date))! {
             return "Today"
         } else if (calendar?.isDateInYesterday(date))! {

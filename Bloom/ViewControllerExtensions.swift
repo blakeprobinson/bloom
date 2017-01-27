@@ -29,17 +29,16 @@ extension UIViewController {
         guard let nextCycle = nextCycle else {
             return displayCycleCurrent(from: cycle)
         }
-        let calendar = Calendar(identifier: .gregorian)
         
         var displayDays = [Day]()
         for (index, day) in cycle.days.enumerated() {
             if day == cycle.days.last {
                 displayDays.append(day)
                 let startOfNextCycle = nextCycle.startDate
-                displayDays = addDaysFrom(calendar.startOfDay(for: day.date), to: calendar.startOfDay(for: startOfNextCycle), in: displayDays, for: cycle)
+                displayDays = addDaysFrom(day.date, to: startOfNextCycle, in: displayDays, for: cycle)
             } else {
                 displayDays.append(day)
-                displayDays = addDaysFrom(calendar.startOfDay(for: day.date), to: calendar.startOfDay(for: cycle.days[index + 1].date), in: displayDays, for:cycle)
+                displayDays = addDaysFrom(day.date, to: cycle.days[index + 1].date, in: displayDays, for:cycle)
             }
         }
         return Cycle(days: displayDays, uuid: UUID())
@@ -53,10 +52,10 @@ extension UIViewController {
             if day == cycle.days.last {
                 displayDays.append(day)
                 let tomorrow = calendar.date(byAdding: .day, value: 1, to: Date())!
-                displayDays = addDaysFrom(calendar.startOfDay(for: day.date), to: calendar.startOfDay(for: tomorrow), in: displayDays, for: cycle)
+                displayDays = addDaysFrom(day.date, to: tomorrow, in: displayDays, for: cycle)
             } else {
                 displayDays.append(day)
-                displayDays = addDaysFrom(calendar.startOfDay(for: day.date), to: calendar.startOfDay(for: cycle.days[index + 1].date), in: displayDays, for:cycle)
+                displayDays = addDaysFrom(day.date, to: cycle.days[index + 1].date, in: displayDays, for:cycle)
             }
         }
         return Cycle(days: displayDays, uuid: UUID())

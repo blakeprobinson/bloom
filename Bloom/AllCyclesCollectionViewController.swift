@@ -171,6 +171,7 @@ class AllCyclesCollectionViewController: UICollectionViewController {
     
     @IBAction func plusTouched(_ sender: UIBarButtonItem) {
         let calendar = NSCalendar(calendarIdentifier: .gregorian)!
+        calendar.timeZone = TimeZone(abbreviation: "GMT")!
         
         guard let dateOfMostRecentDay = dateOfMostRecentDay else {
             dateToPassToNewDayView = Date()
@@ -217,7 +218,6 @@ class AllCyclesCollectionViewController: UICollectionViewController {
     }
     
     private func showActionSheet() {
-        guard let calendar = NSCalendar(calendarIdentifier: .gregorian) else { return }
             
         var indeces = [Int]()
         print(lastDaysInCurrentDisplayCycle.reversed())
@@ -229,7 +229,7 @@ class AllCyclesCollectionViewController: UICollectionViewController {
             }
         }
         
-        var actions = createActions(from: calendar)
+        var actions = createActions()
         indeces.forEach({ actions.remove(at: $0)})
         actions.append(UIAlertAction(title: "Cancel", style: .cancel) { _ in })
         
@@ -240,7 +240,8 @@ class AllCyclesCollectionViewController: UICollectionViewController {
         present(alertController, animated: true, completion: nil)
     }
     
-    private func createActions(from calendar: NSCalendar) -> [UIAlertAction] {
+    private func createActions() -> [UIAlertAction] {
+        guard let calendar = NSCalendar(calendarIdentifier: .gregorian) else { return [] }
         let date = Date()
         let todayAction = UIAlertAction(title: "Today", style: .default) {
             action in self.actionClosure(action, days: 0, in: calendar)
