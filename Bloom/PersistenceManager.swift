@@ -83,6 +83,7 @@ class PersistenceManager {
         } else {
             cycleToSave = Cycle(days: [day], uuid: UUID())
         }
+        day.calibrateDate()
         cycleToSave.attach(day)
         
         saveCycle(cycle: cycleToSave)
