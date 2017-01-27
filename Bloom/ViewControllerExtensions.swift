@@ -45,13 +45,14 @@ extension UIViewController {
     }
     
     private func displayCycleCurrent(from cycle: Cycle) -> Cycle {
-        let calendar = Calendar(identifier: .gregorian)
+        var calendar = Calendar(identifier: .gregorian)
+        calendar.timeZone = TimeZone(abbreviation: "GMT")!
         
         var displayDays = [Day]()
         for (index, day) in cycle.days.enumerated() {
             if day == cycle.days.last {
                 displayDays.append(day)
-                let tomorrow = calendar.date(byAdding: .day, value: 1, to: Date())!
+                let tomorrow = calendar.date(byAdding: .day, value: 1, to: calendar.startOfDay(for: Date()))!
                 displayDays = addDaysFrom(day.date, to: tomorrow, in: displayDays, for: cycle)
             } else {
                 displayDays.append(day)
