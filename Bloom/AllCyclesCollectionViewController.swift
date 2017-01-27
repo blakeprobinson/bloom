@@ -13,7 +13,11 @@ private let reuseIdentifier = "allCyclesCell"
 class AllCyclesCollectionViewController: UICollectionViewController {
     
     var persistenceManager = PersistenceManager()
-    var model = [Cycle]()
+    var model = [Cycle]() {
+        didSet {
+            displayModel = displayCycles(from: model)
+        }
+    }
     let dateFormatter = DateFormatter()
     var selected = IndexPath()
     var alertController = UIAlertController()
@@ -47,13 +51,15 @@ class AllCyclesCollectionViewController: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         model = persistenceManager.getAllCyclesSorted()
-        //model = createDummyData()
         navigationController?.navigationBar.tintColor = UIColor.white
         
         //collectionView!.register(forSupplementaryViewOfKind: "header", withReuseIdentifier: "sectionHeader")
         collectionView!.register(AllCyclesSectionHeader.self, forSupplementaryViewOfKind: "sectionHeader", withReuseIdentifier: "sectionHeader")
-
-        // Do any additional setup after loading the view.
+        let notificationCenter = NotificationCenter.default
+        let _ = notificationCenter.addObserver(forName: Notification.Name(rawValue: "cycle saved"), object: nil, queue: OperationQueue.main, using: { [ weak weakSelf = self] (notification) in
+            weakSelf?.model = (weakSelf?.persistenceManager.getAllCyclesSorted())!
+            weakSelf?.collectionView?.reloadData()
+        })
     }
     
     private func createDummyData() -> [Cycle] {
@@ -124,10 +130,6 @@ class AllCyclesCollectionViewController: UICollectionViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        model = persistenceManager.getAllCyclesSorted()
-        //model = createDummyData()
-        displayModel = model.map({ displayCycle(from: $0) })
-        collectionView?.reloadData()
         addDay.isEnabled = shouldEnableAddDay()
     }
     
