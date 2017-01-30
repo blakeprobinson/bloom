@@ -94,8 +94,8 @@ class PersistenceManager {
         return false
     }
     
-    private func sendCycleSavedNotification() {
-        let notification = Notification(name: Notification.Name(rawValue: "cycle saved"))
+    private func sendCyclesUpdatedNotification() {
+        let notification = Notification(name: Notification.Name(rawValue: "cycles updated"))
         NotificationCenter.default.post(notification)
     }
 }

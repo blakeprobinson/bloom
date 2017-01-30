@@ -51,7 +51,7 @@ class AllCyclesCollectionViewController: UICollectionViewController {
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         let notificationCenter = NotificationCenter.default
-        let _ = notificationCenter.addObserver(forName: Notification.Name(rawValue: "cycle saved"), object: nil, queue: OperationQueue.main, using: { [ weak weakSelf = self] (notification) in
+        let _ = notificationCenter.addObserver(forName: Notification.Name(rawValue: "cycles updated"), object: nil, queue: OperationQueue.main, using: { [ weak weakSelf = self] (notification) in
             guard let strongSelf = weakSelf else {
                 return
             }
