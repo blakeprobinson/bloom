@@ -30,6 +30,15 @@ class Day: NSObject, NSCoding {
         }
     }
     
+    var peak: Bool {
+        get {
+            return lubrication ||
+                mucus?.length == .oneInch ||
+                mucus?.color == .clear ||
+                mucus?.color == .cloudyClear
+        }
+    }
+    
     var shortDescription: String? {
         get {
             if let category = category {
