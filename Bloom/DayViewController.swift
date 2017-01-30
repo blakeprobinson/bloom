@@ -459,9 +459,9 @@ class DayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
     ]
     
     private var mucusButtonTitleToModel = [
-        "1/4": Day.Mucus.Length.quarterInch.rawValue,
-        "1/2-3/4": Day.Mucus.Length.halfToThreeQuarterInch.rawValue,
-        "1": Day.Mucus.Length.oneInch.rawValue,
+        "1/4 in.": Day.Mucus.Length.quarterInch.rawValue,
+        "1/2-3/4 in.": Day.Mucus.Length.halfToThreeQuarterInch.rawValue,
+        "1 in.": Day.Mucus.Length.oneInch.rawValue,
         "Clear": Day.Mucus.Color.clear.rawValue,
         "Cloudy- Clear": Day.Mucus.Color.cloudyClear.rawValue,
         "Cloudy": Day.Mucus.Color.cloudy.rawValue,
@@ -472,9 +472,9 @@ class DayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
     ]
     
     private var mucusButtonModelToTitle = [
-        Day.Mucus.Length.quarterInch.rawValue: "1/4",
-        Day.Mucus.Length.halfToThreeQuarterInch.rawValue: "1/2-3/4",
-        Day.Mucus.Length.oneInch.rawValue: "1",
+        Day.Mucus.Length.quarterInch.rawValue: "1/4 in.",
+        Day.Mucus.Length.halfToThreeQuarterInch.rawValue: "1/2-3/4 in.",
+        Day.Mucus.Length.oneInch.rawValue: "1 in.",
         Day.Mucus.Color.clear.rawValue: "Clear",
         Day.Mucus.Color.cloudyClear.rawValue: "Cloudy- Clear",
         Day.Mucus.Color.cloudy.rawValue: "Cloudy",
