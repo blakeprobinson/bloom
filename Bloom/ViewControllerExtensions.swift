@@ -11,7 +11,7 @@ import UIKit
 extension UIViewController {
     func displayCycles(from cycles: [Cycle]) -> [Cycle] {
         var displayCycles = [Cycle]()
-        for (index, cycle) in cycles.reversed().enumerated() {
+        for (index, cycle) in cycles.enumerated() {
             if index + 1 < cycles.count {
                 displayCycles.append(displayCycle(from: cycle, givenLaterCycle: cycles.reversed()[index + 1]))
             } else {
