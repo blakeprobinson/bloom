@@ -31,6 +31,7 @@
 		BA76C4B81E23DBDE005A2B12 /* CycleTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA76C4B71E23DBDE005A2B12 /* CycleTableViewController.swift */; };
 		BA76C4BE1E23EA9D005A2B12 /* AllCyclesCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA76C4BD1E23EA9D005A2B12 /* AllCyclesCollectionViewController.swift */; };
 		BA91F1C01E14346C00C209BC /* PlusMinusButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA91F1BF1E14346C00C209BC /* PlusMinusButton.swift */; };
+		BAB43D2D1E3FDA0B00559C8F /* AllCyclesCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA76C4BD1E23EA9D005A2B12 /* AllCyclesCollectionViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -306,6 +307,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BA4D62261E37E61D0054457B /* PersistenceManagerTests.swift in Sources */,
+				BAB43D2D1E3FDA0B00559C8F /* AllCyclesCollectionViewController.swift in Sources */,
 				BA4D622D1E37E6380054457B /* PersistenceManager.swift in Sources */,
 				BA4D622F1E37E7960054457B /* Cycle.swift in Sources */,
 				BA4D622E1E37E7920054457B /* Day.swift in Sources */,
