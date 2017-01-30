@@ -124,7 +124,7 @@
                                             </constraints>
                                         </view>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ssf-sC-afY">
-                                            <rect key="frame" x="57" y="11" width="42" height="21"/>
+                                            <rect key="frame" x="57" y="4" width="42" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -137,10 +137,18 @@
                                                 <constraint firstAttribute="width" constant="36" id="IAU-IK-eJ8"/>
                                             </constraints>
                                         </view>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="May 12" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I4u-xn-F97">
+                                            <rect key="frame" x="57" y="25" width="42.5" height="16"/>
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
+                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="BMW-vh-h27" firstAttribute="centerY" secondItem="ssf-sC-afY" secondAttribute="centerY" id="8I3-IV-VKI"/>
+                                        <constraint firstItem="BMW-vh-h27" firstAttribute="centerY" secondItem="ssf-sC-afY" secondAttribute="centerY" constant="7" id="8I3-IV-VKI"/>
                                         <constraint firstItem="BMW-vh-h27" firstAttribute="leading" secondItem="caZ-pQ-Epa" secondAttribute="leadingMargin" constant="5" id="93d-04-tOn"/>
+                                        <constraint firstItem="I4u-xn-F97" firstAttribute="leading" secondItem="ssf-sC-afY" secondAttribute="leading" id="BxN-a5-y5L"/>
+                                        <constraint firstItem="I4u-xn-F97" firstAttribute="top" secondItem="ssf-sC-afY" secondAttribute="bottom" id="TxC-Nk-GKn"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="CG2-Wo-kNf" secondAttribute="trailing" constant="8" id="dOX-NY-Li2"/>
                                         <constraint firstItem="ssf-sC-afY" firstAttribute="leading" secondItem="BMW-vh-h27" secondAttribute="trailing" constant="8" id="taU-3x-InE"/>
                                         <constraint firstItem="CG2-Wo-kNf" firstAttribute="centerY" secondItem="caZ-pQ-Epa" secondAttribute="centerY" id="uHH-SJ-rNh"/>
