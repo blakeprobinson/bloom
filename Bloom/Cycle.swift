@@ -24,6 +24,29 @@ class Cycle: NSObject, NSCoding {
         }
     }
     
+    var threeDaysAfterPeak: [Day] {
+        get {
+            guard let peak = peak else {
+                return []
+            }
+            var index = days.index(of: peak)!
+            index += 1
+            var result = [Day]()
+            while index < days.count {
+                result.append(days[index])
+                index += 1
+            }
+            
+            return result
+        }
+    }
+    
+    var peak: Day? {
+        get {
+            return days.reversed().first(where: { $0.peakTypeMucus })
+        }
+    }
+    
     override var description: String {
         get {
             let dayDates = days.map { $0.date }
