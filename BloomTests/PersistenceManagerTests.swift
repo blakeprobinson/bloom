@@ -57,7 +57,7 @@ class PersistenceManagerTests: XCTestCase {
     
     func testInsertDayWithCycle() {
         let cycle = Cycle(days: [], uuid: UUID())
-        let cycleUuid = persistenceManager.saveCycle(cycle: cycle)
+        let _ = persistenceManager.saveCycle(cycle: cycle)
         let day = Day(date: Date(), uuid: cycle.uuid)
         let dayUuid = persistenceManager.saveDay(day: day)
         
