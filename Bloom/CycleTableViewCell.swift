@@ -15,6 +15,9 @@ class CycleTableViewCell: UITableViewCell {
             daySymbol.layer.cornerRadius = daySymbol.bounds.height / 2
         }
     }
+    
+    
+    @IBOutlet weak var date: UILabel!
     @IBOutlet weak var dayNumber: UILabel!
     @IBOutlet weak var dayDescription: UILabel!
     

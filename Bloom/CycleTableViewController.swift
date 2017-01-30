@@ -10,7 +10,8 @@ import UIKit
 
 class CycleTableViewController: UITableViewController {
     
-    var persistenceManager = PersistenceManager()
+    private var persistenceManager = PersistenceManager()
+    private let dateFormatter = DateFormatter()
     
     var selected:Int?
     var cycle:Cycle? {
@@ -49,11 +50,17 @@ class CycleTableViewController: UITableViewController {
         let day = displayDays[indexPath.row]
 
         cell.dayNumber.text = String(indexPath.row + 1)
+        cell.date.text = dateText(day)
         cell.category = day.category
         cell.dayDescription.text = day.shortDescription ?? "--"
         cell.intercourseHeart.isHidden = !day.intercourse
 
         return cell
+    }
+    
+    private func dateText(_ day: Day) -> String {
+        dateFormatter.dateFormat = "EEEE, MMM dd"
+        return dateFormatter.string(from: day.date)
     }
 
     /*

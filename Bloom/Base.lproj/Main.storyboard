@@ -156,6 +156,7 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="date" destination="I4u-xn-F97" id="wNw-pE-7rX"/>
                                     <outlet property="dayDescription" destination="ssf-sC-afY" id="Q7f-PB-j8R"/>
                                     <outlet property="dayNumber" destination="Zbv-Ot-Zvb" id="8bR-Ci-2uZ"/>
                                     <outlet property="daySymbol" destination="BMW-vh-h27" id="8tS-Tm-D4T"/>
