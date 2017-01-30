@@ -30,7 +30,7 @@ class Day: NSObject, NSCoding {
         }
     }
     
-    var peak: Bool {
+    var peakTypeMucus: Bool {
         get {
             return lubrication ||
                 mucus?.length == .oneInch ||
