@@ -225,20 +225,9 @@ class AllCyclesCollectionViewController: UICollectionViewController {
     }
     
     private func showActionSheet() {
-            
-        var indeces = [Int]()
-        print(lastDaysInCurrentDisplayCycle.reversed())
-        for (index, day) in lastDaysInCurrentDisplayCycle.enumerated() {
-            //if day is a recorded day, then append the index
-            print(day)
-            if day.category != nil {
-                indeces.append(index)
-            }
-        }
         
         var actions = createActions()
-        indeces.forEach({ actions.remove(at: $0)})
-        actions.append(UIAlertAction(title: "Cancel", style: .cancel) { _ in })
+            actions.append(UIAlertAction(title: "Cancel", style: .cancel) { _ in })
         
         alertController = UIAlertController(title: "What day would you like to record?", message: nil, preferredStyle: .actionSheet)
         
@@ -248,6 +237,19 @@ class AllCyclesCollectionViewController: UICollectionViewController {
     }
     
     private func createActions() -> [UIAlertAction] {
+        var actions = generateActionOptions()
+        var counter = 0
+        for (index, day) in lastDaysInCurrentDisplayCycle.enumerated() {
+            if day.category != nil {
+                let actionRemoved = actions.remove(at: index - counter)
+                print("this is the action just removed: \(actionRemoved)")
+                counter += 1
+            }
+        }
+        return actions
+    }
+    
+    private func generateActionOptions() -> [UIAlertAction] {
         guard let calendar = NSCalendar(calendarIdentifier: .gregorian) else { return [] }
         let date = Date()
         let todayAction = UIAlertAction(title: "Today", style: .default) {
