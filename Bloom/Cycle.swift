@@ -40,7 +40,8 @@ class Cycle: NSObject, NSCoding {
         guard let index = days.index(of: day) else {
             return nil
         }
-        return days.remove(at: index)
+        let day = days.remove(at: index)
+        return day
     }
     
     //MARK: NSCoding
