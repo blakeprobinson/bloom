@@ -74,7 +74,14 @@ class DayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
         }
     }
     
-    @IBOutlet var mucusLengthButtons: [ButtonWithUnderBar]!
+    @IBOutlet var mucusLengthButtons: [ButtonWithUnderBar]! {
+        didSet {
+            mucusLengthButtons.forEach({ (button) in
+                button.layer.borderColor = UIColor(red:1.00, green:0.85, blue:0.40, alpha:1.0).cgColor
+                button.layer.borderWidth = 2
+            })
+        }
+    }
     @IBOutlet var mucusColorButtons: [ButtonWithUnderBar]!
     @IBOutlet var mucusConsistencyButtons: [ButtonWithUnderBar]!
     
