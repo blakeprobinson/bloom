@@ -15,8 +15,11 @@ class CycleTableViewController: UITableViewController {
     var selected:Int?
     var cycle:Cycle? {
         didSet {
-            guard let cycle = cycle else { return }
-            displayDays = displayCycle(from: cycle).days
+            if let cycle = cycle {
+                displayDays = displayCycle(from: cycle).days
+            } else {
+                displayDays = []
+            }
         }
     }
     private var displayDays = [Day]()
