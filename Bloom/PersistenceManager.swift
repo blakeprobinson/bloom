@@ -68,12 +68,13 @@ class PersistenceManager {
         return nil
     }
     
-    func saveCycle(cycle: Cycle) {
+    func saveCycle(cycle: Cycle) -> UUID {
         let archiveURL = saveDirectory.appendingPathComponent(cycle.uuid.uuidString + ".bplist")
         print("saveCycle path " + archiveURL.path)
         let didSave = NSKeyedArchiver.archiveRootObject(cycle, toFile: archiveURL.path)
         print("did save cycle \(didSave)")
-        sendCycleSavedNotification()
+        sendCyclesUpdatedNotification()
+        return cycle.uuid
     }
     
     func saveDay(day: Day) {
