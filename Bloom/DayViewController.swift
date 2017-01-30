@@ -322,7 +322,7 @@ class DayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
         lubrication.isOn = day.lubrication
         modAndHeavyIsEnabled(day: day)
         adjustableDate.text = dateString(date: day.date, forHeader: false)
-        pickerSelectedRow = pickerSelection(date: day.date)
+        //pickerSelectedRow = pickerSelection(date: day.date)
         if let dayNotes = day.notes {
             notes.text = dayNotes
         } else {
