@@ -594,7 +594,36 @@ class DayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
     }
     
     @IBAction func newCycleToggled(_ sender: UISwitch) {
-        
+        if sender.isOn {
+            
+        } else {
+            //remove day from current cycle
+            let cycle = persistenceManager.getCycle(uuid: day?.uuid)!
+            let _ = cycle.removeDay(day!)
+            
+            if cycle.days.count == 0 {
+                persistenceManager.removeCycle(cycle)
+            } else {
+                persistenceManager.saveCycle(cycle: cycle)
+            }
+            //add this day to last cycle
+            if let earlierCycle = persistenceManager.getEarlierCycle(uuid: day!.uuid!) {
+                day?.uuid = earlierCycle.uuid
+            } else {
+                day?.uuid = nil
+            }
+            persistenceManager.saveDay(day: day!)
+            
+        }
+        /*let isLastDayInCycle = persistenceManager.getCycle(uuid: day?.uuid).days.count == dayInCycleText
+        if isLastDayInCycle {
+            day?.uuid = UUID()
+            dayInCycleText = 1
+            updateUIToSave(true)
+        } else {
+            //var alert = UIAlertController(title: "", message: <#T##String?#>, preferredStyle: <#T##UIAlertControllerStyle#>)
+        }
+         */
     }
     
     private func hideShowView(view: UIView) {
