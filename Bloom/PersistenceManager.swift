@@ -77,17 +77,30 @@ class PersistenceManager {
         return cycle.uuid
     }
     
-    func saveDay(day: Day) {
+    func saveDay(day: Day) -> UUID {
         let cycleToSave:Cycle!
         if let cycle = getAllCyclesSorted().first(where: { $0.uuid == day.uuid }) {
             cycleToSave = cycle
+            
         } else {
-            cycleToSave = Cycle(days: [day], uuid: UUID())
+            let uuid = UUID()
+            day.uuid = uuid
+            cycleToSave = Cycle(days: [], uuid: uuid)
         }
         day.calibrateDate()
         cycleToSave.attach(day)
         
-        saveCycle(cycle: cycleToSave)
+        return saveCycle(cycle: cycleToSave)
+    }
+    
+    func removeCycle(_ cycle: Cycle) {
+        let deleteURL = saveDirectory.appendingPathComponent(cycle.uuid.uuidString + ".bplist")
+        do {
+            try FileManager().removeItem(at: deleteURL)
+            sendCyclesUpdatedNotification()
+        } catch {
+            NSLog("error deleting cycle: \(error)")
+        }
     }
     
     func shouldDayStartCycle(_ day: Day) -> Bool {
