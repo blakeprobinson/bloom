@@ -290,7 +290,7 @@ class DayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
         case .dry:
             return UIColor(red:0.42, green:0.66, blue:0.31, alpha:1.0)
         case .mucus:
-            return UIColor.white
+            return day == cycle?.peak ? UIColor(red:1.00, green:0.49, blue:0.98, alpha:1.0) : UIColor.white
         }
     }
     
