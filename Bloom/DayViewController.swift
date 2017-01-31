@@ -36,7 +36,7 @@ class DayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
             } else if dayInCycleText <= 14 {
                 startNewCycleHidden = true
             } else {
-                startNewCycle.isHidden = false
+                startNewCycleHidden = false
             }
         }
     }
