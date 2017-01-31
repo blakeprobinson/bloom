@@ -43,6 +43,7 @@ class Cycle: NSObject, NSCoding {
     
     var peak: Day? {
         get {
+            //change this to make sure that a day is recorded after the peak day....
             return days.reversed().first(where: { $0.peakTypeMucus })
         }
     }

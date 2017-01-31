@@ -46,7 +46,6 @@ extension UIViewController {
     
     private func displayCycleCurrent(from cycle: Cycle) -> Cycle {
         var calendar = Calendar(identifier: .gregorian)
-        calendar.timeZone = TimeZone(abbreviation: "GMT")!
         
         var displayDays = [Day]()
         for (index, day) in cycle.days.enumerated() {
