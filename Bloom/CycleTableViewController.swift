@@ -97,6 +97,7 @@ class CycleTableViewController: UITableViewController {
         // Pass the selected object to the new view controller.
         let vc = segue.destination as! DayViewController
         vc.day = sender as? Day
+        vc.cycle = cycle
         vc.dayInCycleText = selected! + 1
     }
  

@@ -62,12 +62,13 @@ class AllCyclesCollectionViewController: UICollectionViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        //model = createDummyData()
-        model = persistenceManager.getAllCyclesSorted()
+        model = createDummyData()
+        //model = persistenceManager.getAllCyclesSorted()
         navigationController?.navigationBar.tintColor = UIColor.white
         
         //collectionView!.register(forSupplementaryViewOfKind: "header", withReuseIdentifier: "sectionHeader")
         collectionView!.register(AllCyclesSectionHeader.self, forSupplementaryViewOfKind: "sectionHeader", withReuseIdentifier: "sectionHeader")
+        print("******* this is the collectionView.frame: \(collectionView?.frame)")
     }
     
     private func createDummyData() -> [Cycle] {
@@ -203,6 +204,7 @@ class AllCyclesCollectionViewController: UICollectionViewController {
             let sender = sender as! UIAlertAction
             let calendar = Calendar(identifier: .gregorian)
             destination.day = Day(date: calendar.date(fromWeekday: sender.title!)!, uuid: currentCycleUUID)
+            destination.cycle = cycle
             let index = displayModel.first?.days.index(where: { calendar.isDate($0.date, inSameDayAs: (destination.day?.date)!) }) ?? 0
             destination.dayInCycleText = index + 1
             destination.day?.isFirstDayOfCycle = persistenceManager.shouldDayStartCycle(destination.day!)
@@ -219,6 +221,7 @@ class AllCyclesCollectionViewController: UICollectionViewController {
             }
             
             destination.day = Day(date: dateToPassToNewDayView!, uuid: currentCycleUUID)
+            destination.cycle = cycle
             destination.fromAllCyclesVC = true
         }
         present(destination, animated: true, completion: nil)
