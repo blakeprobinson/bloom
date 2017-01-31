@@ -16,7 +16,6 @@ class AllCyclesSectionHeader: UICollectionReusableView {
         let formatter = DateFormatter()
         formatter.timeStyle = .none
         formatter.dateFormat = "MMM dd"
-        formatter.timeZone = TimeZone(abbreviation: "GMT")!
         return formatter
     }()
     
