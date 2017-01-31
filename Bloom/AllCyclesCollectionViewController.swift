@@ -112,14 +112,14 @@ class AllCyclesCollectionViewController: UICollectionViewController {
                     notes: nil,
                     isFirstDayOfCycle: false)
             } else {
-                let mucus = Day.Mucus(length: "1/4", color: "Clear", consistency: "Gummy")
+                let mucus = Day.Mucus(length: "1/4", color: "Cloudy", consistency: "Gummy")
                 day = Day(
                     bleeding:nil,
                     dry: nil,
                     mucus: mucus,
                     observation: 1,
                     intercourse: true,
-                    lubrication: true,
+                    lubrication: false,
                     pasty: false,
                     date: Date(),
                     notes: nil,
