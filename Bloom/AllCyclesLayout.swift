@@ -16,8 +16,7 @@ class AllCyclesLayout: UICollectionViewFlowLayout {
     let itemWidth = 73.0
     let itemHeight = 44.0
     let sectionHeaderHeight = 54.0
-    var maxX:Double = 44
-    var maxY:Double = 44
+    let screenWidth = UIScreen.main.bounds.width
     
     override func prepare() {
         let numberOfSections = collectionView?.numberOfSections ?? 0
@@ -40,7 +39,7 @@ class AllCyclesLayout: UICollectionViewFlowLayout {
     }
     
     private func frameForSupplementaryViewAt(indexPath: IndexPath) -> CGRect {
-        let xPos = Double(indexPath.section) * (itemWidth)
+        let xPos = Double(collectionViewContentSize.width) - ((Double(indexPath.section) + 1 ) * (itemWidth))
         if indexPath.item == 0 {
             return CGRect(x: xPos, y: 0.0, width: itemWidth, height: sectionHeaderHeight)
         } else {
@@ -49,10 +48,8 @@ class AllCyclesLayout: UICollectionViewFlowLayout {
     }
     
     private func frameForItemAt(indexPath: IndexPath) -> CGRect {
-        let xPos = Double(indexPath.section) * (itemWidth)
+        let xPos = Double(collectionViewContentSize.width) - ((Double(indexPath.section) + 1 ) * (itemWidth))
         let yPos = Double(indexPath.item) * (itemHeight - 1) + sectionHeaderHeight - 0.5
-        maxX = Double(xPos) > maxX ? Double(xPos) : maxX
-        maxY = Double(yPos) > maxY ? Double(yPos) : maxX
         return CGRect(x: xPos, y: yPos, width: itemWidth, height: itemHeight)
     }
     
@@ -89,6 +86,10 @@ class AllCyclesLayout: UICollectionViewFlowLayout {
     }
     
     override var collectionViewContentSize: CGSize {
-        return CGSize(width: maxX + Double(itemWidth), height: maxY + Double(itemHeight))
+        var maxNumberOfItems = 0
+        for section in 0..<(collectionView?.numberOfSections ?? 0) {
+            maxNumberOfItems = max(maxNumberOfItems, collectionView?.numberOfItems(inSection: section) ?? 0)
+        }
+        return CGSize(width: Double(self.collectionView?.numberOfSections ?? 0) * itemWidth , height: Double(maxNumberOfItems - 1) * itemHeight + sectionHeaderHeight)
     }
 }

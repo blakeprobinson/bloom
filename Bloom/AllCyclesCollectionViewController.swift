@@ -45,6 +45,7 @@ class AllCyclesCollectionViewController: UICollectionViewController {
     }
     
     private var displayModel: [Cycle]!
+    private var isFirstAppearance = true
     
     private var dateToPassToNewDayView: Date?
     
@@ -140,6 +141,12 @@ class AllCyclesCollectionViewController: UICollectionViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         addDay.isEnabled = shouldEnableAddDay()
+        if isFirstAppearance {
+            let screenWidth = UIScreen.main.bounds.width
+            let contentWidth = collectionView?.collectionViewLayout.collectionViewContentSize.width
+            collectionView?.contentOffset = CGPoint(x: Double(contentWidth! - screenWidth), y: 0.0)
+            isFirstAppearance = false
+        }
     }
     
     private var lastDaysInCurrentDisplayCycle: [Day] {
