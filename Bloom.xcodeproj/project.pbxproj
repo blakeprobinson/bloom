@@ -31,6 +31,7 @@
 		BA76C4B81E23DBDE005A2B12 /* CycleTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA76C4B71E23DBDE005A2B12 /* CycleTableViewController.swift */; };
 		BA76C4BE1E23EA9D005A2B12 /* AllCyclesCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA76C4BD1E23EA9D005A2B12 /* AllCyclesCollectionViewController.swift */; };
 		BA91F1C01E14346C00C209BC /* PlusMinusButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA91F1BF1E14346C00C209BC /* PlusMinusButton.swift */; };
+		BA97EA5D1E410B9A00A0F6B4 /* DaySymbolView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA97EA5C1E410B9A00A0F6B4 /* DaySymbolView.swift */; };
 		BAB43D2D1E3FDA0B00559C8F /* AllCyclesCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA76C4BD1E23EA9D005A2B12 /* AllCyclesCollectionViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -70,6 +71,7 @@
 		BA76C4B71E23DBDE005A2B12 /* CycleTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CycleTableViewController.swift; sourceTree = "<group>"; };
 		BA76C4BD1E23EA9D005A2B12 /* AllCyclesCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllCyclesCollectionViewController.swift; sourceTree = "<group>"; };
 		BA91F1BF1E14346C00C209BC /* PlusMinusButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlusMinusButton.swift; sourceTree = "<group>"; };
+		BA97EA5C1E410B9A00A0F6B4 /* DaySymbolView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DaySymbolView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +116,7 @@
 				BA66379F1E266C0000401A6A /* AllCyclesView */,
 				BA734F4B1E2FEE3400EFEDB8 /* CycleView */,
 				BA2BB7C41DF8AE32008F3D51 /* Main.storyboard */,
+				BA97EA5C1E410B9A00A0F6B4 /* DaySymbolView.swift */,
 				BA91F1C31E15545C00C209BC /* DayView */,
 				BA2BB7D51DF8AF1D008F3D51 /* Day.swift */,
 				BA5FE9471E1C278800755E40 /* PersistenceManager.swift */,
@@ -283,6 +286,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BA02B8891E01D2540051BACD /* Cycle.swift in Sources */,
+				BA97EA5D1E410B9A00A0F6B4 /* DaySymbolView.swift in Sources */,
 				BA0D5C341E2956000087116D /* AllCyclesSectionHeader.swift in Sources */,
 				BA0F458B1E11BD8500B23715 /* StackViewWithButtons.swift in Sources */,
 				BA0F45891E0C5EE900B23715 /* ButtonWithUnderBar.swift in Sources */,
