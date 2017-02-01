@@ -12,7 +12,7 @@ class IntercourseHeart: UIView {
 
     override func draw(_ rect: CGRect) {
         let path = UIBezierPath()
-        path.getHearts(originalRect: rect, scale: 0.9)
+        path.getHearts(originalRect: rect, scale: 0.7)
         UIColor(red:0.80, green:0.00, blue:0.00, alpha:1.0).setFill()
         UIColor(red:0.80, green:0.00, blue:0.00, alpha:1.0).setStroke()
         path.fill()

@@ -69,7 +69,6 @@ class AllCyclesCollectionViewController: UICollectionViewController {
         
         //collectionView!.register(forSupplementaryViewOfKind: "header", withReuseIdentifier: "sectionHeader")
         collectionView!.register(AllCyclesSectionHeader.self, forSupplementaryViewOfKind: "sectionHeader", withReuseIdentifier: "sectionHeader")
-        print("******* this is the collectionView.frame: \(collectionView?.frame)")
     }
     
     private func createDummyData() -> [Cycle] {
@@ -95,7 +94,7 @@ class AllCyclesCollectionViewController: UICollectionViewController {
                     mucus: nil,
                     observation: 1,
                     intercourse: true,
-                    lubrication: true,
+                    lubrication: false,
                     pasty: false,
                     date: Date(),
                     notes: nil,
@@ -115,7 +114,7 @@ class AllCyclesCollectionViewController: UICollectionViewController {
             } else {
                 let mucus = Day.Mucus(length: "1/4", color: "Cloudy", consistency: "Gummy")
                 day = Day(
-                    bleeding:nil,
+                    bleeding: nil,
                     dry: nil,
                     mucus: mucus,
                     observation: 1,
@@ -172,7 +171,7 @@ class AllCyclesCollectionViewController: UICollectionViewController {
             enable = true
         } else {
             for day in lastDaysInCurrentDisplayCycle {
-                if day.category == nil {
+                if day.internalCategory == nil {
                     enable = true
                     break
                 }
@@ -250,7 +249,7 @@ class AllCyclesCollectionViewController: UICollectionViewController {
         var actions = generateActionOptions()
         var counter = 0
         for (index, day) in lastDaysInCurrentDisplayCycle.enumerated() {
-            if day.category != nil {
+            if day.internalCategory != nil {
                 let actionRemoved = actions.remove(at: index - counter)
                 print("this is the action just removed: \(actionRemoved)")
                 counter += 1
@@ -317,9 +316,10 @@ class AllCyclesCollectionViewController: UICollectionViewController {
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! AllCyclesCollectionViewCell
+        let cycle = model[indexPath.section]
         cell.dayNumber.text = "\(indexPath.item + 1)"
         cell.dayNumber.font = UIFont.systemFont(ofSize: 11)
-        cell.category = Day.assignCategory(day: displayModel[indexPath.section].days[indexPath.item])
+        cell.daySymbol.category = cycle.category(for: cycle.days[indexPath.item])
         cell.indexPath = indexPath
         if indexPath.row == displayModel[indexPath.section].days.count - 1 {
             cell.bottomBorder = true
@@ -338,36 +338,5 @@ class AllCyclesCollectionViewController: UICollectionViewController {
         
         return supplementaryView
     }
-
-    // MARK: UICollectionViewDelegate
-
-    /*
-    // Uncomment this method to specify if the specified item should be highlighted during tracking
-    override func collectionView(_ collectionView: UICollectionView, shouldHighlightItemAt indexPath: IndexPath) -> Bool {
-        return true
-    }
-    */
-
-    /*
-    // Uncomment this method to specify if the specified item should be selected
-    override func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
-        return true
-    }
-    */
-
-    /*
-    // Uncomment these methods to specify if an action menu should be displayed for the specified item, and react to actions performed on the item
-    override func collectionView(_ collectionView: UICollectionView, shouldShowMenuForItemAt indexPath: IndexPath) -> Bool {
-        return false
-    }
-
-    override func collectionView(_ collectionView: UICollectionView, canPerformAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) -> Bool {
-        return false
-    }
-
-    override func collectionView(_ collectionView: UICollectionView, performAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) {
-    
-    }
-    */
 
 }

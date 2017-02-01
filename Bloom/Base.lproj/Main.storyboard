@@ -130,7 +130,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CG2-Wo-kNf" customClass="IntercourseHeart" customModule="Bloom" customModuleProvider="target">
-                                            <rect key="frame" x="268" y="3" width="36" height="36"/>
+                                            <rect key="frame" x="274" y="3" width="36" height="36"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="36" id="59O-lv-4LS"/>
@@ -149,7 +149,7 @@
                                         <constraint firstItem="BMW-vh-h27" firstAttribute="leading" secondItem="caZ-pQ-Epa" secondAttribute="leadingMargin" constant="5" id="93d-04-tOn"/>
                                         <constraint firstItem="I4u-xn-F97" firstAttribute="leading" secondItem="ssf-sC-afY" secondAttribute="leading" id="BxN-a5-y5L"/>
                                         <constraint firstItem="I4u-xn-F97" firstAttribute="top" secondItem="ssf-sC-afY" secondAttribute="bottom" id="TxC-Nk-GKn"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="CG2-Wo-kNf" secondAttribute="trailing" constant="8" id="dOX-NY-Li2"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="CG2-Wo-kNf" secondAttribute="trailing" constant="2" id="dOX-NY-Li2"/>
                                         <constraint firstItem="ssf-sC-afY" firstAttribute="leading" secondItem="BMW-vh-h27" secondAttribute="trailing" constant="8" id="taU-3x-InE"/>
                                         <constraint firstItem="CG2-Wo-kNf" firstAttribute="centerY" secondItem="caZ-pQ-Epa" secondAttribute="centerY" id="uHH-SJ-rNh"/>
                                         <constraint firstItem="BMW-vh-h27" firstAttribute="centerY" secondItem="caZ-pQ-Epa" secondAttribute="centerY" id="xaH-QV-BrO"/>
@@ -194,7 +194,7 @@
                                 <rect key="frame" x="0.0" y="64" width="414" height="1186"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="GC0-na-Q3n" userLabel="Contents Stack View">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1151"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="894"/>
                                         <subviews>
                                             <navigationBar contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7BP-Wf-r6X">
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
@@ -265,7 +265,7 @@
                                                 </constraints>
                                             </view>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="L7Y-iT-uic" userLabel="Body">
-                                                <rect key="frame" x="0.0" y="140" width="414" height="1011"/>
+                                                <rect key="frame" x="0.0" y="140" width="414" height="754"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="yuD-2m-GTu" userLabel="Section 1">
                                                         <rect key="frame" x="0.0" y="0.0" width="414" height="407"/>
@@ -745,10 +745,10 @@
                                                         </subviews>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="GgR-Sm-M8z" userLabel="Section 3">
-                                                        <rect key="frame" x="0.0" y="626" width="414" height="385"/>
+                                                        <rect key="frame" x="0.0" y="626" width="414" height="128"/>
                                                         <subviews>
                                                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y8C-9b-pTn">
-                                                                <rect key="frame" x="0.0" y="0.0" width="414" height="39"/>
+                                                                <rect key="frame" x="0.0" y="-0.5" width="414" height="0.0"/>
                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" priority="999" constant="39" id="f1M-bS-8yy"/>
@@ -763,14 +763,14 @@
                                                                 </connections>
                                                             </button>
                                                             <pickerView hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zk1-Jx-YLK">
-                                                                <rect key="frame" x="0.0" y="40" width="414" height="216"/>
+                                                                <rect key="frame" x="0.0" y="-0.5" width="414" height="0.0"/>
                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" priority="999" constant="216" id="9WX-P2-3ER"/>
                                                                 </constraints>
                                                             </pickerView>
                                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Notes" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="128-z0-z1H">
-                                                                <rect key="frame" x="0.0" y="257" width="414" height="128"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="414" height="128"/>
                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="128" id="LpF-zx-yew"/>
