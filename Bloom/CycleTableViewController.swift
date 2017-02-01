@@ -51,7 +51,7 @@ class CycleTableViewController: UITableViewController {
 
         cell.dayNumber.text = String(indexPath.row + 1)
         cell.date.text = dateText(day)
-        cell.category = day.category
+        cell.daySymbol.category = cycle?.category(for: day)
         cell.dayDescription.text = day.shortDescription ?? "--"
         cell.intercourseHeart.isHidden = !day.intercourse
 
