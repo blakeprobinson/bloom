@@ -19,13 +19,7 @@ class DayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
     
     //MARK: Header Outlets
     @IBOutlet weak var headerDate: UILabel!
-    @IBOutlet weak var circle: UIView! {
-        didSet {
-            circle.layer.cornerRadius = circle.bounds.height / 2
-            circle.layer.borderColor = UIColor(red:0.60, green:0.60, blue:0.60, alpha:1.0).cgColor
-            circle.layer.borderWidth = 3
-        }
-    }
+    @IBOutlet weak var daySymbol: DaySymbolView!
     @IBOutlet weak var requiredInput: UILabel!
     @IBOutlet weak var dayInCycle: UILabel!
     var dayInCycleText:Int? {
@@ -237,8 +231,7 @@ class DayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
         var canAdd = false
         if let day = day {
             headerDate.text = dateString(date: day.date, forHeader: true)
-            circle.backgroundColor = circleBackground(day: day)
-            circle.layer.borderColor = day.category == .mucus ? UIColor(red:1.00, green:0.49, blue:0.98, alpha:1.0).cgColor : UIColor(red:0.60, green:0.60, blue:0.60, alpha:1.0).cgColor
+            daySymbol.category = cycle?.category(for:day)
             if let dayInCycleText = dayInCycleText {
                 dayInCycle.text = String(dayInCycleText)
             }
@@ -278,20 +271,6 @@ class DayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
     fileprivate func updateDatesInUI() {
         headerDate.text = dateString(date: day!.date, forHeader: true)
         adjustableDate.text = dateString(date: day!.date, forHeader: false)
-    }
-    
-    private func circleBackground(day: Day) -> UIColor {
-        guard let category = day.category else {
-            return UIColor(red:0.60, green:0.60, blue:0.60, alpha:1.0)
-        }
-        switch category {
-        case .bleeding:
-            return UIColor(red:0.80, green:0.00, blue:0.00, alpha:1.0)
-        case .dry:
-            return UIColor(red:0.42, green:0.66, blue:0.31, alpha:1.0)
-        case .mucus:
-            return day == cycle?.peak ? UIColor(red:1.00, green:0.49, blue:0.98, alpha:1.0) : UIColor.white
-        }
     }
     
     private func dateString(date: Date, forHeader: Bool) -> String {
