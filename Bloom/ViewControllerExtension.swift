@@ -1,5 +1,5 @@
 //
-//  ViewControllerExtensions.swift
+//  ViewControllerExtension.swift
 //  Bloom
 //
 //  Created by Blake Robinson on 1/23/17.

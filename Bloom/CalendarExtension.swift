@@ -1,5 +1,5 @@
 //
-//  CalendarExtensions.swift
+//  CalendarExtension.swift
 //  Bloom
 //
 //  Created by Blake Robinson on 1/20/17.
