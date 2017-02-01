@@ -24,7 +24,7 @@ class Day: NSObject, NSCoding {
     
     var uuid: UUID?
     
-    var category: Category? {
+    var internalCategory: InternalCategory? {
         get {
             return Day.assignCategory(day: self)
         }
@@ -41,7 +41,7 @@ class Day: NSObject, NSCoding {
     
     var shortDescription: String? {
         get {
-            if let category = category {
+            if let category = internalCategory {
                 switch category {
                 case .bleeding:
                     return bleeding?.intensity.rawValue
@@ -328,13 +328,13 @@ extension Day {
         }
     }
     
-    enum Category {
+    enum InternalCategory {
         case bleeding
         case dry
         case mucus
     }
     
-    static func assignCategory(day: Day) -> Day.Category? {
+    static func assignCategory(day: Day) -> Day.InternalCategory? {
         if day.bleeding != nil {
             return .bleeding
         } else if day.lubrication {
