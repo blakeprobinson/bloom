@@ -51,13 +51,17 @@ class Day: NSObject, NSCoding {
                     if let dry = dry {
                         return dry.observation.rawValue
                     } else {
-                        guard let length = mucus?.length else { return nil }
-                        guard let color = mucus?.color else { return nil }
-                        
-                        if let consistency = mucus?.consistency {
-                            return "\(length.rawValue) \(color.rawValue) \(consistency.rawValue)"
+                        if let bleeding = bleeding {
+                            return bleeding.intensity.rawValue
                         } else {
-                            return "\(length.rawValue) \(color.rawValue)"
+                            guard let length = mucus?.length else { return nil }
+                            guard let color = mucus?.color else { return nil }
+                            
+                            if let consistency = mucus?.consistency {
+                                return "\(length.rawValue) \(color.rawValue) \(consistency.rawValue)"
+                            } else {
+                                return "\(length.rawValue) \(color.rawValue)"
+                            }
                         }
                     }
                 }
