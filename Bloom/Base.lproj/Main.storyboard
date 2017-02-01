@@ -105,7 +105,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BMW-vh-h27">
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BMW-vh-h27" customClass="DaySymbolView" customModule="Bloom" customModuleProvider="target">
                                             <rect key="frame" x="13" y="3" width="36" height="36"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zbv-Ot-Zvb">
@@ -115,7 +115,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
-                                            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="36" id="Ceg-8z-Uy8"/>
                                                 <constraint firstItem="Zbv-Ot-Zvb" firstAttribute="centerY" secondItem="BMW-vh-h27" secondAttribute="centerY" id="FGQ-z8-LET"/>
@@ -194,7 +194,7 @@
                                 <rect key="frame" x="0.0" y="64" width="414" height="1186"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="GC0-na-Q3n" userLabel="Contents Stack View">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1151"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="894"/>
                                         <subviews>
                                             <navigationBar contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7BP-Wf-r6X">
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
@@ -229,7 +229,7 @@
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kyF-wa-qWI" userLabel="Circle">
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kyF-wa-qWI" userLabel="Circle" customClass="DaySymbolView" customModule="Bloom" customModuleProvider="target">
                                                         <rect key="frame" x="167" y="8" width="80" height="80"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Md-mu-ijF">
@@ -265,7 +265,7 @@
                                                 </constraints>
                                             </view>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="L7Y-iT-uic" userLabel="Body">
-                                                <rect key="frame" x="0.0" y="140" width="414" height="1011"/>
+                                                <rect key="frame" x="0.0" y="140" width="414" height="754"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="yuD-2m-GTu" userLabel="Section 1">
                                                         <rect key="frame" x="0.0" y="0.0" width="414" height="407"/>
@@ -745,10 +745,10 @@
                                                         </subviews>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="GgR-Sm-M8z" userLabel="Section 3">
-                                                        <rect key="frame" x="0.0" y="626" width="414" height="385"/>
+                                                        <rect key="frame" x="0.0" y="626" width="414" height="128"/>
                                                         <subviews>
                                                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y8C-9b-pTn">
-                                                                <rect key="frame" x="0.0" y="0.0" width="414" height="39"/>
+                                                                <rect key="frame" x="0.0" y="-0.5" width="414" height="0.0"/>
                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" priority="999" constant="39" id="f1M-bS-8yy"/>
@@ -763,14 +763,14 @@
                                                                 </connections>
                                                             </button>
                                                             <pickerView hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zk1-Jx-YLK">
-                                                                <rect key="frame" x="0.0" y="40" width="414" height="216"/>
+                                                                <rect key="frame" x="0.0" y="-0.5" width="414" height="0.0"/>
                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" priority="999" constant="216" id="9WX-P2-3ER"/>
                                                                 </constraints>
                                                             </pickerView>
                                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Notes" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="128-z0-z1H">
-                                                                <rect key="frame" x="0.0" y="257" width="414" height="128"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="414" height="128"/>
                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="128" id="LpF-zx-yew"/>
