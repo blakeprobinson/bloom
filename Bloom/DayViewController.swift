@@ -269,8 +269,8 @@ class DayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
     }
     
     fileprivate func updateDatesInUI() {
-        headerDate.text = dateString(date: day!.date, forHeader: true)
-        adjustableDate.text = dateString(date: day!.date, forHeader: false)
+        headerDate.text = dateString(date: day!.date.subtractSecondsFromGMTFromDate(), forHeader: true)
+        adjustableDate.text = dateString(date: day!.date.subtractSecondsFromGMTFromDate(), forHeader: false)
     }
     
     private func dateString(date: Date, forHeader: Bool) -> String {

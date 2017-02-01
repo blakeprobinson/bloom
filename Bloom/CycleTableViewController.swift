@@ -60,7 +60,7 @@ class CycleTableViewController: UITableViewController {
     
     private func dateText(_ day: Day) -> String {
         dateFormatter.dateFormat = "EEEE, MMM dd"
-        return dateFormatter.string(from: day.date)
+        return dateFormatter.string(from: day.date.subtractSecondsFromGMTFromDate())
     }
 
     /*

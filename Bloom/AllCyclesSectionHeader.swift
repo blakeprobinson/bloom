@@ -66,9 +66,9 @@ class AllCyclesSectionHeader: UICollectionReusableView {
     }
     
     func configure(_ cycle:Cycle) {
-        startDate?.text = AllCyclesSectionHeader.dateFormatter.string(from: cycle.startDate) + "-"
+        startDate?.text = AllCyclesSectionHeader.dateFormatter.string(from: cycle.startDate.subtractSecondsFromGMTFromDate()) + "-"
         if let date = cycle.endDate {
-            endDate?.text = AllCyclesSectionHeader.dateFormatter.string(from: date)
+            endDate?.text = AllCyclesSectionHeader.dateFormatter.string(from: date.subtractSecondsFromGMTFromDate())
         } else {
             endDate?.text = nil
         }
