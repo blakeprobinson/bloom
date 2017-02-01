@@ -58,9 +58,9 @@ class Day: NSObject, NSCoding {
                             guard let color = mucus?.color else { return nil }
                             
                             if let consistency = mucus?.consistency {
-                                return "\(length.rawValue) \(color.rawValue) \(consistency.rawValue)"
+                                return "\(length.rawValue) in. \(color.rawValue) \(consistency.rawValue)"
                             } else {
-                                return "\(length.rawValue) \(color.rawValue)"
+                                return "\(length.rawValue) in. \(color.rawValue)"
                             }
                         }
                     }
