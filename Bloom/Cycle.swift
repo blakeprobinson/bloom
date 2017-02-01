@@ -93,3 +93,43 @@ class Cycle: NSObject, NSCoding {
         aCoder.encode(uuid, forKey: PropertyKey.uuid)
     }
 }
+
+extension Cycle {
+    func category(for day: Day) -> DayCategory? {
+        guard let internalCategory = day.internalCategory else {
+            return nil
+        }
+        switch internalCategory {
+        case .bleeding:
+            if threeDaysAfterPeak.contains(day) {
+                return .bleedingPeakPlus
+            } else {
+                return .bleeding
+            }
+        case .dry:
+            if threeDaysAfterPeak.contains(day) {
+                return .dryPeakPlus
+            } else {
+                return .dry
+            }
+        case .mucus:
+            if day == peak {
+                return .peak
+            } else if threeDaysAfterPeak.contains(day) {
+                return .mucusPeakPlus
+            } else {
+                return .mucus
+            }
+        }
+    }
+    
+    enum DayCategory {
+        case bleeding
+        case dry
+        case mucus
+        case peak
+        case bleedingPeakPlus
+        case dryPeakPlus
+        case mucusPeakPlus
+    }
+}
