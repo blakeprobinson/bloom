@@ -19,6 +19,8 @@ class AllCyclesLayout: UICollectionViewFlowLayout {
     let screenWidth = UIScreen.main.bounds.width
     
     override func prepare() {
+        cellLayoutInfo.removeAll()
+        supplementaryLayoutInfo.removeAll()
         let numberOfSections = collectionView?.numberOfSections ?? 0
         sectionInset = UIEdgeInsets(top: 0, left: 2, bottom: 0, right: 2)
         for sectionIndex in 0..<numberOfSections {
