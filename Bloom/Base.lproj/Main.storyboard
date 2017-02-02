@@ -165,7 +165,6 @@
                             </tableViewCell>
                         </prototypes>
                         <connections>
-                            <outlet property="dataSource" destination="N6H-bJ-59T" id="QNZ-pm-Jrc"/>
                             <outlet property="delegate" destination="N6H-bJ-59T" id="wUs-BP-IrS"/>
                         </connections>
                     </tableView>

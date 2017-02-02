@@ -298,7 +298,7 @@ class AllCyclesCollectionViewController: UICollectionViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let destination = segue.destination as! CycleTableViewController
         let cell = sender as? AllCyclesCollectionViewCell
-        destination.cycle = model.reversed()[(cell?.indexPath?.section)!]
+        destination.dataSource.cycle = model.reversed()[(cell?.indexPath?.section)!]
     }
 
 
