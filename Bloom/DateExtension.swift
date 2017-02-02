@@ -26,6 +26,10 @@ extension Date {
     func calibrate() -> Date {
         var calendar = Calendar(identifier: .gregorian)
         calendar.timeZone = TimeZone(abbreviation: "GMT")!
-        return calendar.startOfDay(for: addSecondsFromGMT())
+        if self == calendar.startOfDay(for: self) {
+            return self
+        } else {
+            return calendar.startOfDay(for: addSecondsFromGMT())
+        }
     }
 }
