@@ -230,7 +230,7 @@ class DayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
         var modOrHeavySelected = false
         var canAdd = false
         if let day = day {
-            headerDate.text = dateString(date: day.date, forHeader: true)
+            headerDate.text = dateString(date: day.date.subtractSecondsFromGMT(), forHeader: true)
             daySymbol.category = cycle?.category(for:day)
             if let dayInCycleText = dayInCycleText {
                 dayInCycle.text = String(dayInCycleText)
@@ -269,13 +269,13 @@ class DayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
     }
     
     fileprivate func updateDatesInUI() {
-        headerDate.text = dateString(date: day!.date.subtractSecondsFromGMTFromDate(), forHeader: true)
-        adjustableDate.text = dateString(date: day!.date.subtractSecondsFromGMTFromDate(), forHeader: false)
+        headerDate.text = dateString(date: day!.date.subtractSecondsFromGMT(), forHeader: true)
+        adjustableDate.text = dateString(date: day!.date.subtractSecondsFromGMT(), forHeader: false)
     }
     
     private func dateString(date: Date, forHeader: Bool) -> String {
         let calendar = NSCalendar(identifier: .gregorian)
-        calendar?.timeZone = TimeZone(abbreviation: "GMT")!
+        calendar?.timeZone = NSTimeZone.local
         if (calendar?.isDateInToday(date))! {
             return "Today"
         } else if (calendar?.isDateInYesterday(date))! {
