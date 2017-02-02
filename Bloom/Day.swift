@@ -128,9 +128,7 @@ class Day: NSObject, NSCoding {
     }
     
     func calibrateDate() {
-        var calendar = Calendar(identifier: .gregorian)
-        calendar.timeZone = TimeZone(abbreviation: "GMT")!
-        date = calendar.startOfDay(for: date)
+        date = date.calibrate()
     }
     
     // MARK: NSCoding

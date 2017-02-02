@@ -15,4 +15,10 @@ extension Date {
         
         return calendar.date(byAdding: .second, value: -secondsFromGMT, to: self)!
     }
+    
+    func calibrate() -> Date {
+        var calendar = Calendar(identifier: .gregorian)
+        calendar.timeZone = TimeZone(abbreviation: "GMT")!
+        return calendar.startOfDay(for: addSecondsFromGMT())
+    }
 }
