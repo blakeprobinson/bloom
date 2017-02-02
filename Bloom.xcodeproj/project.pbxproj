@@ -11,6 +11,11 @@
 		BA02B8AC1E0335A80051BACD /* DayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA02B8AB1E0335A80051BACD /* DayViewController.swift */; };
 		BA0D5C341E2956000087116D /* AllCyclesSectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA0D5C331E2956000087116D /* AllCyclesSectionHeader.swift */; };
 		BA0D5C361E296FF60087116D /* AllCyclesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA0D5C351E296FF60087116D /* AllCyclesCollectionViewCell.swift */; };
+		BA0F174C1E42BED700B82E84 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA97EA5E1E42785500A0F6B4 /* DateExtension.swift */; };
+		BA0F174D1E42BEEA00B82E84 /* AllCyclesSectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA0D5C331E2956000087116D /* AllCyclesSectionHeader.swift */; };
+		BA0F174E1E42BEFC00B82E84 /* CycleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA734F471E2ED03900EFEDB8 /* CycleTableViewCell.swift */; };
+		BA0F174F1E42BF0700B82E84 /* DaySymbolView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA97EA5C1E410B9A00A0F6B4 /* DaySymbolView.swift */; };
+		BA0F17501E42BF0F00B82E84 /* IntercourseHeart.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA734F491E2FEDC700EFEDB8 /* IntercourseHeart.swift */; };
 		BA0F45891E0C5EE900B23715 /* ButtonWithUnderBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA0F45881E0C5EE900B23715 /* ButtonWithUnderBar.swift */; };
 		BA0F458B1E11BD8500B23715 /* StackViewWithButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA0F458A1E11BD8500B23715 /* StackViewWithButtons.swift */; };
 		BA2BB7C11DF8AE32008F3D51 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA2BB7C01DF8AE32008F3D51 /* AppDelegate.swift */; };
@@ -322,10 +327,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BA0F174D1E42BEEA00B82E84 /* AllCyclesSectionHeader.swift in Sources */,
+				BA0F174F1E42BF0700B82E84 /* DaySymbolView.swift in Sources */,
 				BA4D62261E37E61D0054457B /* PersistenceManagerTests.swift in Sources */,
+				BA0F174C1E42BED700B82E84 /* DateExtension.swift in Sources */,
 				BAB43D2D1E3FDA0B00559C8F /* AllCyclesCollectionViewController.swift in Sources */,
 				BA4D622D1E37E6380054457B /* PersistenceManager.swift in Sources */,
+				BA0F17501E42BF0F00B82E84 /* IntercourseHeart.swift in Sources */,
 				BA4D622F1E37E7960054457B /* Cycle.swift in Sources */,
+				BA0F174E1E42BEFC00B82E84 /* CycleTableViewCell.swift in Sources */,
 				BA4D622E1E37E7920054457B /* Day.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
