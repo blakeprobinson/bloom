@@ -122,7 +122,6 @@
 		BA2BB7BF1DF8AE32008F3D51 /* Bloom */ = {
 			isa = PBXGroup;
 			children = (
-				BA97EA611E429C6500A0F6B4 /* CycleDataSource.swift */,
 				BA66379F1E266C0000401A6A /* AllCyclesView */,
 				BA734F4B1E2FEE3400EFEDB8 /* CycleView */,
 				BA2BB7C41DF8AE32008F3D51 /* Main.storyboard */,
@@ -174,6 +173,7 @@
 				BA76C4B71E23DBDE005A2B12 /* CycleTableViewController.swift */,
 				BA734F471E2ED03900EFEDB8 /* CycleTableViewCell.swift */,
 				BA734F491E2FEDC700EFEDB8 /* IntercourseHeart.swift */,
+				BA97EA611E429C6500A0F6B4 /* CycleDataSource.swift */,
 			);
 			name = CycleView;
 			sourceTree = "<group>";
