@@ -260,7 +260,7 @@ class AllCyclesCollectionViewController: UICollectionViewController {
     
     private func generateActionOptions() -> [UIAlertAction] {
         guard let calendar = NSCalendar(calendarIdentifier: .gregorian) else { return [] }
-        let date = Date().calibrate()
+        let date = Date().calibrate().subtractSecondsFromGMT()
         let todayAction = UIAlertAction(title: "Today", style: .default) {
             action in self.actionClosure(action, days: 0, in: calendar)
         }
