@@ -22,12 +22,6 @@ class CycleDataSource: NSObject, UITableViewDataSource {
     }
     var displayDays = [Day]()
     
-    
-}
-
-// MARK: - Cycle Table view data source
-extension CycleDataSource {
-    
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
