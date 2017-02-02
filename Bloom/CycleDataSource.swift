@@ -10,7 +10,7 @@ import UIKit
 
 class CycleDataSource: NSObject, UITableViewDataSource {
     
-    private let dateFormatter = DateFormatter()
+    fileprivate let dateFormatter = DateFormatter()
     var cycle:Cycle? {
         didSet {
             if let cycle = cycle {
@@ -22,7 +22,12 @@ class CycleDataSource: NSObject, UITableViewDataSource {
     }
     var displayDays = [Day]()
     
-    // MARK: - Table view data source
+    
+}
+
+// MARK: - Cycle Table view data source
+extension CycleDataSource {
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
