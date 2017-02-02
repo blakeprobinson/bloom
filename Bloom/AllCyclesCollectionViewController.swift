@@ -37,7 +37,7 @@ class AllCyclesCollectionViewController: UICollectionViewController {
     private var dateOfMostRecentDay: Date? {
         get {
             if model.count > 0 {
-                return model[0].days.last?.date
+                return model[0].days.last?.date.subtractSecondsFromGMT()
             } else {
                 return nil
             }
@@ -185,16 +185,16 @@ class AllCyclesCollectionViewController: UICollectionViewController {
     
     @IBAction func plusTouched(_ sender: UIBarButtonItem) {
         let calendar = NSCalendar(calendarIdentifier: .gregorian)!
-        calendar.timeZone = TimeZone(abbreviation: "GMT")!
+        calendar.timeZone = NSTimeZone.local
         
         guard let dateOfMostRecentDay = dateOfMostRecentDay else {
-            dateToPassToNewDayView = Date()
+            dateToPassToNewDayView = Date().calibrate()
             presentDayView(sender)
             return
         }
         
         if calendar.isDateInYesterday(dateOfMostRecentDay) {
-            dateToPassToNewDayView = Date()
+            dateToPassToNewDayView = Date().calibrate()
             presentDayView(sender)
         } else {
             showActionSheet()
@@ -209,13 +209,14 @@ class AllCyclesCollectionViewController: UICollectionViewController {
         if sender is UIAlertAction {
             let sender = sender as! UIAlertAction
             let calendar = Calendar(identifier: .gregorian)
-            destination.day = Day(date: calendar.date(fromWeekday: sender.title!)!, uuid: currentCycleUUID)
+            destination.day = Day(date: dateToPassToNewDayView!, uuid: currentCycleUUID)
             destination.cycle = cycle
             let index = displayModel.first?.days.index(where: { calendar.isDate($0.date, inSameDayAs: (destination.day?.date)!) }) ?? 0
             destination.dayInCycleText = index + 1
             destination.day?.isFirstDayOfCycle = persistenceManager.shouldDayStartCycle(destination.day!)
             destination.fromAllCyclesVC = true
         } else {
+            destination.day = Day(date: dateToPassToNewDayView!, uuid: currentCycleUUID)
             if let count = cycle?.days.count {
                 if count > 0 {
                     destination.dayInCycleText = cycle?.days.index(where: { $0.date > (destination.day?.date)! }) ?? count
@@ -226,7 +227,6 @@ class AllCyclesCollectionViewController: UICollectionViewController {
                 destination.dayInCycleText = 1
             }
             
-            destination.day = Day(date: dateToPassToNewDayView!, uuid: currentCycleUUID)
             destination.cycle = cycle
             destination.fromAllCyclesVC = true
         }
@@ -260,7 +260,7 @@ class AllCyclesCollectionViewController: UICollectionViewController {
     
     private func generateActionOptions() -> [UIAlertAction] {
         guard let calendar = NSCalendar(calendarIdentifier: .gregorian) else { return [] }
-        let date = Date()
+        let date = Date().calibrate()
         let todayAction = UIAlertAction(title: "Today", style: .default) {
             action in self.actionClosure(action, days: 0, in: calendar)
         }
@@ -286,7 +286,7 @@ class AllCyclesCollectionViewController: UICollectionViewController {
     }
     
     private func actionClosure(_ action: UIAlertAction, days: Int, in calendar: NSCalendar) {
-        let date = Date()
+        let date = Date().calibrate()
         if days == 0 {
             self.dateToPassToNewDayView = date
         } else {
