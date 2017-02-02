@@ -9,7 +9,14 @@
 import Foundation
 
 extension Date {
-    func subtractSecondsFromGMTFromDate() -> Date {
+    func addSecondsFromGMT() -> Date {
+        let secondsFromGMT = NSTimeZone.local.secondsFromGMT()
+        let calendar = Calendar(identifier: .gregorian)
+        
+        return calendar.date(byAdding: .second, value: secondsFromGMT, to: self)!
+    }
+    
+    func subtractSecondsFromGMT() -> Date {
         let secondsFromGMT = NSTimeZone.local.secondsFromGMT()
         let calendar = Calendar(identifier: .gregorian)
         
