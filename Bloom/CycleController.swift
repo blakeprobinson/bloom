@@ -50,7 +50,7 @@ class CycleController {
                 displayDays = addDaysFrom(day.date, to: cycle.days[index + 1].date, in: displayDays, for:cycle)
             }
         }
-        return Cycle(days: displayDays, uuid: UUID())
+        return Cycle(days: displayDays, uuid: cycle.uuid)
     }
     
     static func displayCycleCurrent(from cycle: Cycle) -> Cycle {
@@ -67,7 +67,7 @@ class CycleController {
                 displayDays = addDaysFrom(day.date, to: cycle.days[index + 1].date, in: displayDays, for:cycle)
             }
         }
-        return Cycle(days: displayDays, uuid: UUID())
+        return Cycle(days: displayDays, uuid: cycle.uuid)
     }
     
     static func addDaysFrom(_ date1: Date, to date2: Date, in displayDays: [Day], for cycle: Cycle) -> [Day] {
