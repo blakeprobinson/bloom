@@ -11,7 +11,6 @@ import UIKit
 class CycleTableViewController: UITableViewController {
     
     private var persistenceManager = PersistenceManager()
-    private let dateFormatter = DateFormatter()
     var dataSource = CycleDataSource()
     
     var selected:Int?
@@ -29,7 +28,7 @@ class CycleTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         selected = indexPath.row
-        performSegue(withIdentifier: "cycleToEdit", sender: dataSource.displayDays[indexPath.row])
+        performSegue(withIdentifier: "cycleToEdit", sender: dataSource.dataSource[indexPath.row])
     }
 
     
