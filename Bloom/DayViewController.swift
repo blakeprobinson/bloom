@@ -231,7 +231,7 @@ class DayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
         var canAdd = false
         if let day = day {
             headerDate.text = dateString(date: day.date.subtractSecondsFromGMT(), forHeader: true)
-            daySymbol.category = cycle?.category(for:day)
+            daySymbol.category = CycleController.category(for: day)
             if let dayInCycleText = dayInCycleText {
                 dayInCycle.text = String(dayInCycleText)
             }

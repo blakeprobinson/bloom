@@ -85,4 +85,10 @@ class CycleController {
         }
         return days
     }
+    
+    static func category(for day: Day) -> Cycle.DayCategory? {
+        let persistenceManager = PersistenceManager()
+        let cycle = persistenceManager.getCycle(uuid: day.uuid)
+        return cycle?.category(for: day)
+    }
 }
