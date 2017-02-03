@@ -8,43 +8,16 @@
 
 import UIKit
 
-private let reuseIdentifier = "allCyclesCell"
-
 class AllCyclesCollectionViewController: UICollectionViewController {
     
-    var persistenceManager = PersistenceManager()
-    var model = [Cycle]() {
-        didSet {
-            displayModel = displayCycles(from: model)
-        }
-    }
+    
     let dateFormatter = DateFormatter()
     var selected = IndexPath()
     var alertController = UIAlertController()
+    var dataSource = AllCyclesDataSource()
     
     @IBOutlet weak var addDay: UIBarButtonItem!
-    
-    private var currentCycleUUID: UUID? {
-        get {
-            if model.count > 0 {
-                return model[0].uuid
-            } else {
-                return nil
-            }
-        }
-    }
-    
-    private var dateOfMostRecentDay: Date? {
-        get {
-            if model.count > 0 {
-                return model[0].days.last?.date.subtractSecondsFromGMT()
-            } else {
-                return nil
-            }
-        }
-    }
-    
-    private var displayModel: [Cycle]!
+
     private var isFirstAppearance = true
     
     private var dateToPassToNewDayView: Date?
@@ -56,18 +29,17 @@ class AllCyclesCollectionViewController: UICollectionViewController {
             guard let strongSelf = weakSelf else {
                 return
             }
-            strongSelf.model = strongSelf.persistenceManager.getAllCyclesSorted()
+            strongSelf.dataSource = AllCyclesDataSource()
+            strongSelf.collectionView?.dataSource = strongSelf.dataSource
             strongSelf.collectionView?.reloadData()
         })
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        //model = createDummyData()
-        model = persistenceManager.getAllCyclesSorted()
+        collectionView?.dataSource = dataSource
         navigationController?.navigationBar.tintColor = UIColor.white
         
-        //collectionView!.register(forSupplementaryViewOfKind: "header", withReuseIdentifier: "sectionHeader")
         collectionView!.register(AllCyclesSectionHeader.self, forSupplementaryViewOfKind: "sectionHeader", withReuseIdentifier: "sectionHeader")
     }
     
@@ -148,29 +120,13 @@ class AllCyclesCollectionViewController: UICollectionViewController {
         }
     }
     
-    private var lastDaysInCurrentDisplayCycle: [Day] {
-        get {
-            if let days = displayModel.first?.days {
-                var lastDays = [Day]()
-                for (index, day) in days.reversed().enumerated() {
-                    if index < 4 {
-                        lastDays.append(day)
-                    }
-                }
-                return lastDays
-            } else {
-                return []
-            }
-        }
-    }
-    
     private func shouldEnableAddDay() -> Bool {
         var enable = false
-        let userIsJustStarting = model.count == 1 && lastDaysInCurrentDisplayCycle.count < 4
-        if lastDaysInCurrentDisplayCycle.count == 0 || userIsJustStarting {
+        let userIsJustStarting = dataSource.countIsOne && dataSource.lastDaysInCurrentDisplayCycle.count < 4
+        if dataSource.lastDaysInCurrentDisplayCycle.count == 0 || userIsJustStarting {
             enable = true
         } else {
-            for day in lastDaysInCurrentDisplayCycle {
+            for day in dataSource.lastDaysInCurrentDisplayCycle {
                 if day.internalCategory == nil {
                     enable = true
                     break
@@ -187,7 +143,7 @@ class AllCyclesCollectionViewController: UICollectionViewController {
         let calendar = NSCalendar(calendarIdentifier: .gregorian)!
         calendar.timeZone = NSTimeZone.local
         
-        guard let dateOfMostRecentDay = dateOfMostRecentDay else {
+        guard let dateOfMostRecentDay = dataSource.dateOfMostRecentDay else {
             dateToPassToNewDayView = Date().calibrate()
             presentDayView(sender)
             return
@@ -204,19 +160,18 @@ class AllCyclesCollectionViewController: UICollectionViewController {
     
     private func presentDayView(_ sender: Any?) {
         let destination = self.storyboard?.instantiateViewController(withIdentifier: "dayViewController") as! DayViewController
-        let cycle = persistenceManager.getCycle(uuid: currentCycleUUID)
+        let cycle = CycleController.currentCycle()
         
         if sender is UIAlertAction {
             let sender = sender as! UIAlertAction
             let calendar = Calendar(identifier: .gregorian)
-            destination.day = Day(date: dateToPassToNewDayView!, uuid: currentCycleUUID)
+            destination.day = Day(date: dateToPassToNewDayView!, uuid: cycle?.uuid)
             destination.cycle = cycle
-            let index = displayModel.first?.days.index(where: { calendar.isDate($0.date, inSameDayAs: (destination.day?.date)!) }) ?? 0
+            let index = dataSource.currentCycle?.days.index(where: { calendar.isDate($0.date, inSameDayAs: (destination.day?.date)!) }) ?? 0
             destination.dayInCycleText = index + 1
-            destination.day?.isFirstDayOfCycle = persistenceManager.shouldDayStartCycle(destination.day!)
             destination.fromAllCyclesVC = true
         } else {
-            destination.day = Day(date: dateToPassToNewDayView!, uuid: currentCycleUUID)
+            destination.day = Day(date: dateToPassToNewDayView!, uuid: cycle?.uuid)
             if let count = cycle?.days.count {
                 if count > 0 {
                     destination.dayInCycleText = cycle?.days.index(where: { $0.date > (destination.day?.date)! }) ?? count
@@ -248,7 +203,7 @@ class AllCyclesCollectionViewController: UICollectionViewController {
     private func createActions() -> [UIAlertAction] {
         var actions = generateActionOptions()
         var counter = 0
-        for (index, day) in lastDaysInCurrentDisplayCycle.enumerated() {
+        for (index, day) in dataSource.lastDaysInCurrentDisplayCycle.enumerated() {
             if day.internalCategory != nil {
                 let actionRemoved = actions.remove(at: index - counter)
                 print("this is the action just removed: \(actionRemoved)")
@@ -298,45 +253,6 @@ class AllCyclesCollectionViewController: UICollectionViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let destination = segue.destination as! CycleTableViewController
         let cell = sender as? AllCyclesCollectionViewCell
-        destination.dataSource.cycle = model.reversed()[(cell?.indexPath?.section)!]
+        destination.dataSource.cycle = dataSource.dataSource.reversed()[(cell?.indexPath?.section)!]
     }
-
-
-    // MARK: UICollectionViewDataSource
-
-    override func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return displayModel.count
-    }
-
-
-    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return displayModel[section].days.count
-    }
-    
-
-    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! AllCyclesCollectionViewCell
-        let cycle = displayModel[indexPath.section]
-        cell.dayNumber.text = "\(indexPath.item + 1)"
-        cell.dayNumber.font = UIFont.systemFont(ofSize: 11)
-        cell.daySymbol.category = cycle.category(for: cycle.days[indexPath.item])
-        cell.indexPath = indexPath
-        if indexPath.row == displayModel[indexPath.section].days.count - 1 {
-            cell.bottomBorder = true
-        } else {
-            cell.bottomBorder = false
-        }
-        
-        return cell
-    }
-    
-    override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        let supplementaryView = collectionView.dequeueReusableSupplementaryView(ofKind: "sectionHeader", withReuseIdentifier: "sectionHeader", for: indexPath) as! AllCyclesSectionHeader
-        
-        supplementaryView.configure(displayModel[indexPath.section])
-        
-        
-        return supplementaryView
-    }
-
 }
