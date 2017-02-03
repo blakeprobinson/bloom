@@ -43,6 +43,7 @@
 		BAF6D2211E43BB0B00CB99C4 /* AllCyclesDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAF6D21F1E43BB0B00CB99C4 /* AllCyclesDataSource.swift */; };
 		BAF6D2231E43C8EC00CB99C4 /* CycleController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAF6D2221E43C8EC00CB99C4 /* CycleController.swift */; };
 		BAF6D2241E43C8EC00CB99C4 /* CycleController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAF6D2221E43C8EC00CB99C4 /* CycleController.swift */; };
+		BAF6D2251E44D5CA00CB99C4 /* AllCyclesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA0D5C351E296FF60087116D /* AllCyclesCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -126,15 +127,14 @@
 		BA2BB7BF1DF8AE32008F3D51 /* Bloom */ = {
 			isa = PBXGroup;
 			children = (
-				BAF6D2221E43C8EC00CB99C4 /* CycleController.swift */,
 				BA66379F1E266C0000401A6A /* AllCyclesView */,
 				BA734F4B1E2FEE3400EFEDB8 /* CycleView */,
-				BA2BB7C41DF8AE32008F3D51 /* Main.storyboard */,
-				BA97EA5C1E410B9A00A0F6B4 /* DaySymbolView.swift */,
 				BA91F1C31E15545C00C209BC /* DayView */,
-				BA2BB7D51DF8AF1D008F3D51 /* Day.swift */,
+				BA2BB7C41DF8AE32008F3D51 /* Main.storyboard */,
+				BAF6D2221E43C8EC00CB99C4 /* CycleController.swift */,
+				BA97EA5C1E410B9A00A0F6B4 /* DaySymbolView.swift */,
 				BA5FE9471E1C278800755E40 /* PersistenceManager.swift */,
-				BA02B8881E01D2540051BACD /* Cycle.swift */,
+				BAF6D2261E44D69000CB99C4 /* Models */,
 				BA97EA601E4278E000A0F6B4 /* Extensions */,
 				BA2BB7D21DF8AE49008F3D51 /* Supporting Files */,
 			);
@@ -202,6 +202,15 @@
 				BA710AC21E326994002B3380 /* CalendarExtension.swift */,
 			);
 			name = Extensions;
+			sourceTree = "<group>";
+		};
+		BAF6D2261E44D69000CB99C4 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				BA2BB7D51DF8AF1D008F3D51 /* Day.swift */,
+				BA02B8881E01D2540051BACD /* Cycle.swift */,
+			);
+			name = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -340,6 +349,7 @@
 				BA0F174D1E42BEEA00B82E84 /* AllCyclesSectionHeader.swift in Sources */,
 				BA0F174F1E42BF0700B82E84 /* DaySymbolView.swift in Sources */,
 				BA4D62261E37E61D0054457B /* PersistenceManagerTests.swift in Sources */,
+				BAF6D2251E44D5CA00CB99C4 /* AllCyclesCollectionViewCell.swift in Sources */,
 				BA0F174C1E42BED700B82E84 /* DateExtension.swift in Sources */,
 				BAF6D2241E43C8EC00CB99C4 /* CycleController.swift in Sources */,
 				BAB43D2D1E3FDA0B00559C8F /* AllCyclesCollectionViewController.swift in Sources */,
