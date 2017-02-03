@@ -140,7 +140,6 @@ class DayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
     // MARK: Model
     var day:Day?
     let persistenceManager = PersistenceManager()
-    var cycle:Cycle?
     
 
     //MARK: View LifeCycle methods

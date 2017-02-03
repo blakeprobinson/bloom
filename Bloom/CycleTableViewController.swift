@@ -35,7 +35,6 @@ class CycleTableViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let vc = segue.destination as! DayViewController
         vc.day = sender as? Day
-        vc.cycle = dataSource.cycle
         vc.dayInCycleText = selected! + 1
     }
  

@@ -166,7 +166,6 @@ class AllCyclesCollectionViewController: UICollectionViewController {
             let sender = sender as! UIAlertAction
             let calendar = Calendar(identifier: .gregorian)
             destination.day = Day(date: dateToPassToNewDayView!, uuid: cycle?.uuid)
-            destination.cycle = cycle
             let index = dataSource.currentCycle?.days.index(where: { calendar.isDate($0.date, inSameDayAs: (destination.day?.date)!) }) ?? 0
             destination.dayInCycleText = index + 1
             destination.fromAllCyclesVC = true
@@ -181,8 +180,6 @@ class AllCyclesCollectionViewController: UICollectionViewController {
             } else {
                 destination.dayInCycleText = 1
             }
-            
-            destination.cycle = cycle
             destination.fromAllCyclesVC = true
         }
         present(destination, animated: true, completion: nil)
@@ -253,6 +250,6 @@ class AllCyclesCollectionViewController: UICollectionViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let destination = segue.destination as! CycleTableViewController
         let cell = sender as? AllCyclesCollectionViewCell
-        destination.dataSource.cycle = dataSource.dataSource.reversed()[(cell?.indexPath?.section)!]
+        destination.dataSource.dataSource = dataSource.dataSource[(cell?.indexPath?.section)!].days
     }
 }
