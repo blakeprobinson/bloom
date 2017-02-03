@@ -27,7 +27,11 @@ class CycleController {
     static func currentCycle() -> Cycle? {
         let persistenceManager = PersistenceManager()
         let cycles = persistenceManager.getAllCyclesSorted()
-        return cycles.sorted(by: { $0.startDate < $1.startDate })[0]
+        if cycles.count > 0 {
+            return cycles.sorted(by: { $0.startDate < $1.startDate })[0]
+        } else {
+            return nil
+        }
     }
     
     static func displayCycle(from cycle: Cycle) -> Cycle {
