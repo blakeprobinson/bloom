@@ -23,7 +23,6 @@
 		BA2BB7C81DF8AE32008F3D51 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BA2BB7C71DF8AE32008F3D51 /* Assets.xcassets */; };
 		BA2BB7CB1DF8AE32008F3D51 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA2BB7C91DF8AE32008F3D51 /* LaunchScreen.storyboard */; };
 		BA2BB7D61DF8AF1D008F3D51 /* Day.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA2BB7D51DF8AF1D008F3D51 /* Day.swift */; };
-		BA3D5A7C1E36536100B0C079 /* ViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA3D5A7B1E36536100B0C079 /* ViewControllerExtension.swift */; };
 		BA4D62261E37E61D0054457B /* PersistenceManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA4D62251E37E61D0054457B /* PersistenceManagerTests.swift */; };
 		BA4D622D1E37E6380054457B /* PersistenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA5FE9471E1C278800755E40 /* PersistenceManager.swift */; };
 		BA4D622E1E37E7920054457B /* Day.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA2BB7D51DF8AF1D008F3D51 /* Day.swift */; };
@@ -40,6 +39,10 @@
 		BA97EA5F1E42785500A0F6B4 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA97EA5E1E42785500A0F6B4 /* DateExtension.swift */; };
 		BA97EA621E429C6500A0F6B4 /* CycleDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA97EA611E429C6500A0F6B4 /* CycleDataSource.swift */; };
 		BAB43D2D1E3FDA0B00559C8F /* AllCyclesCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA76C4BD1E23EA9D005A2B12 /* AllCyclesCollectionViewController.swift */; };
+		BAF6D2201E43BB0B00CB99C4 /* AllCyclesDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAF6D21F1E43BB0B00CB99C4 /* AllCyclesDataSource.swift */; };
+		BAF6D2211E43BB0B00CB99C4 /* AllCyclesDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAF6D21F1E43BB0B00CB99C4 /* AllCyclesDataSource.swift */; };
+		BAF6D2231E43C8EC00CB99C4 /* CycleController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAF6D2221E43C8EC00CB99C4 /* CycleController.swift */; };
+		BAF6D2241E43C8EC00CB99C4 /* CycleController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAF6D2221E43C8EC00CB99C4 /* CycleController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,7 +69,6 @@
 		BA2BB7CA1DF8AE32008F3D51 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BA2BB7CC1DF8AE32008F3D51 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BA2BB7D51DF8AF1D008F3D51 /* Day.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Day.swift; sourceTree = "<group>"; };
-		BA3D5A7B1E36536100B0C079 /* ViewControllerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerExtension.swift; sourceTree = "<group>"; };
 		BA4D62231E37E61D0054457B /* BloomTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BloomTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA4D62251E37E61D0054457B /* PersistenceManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceManagerTests.swift; sourceTree = "<group>"; };
 		BA4D62271E37E61D0054457B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -81,6 +83,8 @@
 		BA97EA5C1E410B9A00A0F6B4 /* DaySymbolView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DaySymbolView.swift; sourceTree = "<group>"; };
 		BA97EA5E1E42785500A0F6B4 /* DateExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
 		BA97EA611E429C6500A0F6B4 /* CycleDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CycleDataSource.swift; sourceTree = "<group>"; };
+		BAF6D21F1E43BB0B00CB99C4 /* AllCyclesDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllCyclesDataSource.swift; sourceTree = "<group>"; };
+		BAF6D2221E43C8EC00CB99C4 /* CycleController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CycleController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +126,7 @@
 		BA2BB7BF1DF8AE32008F3D51 /* Bloom */ = {
 			isa = PBXGroup;
 			children = (
+				BAF6D2221E43C8EC00CB99C4 /* CycleController.swift */,
 				BA66379F1E266C0000401A6A /* AllCyclesView */,
 				BA734F4B1E2FEE3400EFEDB8 /* CycleView */,
 				BA2BB7C41DF8AE32008F3D51 /* Main.storyboard */,
@@ -163,6 +168,7 @@
 				BA76C4BD1E23EA9D005A2B12 /* AllCyclesCollectionViewController.swift */,
 				BA0D5C331E2956000087116D /* AllCyclesSectionHeader.swift */,
 				BA0D5C351E296FF60087116D /* AllCyclesCollectionViewCell.swift */,
+				BAF6D21F1E43BB0B00CB99C4 /* AllCyclesDataSource.swift */,
 			);
 			name = AllCyclesView;
 			sourceTree = "<group>";
@@ -194,7 +200,6 @@
 			children = (
 				BA97EA5E1E42785500A0F6B4 /* DateExtension.swift */,
 				BA710AC21E326994002B3380 /* CalendarExtension.swift */,
-				BA3D5A7B1E36536100B0C079 /* ViewControllerExtension.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -314,15 +319,16 @@
 				BA97EA5F1E42785500A0F6B4 /* DateExtension.swift in Sources */,
 				BA734F4A1E2FEDC700EFEDB8 /* IntercourseHeart.swift in Sources */,
 				BA0D5C361E296FF60087116D /* AllCyclesCollectionViewCell.swift in Sources */,
+				BAF6D2231E43C8EC00CB99C4 /* CycleController.swift in Sources */,
 				BA2BB7C11DF8AE32008F3D51 /* AppDelegate.swift in Sources */,
 				BA76C4B81E23DBDE005A2B12 /* CycleTableViewController.swift in Sources */,
 				BA734F481E2ED03900EFEDB8 /* CycleTableViewCell.swift in Sources */,
 				BA02B8AC1E0335A80051BACD /* DayViewController.swift in Sources */,
+				BAF6D2201E43BB0B00CB99C4 /* AllCyclesDataSource.swift in Sources */,
 				BA6637A61E26A34700401A6A /* AllCyclesLayout.swift in Sources */,
 				BA76C4BE1E23EA9D005A2B12 /* AllCyclesCollectionViewController.swift in Sources */,
 				BA710AC31E326994002B3380 /* CalendarExtension.swift in Sources */,
 				BA91F1C01E14346C00C209BC /* PlusMinusButton.swift in Sources */,
-				BA3D5A7C1E36536100B0C079 /* ViewControllerExtension.swift in Sources */,
 				BA2BB7D61DF8AF1D008F3D51 /* Day.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -335,11 +341,13 @@
 				BA0F174F1E42BF0700B82E84 /* DaySymbolView.swift in Sources */,
 				BA4D62261E37E61D0054457B /* PersistenceManagerTests.swift in Sources */,
 				BA0F174C1E42BED700B82E84 /* DateExtension.swift in Sources */,
+				BAF6D2241E43C8EC00CB99C4 /* CycleController.swift in Sources */,
 				BAB43D2D1E3FDA0B00559C8F /* AllCyclesCollectionViewController.swift in Sources */,
 				BA4D622D1E37E6380054457B /* PersistenceManager.swift in Sources */,
 				BA0F17501E42BF0F00B82E84 /* IntercourseHeart.swift in Sources */,
 				BA4D622F1E37E7960054457B /* Cycle.swift in Sources */,
 				BA0F174E1E42BEFC00B82E84 /* CycleTableViewCell.swift in Sources */,
+				BAF6D2211E43BB0B00CB99C4 /* AllCyclesDataSource.swift in Sources */,
 				BA4D622E1E37E7920054457B /* Day.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
