@@ -14,7 +14,11 @@ class DayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
     @IBOutlet weak var navbar: UINavigationBar!
     @IBOutlet weak var addButton: UIBarButtonItem!
     
-    @IBOutlet weak var saveButton: UIBarButtonItem!
+    @IBOutlet weak var saveButton: UIBarButtonItem! {
+        didSet {
+            saveButton.isEnabled = false
+        }
+    }
     
     
     //MARK: Header Outlets
@@ -68,14 +72,7 @@ class DayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
         }
     }
     
-    @IBOutlet var mucusLengthButtons: [ButtonWithUnderBar]! {
-        didSet {
-            mucusLengthButtons.forEach({ (button) in
-                button.layer.borderColor = UIColor(red:1.00, green:0.85, blue:0.40, alpha:1.0).cgColor
-                button.layer.borderWidth = 2
-            })
-        }
-    }
+    @IBOutlet var mucusLengthButtons: [ButtonWithUnderBar]! 
     @IBOutlet var mucusColorButtons: [ButtonWithUnderBar]!
     @IBOutlet var mucusConsistencyButtons: [ButtonWithUnderBar]!
     
@@ -164,7 +161,7 @@ class DayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
         recognizer.cancelsTouchesInView = false
         view.addGestureRecognizer(recognizer)
         
-        updateUIToSave(false)
+        updateUIToSave(fromViewDidLoad: true)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -224,8 +221,7 @@ class DayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
         scrollView.scrollIndicatorInsets = UIEdgeInsets.zero
     }
     
-    fileprivate func updateUIToSave(_ canSave: Bool) {
-        saveButton.isEnabled = canSave
+    fileprivate func updateUIToSave(fromViewDidLoad: Bool) {
         var modOrHeavySelected = false
         var canAdd = false
         if let day = day {
@@ -240,6 +236,9 @@ class DayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
                     hideShowView(view: dryButtonContainer)
                 }
                 addMucusButton.isEnabled = false
+                if !mucusButtonContainer.isHidden {
+                    hideShowView(view: mucusButtonContainer)
+                }
                 deselectAllBut(title: dryBleedingButtonModelToTitle[dry.observation.rawValue]!, from: dryButtons)
                 canAdd = true
             } else {
@@ -265,6 +264,7 @@ class DayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
             updateSectionTwoAndThreeUI(day: day)
         }
         addButton.isEnabled = canAdd
+        saveButton.isEnabled = canAdd && !fromViewDidLoad
     }
     
     fileprivate func updateDatesInUI() {
@@ -373,6 +373,9 @@ class DayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
             addDryButton.isEnabled = true
         } else {
             addDryButton.isEnabled = false
+            if !dryButtonContainer.isHidden {
+                hideShowView(view: dryButtonContainer)
+            }
         }
         
         return mucus.length != nil && mucus.color != nil
@@ -481,7 +484,7 @@ class DayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
         } else {
             day?.dry = nil
         }
-        updateUIToSave(true)
+        updateUIToSave(fromViewDidLoad:false)
     }
     
     @IBAction func bleedingButtonTouched(_ sender: ButtonWithUnderBar) {
@@ -494,7 +497,7 @@ class DayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
         } else {
             day?.bleeding = nil
         }
-        updateUIToSave(true)
+        updateUIToSave(fromViewDidLoad:false)
     }
     @IBAction func mucusLengthTouched(_ sender: ButtonWithUnderBar) {
         sender.isSelected = !sender.isSelected
@@ -509,8 +512,11 @@ class DayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
             }
         } else {
             day?.mucus?.length = nil
+            if (day?.mucus?.allPropertiesNil())! {
+                day?.mucus = nil
+            }
         }
-        updateUIToSave(true)
+        updateUIToSave(fromViewDidLoad:false)
     }
     
     @IBAction func mucusColorTouched(_ sender: ButtonWithUnderBar) {
@@ -525,8 +531,11 @@ class DayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
             }
         } else {
             day?.mucus?.color = nil
+            if (day?.mucus?.allPropertiesNil())! {
+                day?.mucus = nil
+            }
         }
-        updateUIToSave(true)
+        updateUIToSave(fromViewDidLoad:false)
     }
     
     @IBAction func mucusConsistencyTouched(_ sender: ButtonWithUnderBar) {
@@ -544,8 +553,11 @@ class DayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
             }
         } else {
             day?.mucus?.consistency = nil
+            if (day?.mucus?.allPropertiesNil())! {
+                day?.mucus = nil
+            }
         }
-        updateUIToSave(true)
+        updateUIToSave(fromViewDidLoad:false)
     }
     
     
@@ -561,16 +573,16 @@ class DayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
     //MARK: Section Two IBActions
     @IBAction func adjustObservation(_ sender: UIStepper) {
         day?.observation = Int(sender.value)
-        updateUIToSave(true)
+        updateUIToSave(fromViewDidLoad:false)
     }
     @IBAction func intercourseToggled(_ sender: UISwitch) {
         day?.intercourse = sender.isOn
-        updateUIToSave(true)
+        updateUIToSave(fromViewDidLoad:false)
     }
     
     @IBAction func lubricationToggled(_ sender: UISwitch) {
         day?.lubrication = sender.isOn
-        updateUIToSave(true)
+        updateUIToSave(fromViewDidLoad:false)
     }
     
     @IBAction func newCycleToggled(_ sender: UISwitch) {
@@ -615,7 +627,7 @@ class DayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
     
     @IBAction func showPicker() {
         if !self.picker.isHidden {
-            updateUIToSave(true)
+            updateUIToSave(fromViewDidLoad:false)
         }
         picker.selectRow(pickerSelectedRow, inComponent: 0, animated: false)
         UIView.animate(withDuration: 0.1, animations: {
@@ -634,7 +646,7 @@ class DayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
     
     func textViewDidEndEditing(_ textView: UITextView) {
         day?.notes = textView.text!
-        updateUIToSave(true)
+        updateUIToSave(fromViewDidLoad:false)
     }
     
 
