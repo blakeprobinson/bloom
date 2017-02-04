@@ -233,11 +233,11 @@ class DayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
             if let dry = day.dry {
                 if !addDryButton.isSelected {
                     addDryButton.isSelected = true
-                    hideShowView(view: dryButtonContainer)
+                    hideShowView(view: dryButtonContainer, hide: false)
                 }
                 addMucusButton.isEnabled = false
                 if !mucusButtonContainer.isHidden {
-                    hideShowView(view: mucusButtonContainer)
+                    hideShowView(view: mucusButtonContainer, hide: true)
                 }
                 deselectAllBut(title: dryBleedingButtonModelToTitle[dry.observation.rawValue]!, from: dryButtons)
                 canAdd = true
@@ -247,15 +247,17 @@ class DayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
             if let bleeding = day.bleeding {
                 if !addBleedingButton.isSelected {
                     addBleedingButton.isSelected = true
-                    hideShowView(view: bleedingButtonContainer)
+                    hideShowView(view: bleedingButtonContainer, hide: false)
                 }
                 modOrHeavySelected = updateBleedingUI(bleeding: bleeding)
                 canAdd = true
+            } else if lubricationView.isHidden {
+                hideShowView(view: lubricationView, hide: false)
             }
             if let mucus = day.mucus {
                 if !addMucusButton.isSelected {
                     addMucusButton.isSelected = true
-                    hideShowView(view: mucusButtonContainer)
+                    hideShowView(view: mucusButtonContainer, hide: true)
                 }
                 canAdd = updateMucusUI(mucus: mucus)
             } else if !modOrHeavySelected {
@@ -329,7 +331,7 @@ class DayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
             if button.currentTitle! == dryBleedingButtonTitleToModel[bleeding.intensity.rawValue] {
                 addDryButton.isEnabled = false
                 addMucusButton.isEnabled = false
-                hideShowView(view: lubricationView)
+                hideShowView(view: lubricationView, hide: true)
                 modOrHeavySelected = true
             }
         }
@@ -374,7 +376,7 @@ class DayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
         } else {
             addDryButton.isEnabled = false
             if !dryButtonContainer.isHidden {
-                hideShowView(view: dryButtonContainer)
+                hideShowView(view: dryButtonContainer, hide: true)
             }
         }
         
@@ -410,17 +412,17 @@ class DayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
     //MARK: PlusMinusButton IBActions
     @IBAction func addDryTouched(_ sender: PlusMinusButton) {
         sender.isSelected = !sender.isSelected
-        hideShowView(view: dryButtonContainer)
+        hideShowView(view: dryButtonContainer, hide: !sender.isSelected)
     }
     
     @IBAction func addBleedingTouched(_ sender: PlusMinusButton) {
         sender.isSelected = !sender.isSelected
-        hideShowView(view: bleedingButtonContainer)
+        hideShowView(view: bleedingButtonContainer, hide: !sender.isSelected)
     }
     
     @IBAction func addMucusTouched(_ sender: PlusMinusButton) {
         sender.isSelected = !sender.isSelected
-        hideShowView(view: mucusButtonContainer)
+        hideShowView(view: mucusButtonContainer, hide: !sender.isSelected)
     }
     
     //MARK: ButtonWithUnderBar IBActions and related
@@ -618,9 +620,9 @@ class DayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
          */
     }
     
-    private func hideShowView(view: UIView) {
+    private func hideShowView(view: UIView, hide: Bool) {
         UIView.animate(withDuration: 0.1, animations: {
-            view.isHidden = !view.isHidden
+            view.isHidden = hide
             view.alpha = view.isHidden ? 0.0 : 1
         })
     }

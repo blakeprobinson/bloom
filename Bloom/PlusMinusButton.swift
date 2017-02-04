@@ -32,6 +32,7 @@ class PlusMinusButton: UIButton {
             } else {
                 plusMinus.textColor = UIColor.lightGray
                 titleLabel?.textColor = UIColor.lightText
+                isSelected = false
             }
         }
     }
