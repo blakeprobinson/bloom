@@ -44,6 +44,8 @@
 		BAF6D2231E43C8EC00CB99C4 /* CycleController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAF6D2221E43C8EC00CB99C4 /* CycleController.swift */; };
 		BAF6D2241E43C8EC00CB99C4 /* CycleController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAF6D2221E43C8EC00CB99C4 /* CycleController.swift */; };
 		BAF6D2251E44D5CA00CB99C4 /* AllCyclesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA0D5C351E296FF60087116D /* AllCyclesCollectionViewCell.swift */; };
+		BAF6D2271E451E0900CB99C4 /* DayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA02B8AB1E0335A80051BACD /* DayViewController.swift */; };
+		BAF6D2281E451E1500CB99C4 /* CycleTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA76C4B71E23DBDE005A2B12 /* CycleTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -348,9 +350,11 @@
 			files = (
 				BA0F174D1E42BEEA00B82E84 /* AllCyclesSectionHeader.swift in Sources */,
 				BA0F174F1E42BF0700B82E84 /* DaySymbolView.swift in Sources */,
+				BAF6D2281E451E1500CB99C4 /* CycleTableViewController.swift in Sources */,
 				BA4D62261E37E61D0054457B /* PersistenceManagerTests.swift in Sources */,
 				BAF6D2251E44D5CA00CB99C4 /* AllCyclesCollectionViewCell.swift in Sources */,
 				BA0F174C1E42BED700B82E84 /* DateExtension.swift in Sources */,
+				BAF6D2271E451E0900CB99C4 /* DayViewController.swift in Sources */,
 				BAF6D2241E43C8EC00CB99C4 /* CycleController.swift in Sources */,
 				BAB43D2D1E3FDA0B00559C8F /* AllCyclesCollectionViewController.swift in Sources */,
 				BA4D622D1E37E6380054457B /* PersistenceManager.swift in Sources */,
