@@ -28,11 +28,10 @@ class PlusMinusButton: UIButton {
         didSet {
             if isEnabled {
                 plusMinus.textColor = UIColor.darkGray
+                titleLabel?.textColor = UIColor.black
             } else {
                 plusMinus.textColor = UIColor.lightGray
-                if  isSelected {
-                    sendActions(for: .touchUpInside)
-                }
+                titleLabel?.textColor = UIColor.lightText
             }
         }
     }
