@@ -257,7 +257,7 @@ class DayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
             if let mucus = day.mucus {
                 if !addMucusButton.isSelected {
                     addMucusButton.isSelected = true
-                    hideShowView(view: mucusButtonContainer, hide: true)
+                    hideShowView(view: mucusButtonContainer, hide: false)
                 }
                 canAdd = updateMucusUI(mucus: mucus)
             } else if !modOrHeavySelected {
