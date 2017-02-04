@@ -21,14 +21,14 @@ class CycleTableViewController: UITableViewController {
         tableView.dataSource = dataSource
         let notificationCenter = NotificationCenter.default
         let _ = notificationCenter.addObserver(forName: Notification.Name(rawValue: "cycles updated"), object: nil, queue: OperationQueue.main, using: { [ weak weakSelf = self] (notification) in
-            weakSelf?.dataSource.cycle = weakSelf?.persistenceManager.getCycle(uuid: weakSelf?.dataSource.cycle?.uuid)
+            weakSelf?.dataSource.dataSource = weakSelf?.persistenceManager.getCycle(uuid: weakSelf?.dataSource.uuid)?.days ?? []
             weakSelf?.tableView.reloadData()
         })
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         selected = indexPath.row
-        performSegue(withIdentifier: "cycleToEdit", sender: dataSource.dataSource[indexPath.row])
+        performSegue(withIdentifier: "cycleToEdit", sender: dataSource.dataSource?[indexPath.row])
     }
 
     
