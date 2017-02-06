@@ -55,13 +55,15 @@ class PersistenceManager {
     
     private func getAdjacentCycle(uuid: UUID, earlier: Bool) -> Cycle? {
         var cycles = getAllCyclesSorted()
-        if !earlier {
-            cycles = cycles.reversed()
+        if earlier {
+            cycles.reverse()
         }
         for (index, cycle) in cycles.enumerated() {
             if cycle.uuid == uuid {
                 if index + 1 < cycles.count {
                     return cycles[index + 1]
+                } else {
+                    return nil
                 }
             }
         }
