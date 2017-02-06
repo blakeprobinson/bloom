@@ -30,9 +30,13 @@ class Cycle: NSObject, NSCoding {
                 return []
             }
             var index = days.index(of: peak)!
-            index += 1
+            
             var result = [Day]()
-            while index < days.count {
+            let indexOfLastPostPeakDay = index + 3
+            let indexOfLastElementInDays = days.count - 1
+            let max = indexOfLastPostPeakDay <= indexOfLastElementInDays ? indexOfLastPostPeakDay : indexOfLastElementInDays
+            index += 1
+            while index <= max {
                 result.append(days[index])
                 index += 1
             }
