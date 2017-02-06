@@ -26,6 +26,17 @@ class CycleTableViewController: UITableViewController {
         })
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if dataSource.dataSource == nil {
+            dataSource.dataSource = CycleController.currentDisplayCycle()?.days
+        } else if dataSource.uuid != nil {
+            if let cycle = persistenceManager.getCycle(uuid: dataSource.uuid) {
+                dataSource.dataSource = CycleController.displayCycle(from: cycle)?.days
+            }
+        }
+    }
+    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         selected = indexPath.row
         performSegue(withIdentifier: "cycleToEdit", sender: dataSource.dataSource?[indexPath.row])
