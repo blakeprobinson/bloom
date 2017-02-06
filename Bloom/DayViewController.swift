@@ -330,7 +330,9 @@ class DayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
         for button in modAndHeavy {
             if button.currentTitle! == dryBleedingButtonTitleToModel[bleeding.intensity.rawValue] {
                 addDryButton.isEnabled = false
+                hideShowView(view: dryButtonContainer, hide: true)
                 addMucusButton.isEnabled = false
+                hideShowView(view: mucusButtonContainer, hide: true)
                 hideShowView(view: lubricationView, hide: true)
                 modOrHeavySelected = true
             }
