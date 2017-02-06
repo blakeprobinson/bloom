@@ -161,7 +161,7 @@ class DayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
         recognizer.cancelsTouchesInView = false
         view.addGestureRecognizer(recognizer)
         
-        updateUIToSave(fromViewDidLoad: true)
+        updateUIToSave(fromViewDidLoad: true,fromTextViewDidEndEditing: false)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -221,9 +221,9 @@ class DayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
         scrollView.scrollIndicatorInsets = UIEdgeInsets.zero
     }
     
-    fileprivate func updateUIToSave(fromViewDidLoad: Bool) {
+    fileprivate func updateUIToSave(fromViewDidLoad: Bool, fromTextViewDidEndEditing: Bool) {
         var modOrHeavySelected = false
-        var canAdd = false
+        var canAdd = fromTextViewDidEndEditing
         if let day = day {
             headerDate.text = dateString(date: day.date.subtractSecondsFromGMT(), forHeader: true)
             daySymbol.category = CycleController.category(for: day)
@@ -486,7 +486,7 @@ class DayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
         } else {
             day?.dry = nil
         }
-        updateUIToSave(fromViewDidLoad:false)
+        updateUIToSave(fromViewDidLoad:false,fromTextViewDidEndEditing: false)
     }
     
     @IBAction func bleedingButtonTouched(_ sender: ButtonWithUnderBar) {
@@ -499,7 +499,7 @@ class DayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
         } else {
             day?.bleeding = nil
         }
-        updateUIToSave(fromViewDidLoad:false)
+        updateUIToSave(fromViewDidLoad:false,fromTextViewDidEndEditing: false)
     }
     @IBAction func mucusLengthTouched(_ sender: ButtonWithUnderBar) {
         sender.isSelected = !sender.isSelected
@@ -518,7 +518,7 @@ class DayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
                 day?.mucus = nil
             }
         }
-        updateUIToSave(fromViewDidLoad:false)
+        updateUIToSave(fromViewDidLoad:false,fromTextViewDidEndEditing: false)
     }
     
     @IBAction func mucusColorTouched(_ sender: ButtonWithUnderBar) {
@@ -537,7 +537,7 @@ class DayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
                 day?.mucus = nil
             }
         }
-        updateUIToSave(fromViewDidLoad:false)
+        updateUIToSave(fromViewDidLoad:false,fromTextViewDidEndEditing: false)
     }
     
     @IBAction func mucusConsistencyTouched(_ sender: ButtonWithUnderBar) {
@@ -559,7 +559,7 @@ class DayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
                 day?.mucus = nil
             }
         }
-        updateUIToSave(fromViewDidLoad:false)
+        updateUIToSave(fromViewDidLoad:false,fromTextViewDidEndEditing: false)
     }
     
     
@@ -575,16 +575,16 @@ class DayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
     //MARK: Section Two IBActions
     @IBAction func adjustObservation(_ sender: UIStepper) {
         day?.observation = Int(sender.value)
-        updateUIToSave(fromViewDidLoad:false)
+        updateUIToSave(fromViewDidLoad:false,fromTextViewDidEndEditing: false)
     }
     @IBAction func intercourseToggled(_ sender: UISwitch) {
         day?.intercourse = sender.isOn
-        updateUIToSave(fromViewDidLoad:false)
+        updateUIToSave(fromViewDidLoad:false,fromTextViewDidEndEditing: false)
     }
     
     @IBAction func lubricationToggled(_ sender: UISwitch) {
         day?.lubrication = sender.isOn
-        updateUIToSave(fromViewDidLoad:false)
+        updateUIToSave(fromViewDidLoad:false,fromTextViewDidEndEditing: false)
     }
     
     @IBAction func newCycleToggled(_ sender: UISwitch) {
@@ -609,15 +609,6 @@ class DayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
             persistenceManager.saveDay(day: day!)
             
         }
-        /*let isLastDayInCycle = persistenceManager.getCycle(uuid: day?.uuid).days.count == dayInCycleText
-        if isLastDayInCycle {
-            day?.uuid = UUID()
-            dayInCycleText = 1
-            updateUIToSave(true)
-        } else {
-            //var alert = UIAlertController(title: "", message: <#T##String?#>, preferredStyle: <#T##UIAlertControllerStyle#>)
-        }
-         */
     }
     
     private func hideShowView(view: UIView, hide: Bool) {
@@ -629,7 +620,7 @@ class DayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
     
     @IBAction func showPicker() {
         if !self.picker.isHidden {
-            updateUIToSave(fromViewDidLoad:false)
+            updateUIToSave(fromViewDidLoad:false,fromTextViewDidEndEditing: false)
         }
         picker.selectRow(pickerSelectedRow, inComponent: 0, animated: false)
         UIView.animate(withDuration: 0.1, animations: {
@@ -648,7 +639,7 @@ class DayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
     
     func textViewDidEndEditing(_ textView: UITextView) {
         day?.notes = textView.text!
-        updateUIToSave(fromViewDidLoad:false)
+        updateUIToSave(fromViewDidLoad:false, fromTextViewDidEndEditing: true)
     }
     
 
