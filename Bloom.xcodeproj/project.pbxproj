@@ -39,6 +39,10 @@
 		BA97EA5F1E42785500A0F6B4 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA97EA5E1E42785500A0F6B4 /* DateExtension.swift */; };
 		BA97EA621E429C6500A0F6B4 /* CycleDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA97EA611E429C6500A0F6B4 /* CycleDataSource.swift */; };
 		BAB43D2D1E3FDA0B00559C8F /* AllCyclesCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA76C4BD1E23EA9D005A2B12 /* AllCyclesCollectionViewController.swift */; };
+		BAEDD2B41E48CAF600FD233C /* CycleDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA97EA611E429C6500A0F6B4 /* CycleDataSource.swift */; };
+		BAEDD2B51E48D05000FD233C /* PlusMinusButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA91F1BF1E14346C00C209BC /* PlusMinusButton.swift */; };
+		BAEDD2B61E48D05300FD233C /* StackViewWithButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA0F458A1E11BD8500B23715 /* StackViewWithButtons.swift */; };
+		BAEDD2B71E48D05700FD233C /* ButtonWithUnderBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA0F45881E0C5EE900B23715 /* ButtonWithUnderBar.swift */; };
 		BAF6D2201E43BB0B00CB99C4 /* AllCyclesDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAF6D21F1E43BB0B00CB99C4 /* AllCyclesDataSource.swift */; };
 		BAF6D2211E43BB0B00CB99C4 /* AllCyclesDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAF6D21F1E43BB0B00CB99C4 /* AllCyclesDataSource.swift */; };
 		BAF6D2231E43C8EC00CB99C4 /* CycleController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAF6D2221E43C8EC00CB99C4 /* CycleController.swift */; };
@@ -349,6 +353,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BA0F174D1E42BEEA00B82E84 /* AllCyclesSectionHeader.swift in Sources */,
+				BAEDD2B61E48D05300FD233C /* StackViewWithButtons.swift in Sources */,
 				BA0F174F1E42BF0700B82E84 /* DaySymbolView.swift in Sources */,
 				BAF6D2281E451E1500CB99C4 /* CycleTableViewController.swift in Sources */,
 				BA4D62261E37E61D0054457B /* PersistenceManagerTests.swift in Sources */,
@@ -357,8 +362,11 @@
 				BAF6D2271E451E0900CB99C4 /* DayViewController.swift in Sources */,
 				BAF6D2241E43C8EC00CB99C4 /* CycleController.swift in Sources */,
 				BAB43D2D1E3FDA0B00559C8F /* AllCyclesCollectionViewController.swift in Sources */,
+				BAEDD2B51E48D05000FD233C /* PlusMinusButton.swift in Sources */,
 				BA4D622D1E37E6380054457B /* PersistenceManager.swift in Sources */,
 				BA0F17501E42BF0F00B82E84 /* IntercourseHeart.swift in Sources */,
+				BAEDD2B71E48D05700FD233C /* ButtonWithUnderBar.swift in Sources */,
+				BAEDD2B41E48CAF600FD233C /* CycleDataSource.swift in Sources */,
 				BA4D622F1E37E7960054457B /* Cycle.swift in Sources */,
 				BA0F174E1E42BEFC00B82E84 /* CycleTableViewCell.swift in Sources */,
 				BAF6D2211E43BB0B00CB99C4 /* AllCyclesDataSource.swift in Sources */,
