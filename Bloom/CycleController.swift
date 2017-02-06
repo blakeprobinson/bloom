@@ -30,8 +30,16 @@ class CycleController {
         return cycles.sorted(by: { $0.startDate < $1.startDate }).first
     }
     
-    static func displayCycle(from cycle: Cycle) -> Cycle {
-        return displayCycle(from: cycle, givenLaterCycle: PersistenceManager().getLaterCycle(uuid: cycle.uuid))
+    static func currentDisplayCycle() -> Cycle? {
+        return displayCycle(from: CycleController.currentCycle())
+    }
+    
+    static func displayCycle(from cycle: Cycle?) -> Cycle? {
+        if let cycle = cycle {
+            return displayCycle(from: cycle, givenLaterCycle: PersistenceManager().getLaterCycle(uuid: cycle.uuid))
+        } else {
+            return nil
+        }
     }
     
     static func displayCycle(from cycle: Cycle, givenLaterCycle nextCycle: Cycle?) -> Cycle {
