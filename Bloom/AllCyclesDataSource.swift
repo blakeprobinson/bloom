@@ -10,6 +10,7 @@ import UIKit
 
 class AllCyclesDataSource: NSObject, UICollectionViewDataSource {
     let dataSource = CycleController.displayCycles()
+    //let dataSource = AllCyclesDataSource.createDummyData()
     
     private let reuseIdentifier = "allCyclesCell"
     
@@ -86,4 +87,157 @@ class AllCyclesDataSource: NSObject, UICollectionViewDataSource {
         return supplementaryView
     }
 
+}
+
+extension AllCyclesDataSource {
+    static func createDummyData() -> [Cycle] {
+        let cycles = Array(repeating: Cycle(days: generateDays(daysGenerated: .average), uuid: UUID()), count: 8)
+        return cycles
+    }
+    
+    static func generateDays(daysGenerated: daysGenerated) -> [Day] {
+        var daysLength = 1
+        switch daysGenerated {
+        case .tooLong:
+            daysLength = 45
+        default:
+            daysLength = 30
+        }
+        var days = [Day]()
+        for index in 1...daysLength {
+            var day = Day()
+            if index <= 2 {
+                day = Day(
+                    bleeding: Day.Bleeding.init(intensity: "Light"),
+                    dry: nil,
+                    mucus: nil,
+                    observation: 1,
+                    intercourse: true,
+                    lubrication: false,
+                    pasty: false,
+                    date: Date(),
+                    notes: nil,
+                    isFirstDayOfCycle: false)
+            } else if index <= 4 {
+                day = Day(
+                    bleeding: Day.Bleeding.init(intensity: "Moderate"),
+                    dry: nil,
+                    mucus: nil,
+                    observation: 1,
+                    intercourse: false,
+                    lubrication: false,
+                    pasty: false,
+                    date: Date(),
+                    notes: nil,
+                    isFirstDayOfCycle: false)
+            } else if index <= 5 {
+                day = Day(
+                    bleeding: Day.Bleeding.init(intensity: "Heavy"),
+                    dry: nil,
+                    mucus: nil,
+                    observation: 1,
+                    intercourse: false,
+                    lubrication: false,
+                    pasty: false,
+                    date: Date(),
+                    notes: nil,
+                    isFirstDayOfCycle: false)
+            } else if index <= 7 {
+                day = Day(
+                    bleeding: Day.Bleeding.init(intensity: "Light"),
+                    dry: nil,
+                    mucus: nil,
+                    observation: 1,
+                    intercourse: false,
+                    lubrication: false,
+                    pasty: false,
+                    date: Date(),
+                    notes: nil,
+                    isFirstDayOfCycle: false)
+            } else if index <= 7 {
+                day = Day(
+                    bleeding: Day.Bleeding.init(intensity: "Light"),
+                    dry: nil,
+                    mucus: nil,
+                    observation: 1,
+                    intercourse: false,
+                    lubrication: false,
+                    pasty: false,
+                    date: Date(),
+                    notes: nil,
+                    isFirstDayOfCycle: false)
+            } else if index <= 10 {
+                day = Day(
+                    bleeding:nil,
+                    dry:  Day.Dry.init(observation: "Dry"),
+                    mucus: nil,
+                    observation: 1,
+                    intercourse: false,
+                    lubrication: false,
+                    pasty: false,
+                    date: Date(),
+                    notes: nil,
+                    isFirstDayOfCycle: false)
+            } else if index <= 12 {
+                day = Day(
+                    bleeding:nil,
+                    dry:  Day.Dry.init(observation: "Damp"),
+                    mucus: nil,
+                    observation: 1,
+                    intercourse: false,
+                    lubrication: false,
+                    pasty: false,
+                    date: Date(),
+                    notes: nil,
+                    isFirstDayOfCycle: false)
+            } else if index <= 14 {
+                let mucus = Day.Mucus(length: "1/4", color: "Cloudy", consistency: "Gummy")
+                day = Day(
+                    bleeding: nil,
+                    dry: nil,
+                    mucus: mucus,
+                    observation: 1,
+                    intercourse: true,
+                    lubrication: false,
+                    pasty: false,
+                    date: Date(),
+                    notes: nil,
+                    isFirstDayOfCycle: false)
+            } else if index <= 16 {
+                let mucus = Day.Mucus(length: "1", color: "Cloudy", consistency: "Gummy")
+                day = Day(
+                    bleeding: nil,
+                    dry: nil,
+                    mucus: mucus,
+                    observation: 1,
+                    intercourse: true,
+                    lubrication: false,
+                    pasty: false,
+                    date: Date(),
+                    notes: nil,
+                    isFirstDayOfCycle: false)
+            } else {
+                day = Day(
+                    bleeding:nil,
+                    dry:  Day.Dry.init(observation: "Damp"),
+                    mucus: nil,
+                    observation: 1,
+                    intercourse: false,
+                    lubrication: false,
+                    pasty: false,
+                    date: Date(),
+                    notes: nil,
+                    isFirstDayOfCycle: false)
+            }
+            days.append(day)
+        }
+        return days
+    }
+    
+    enum daysGenerated {
+        case average
+        case allOne
+        case tooLong
+        case tooShort
+    }
 }
