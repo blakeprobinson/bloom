@@ -14,6 +14,8 @@ class PersistenceManager {
         return FileManager().urls(for: .documentDirectory, in: .userDomainMask).first!
     }()
     
+    static let cache = NSCache<NSString, Cycle>()
+    
     func getIDs() -> [String] {
         let result: [String]
         do {
@@ -36,13 +38,20 @@ class PersistenceManager {
         guard let uuid = uuid else {
             return nil
         }
-        let archiveURL = saveDirectory.appendingPathComponent(uuid.uuidString + ".bplist")
-        print("getCycle path " + archiveURL.absoluteString)
-        guard FileManager.default.fileExists(atPath: archiveURL.path) else {
-            return nil
-        }
-        return NSKeyedUnarchiver.unarchiveObject(withFile: archiveURL.path) as? Cycle
         
+        if let cachedCycle = PersistenceManager.cache.object(forKey: uuid.uuidString as NSString) {
+            return cachedCycle
+        } else {
+            let archiveURL = saveDirectory.appendingPathComponent(uuid.uuidString + ".bplist")
+            guard FileManager.default.fileExists(atPath: archiveURL.path) else {
+                return nil
+            }
+            guard let cycle = NSKeyedUnarchiver.unarchiveObject(withFile: archiveURL.path) as? Cycle else {
+                return nil
+            }
+            PersistenceManager.cache.setObject(cycle, forKey: uuid.uuidString as NSString)
+            return cycle
+        }
     }
     
     func getEarlierCycle(uuid: UUID) -> Cycle? {
@@ -71,10 +80,9 @@ class PersistenceManager {
     }
     
     func saveCycle(cycle: Cycle) -> UUID {
+        PersistenceManager.cache.setObject(cycle, forKey: cycle.uuid.uuidString as NSString)
         let archiveURL = saveDirectory.appendingPathComponent(cycle.uuid.uuidString + ".bplist")
-        print("saveCycle path " + archiveURL.path)
-        let didSave = NSKeyedArchiver.archiveRootObject(cycle, toFile: archiveURL.path)
-        print("did save cycle \(didSave)")
+        let _ = NSKeyedArchiver.archiveRootObject(cycle, toFile: archiveURL.path)
         sendCyclesUpdatedNotification()
         return cycle.uuid
     }
