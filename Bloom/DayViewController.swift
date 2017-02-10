@@ -26,18 +26,7 @@ class DayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
     @IBOutlet weak var daySymbol: DaySymbolView!
     @IBOutlet weak var requiredInput: UILabel!
     @IBOutlet weak var dayInCycle: UILabel!
-    var dayInCycleText:Int? {
-        didSet {
-            guard let dayInCycleText = dayInCycleText else { return }
-            if dayInCycleText == 1 {
-                startNewCycleHidden = false
-            } else if dayInCycleText <= 14 {
-                startNewCycleHidden = true
-            } else {
-                startNewCycleHidden = false
-            }
-        }
-    }
+    var dayInCycleText:Int?
     
     //MARK: Section 1 Outlets
     
@@ -93,12 +82,7 @@ class DayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
     @IBOutlet weak var intercourse: UISwitch!
     @IBOutlet weak var lubricationView: UIView!
     @IBOutlet weak var lubrication: UISwitch!
-    @IBOutlet weak var startNewCycle: UIView! {
-        didSet {
-            startNewCycle.isHidden = startNewCycleHidden
-        }
-    }
-    var startNewCycleHidden = false
+    @IBOutlet weak var startNewCycle: UIView! 
     @IBOutlet weak var startCycleSwitch: UISwitch! {
         didSet {
             startCycleSwitch.isOn = dayInCycleText == 1
