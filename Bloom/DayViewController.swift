@@ -31,7 +31,7 @@ class DayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
     //MARK: Section 1 Outlets
     
     @IBOutlet weak var addDryButton: PlusMinusButton!
-    @IBOutlet weak var dryButtonContainer: StackViewWithButtons! {
+    @IBOutlet weak var dryButtonContainer: UIStackView! {
         didSet {
             dryButtonContainer.isHidden = true
             dryButtonContainer.alpha = 0
@@ -42,7 +42,7 @@ class DayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
     
     
     @IBOutlet weak var addBleedingButton: PlusMinusButton!
-    @IBOutlet weak var bleedingButtonContainer: StackViewWithButtons! {
+    @IBOutlet weak var bleedingButtonContainer: UIStackView! {
         didSet {
             bleedingButtonContainer.isHidden = true
             bleedingButtonContainer.alpha = 0

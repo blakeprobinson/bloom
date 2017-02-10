@@ -17,7 +17,6 @@
 		BA0F174F1E42BF0700B82E84 /* DaySymbolView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA97EA5C1E410B9A00A0F6B4 /* DaySymbolView.swift */; };
 		BA0F17501E42BF0F00B82E84 /* IntercourseHeart.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA734F491E2FEDC700EFEDB8 /* IntercourseHeart.swift */; };
 		BA0F45891E0C5EE900B23715 /* ButtonWithUnderBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA0F45881E0C5EE900B23715 /* ButtonWithUnderBar.swift */; };
-		BA0F458B1E11BD8500B23715 /* StackViewWithButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA0F458A1E11BD8500B23715 /* StackViewWithButtons.swift */; };
 		BA2BB7C11DF8AE32008F3D51 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA2BB7C01DF8AE32008F3D51 /* AppDelegate.swift */; };
 		BA2BB7C61DF8AE32008F3D51 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA2BB7C41DF8AE32008F3D51 /* Main.storyboard */; };
 		BA2BB7C81DF8AE32008F3D51 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BA2BB7C71DF8AE32008F3D51 /* Assets.xcassets */; };
@@ -39,9 +38,10 @@
 		BA97EA5F1E42785500A0F6B4 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA97EA5E1E42785500A0F6B4 /* DateExtension.swift */; };
 		BA97EA621E429C6500A0F6B4 /* CycleDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA97EA611E429C6500A0F6B4 /* CycleDataSource.swift */; };
 		BAB43D2D1E3FDA0B00559C8F /* AllCyclesCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA76C4BD1E23EA9D005A2B12 /* AllCyclesCollectionViewController.swift */; };
+		BAB44AF91E4E59F7002D5BB2 /* DayViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAB44AF81E4E59F7002D5BB2 /* DayViewModel.swift */; };
+		BAB44AFA1E4E59F7002D5BB2 /* DayViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAB44AF81E4E59F7002D5BB2 /* DayViewModel.swift */; };
 		BAEDD2B41E48CAF600FD233C /* CycleDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA97EA611E429C6500A0F6B4 /* CycleDataSource.swift */; };
 		BAEDD2B51E48D05000FD233C /* PlusMinusButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA91F1BF1E14346C00C209BC /* PlusMinusButton.swift */; };
-		BAEDD2B61E48D05300FD233C /* StackViewWithButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA0F458A1E11BD8500B23715 /* StackViewWithButtons.swift */; };
 		BAEDD2B71E48D05700FD233C /* ButtonWithUnderBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA0F45881E0C5EE900B23715 /* ButtonWithUnderBar.swift */; };
 		BAF6D2201E43BB0B00CB99C4 /* AllCyclesDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAF6D21F1E43BB0B00CB99C4 /* AllCyclesDataSource.swift */; };
 		BAF6D2211E43BB0B00CB99C4 /* AllCyclesDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAF6D21F1E43BB0B00CB99C4 /* AllCyclesDataSource.swift */; };
@@ -68,7 +68,6 @@
 		BA0D5C331E2956000087116D /* AllCyclesSectionHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllCyclesSectionHeader.swift; sourceTree = "<group>"; };
 		BA0D5C351E296FF60087116D /* AllCyclesCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllCyclesCollectionViewCell.swift; sourceTree = "<group>"; };
 		BA0F45881E0C5EE900B23715 /* ButtonWithUnderBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonWithUnderBar.swift; sourceTree = "<group>"; };
-		BA0F458A1E11BD8500B23715 /* StackViewWithButtons.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StackViewWithButtons.swift; sourceTree = "<group>"; };
 		BA2BB7BD1DF8AE32008F3D51 /* Bloom.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bloom.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA2BB7C01DF8AE32008F3D51 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BA2BB7C51DF8AE32008F3D51 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -90,6 +89,7 @@
 		BA97EA5C1E410B9A00A0F6B4 /* DaySymbolView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DaySymbolView.swift; sourceTree = "<group>"; };
 		BA97EA5E1E42785500A0F6B4 /* DateExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
 		BA97EA611E429C6500A0F6B4 /* CycleDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CycleDataSource.swift; sourceTree = "<group>"; };
+		BAB44AF81E4E59F7002D5BB2 /* DayViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DayViewModel.swift; sourceTree = "<group>"; };
 		BAF6D21F1E43BB0B00CB99C4 /* AllCyclesDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllCyclesDataSource.swift; sourceTree = "<group>"; };
 		BAF6D2221E43C8EC00CB99C4 /* CycleController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CycleController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -194,8 +194,8 @@
 			isa = PBXGroup;
 			children = (
 				BA02B8AB1E0335A80051BACD /* DayViewController.swift */,
+				BAB44AF81E4E59F7002D5BB2 /* DayViewModel.swift */,
 				BA91F1BF1E14346C00C209BC /* PlusMinusButton.swift */,
-				BA0F458A1E11BD8500B23715 /* StackViewWithButtons.swift */,
 				BA0F45881E0C5EE900B23715 /* ButtonWithUnderBar.swift */,
 			);
 			name = DayView;
@@ -328,13 +328,13 @@
 				BA97EA5D1E410B9A00A0F6B4 /* DaySymbolView.swift in Sources */,
 				BA0D5C341E2956000087116D /* AllCyclesSectionHeader.swift in Sources */,
 				BA97EA621E429C6500A0F6B4 /* CycleDataSource.swift in Sources */,
-				BA0F458B1E11BD8500B23715 /* StackViewWithButtons.swift in Sources */,
 				BA0F45891E0C5EE900B23715 /* ButtonWithUnderBar.swift in Sources */,
 				BA5FE9481E1C278800755E40 /* PersistenceManager.swift in Sources */,
 				BA97EA5F1E42785500A0F6B4 /* DateExtension.swift in Sources */,
 				BA734F4A1E2FEDC700EFEDB8 /* IntercourseHeart.swift in Sources */,
 				BA0D5C361E296FF60087116D /* AllCyclesCollectionViewCell.swift in Sources */,
 				BAF6D2231E43C8EC00CB99C4 /* CycleController.swift in Sources */,
+				BAB44AF91E4E59F7002D5BB2 /* DayViewModel.swift in Sources */,
 				BA2BB7C11DF8AE32008F3D51 /* AppDelegate.swift in Sources */,
 				BA76C4B81E23DBDE005A2B12 /* CycleTableViewController.swift in Sources */,
 				BA734F481E2ED03900EFEDB8 /* CycleTableViewCell.swift in Sources */,
@@ -353,12 +353,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				BA0F174D1E42BEEA00B82E84 /* AllCyclesSectionHeader.swift in Sources */,
-				BAEDD2B61E48D05300FD233C /* StackViewWithButtons.swift in Sources */,
 				BA0F174F1E42BF0700B82E84 /* DaySymbolView.swift in Sources */,
 				BAF6D2281E451E1500CB99C4 /* CycleTableViewController.swift in Sources */,
 				BA4D62261E37E61D0054457B /* PersistenceManagerTests.swift in Sources */,
 				BAF6D2251E44D5CA00CB99C4 /* AllCyclesCollectionViewCell.swift in Sources */,
 				BA0F174C1E42BED700B82E84 /* DateExtension.swift in Sources */,
+				BAB44AFA1E4E59F7002D5BB2 /* DayViewModel.swift in Sources */,
 				BAF6D2271E451E0900CB99C4 /* DayViewController.swift in Sources */,
 				BAF6D2241E43C8EC00CB99C4 /* CycleController.swift in Sources */,
 				BAB43D2D1E3FDA0B00559C8F /* AllCyclesCollectionViewController.swift in Sources */,
