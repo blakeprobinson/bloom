@@ -20,7 +20,7 @@ class Cycle: NSObject, NSCoding {
     
     var endDate: Date? {
         get {
-            return days.count > 1 ? days.last!.date : nil
+            return days.count > 0 ? days.last!.date : nil
         }
     }
     
