@@ -9,13 +9,13 @@
 import Foundation
 
 class PersistenceManager {
-    
+
     var saveDirectory: URL = {
         return FileManager().urls(for: .documentDirectory, in: .userDomainMask).first!
     }()
-    
+
     static let cache = NSCache<NSString, Cycle>()
-    
+
     func getIDs() -> [String] {
         let result: [String]
         do {
@@ -28,17 +28,17 @@ class PersistenceManager {
         }
         return result
     }
-    
+
     func getAllCyclesSorted() -> [Cycle] {
         //eventually may want to create a file with a sorted list of the cycle uuid's to query.
         return getIDs().flatMap({ uuid in getCycle(uuid: UUID(uuidString: uuid)) }).sorted(by: { $0.startDate < $1.startDate })
     }
-    
+
     func getCycle(uuid: UUID?) -> Cycle? {
         guard let uuid = uuid else {
             return nil
         }
-        
+
         if let cachedCycle = PersistenceManager.cache.object(forKey: uuid.uuidString as NSString) {
             return cachedCycle
         } else {
@@ -53,15 +53,15 @@ class PersistenceManager {
             return cycle
         }
     }
-    
+
     func getEarlierCycle(uuid: UUID) -> Cycle? {
         return getAdjacentCycle(uuid: uuid, earlier: true)
     }
-    
+
     func getLaterCycle(uuid: UUID) -> Cycle? {
         return getAdjacentCycle(uuid: uuid, earlier: false)
     }
-    
+
     private func getAdjacentCycle(uuid: UUID, earlier: Bool) -> Cycle? {
         var cycles = getAllCyclesSorted()
         if earlier {
@@ -78,7 +78,7 @@ class PersistenceManager {
         }
         return nil
     }
-    
+
     func saveCycle(cycle: Cycle) -> UUID {
         PersistenceManager.cache.removeObject(forKey: cycle.uuid.uuidString as NSString)
         let archiveURL = saveDirectory.appendingPathComponent(cycle.uuid.uuidString + ".bplist")
@@ -86,7 +86,7 @@ class PersistenceManager {
         sendCyclesUpdatedNotification(cycle)
         return cycle.uuid
     }
-    
+
     func saveDay(day: Day) -> UUID {
         let cycleToSave:Cycle!
         if let cycle = getAllCyclesSorted().first(where: { $0.uuid == day.uuid }) {
@@ -99,17 +99,17 @@ class PersistenceManager {
         }
         day.calibrateDate()
         cycleToSave.attach(day)
-        
+
         return saveCycle(cycle: cycleToSave)
     }
-    
+
     func moveDays(from cycle1: Cycle, to nextCycle: Cycle) {
-        
+
     }
     //two cases...day and maybe subsequent days start brand new cycle
     //or day and maybe subsequent days get added onto next cycle
     //thereby changing the start date of the next cycle.
-    
+
     func removeCycle(_ cycle: Cycle) {
         let deleteURL = saveDirectory.appendingPathComponent(cycle.uuid.uuidString + ".bplist")
         do {
@@ -120,12 +120,12 @@ class PersistenceManager {
             NSLog("error deleting cycle: \(error)")
         }
     }
-    
+
     func shouldDayStartCycle(_ day: Day) -> Bool {
-        
+
         return false
     }
-    
+
     private func sendCyclesUpdatedNotification(_ cycle: Cycle) {
         var userInfo = [String : UUID]()
         //if cycle exists in cache or file system
