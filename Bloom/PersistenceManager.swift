@@ -83,7 +83,7 @@ class PersistenceManager {
         PersistenceManager.cache.removeObject(forKey: cycle.uuid.uuidString as NSString)
         let archiveURL = saveDirectory.appendingPathComponent(cycle.uuid.uuidString + ".bplist")
         let _ = NSKeyedArchiver.archiveRootObject(cycle, toFile: archiveURL.path)
-        sendCyclesUpdatedNotification()
+        sendCyclesUpdatedNotification(cycle)
         return cycle.uuid
     }
     
@@ -91,7 +91,7 @@ class PersistenceManager {
         let cycleToSave:Cycle!
         if let cycle = getAllCyclesSorted().first(where: { $0.uuid == day.uuid }) {
             cycleToSave = cycle
-            
+            //check to see if previous dates
         } else {
             let uuid = UUID()
             day.uuid = uuid
@@ -103,12 +103,19 @@ class PersistenceManager {
         return saveCycle(cycle: cycleToSave)
     }
     
+    func moveDays(from cycle1: Cycle, to nextCycle: Cycle) {
+        
+    }
+    //two cases...day and maybe subsequent days start brand new cycle
+    //or day and maybe subsequent days get added onto next cycle
+    //thereby changing the start date of the next cycle.
+    
     func removeCycle(_ cycle: Cycle) {
         let deleteURL = saveDirectory.appendingPathComponent(cycle.uuid.uuidString + ".bplist")
         do {
             try FileManager().removeItem(at: deleteURL)
             PersistenceManager.cache.removeObject(forKey: cycle.uuid.uuidString as NSString)
-            sendCyclesUpdatedNotification()
+            sendCyclesUpdatedNotification(cycle)
         } catch {
             NSLog("error deleting cycle: \(error)")
         }
@@ -119,8 +126,14 @@ class PersistenceManager {
         return false
     }
     
-    private func sendCyclesUpdatedNotification() {
-        let notification = Notification(name: Notification.Name(rawValue: "cycles updated"))
+    private func sendCyclesUpdatedNotification(_ cycle: Cycle) {
+        var userInfo = [String : UUID]()
+        //if cycle exists in cache or file system
+        if let cycle = getCycle(uuid: cycle.uuid) {
+            let cycleJustSaved = "cycleJustSaved"
+            userInfo[cycleJustSaved] = cycle.uuid
+        }
+        let notification = Notification(name: Notification.Name(rawValue: "cycles updated"), object: self, userInfo: userInfo)
         NotificationCenter.default.post(notification)
     }
 }

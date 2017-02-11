@@ -249,8 +249,21 @@ class DayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
             }
             updateSectionTwoAndThreeUI(day: day)
         }
+        if !canAdd {
+            canAdd = doesStartNewCycleRequireSaveOption()
+        }
         addButton.isEnabled = canAdd
         saveButton.isEnabled = canAdd && !fromViewDidLoad
+    }
+    
+    fileprivate func doesStartNewCycleRequireSaveOption() -> Bool {
+        if dayInCycleText! == 1 && !startCycleSwitch.isOn {
+            return true
+        } else if dayInCycleText! > 1 && startCycleSwitch.isOn {
+            return true
+        } else {
+            return false
+        }
     }
     
     fileprivate func updateDatesInUI() {
@@ -381,7 +394,40 @@ class DayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
     //MARK: Navbar IBActions
     
     @IBAction func saveTouched(_ sender: UIBarButtonItem) {
-        persistenceManager.saveDay(day: day!)
+        //ordering of call to save cycle matters because 
+        //the last cycle that calls that is the cycle that 
+        //will appear in the cycle view.
+        
+        if dayInCycleText == 1 && !startCycleSwitch.isOn {
+            guard let uuid = persistenceManager.getEarlierCycle(uuid: (day?.uuid)!)?.uuid else {
+                let _ = navigationController?.popViewController(animated: true)
+                return
+            }
+            let cycle = persistenceManager.getCycle(uuid: day?.uuid)!
+            let removedDay = cycle.removeDay(day!)
+            if cycle.days.count == 0 {
+                persistenceManager.removeCycle(cycle)
+            } else {
+                persistenceManager.saveCycle(cycle: cycle)
+            }
+            
+            day?.uuid = uuid
+            let _ = persistenceManager.saveDay(day: day!)
+        } else if dayInCycleText! > 1 && startCycleSwitch.isOn {
+            let cycle = persistenceManager.getCycle(uuid: day?.uuid)!
+            let removedDays = cycle.removeDayAndSubsequentDays(day!)
+            let _ = persistenceManager.saveCycle(cycle: cycle)
+            if let laterCycle = persistenceManager.getLaterCycle(uuid: (day?.uuid)!) {
+                laterCycle.addDays(removedDays)
+                persistenceManager.saveCycle(cycle: laterCycle)
+            } else {
+                let laterCycle = Cycle(days: removedDays, uuid: UUID())
+                let _ = persistenceManager.saveCycle(cycle: laterCycle)
+            }
+            
+        } else {
+            let _ = persistenceManager.saveDay(day: day!)
+        }
         let _ = navigationController?.popViewController(animated: true)
     }
     
@@ -573,35 +619,15 @@ class DayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
         updateUIToSave(fromViewDidLoad:false,fromTextViewDidEndEditing: false)
     }
     
-    @IBAction func newCycleToggled(_ sender: UISwitch) {
-        if sender.isOn {
-            
-        } else {
-            //remove day from current cycle
-            let cycle = persistenceManager.getCycle(uuid: day?.uuid)!
-            let _ = cycle.removeDay(day!)
-            
-            if cycle.days.count == 0 {
-                persistenceManager.removeCycle(cycle)
-            } else {
-                persistenceManager.saveCycle(cycle: cycle)
-            }
-            //add this day to last cycle
-            if let earlierCycle = persistenceManager.getEarlierCycle(uuid: day!.uuid!) {
-                day?.uuid = earlierCycle.uuid
-            } else {
-                day?.uuid = nil
-            }
-            persistenceManager.saveDay(day: day!)
-            
-        }
-    }
-    
     private func hideShowView(view: UIView, hide: Bool) {
         UIView.animate(withDuration: 0.1, animations: {
             view.isHidden = hide
             view.alpha = view.isHidden ? 0.0 : 1
         })
+    }
+    
+    @IBAction func startNewCycleToggled(_ sender: UISwitch) {
+        updateUIToSave(fromViewDidLoad: false, fromTextViewDidEndEditing: false)
     }
     
     @IBAction func showPicker() {

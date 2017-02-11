@@ -21,7 +21,20 @@ class CycleTableViewController: UITableViewController {
         tableView.dataSource = dataSource
         let notificationCenter = NotificationCenter.default
         let _ = notificationCenter.addObserver(forName: Notification.Name(rawValue: "cycles updated"), object: nil, queue: OperationQueue.main, using: { [ weak weakSelf = self] (notification) in
-            weakSelf?.dataSource.dataSource = weakSelf?.persistenceManager.getCycle(uuid: weakSelf?.dataSource.uuid)?.days ?? []
+            let userInfo = notification.userInfo
+            if let uuid = userInfo?["cycleJustSaved"] as? UUID {
+                let cycle = weakSelf?.persistenceManager.getCycle(uuid: uuid)!
+                let displayCycle = CycleController.displayCycle(from: cycle)
+                weakSelf?.dataSource.dataSource = displayCycle?.days ?? []
+            } else {
+                if let cycle = weakSelf?.persistenceManager.getCycle(uuid: weakSelf?.dataSource.uuid) {
+                    let displayCycle = CycleController.displayCycle(from: cycle)
+                    weakSelf?.dataSource.dataSource = displayCycle?.days ?? []
+                } else {
+                    weakSelf?.dataSource.dataSource = CycleController.currentDisplayCycle()?.days ?? []
+                }
+                
+            }
             weakSelf?.tableView.reloadData()
         })
     }

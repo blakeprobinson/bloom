@@ -79,6 +79,36 @@ class Cycle: NSObject, NSCoding {
         return day
     }
     
+    func removeDayAndSubsequentDays(_ day: Day) -> [Day] {
+        let daysLastIndex = days.count - 1
+        var removedDays = [Day]()
+        if let indexOfFirstDay = days.index(of: day) {
+            for index in indexOfFirstDay...daysLastIndex {
+                removedDays.append(days[index])
+            }
+        } else {
+            guard let indexOfFirstDay = days.index(where: { $0.date > day.date }) else {
+                return []
+            }
+            for index in indexOfFirstDay...daysLastIndex {
+                removedDays.append(days[index])
+            }
+        }
+        removedDays.forEach({ let _ = removeDay($0) })
+        return removedDays
+    }
+    
+    func addDays(_ daysToAdd: [Day]) {
+        //assume days are all before startDate
+        guard let last = daysToAdd.last else {
+            return
+        }
+        if last.date < startDate {
+            days = daysToAdd + days
+        }
+        
+    }
+    
     //MARK: NSCoding
     struct PropertyKey {
         static let days = "days"
