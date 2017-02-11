@@ -16,8 +16,11 @@ class Day: NSObject, NSCoding {
     var observation = 1
     var intercourse = false
     var lubrication = false
+    var pasty = false
     var date: Date
     var notes:String?
+    
+    var isFirstDayOfCycle = false
     
     var uuid: UUID?
     
@@ -74,8 +77,10 @@ class Day: NSObject, NSCoding {
         observation: Int,
         intercourse: Bool,
         lubrication: Bool,
+        pasty: Bool,
         date: Date,
-        notes: String?) {
+        notes: String?,
+        isFirstDayOfCycle: Bool) {
         
         self.bleeding = bleeding
         self.dry = dry
@@ -83,8 +88,10 @@ class Day: NSObject, NSCoding {
         self.observation = observation
         self.intercourse = intercourse
         self.lubrication = lubrication
+        self.pasty = pasty
         self.date = date
         self.notes = notes
+        self.isFirstDayOfCycle = isFirstDayOfCycle
     }
     
     override init() {
@@ -94,8 +101,10 @@ class Day: NSObject, NSCoding {
         self.observation = 1
         self.intercourse = false
         self.lubrication = false
+        self.pasty = false
         self.date = Date()
         self.notes = ""
+        self.isFirstDayOfCycle = false
     }
     
     convenience init(date: Date, uuid: UUID?) {
@@ -105,14 +114,16 @@ class Day: NSObject, NSCoding {
                   observation: 1,
                   intercourse: false,
                   lubrication: false,
+                  pasty: false,
                   date: date,
-                  notes: "")
+                  notes: "",
+                  isFirstDayOfCycle: false)
         self.uuid = uuid
     }
     
     public override var description: String {
         get {
-            return "{ bleeding: \(self.bleeding?.intensity.rawValue), dry: \(self.dry?.observation.rawValue), mucus: \(self.mucus), observation: \(self.observation), intercourse: \(self.intercourse), lubrication: \(self.lubrication), date: \(self.date), notes: \(self.notes) }"
+            return "{ bleeding: \(self.bleeding?.intensity.rawValue), dry: \(self.dry?.observation.rawValue), mucus: \(self.mucus), observation: \(self.observation), intercourse: \(self.intercourse), lubrication: \(self.lubrication), pasty: \(self.lubrication), date: \(self.date), notes: \(self.notes) }"
         }
     }
     
@@ -135,8 +146,10 @@ class Day: NSObject, NSCoding {
         let observation = aDecoder.decodeInteger(forKey: PropertyKey.observation)
         let intercourse = aDecoder.decodeBool(forKey: PropertyKey.intercourse)
         let lubrication = aDecoder.decodeBool(forKey: PropertyKey.lubrication)
+        let pasty = aDecoder.decodeBool(forKey: PropertyKey.pasty)
         let date = aDecoder.decodeObject(forKey: PropertyKey.date) as! Date
         let notes = aDecoder.decodeObject(forKey: PropertyKey.notes) as! String?
+        let isFirstDayOfCycle = aDecoder.decodeBool(forKey: PropertyKey.isFirstDayOfCycle)
         
         self.init(bleeding: bleeding,
                   dry: dry,
@@ -144,8 +157,11 @@ class Day: NSObject, NSCoding {
                   observation: observation,
                   intercourse: intercourse,
                   lubrication: lubrication,
+                  pasty: pasty,
                   date: date,
-                  notes: notes
+                  notes: notes,
+                  isFirstDayOfCycle: isFirstDayOfCycle
+            
         )
     }
     
@@ -159,8 +175,10 @@ class Day: NSObject, NSCoding {
         static let observation = "observation"
         static let intercourse = "intercourse"
         static let lubrication = "lubrication"
+        static let pasty = "pasty"
         static let date = "date"
         static let notes = "notes"
+        static let isFirstDayOfCycle = "isFirstDayOfCycle"
     }
     
     func encode(with aCoder: NSCoder) {
@@ -172,8 +190,10 @@ class Day: NSObject, NSCoding {
         aCoder.encode(observation, forKey: PropertyKey.observation)
         aCoder.encode(intercourse, forKey: PropertyKey.intercourse)
         aCoder.encode(lubrication, forKey: PropertyKey.lubrication)
+        aCoder.encode(pasty, forKey: PropertyKey.pasty)
         aCoder.encode(date, forKey: PropertyKey.date)
         aCoder.encode(notes, forKey: PropertyKey.notes)
+        aCoder.encode(isFirstDayOfCycle, forKey: PropertyKey.isFirstDayOfCycle)
     }
 
 }

@@ -45,8 +45,10 @@ class PersistenceManagerTests: XCTestCase {
             observation: 1,
             intercourse: true,
             lubrication: true,
+            pasty: false,
             date: Date(),
-            notes: nil)
+            notes: nil,
+            isFirstDayOfCycle: false)
         
         let uuid = persistenceManager.saveDay(day: day)
         let cycle = persistenceManager.getCycle(uuid: uuid)!

@@ -119,11 +119,7 @@ class DayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
     
     
     // MARK: Model
-    var day:Day? {
-        didSet {
-            dayUuid = day?.uuid
-        }
-    }
+    var day:Day?
     let persistenceManager = PersistenceManager()
     
 
@@ -577,18 +573,7 @@ class DayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
         updateUIToSave(fromViewDidLoad:false,fromTextViewDidEndEditing: false)
     }
     
-    var dayUuid: UUID?
     @IBAction func newCycleToggled(_ sender: UISwitch) {
-        guard let dayInCycleText = dayInCycleText else {
-            return
-        }
-        if dayInCycleText == 0 {
-            
-        } else if dayInCycleText == 1 {
-            
-        } else {
-            //reset dayInCycleText to one
-        }
         if sender.isOn {
             
         } else {

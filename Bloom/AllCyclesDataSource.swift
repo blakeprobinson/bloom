@@ -114,8 +114,10 @@ extension AllCyclesDataSource {
                     observation: 1,
                     intercourse: true,
                     lubrication: false,
+                    pasty: false,
                     date: Date(),
-                    notes: nil)
+                    notes: nil,
+                    isFirstDayOfCycle: false)
             } else if index <= 4 {
                 day = Day(
                     bleeding: Day.Bleeding.init(intensity: "Moderate"),
@@ -124,8 +126,10 @@ extension AllCyclesDataSource {
                     observation: 1,
                     intercourse: false,
                     lubrication: false,
+                    pasty: false,
                     date: Date(),
-                    notes: nil)
+                    notes: nil,
+                    isFirstDayOfCycle: false)
             } else if index <= 5 {
                 day = Day(
                     bleeding: Day.Bleeding.init(intensity: "Heavy"),
@@ -134,8 +138,10 @@ extension AllCyclesDataSource {
                     observation: 1,
                     intercourse: false,
                     lubrication: false,
+                    pasty: false,
                     date: Date(),
-                    notes: nil)
+                    notes: nil,
+                    isFirstDayOfCycle: false)
             } else if index <= 7 {
                 day = Day(
                     bleeding: Day.Bleeding.init(intensity: "Light"),
@@ -144,8 +150,10 @@ extension AllCyclesDataSource {
                     observation: 1,
                     intercourse: false,
                     lubrication: false,
+                    pasty: false,
                     date: Date(),
-                    notes: nil)
+                    notes: nil,
+                    isFirstDayOfCycle: false)
             } else if index <= 7 {
                 day = Day(
                     bleeding: Day.Bleeding.init(intensity: "Light"),
@@ -154,8 +162,10 @@ extension AllCyclesDataSource {
                     observation: 1,
                     intercourse: false,
                     lubrication: false,
+                    pasty: false,
                     date: Date(),
-                    notes: nil)
+                    notes: nil,
+                    isFirstDayOfCycle: false)
             } else if index <= 10 {
                 day = Day(
                     bleeding:nil,
@@ -164,8 +174,10 @@ extension AllCyclesDataSource {
                     observation: 1,
                     intercourse: false,
                     lubrication: false,
+                    pasty: false,
                     date: Date(),
-                    notes: nil)
+                    notes: nil,
+                    isFirstDayOfCycle: false)
             } else if index <= 12 {
                 day = Day(
                     bleeding:nil,
@@ -174,8 +186,10 @@ extension AllCyclesDataSource {
                     observation: 1,
                     intercourse: false,
                     lubrication: false,
+                    pasty: false,
                     date: Date(),
-                    notes: nil)
+                    notes: nil,
+                    isFirstDayOfCycle: false)
             } else if index <= 14 {
                 let mucus = Day.Mucus(length: "1/4", color: "Cloudy", consistency: "Gummy")
                 day = Day(
@@ -185,8 +199,10 @@ extension AllCyclesDataSource {
                     observation: 1,
                     intercourse: true,
                     lubrication: false,
+                    pasty: false,
                     date: Date(),
-                    notes: nil)
+                    notes: nil,
+                    isFirstDayOfCycle: false)
             } else if index <= 16 {
                 let mucus = Day.Mucus(length: "1", color: "Cloudy", consistency: "Gummy")
                 day = Day(
@@ -196,8 +212,10 @@ extension AllCyclesDataSource {
                     observation: 1,
                     intercourse: true,
                     lubrication: false,
+                    pasty: false,
                     date: Date(),
-                    notes: nil)
+                    notes: nil,
+                    isFirstDayOfCycle: false)
             } else {
                 day = Day(
                     bleeding:nil,
@@ -206,8 +224,10 @@ extension AllCyclesDataSource {
                     observation: 1,
                     intercourse: false,
                     lubrication: false,
+                    pasty: false,
                     date: Date(),
-                    notes: nil)
+                    notes: nil,
+                    isFirstDayOfCycle: false)
             }
             days.append(day)
         }
