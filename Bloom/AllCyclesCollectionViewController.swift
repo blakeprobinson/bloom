@@ -99,12 +99,12 @@ class AllCyclesCollectionViewController: UICollectionViewController {
         if sender is UIAlertAction {
             let sender = sender as! UIAlertAction
             let calendar = Calendar(identifier: .gregorian)
-            destination.day = Day(date: dateToPassToNewDayView!, uuid: cycle?.uuid)
+            destination.day = Day(date: dateToPassToNewDayView!, uuid: cycle?.uuid ?? UUID())
             let index = dataSource.currentCycle?.days.index(where: { calendar.isDate($0.date, inSameDayAs: (destination.day?.date)!) }) ?? 0
             destination.dayInCycleText = index + 1
             destination.fromAllCyclesVC = true
         } else {
-            destination.day = Day(date: dateToPassToNewDayView!, uuid: cycle?.uuid)
+            destination.day = Day(date: dateToPassToNewDayView!, uuid: cycle?.uuid ?? UUID())
             if let count = cycle?.days.count {
                 if count > 0 {
                     destination.dayInCycleText = cycle?.days.index(where: { $0.date > (destination.day?.date)! }) ?? count

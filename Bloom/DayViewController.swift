@@ -249,11 +249,12 @@ class DayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
             }
             updateSectionTwoAndThreeUI(day: day)
         }
-        if !canAdd {
-            canAdd = doesStartNewCycleRequireSaveOption()
-        }
         addButton.isEnabled = canAdd
-        saveButton.isEnabled = canAdd && !fromViewDidLoad
+//        if !canAdd {
+//            canAdd = doesStartNewCycleRequireSaveOption()
+//        }
+        //
+        saveButton.isEnabled = (canAdd && !fromViewDidLoad) || (canAdd && doesStartNewCycleRequireSaveOption())
     }
     
     fileprivate func doesStartNewCycleRequireSaveOption() -> Bool {
@@ -397,9 +398,23 @@ class DayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
         //ordering of call to save cycle matters because 
         //the last cycle that calls that is the cycle that 
         //will appear in the cycle view.
-        
+        saveWhenStartNewCycleToggled()
+        let _ = navigationController?.popViewController(animated: true)
+    }
+    
+    @IBAction func cancelTouched() {
+        dismiss(animated: true, completion:nil)
+    }
+    
+    @IBAction func addTouched(_ sender: UIBarButtonItem) {
+        saveWhenStartNewCycleToggled()
+        dismiss(animated: true, completion: nil)
+    }
+    
+    private func saveWhenStartNewCycleToggled() {
         if dayInCycleText == 1 && !startCycleSwitch.isOn {
             guard let uuid = persistenceManager.getEarlierCycle(uuid: (day?.uuid)!)?.uuid else {
+                let _ = persistenceManager.saveDay(day: day!)
                 let _ = navigationController?.popViewController(animated: true)
                 return
             }
@@ -416,30 +431,34 @@ class DayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
         } else if dayInCycleText! > 1 && startCycleSwitch.isOn {
             let cycle = persistenceManager.getCycle(uuid: day?.uuid)!
             let removedDays = cycle.removeDayAndSubsequentDays(day!)
+            //removed days would be nil if remaining days in cycle are
+            //dummy days.
             let _ = persistenceManager.saveCycle(cycle: cycle)
             if let laterCycle = persistenceManager.getLaterCycle(uuid: (day?.uuid)!) {
                 laterCycle.addDays(removedDays)
                 persistenceManager.saveCycle(cycle: laterCycle)
             } else {
-                let laterCycle = Cycle(days: removedDays, uuid: UUID())
-                let _ = persistenceManager.saveCycle(cycle: laterCycle)
+                if removedDays.count == 0 {
+                    let laterCycle = Cycle(days: [day!], uuid: UUID())
+                    let _ = persistenceManager.saveCycle(cycle: laterCycle)
+                } else {
+                    if removedDays.contains(day!) {
+                        let laterCycle = Cycle(days: removedDays, uuid: UUID())
+                        let _ = persistenceManager.saveCycle(cycle: laterCycle)
+                    } else {
+                        let days = [day!] + removedDays
+                        let laterCycle = Cycle(days: days, uuid: UUID())
+                        let _ = persistenceManager.saveCycle(cycle: laterCycle)
+                    }
+                    
+                }
+                
             }
             
         } else {
             let _ = persistenceManager.saveDay(day: day!)
         }
-        let _ = navigationController?.popViewController(animated: true)
     }
-    
-    @IBAction func cancelTouched() {
-        dismiss(animated: true, completion:nil)
-    }
-    
-    @IBAction func addTouched(_ sender: UIBarButtonItem) {
-        persistenceManager.saveDay(day: day!)
-        dismiss(animated: true, completion: nil)
-    }
-    
     
     //MARK: PlusMinusButton IBActions
     @IBAction func addDryTouched(_ sender: PlusMinusButton) {
