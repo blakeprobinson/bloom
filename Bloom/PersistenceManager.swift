@@ -40,7 +40,12 @@ class PersistenceManager {
         }
 
         if let cachedCycle = PersistenceManager.cache.object(forKey: uuid.uuidString as NSString) {
-            return cachedCycle
+            if cachedCycle.days.count == 0 {
+                removeCycle(cachedCycle)
+                return nil
+            } else {
+                return cachedCycle
+            }
         } else {
             let archiveURL = saveDirectory.appendingPathComponent(uuid.uuidString + ".bplist")
             guard FileManager.default.fileExists(atPath: archiveURL.path) else {
@@ -49,8 +54,13 @@ class PersistenceManager {
             guard let cycle = NSKeyedUnarchiver.unarchiveObject(withFile: archiveURL.path) as? Cycle else {
                 return nil
             }
-            PersistenceManager.cache.setObject(cycle, forKey: uuid.uuidString as NSString)
-            return cycle
+            if cycle.days.count == 0 {
+                removeCycle(cycle)
+                return nil
+            } else {
+                PersistenceManager.cache.setObject(cycle, forKey: uuid.uuidString as NSString)
+                return cycle
+            }
         }
     }
 
@@ -91,14 +101,15 @@ class PersistenceManager {
         let cycleToSave:Cycle!
         if let cycle = getAllCyclesSorted().first(where: { $0.uuid == day.uuid }) {
             cycleToSave = cycle
+            day.calibrateDate()
+            cycleToSave.attach(day)
             //check to see if previous dates
         } else {
             let uuid = UUID()
             day.uuid = uuid
-            cycleToSave = Cycle(days: [], uuid: uuid)
+            day.calibrateDate()
+            cycleToSave = Cycle(days: [day], uuid: uuid)
         }
-        day.calibrateDate()
-        cycleToSave.attach(day)
 
         return saveCycle(cycle: cycleToSave)
     }

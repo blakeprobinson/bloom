@@ -416,13 +416,27 @@ class DayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
         } else if dayInCycleText! > 1 && startCycleSwitch.isOn {
             let cycle = persistenceManager.getCycle(uuid: day?.uuid)!
             let removedDays = cycle.removeDayAndSubsequentDays(day!)
+            //removed days would be nil if remaining days in cycle are
+            //dummy days.
             let _ = persistenceManager.saveCycle(cycle: cycle)
             if let laterCycle = persistenceManager.getLaterCycle(uuid: (day?.uuid)!) {
                 laterCycle.addDays(removedDays)
                 persistenceManager.saveCycle(cycle: laterCycle)
             } else {
-                let laterCycle = Cycle(days: removedDays, uuid: UUID())
-                let _ = persistenceManager.saveCycle(cycle: laterCycle)
+                if removedDays.count == 0 {
+                    let laterCycle = Cycle(days: [day!], uuid: UUID())
+                    let _ = persistenceManager.saveCycle(cycle: laterCycle)
+                } else {
+                    if removedDays.contains(day!) {
+                        let laterCycle = Cycle(days: removedDays, uuid: UUID())
+                        let _ = persistenceManager.saveCycle(cycle: laterCycle)
+                    } else {
+                        let laterCycle = Cycle(days: [day!], uuid: UUID())
+                        let _ = persistenceManager.saveCycle(cycle: laterCycle)
+                    }
+                   
+                }
+                
             }
             
         } else {
