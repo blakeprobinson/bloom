@@ -133,15 +133,39 @@ class AllCyclesCollectionViewController: UICollectionViewController {
     
     private func createActions() -> [UIAlertAction] {
         var actions = generateActionOptions()
-        var counter = 0
-        for (index, day) in dataSource.lastDaysInCurrentDisplayCycle.enumerated() {
-            if day.internalCategory != nil {
-                let actionRemoved = actions.remove(at: index - counter)
-                print("this is the action just removed: \(actionRemoved)")
-                counter += 1
+        
+        if dataSource.dataSource.count < 2 {
+            var counter = 0
+            for (index, day) in dataSource.lastDaysInCurrentDisplayCycle.enumerated() {
+                if day.internalCategory != nil {
+                    let actionRemoved = actions.remove(at: index - counter)
+                    print("this is the action just added: \(actionRemoved)")
+                    counter += 1
+                }
             }
+            return actions
+        } else {
+            var newActions = [UIAlertAction]()
+            for (index, day) in dataSource.lastDaysInCurrentDisplayCycle.enumerated() {
+                if day.internalCategory == nil {
+                    newActions.append(actions[index])
+    
+                    print("this is the action just added: \(actions[index])")
+                    //                counter += 1
+                }
+            }
+            return newActions
         }
-        return actions
+        
+        //loop through days in dataSource.lastDaysInCurrent...
+        //when nil...ad action.
+        //if saturday i
+//        if let count = dataSource.currentCycle?.days.count {
+//            while actions.count > count {
+//                actions.removeLast()
+//            }
+//        }
+        
     }
     
     private func generateActionOptions() -> [UIAlertAction] {

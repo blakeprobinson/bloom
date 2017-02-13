@@ -26,7 +26,7 @@ class AllCyclesDataSource: NSObject, UICollectionViewDataSource {
     
     var currentCycle: Cycle? {
         get {
-            return dataSource.sorted(by: { $0.startDate < $1.startDate }).first
+            return dataSource.first
         }
     }
     
