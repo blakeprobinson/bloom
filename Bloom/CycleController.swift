@@ -16,7 +16,8 @@ class CycleController {
         var displayCycles = [Cycle]()
         for (index, cycle) in cycles.enumerated() {
             if index + 1 < cycles.count {
-                displayCycles.append(displayCycle(from: cycle, givenLaterCycle: cycles.reversed()[index + 1]))
+                let laterCycle = persistenceManager.getLaterCycle(uuid: cycle.uuid)
+                displayCycles.append(displayCycle(from: cycle, givenLaterCycle: laterCycle))
             } else {
                 displayCycles.append(displayCycle(from: cycle, givenLaterCycle: nil))
             }
