@@ -435,7 +435,15 @@ class DayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
             //dummy days.
             let _ = persistenceManager.saveCycle(cycle: cycle)
             if let laterCycle = persistenceManager.getLaterCycle(uuid: (day?.uuid)!) {
-                laterCycle.addDays(removedDays)
+                if removedDays.count == 0 {
+                    laterCycle.addDays([day!])
+                } else {
+                    if removedDays.contains(day!) {
+                        laterCycle.addDays(removedDays)
+                    } else {
+                        laterCycle.addDays([day!] + removedDays)
+                    }
+                }
                 persistenceManager.saveCycle(cycle: laterCycle)
             } else {
                 if removedDays.count == 0 {
@@ -450,7 +458,6 @@ class DayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
                         let laterCycle = Cycle(days: days, uuid: UUID())
                         let _ = persistenceManager.saveCycle(cycle: laterCycle)
                     }
-                    
                 }
                 
             }
