@@ -450,7 +450,6 @@ class DayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
                         let laterCycle = Cycle(days: days, uuid: UUID())
                         let _ = persistenceManager.saveCycle(cycle: laterCycle)
                     }
-                    
                 }
                 
             }
