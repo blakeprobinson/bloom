@@ -167,3 +167,16 @@ extension Cycle {
         case mucusPeakPlus
     }
 }
+
+// MARK: Equatable 
+
+extension Cycle {
+    override func isEqual(_ object: Any?) -> Bool {
+        if object is Cycle {
+            let cycle = object as! Cycle
+            return days.elementsEqual(cycle.days) && uuid == cycle.uuid
+        } else {
+            return false
+        }
+    }
+}
